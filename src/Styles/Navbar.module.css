@@ -1,15 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-.navbar{
+.navbarContainer{
     display: flex;
-    justify-content: center;
+    margin-top: 8%;
 }
-.navbar ul{
+.navbarRight{
+    width: 100%;
+}
+.navbarLeft{
+    width: 100%;
+}
+.navbarRight ul{
     display: flex;
+    justify-content: flex-start;
+}
+.navbarLeft ul{
+    display: flex;
+    justify-content: flex-end;
 }
 .navLinks{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2rem;
     color: #ffffff;
+    padding: 0 1rem;
 }
