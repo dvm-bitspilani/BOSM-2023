@@ -1,13 +1,18 @@
 import React from "react";
 import * as styles from "../Styles/Navbar.module.css";
-import Logo from "../images/logo.svg"
+import Logo from "../images/logo.svg";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
     <React.Fragment>
-      <div className={styles["navbarContainer"]}>
+      <motion.div
+        className={styles["navbarContainer"]}
+        animate={{ opacity: [0, 0.8, 1], y: [-100, 20, 0] }}
+        transition={{ delay: "3.1", duration: "1.5", ease: "easeInOut", times: [0, 0.8, 1] }}
+      >
         <div className={styles["navLogo"]}>
-            <img src={Logo} alt="logo"/>
+          <img src={Logo} alt="logo" />
         </div>
         <nav className={styles["navbarLeft"]}>
           <ul>
@@ -21,8 +26,10 @@ const Navbar = () => {
             <li className={styles["navLinks"]}>SPONSORS</li>
           </ul>
         </nav>
-        <div className={styles["registerBtn"]}><p>REGISTER</p></div>
-      </div>
+        <div className={styles["registerBtn"]}>
+          <p>REGISTER</p>
+        </div>
+      </motion.div>
     </React.Fragment>
   );
 };
