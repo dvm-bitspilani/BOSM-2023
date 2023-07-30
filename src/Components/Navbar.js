@@ -11,7 +11,7 @@ const Navbar = () => {
           className={styles["navLogo"]}
           animate={{ opacity: [0, 0.8, 1], y: [-100, 0, 0] }}
           transition={{
-            delay: "3",
+            delay: "1",
             duration: "1",
             ease: "easeInOut",
             times: [0, 0.7, 1],
@@ -52,7 +52,7 @@ const Navbar = () => {
         <motion.div className={styles["registerBtn"]}
         animate={{ opacity: [0, 0.8, 1], y: [-100, 0, 0] }}
         transition={{
-          delay: "3",
+          delay: "1",
           duration: "1",
           ease: "easeInOut",
           times: [0, 0.7, 1],

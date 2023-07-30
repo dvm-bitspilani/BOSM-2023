@@ -60,4 +60,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <title>BOSM 2023</title>;
+export const Head = () => <title>BOSM '23 | The Roar of Resilience</title>;
