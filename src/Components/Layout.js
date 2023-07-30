@@ -11,11 +11,11 @@ const Layout = ({ content, navbar }) => {
         <motion.div
           className="fixed-bg-blue"
           animate={{
-            y: [300, -250, 0, 0, 0, 0],
-            x: [0, 0, 0, 0, 200, 0],
-            scaleY: [2, 2, 2, 2, 1],
-            scaleX: [3, 3, 3, 3, 1],
-            rotate: [90, 90, 90, 95, -5, 0],
+            y: [500, 500, -250, 0, 0, 0, 0],
+            x: [0, 0, 0, 0, 0, 300, 0],
+            scaleY: [2, 2, 2, 2, 2, 1],
+            scaleX: [3, 3, 3, 3, 2, 1],
+            rotate: [90, 90, 90, 90, 105, -10, 0],
             transformOrigin: [
               "center left",
               "center left",
@@ -28,7 +28,7 @@ const Layout = ({ content, navbar }) => {
           transition={{
             duration: 3,
             ease: "easeInOut",
-            times: [0, 0.1, 0.3, 0.6, 0.75, 1],
+            times: [0, 0.1, 0.3, 0.45, 0.6, 0.8, 1],
             repeat: 0,
             repeatDelay: 1,
           }}

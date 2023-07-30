@@ -16,9 +16,9 @@ const IndexPage = () => {
           <div className={styles["container"]}>
             <motion.div
               className={styles["heading"]}
-              animate={{ opacity: [0, 0.8, 1], scale: [0, 1.2, 1] }}
+              animate={{ opacity: [0, 0.8, 1], scale: [0, 1.1, 1]}}
               transition={{
-                delay: "3.1",
+                delay: "5",
                 duration: "1.5",
                 ease: "easeInOut",
                 times: [0, 0.8, 1],
@@ -41,12 +41,12 @@ const IndexPage = () => {
             </div> */}
             <motion.div
               className={styles["countDown"]}
-              animate={{ opacity: [0, 0.8, 1], x: [-100, 20, 0] }}
+              animate={{ opacity: [0, 1], x: [-100, 0] }}
               transition={{
-                delay: "3.1",
-                duration: "1.5",
+                delay: "3",
+                duration: "1",
                 ease: "easeInOut",
-                times: [0, 0.8, 1],
+                times: [0, 1],
               }}
             >
               <Countdown />
