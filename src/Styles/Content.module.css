@@ -61,3 +61,9 @@ main{
     font-style: normal;
     font-weight: 400;
 }
+.countDown{
+    position: absolute;
+    padding: 1rem;
+    left: 2rem;
+    bottom: 0rem;
+}

@@ -1,5 +1,6 @@
 import * as React from "react";
 import Layout from "../Components/Layout";
+import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
 import Statue from "../images/statue.png";
 import RightLion from "../images/lion-blue.png";
@@ -15,7 +16,7 @@ const IndexPage = () => {
             <div className={styles["heading"]}>
               <h1>BOSM</h1>
             </div>
-            <div className={styles["heroWrapper"]}>
+            {/* <div className={styles["heroWrapper"]}>
               <div className={styles["heroLeft"]}>
                 <div className={styles["heroLeftText"]}>
                   <p><span className={styles["heroFaded"]}>The </span><span className={styles["heroBold"]}>ROAR</span></p>
@@ -27,6 +28,9 @@ const IndexPage = () => {
               </div>
               <div className={styles["heroRight"]}>
               </div>
+            </div> */}
+            <div className={styles["countDown"]}>
+              <Countdown />
             </div>
           </div>
         </main>
