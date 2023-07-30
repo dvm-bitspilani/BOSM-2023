@@ -28,15 +28,19 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    z-index: -1;
+    z-index: -2;
+    background: url(../images/red-bg.png);
 }
 .fixed-bg-blue{
     width: 100%;
     height: 100%;
-    background: url(../images/blue-bg.svg);
+    z-index: -1;
+    background: url(../images/blue-bg.png);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .fixed-bg-red{
     width: 100%;
     height: 100%;
-    background: url(../images/red-bg.svg);
+    z-index: -2;
+    background: url(../images/red-bg.png);
 }

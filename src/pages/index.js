@@ -5,6 +5,7 @@ import * as styles from "../Styles/Content.module.css";
 import Statue from "../images/statue.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
+import { motion } from "framer-motion";
 
 const IndexPage = () => {
   return (
@@ -13,9 +14,18 @@ const IndexPage = () => {
       content={
         <main>
           <div className={styles["container"]}>
-            <div className={styles["heading"]}>
+            <motion.div
+              className={styles["heading"]}
+              animate={{ opacity: [0, 0.8, 1], scale: [0, 1.1, 1]}}
+              transition={{
+                delay: "5",
+                duration: "1.5",
+                ease: "easeInOut",
+                times: [0, 0.8, 1],
+              }}
+            >
               <h1>BOSM</h1>
-            </div>
+            </motion.div>
             {/* <div className={styles["heroWrapper"]}>
               <div className={styles["heroLeft"]}>
                 <div className={styles["heroLeftText"]}>
@@ -29,9 +39,18 @@ const IndexPage = () => {
               <div className={styles["heroRight"]}>
               </div>
             </div> */}
-            <div className={styles["countDown"]}>
+            <motion.div
+              className={styles["countDown"]}
+              animate={{ opacity: [0, 1], x: [-100, 0] }}
+              transition={{
+                delay: "3",
+                duration: "1",
+                ease: "easeInOut",
+                times: [0, 1],
+              }}
+            >
               <Countdown />
-            </div>
+            </motion.div>
           </div>
         </main>
       }
@@ -41,4 +60,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <title>BOSM 2023</title>;
+export const Head = () => <title>BOSM '23 | The Roar of Resilience</title>;
