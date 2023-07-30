@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <Layout navbar={true} content={
       <main>
-        <p>BOSM 23</p>
+
       </main>}
     />
   )
