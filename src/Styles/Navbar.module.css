@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@1,700&family=Montserrat:wght@100;500&family=Outfit:wght@400;700&family=Work+Sans&display=swap');
 
 .navbarContainer{
+    position: relative;
     display: flex;
-    margin-top: 6%;
+    margin-top: 1%;
+    padding: 3rem;
 }
 .navbarRight{
     width: 100%;
+    padding-left: 1rem;
 }
 .navbarLeft{
     width: 100%;
@@ -20,8 +24,31 @@
 }
 .navLinks{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
+    font-weight: 600;
+    font-size: 1.75rem;
     color: #ffffff;
-    padding: 0 1rem;
+    padding: 0 3rem 0 0;
+}
+.navLogo{
+    position: absolute;
+    left: 3%;
+    top: 0;
+}
+.registerBtn{
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    top: 25%;
+    border-radius: 20px;
+    border: 1.415px solid #FFF;
+    padding: 1rem 2rem;
+}
+.registerBtn p{
+    color: #FFF;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.52px;
 }

@@ -1,25 +1,30 @@
-import React from 'react';
-import * as styles from '../Styles/Navbar.module.css';
+import React from "react";
+import * as styles from "../Styles/Navbar.module.css";
+import Logo from "../images/logo.svg"
 
 const Navbar = () => {
-    return (
-        <React.Fragment>
-        <div className={styles['navbarContainer']}>
-        <nav className={styles['navbarLeft']}>
-            <ul>
-                <li className={styles['navLinks']}>ABOUT US</li>
-                <li className={styles['navLinks']}>EVENTS</li>
-            </ul>
+  return (
+    <React.Fragment>
+      <div className={styles["navbarContainer"]}>
+        <div className={styles["navLogo"]}>
+            <img src={Logo} alt="logo"/>
+        </div>
+        <nav className={styles["navbarLeft"]}>
+          <ul>
+            <li className={styles["navLinks"]}>ABOUT US</li>
+            <li className={styles["navLinks"]}>EVENTS</li>
+          </ul>
         </nav>
         <nav className={styles["navbarRight"]}>
-            <ul>
-                <li className={styles['navLinks']}>CONTACT US</li>
-                <li className={styles['navLinks']}>SPONSORS</li>
-            </ul>
+          <ul>
+            <li className={styles["navLinks"]}>CONTACT US</li>
+            <li className={styles["navLinks"]}>SPONSORS</li>
+          </ul>
         </nav>
-        </div>
-        </React.Fragment>
-    );
+        <div className={styles["registerBtn"]}><p>REGISTER</p></div>
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default Navbar;

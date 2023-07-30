@@ -1,0 +1,63 @@
+main{
+    height: 80vh;
+    width: 100vw;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+.heading{
+    text-align: center;
+    margin-left: .5rem;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+.heading h1{
+    color: #EEE;
+    font-family: 'Druk Wide Bold';
+    font-size: 9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 8.432px;
+}
+.heroWrapper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin-top: 2%;
+}
+.heroLeft{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.heroRight{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.heroLeftText p{
+    overflow: hidden;
+    margin: 0 0 0 2rem;
+    opacity: 0.8500000238418579;
+    color: #EEE;
+    font-family: 'Gilroy-Bold';
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.5rem;
+}
+.heroLeftText .heroFaded{
+    color: #EEE;
+    font-family: 'Gilroy-Bold';
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+}
