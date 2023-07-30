@@ -3,11 +3,11 @@
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    user-select: none;
 }
-:root{
-    --bg-red:#88262A;
-    --bg-blue:#36788A;
-}
+/* :root{
+    use variable here
+} */
 .layout-section{
     width: 100vw;
     height: 100vh;
@@ -23,10 +23,10 @@
 .fixed-bg-blue{
     width: 100%;
     height: 100%;
-    background-color: var(--bg-blue);
+    background: url(../images/blue-bg.svg);
 }
 .fixed-bg-red{
     width: 100%;
     height: 100%;
-    background-color: var(--bg-red);
+    background: url(../images/red-bg.svg);
 }
