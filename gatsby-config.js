@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `BOSM '23 | The Roar of Resilience`,
-    siteUrl: `https://bosm-2023.netlify.app/`
+    siteUrl: `https://bosm-2023.netlify.app`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",'gatsby-plugin-react-css-modules', {
     resolve: 'gatsby-source-filesystem',

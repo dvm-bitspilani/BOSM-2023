@@ -50,5 +50,18 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 2.52px;
+    letter-spacing: 2px;
+}
+@media(max-width: 1380px){
+    .navLogo img{
+        transform: scale(.9);
+    }
+    .navLinks{
+        padding-right: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .registerBtn{
+        top: 27.5%;
+        padding: .75rem 2rem;
+    }
 }

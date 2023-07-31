@@ -4,7 +4,7 @@ import * as styles from '../Styles/Countdown.module.css'
 const Countdown = () => {
   let count = useRef(null);
 
-  const BOSM = new Date("September 31, 2023 18:59:59").getTime(),
+  const BOSM = new Date("September 30, 2023 18:59:59").getTime(),
     [curr, setCurr] = useState(new Date().getTime());
 
   const [prevDay, setPrevDay] = useState(0),

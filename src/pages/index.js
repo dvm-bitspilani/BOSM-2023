@@ -16,18 +16,18 @@ const IndexPage = () => {
           <div className={styles["container"]}>
             <motion.div
               className={styles["heading"]}
-              animate={{ opacity: [0, 0.8, 1], scale: [0, 1.1, 1]}}
+              animate={{ opacity: [0, 1], scale: [0, 1] }}
               transition={{
-                delay: "5",
+                delay: "2",
                 duration: "1.5",
                 ease: "easeInOut",
-                times: [0, 0.8, 1],
+                times: [0, 1],
               }}
             >
               <h1>BOSM</h1>
             </motion.div>
-            {/* <div className={styles["heroWrapper"]}>
-              <div className={styles["heroLeft"]}>
+            <div className={styles["heroWrapper"]}>
+              {/* <div className={styles["heroLeft"]}>
                 <div className={styles["heroLeftText"]}>
                   <p><span className={styles["heroFaded"]}>The </span><span className={styles["heroBold"]}>ROAR</span></p>
                 </div>
@@ -35,15 +35,26 @@ const IndexPage = () => {
                   <img src={LeftLion} alt="Lion" style={{height: '575px', width: '575px'}}></img>
                 </div>
                 
+              </div> */}
+              <div className={styles["heroTextBox"]}>
+                <div className={styles["heroTextLeft"]}>
+                  <div>The</div><span className={styles["heroBold"]}>ROAR</span>
+                </div>
+                <div className={styles["heroTextRight"]}>
+                  <div>Of</div><span className={styles["heroBold"]}>RESILIENCE</span>
+                </div>
+                {/* <div className={styles["heroImg"]}>
+                  <div className={styles["leftLion"]}><img src={LeftLion} alt="Lion"></img></div>
+                  <div className={styles["rightLion"]}><img src={RightLion} alt="Lion"></img></div>
+                </div> */}
               </div>
-              <div className={styles["heroRight"]}>
-              </div>
-            </div> */}
+
+            </div>
             <motion.div
               className={styles["countDown"]}
               animate={{ opacity: [0, 1], x: [-100, 0] }}
               transition={{
-                delay: "3",
+                delay: "2",
                 duration: "1",
                 ease: "easeInOut",
                 times: [0, 1],
