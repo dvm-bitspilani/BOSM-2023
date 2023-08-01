@@ -56,9 +56,40 @@ const IndexPage = () => {
             >
               <h1>BOSM</h1>
             </motion.div>
+            <motion.div
+              className={styles["leftSubTitle"]}
+              animate={{ opacity: [0, 1], x: [100, 0] }}
+              transition={{
+                delay: "4",
+                duration: "1",
+                ease: "easeInOut",
+                times: [0, 1],
+              }}
+            >
+              <h1>The</h1>
+              <h2>ROAR</h2>
+            </motion.div>
+
+            <motion.div
+              className={styles["rightSubTitle"]}
+              animate={{ opacity: [0, 1], x: [-100, 0] }}
+              transition={{
+                delay: "4.5",
+                duration: "1",
+                ease: "easeInOut",
+                times: [0, 1],
+              }}
+            >
+              <h1>of</h1>
+              <h2>RESILIENCE</h2>
+            </motion.div>
+
+            {/* Hero Wrapper */}
             <motion.div className={styles["heroWrapper"]}>
               
             </motion.div>
+
+              {/* Countdown */}
             <motion.div
               className={styles["countDown"]}
               animate={{ opacity: [0, 1], x: [-100, 0] }}

@@ -1,112 +1,112 @@
-main{
-    height: 80vh;
-    width: 100vw;
+main {
+  height: 80vh;
+  width: 100vw;
 }
-.container{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    overflow: hidden;
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
 }
-.heading{
-    text-align: center;
-    margin-left: .5rem;
-    position: absolute;
-    z-index: 10;
-    width: 100%;
+.heading {
+  text-align: center;
+  margin-left: 0.5rem;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
 }
-.heading h1{
-    color: #EEE;
-    font-family: 'Druk Wide Bold';
-    font-size: 9rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 8.432px;
-    z-index: 10;
+.heading h1 {
+  color: #eee;
+  font-family: "Druk Wide Bold";
+  font-size: 9rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 8.432px;
+  z-index: 10;
 }
-.heroWrapper{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    margin-top: 2%;
-    justify-content: center;
+.heroWrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-top: 2%;
+  justify-content: center;
 }
-.heroTextBox{
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+.heroTextBox {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
-.heroTextLeft{
-    opacity: 0.85;
-    font-family: "Gilroy-Bold";
-    font-size: 3rem;
-    font-style: normal;
-    color: #EEE;
-    font-weight: 400;
-    line-height: 5rem; 
+.heroTextLeft {
+  opacity: 0.85;
+  font-family: "Gilroy-Bold";
+  font-size: 3rem;
+  font-style: normal;
+  color: #eee;
+  font-weight: 400;
+  line-height: 5rem;
 }
-.heroTextLeft .heroBold{
-    font-size: 5.5rem;
+.heroTextLeft .heroBold {
+  font-size: 5.5rem;
 }
-.heroTextRight{
-    margin-top: 2%;
-    opacity: 0.85;
-    color: #EEE;
-    text-align: right;
-    font-family: "Gilroy-Bold";
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 400;
+.heroTextRight {
+  margin-top: 2%;
+  opacity: 0.85;
+  color: #eee;
+  text-align: right;
+  font-family: "Gilroy-Bold";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 400;
 }
-.heroTextRight .heroBold{
-    font-size: 3.5rem;
+.heroTextRight .heroBold {
+  font-size: 3.5rem;
 }
-.statueContainer{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    z-index: 99;
+.statueContainer {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 99;
 }
-.statue{
-    height: 75%;
+.statue {
+  height: 75%;
 }
-.leftLion{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 55vw;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 9;
-    margin-top: 5rem;
+.leftLion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 9;
+  margin-top: 5rem;
 }
-.rightLion{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 55vw;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    z-index: 9;
-    margin-top: 5rem;
+.rightLion {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 55vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9;
+  margin-top: 5rem;
 }
-.leftLion img{
-    height: 75vh;
+.leftLion img {
+  height: 75vh;
 }
-.rightLion img{
-    height: 65vh;
+.rightLion img {
+  height: 65vh;
 }
 /* .heroImg{
     position: absolute;
@@ -126,7 +126,6 @@ main{
     height: 550px;
     width: 550px;
 } */
-
 
 /* .heroLeft{
     height: 100%;
@@ -161,34 +160,79 @@ main{
     font-style: normal;
     font-weight: 400;
 } */
-.countDown{
-    position: absolute;
-    padding: 1rem;
-    left: 2rem;
-    bottom: 0rem;
+.countDown {
+  position: absolute;
+  padding: 1rem;
+  left: 2rem;
+  bottom: 0rem;
 }
-@media(max-width: 1480px){
-    .leftLion, .rightLion{
-        margin-top: 3.5rem;
-    }
-    .leftLion img{
-        height: 70vh;
-    }
-    .rightLion img{
-        height: 60vh;
-    }
+
+.leftSubTitle {
+  position: absolute;
+  left: 1rem;
+  top: 40%;
 }
-@media(max-width: 1380px){
-    .heading h1{
-        font-size: 7.5rem;
-    }
-    .leftLion, .rightLion{
-        margin-top: 2.5rem;
-    }
-    .leftLion img{
-        height: 65vh;
-    }
-    .rightLion img{
-        height: 55vh;
-    }
+
+.rightSubTitle {
+  position: absolute;
+  right: 1rem;
+  bottom: 40%;
+}
+
+.leftSubTitle h1,
+h2, .rightSubTitle h1, h2 {
+  font-family: Gilroy-Bold;
+  font-style: normal;
+  font-weight: 400;
+  opacity: 0.8500000238418579;
+  color: #eee;
+  line-height: 1;
+}
+
+.leftSubTitle h1, .rightSubTitle h1 {
+  -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: transparent;
+  font-size: 4rem;
+}
+
+.leftSubTitle h2 , .rightSubTitle h2 {
+  /* -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: transparent; */
+    font-size: 6rem;
+}
+
+.rightSubTitle h1, h2{
+    text-align: right;
+}
+
+.rightSubTitle h2{
+    font-size: 3.5rem;
+}
+
+@media (max-width: 1480px) {
+  .leftLion,
+  .rightLion {
+    margin-top: 3.5rem;
+  }
+  .leftLion img {
+    height: 70vh;
+  }
+  .rightLion img {
+    height: 60vh;
+  }
+}
+@media (max-width: 1380px) {
+  .heading h1 {
+    font-size: 7.5rem;
+  }
+  .leftLion,
+  .rightLion {
+    margin-top: 2.5rem;
+  }
+  .leftLion img {
+    height: 65vh;
+  }
+  .rightLion img {
+    height: 55vh;
+  }
 }
