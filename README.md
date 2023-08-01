@@ -1,2 +1,2 @@
-BOSM 2023
-Frontend code for BOSM 23 website 
+# BOSM-2023
+BOSM Website 2023
