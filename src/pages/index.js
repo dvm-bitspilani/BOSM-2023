@@ -16,7 +16,7 @@ const IndexPage = () => {
           <motion.div className={styles["statueContainer"]} 
             animate={{ opacity: [0, 1], y: [100, 0] }}
             transition={{
-              delay: "1.5",
+              delay: "2",
               duration: "1.5",
               ease: "easeInOut",
               times: [0, 1],
@@ -24,7 +24,7 @@ const IndexPage = () => {
             <img src={Statue} className={styles["statue"]} />
           </motion.div>
           <motion.div className={styles["leftLion"]}
-            animate={{ opacity: [0, 1], x: [100, 0] }}
+            animate={{ opacity: [0, 1], x: [50, 0] }}
             transition={{
               delay: "3",
               duration: "1.5",
@@ -34,7 +34,7 @@ const IndexPage = () => {
             <img src={LeftLion} />
           </motion.div>
           <motion.div className={styles["rightLion"]}
-            animate={{ opacity: [0, 1], x: [-100, 0] }}
+            animate={{ opacity: [0, 1], x: [-50, 0] }}
             transition={{
               delay: "3",
               duration: "1.5",
@@ -48,8 +48,8 @@ const IndexPage = () => {
               className={styles["heading"]}
               animate={{ opacity: [0, 1], scale: [0, 1] }}
               transition={{
-                delay: "2",
-                duration: "1.5",
+                delay: "3",
+                duration: "1",
                 ease: "easeInOut",
                 times: [0, 1],
               }}

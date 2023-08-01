@@ -88,6 +88,7 @@ main{
     justify-content: flex-end;
     align-items: center;
     z-index: 9;
+    margin-top: 5rem;
 }
 .rightLion{
     position: fixed;
@@ -99,6 +100,13 @@ main{
     justify-content: flex-start;
     align-items: center;
     z-index: 9;
+    margin-top: 5rem;
+}
+.leftLion img{
+    height: 75vh;
+}
+.rightLion img{
+    height: 65vh;
 }
 /* .heroImg{
     position: absolute;
@@ -159,8 +167,28 @@ main{
     left: 2rem;
     bottom: 0rem;
 }
+@media(max-width: 1480px){
+    .leftLion, .rightLion{
+        margin-top: 3.5rem;
+    }
+    .leftLion img{
+        height: 70vh;
+    }
+    .rightLion img{
+        height: 60vh;
+    }
+}
 @media(max-width: 1380px){
     .heading h1{
         font-size: 7.5rem;
+    }
+    .leftLion, .rightLion{
+        margin-top: 2.5rem;
+    }
+    .leftLion img{
+        height: 65vh;
+    }
+    .rightLion img{
+        height: 55vh;
     }
 }

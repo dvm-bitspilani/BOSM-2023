@@ -6,6 +6,7 @@
     display: flex;
     margin-top: 1%;
     padding: 3rem;
+    overflow: hidden;
 }
 .navbarRight{
     width: 100%;
@@ -63,5 +64,21 @@
     .registerBtn{
         top: 27.5%;
         padding: .75rem 2rem;
+    }
+}
+@media(max-width: 1200px){
+    .navLogo img{
+        transform: scale(.75);
+    }
+    .navLinks{
+        padding-right: 2.25rem;
+        font-size: 1.4rem;
+    }
+    .registerBtn{
+        top: 31.5%;
+        padding: .5rem 1.75rem;
+    }
+    .registerBtn p{
+        font-size: 1.25rem;
     }
 }
