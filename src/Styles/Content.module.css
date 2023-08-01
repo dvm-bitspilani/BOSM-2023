@@ -167,16 +167,15 @@ main {
   bottom: 0rem;
 }
 
-.leftSubTitle {
+.leftSubTitle, .rightSubTitle {
   position: absolute;
-  left: 1rem;
-  top: 40%;
+  left: 2rem;
+  bottom: 40%;
 }
 
 .rightSubTitle {
-  position: absolute;
-  right: 1rem;
-  bottom: 40%;
+  /* left: auto; */
+  right: 2rem;
 }
 
 .leftSubTitle h1,
