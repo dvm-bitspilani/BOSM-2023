@@ -34,7 +34,7 @@ const Layout = ({ content, navbar }) => {
         />{" "}
       </div>
       {navbar && <Navbar />}
-      <div>{content}</div>
+      <React.Fragment>{content}</React.Fragment>
     </section>
   );
 };
