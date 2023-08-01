@@ -14,30 +14,33 @@ const IndexPage = () => {
       content={
         <main>
           <motion.div className={styles["statueContainer"]} 
-            animate={{ opacity: [0, 1], y: [100, 0] }}
+          initial={{y: [600]}}
+            animate={{ y: [600, 0] }}
             transition={{
-              delay: "2",
-              duration: "1.5",
+              delay: "0",
+              duration: "1",
               ease: "easeInOut",
               times: [0, 1],
             }}>
             <img src={Statue} className={styles["statue"]} />
           </motion.div>
           <motion.div className={styles["leftLion"]}
-            animate={{ opacity: [0, 1], x: [50, 0] }}
+          initial={{opacity:[0], x: [100]}}
+            animate={{ opacity: [0, 1], x: [100, 0] }}
             transition={{
-              delay: "3",
-              duration: "1.5",
+              delay: "1",
+              duration: "1",
               ease: "easeInOut",
               times: [0, 1],
             }}>
             <img src={LeftLion} />
           </motion.div>
           <motion.div className={styles["rightLion"]}
-            animate={{ opacity: [0, 1], x: [-50, 0] }}
+          initial={{opacity: [0], x: [-100]}}
+            animate={{ opacity: [0, 1], x: [-100, 0] }}
             transition={{
-              delay: "3",
-              duration: "1.5",
+              delay: "1",
+              duration: "1",
               ease: "easeInOut",
               times: [0, 1],
             }}>
@@ -45,10 +48,11 @@ const IndexPage = () => {
           </motion.div>
           <div className={styles["container"]}>
             <motion.div
+            initial={{opacity: [0]}}
               className={styles["heading"]}
-              animate={{ opacity: [0, 1], scale: [0, 1] }}
+              animate={{ opacity: [0, 1] }}
               transition={{
-                delay: "3",
+                delay: "2",
                 duration: "1",
                 ease: "easeInOut",
                 times: [0, 1],
@@ -58,9 +62,10 @@ const IndexPage = () => {
             </motion.div>
             <motion.div
               className={styles["leftSubTitle"]}
-              animate={{ opacity: [0, 1], x: [100, 0] }}
+              initial={{opacity: [0]}}
+              animate={{ opacity: [0, 1] }}
               transition={{
-                delay: "4",
+                delay: "2",
                 duration: "1",
                 ease: "easeInOut",
                 times: [0, 1],
@@ -72,9 +77,10 @@ const IndexPage = () => {
 
             <motion.div
               className={styles["rightSubTitle"]}
-              animate={{ opacity: [0, 1], x: [-100, 0] }}
+              initial={{opacity: [0]}}
+              animate={{ opacity: [0, 1] }}
               transition={{
-                delay: "4.5",
+                delay: "2",
                 duration: "1",
                 ease: "easeInOut",
                 times: [0, 1],
@@ -92,7 +98,8 @@ const IndexPage = () => {
               {/* Countdown */}
             <motion.div
               className={styles["countDown"]}
-              animate={{ opacity: [0, 1], x: [-100, 0] }}
+              initial={{opacity: [0]}}
+              animate={{ opacity: [0, 1] }}
               transition={{
                 delay: "2",
                 duration: "1",

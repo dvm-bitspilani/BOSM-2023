@@ -12,6 +12,7 @@ main {
 .heading {
   text-align: center;
   margin-left: 0.5rem;
+  margin-top: -2rem;
   position: absolute;
   z-index: 10;
   width: 100%;
@@ -32,38 +33,6 @@ main {
   width: 100%;
   margin-top: 2%;
   justify-content: center;
-}
-.heroTextBox {
-  width: 95%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-.heroTextLeft {
-  opacity: 0.85;
-  font-family: "Gilroy-Bold";
-  font-size: 3rem;
-  font-style: normal;
-  color: #eee;
-  font-weight: 400;
-  line-height: 5rem;
-}
-.heroTextLeft .heroBold {
-  font-size: 5.5rem;
-}
-.heroTextRight {
-  margin-top: 2%;
-  opacity: 0.85;
-  color: #eee;
-  text-align: right;
-  font-family: "Gilroy-Bold";
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 400;
-}
-.heroTextRight .heroBold {
-  font-size: 3.5rem;
 }
 .statueContainer {
   position: fixed;
@@ -108,58 +77,6 @@ main {
 .rightLion img {
   height: 65vh;
 }
-/* .heroImg{
-    position: absolute;
-    display: flex;
-    left: 17.8%;
-}
-.leftLion img{
-    height: 575px;
-    width: 575px;
-}
-.rightLion{
-    overflow: hidden;
-    margin-left: -17%;  
-}
-
-.rightLion img{
-    height: 550px;
-    width: 550px;
-} */
-
-/* .heroLeft{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-.heroRight{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-.heroImg img{
-    background-color: lightgray 0.272px 0px / 120.363%;
-}
-.heroLeftText p{
-    overflow: hidden;
-    margin: 0 0 0 2rem;
-    opacity: 0.8500000238418579;
-    color: #EEE;
-    font-family: 'Gilroy-Bold';
-    font-size: 5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 3.5rem;
-}
-.heroLeftText .heroFaded{
-    color: #EEE;
-    font-family: 'Gilroy-Bold';
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 400;
-} */
 .countDown {
   position: absolute;
   padding: 1rem;
@@ -184,7 +101,7 @@ main {
 h2,
 .rightSubTitle h1,
 h2 {
-  font-family: Gilroy-Bold;
+  font-family: "Gilroy-Bold";
   font-style: normal;
   font-weight: 400;
   opacity: 0.8500000238418579;
