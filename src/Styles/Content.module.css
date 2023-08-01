@@ -167,10 +167,12 @@ main {
   bottom: 0rem;
 }
 
-.leftSubTitle, .rightSubTitle {
+.leftSubTitle,
+.rightSubTitle {
   position: absolute;
   left: 2rem;
   bottom: 40%;
+  height: fit-content;
 }
 
 .rightSubTitle {
@@ -179,7 +181,9 @@ main {
 }
 
 .leftSubTitle h1,
-h2, .rightSubTitle h1, h2 {
+h2,
+.rightSubTitle h1,
+h2 {
   font-family: Gilroy-Bold;
   font-style: normal;
   font-weight: 400;
@@ -188,24 +192,27 @@ h2, .rightSubTitle h1, h2 {
   line-height: 1;
 }
 
-.leftSubTitle h1, .rightSubTitle h1 {
+.leftSubTitle h1,
+.rightSubTitle h1 {
   -webkit-text-stroke: 1px white;
   -webkit-text-fill-color: transparent;
-  font-size: 4rem;
+  font-size: 3.8rem;
 }
 
-.leftSubTitle h2 , .rightSubTitle h2 {
+.leftSubTitle h2,
+.rightSubTitle h2 {
   /* -webkit-text-stroke: 1px white;
   -webkit-text-fill-color: transparent; */
-    font-size: 6rem;
+  font-size: 5.8rem;
 }
 
-.rightSubTitle h1, h2{
-    text-align: right;
+.rightSubTitle h1,
+h2 {
+  text-align: right;
 }
 
-.rightSubTitle h2{
-    font-size: 3.5rem;
+.rightSubTitle h2 {
+  font-size: 3.5rem;
 }
 
 @media (max-width: 1480px) {
@@ -233,5 +240,15 @@ h2, .rightSubTitle h1, h2 {
   }
   .rightLion img {
     height: 55vh;
+  }
+  .leftSubTitle h1,
+  .rightSubTitle h1 {
+    font-size: 3.5rem;
+  }
+  .leftSubTitle h2 {
+    font-size: 5.5rem;
+  }
+  .rightSubTitle h2 {
+    font-size: 3.2rem;
   }
 }
