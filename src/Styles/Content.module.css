@@ -24,6 +24,7 @@ main{
     font-weight: 700;
     line-height: normal;
     letter-spacing: 8.432px;
+    z-index: 10;
 }
 .heroWrapper{
     display: flex;
@@ -63,6 +64,41 @@ main{
 }
 .heroTextRight .heroBold{
     font-size: 3.5rem;
+}
+.statueContainer{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 99;
+}
+.statue{
+    height: 75%;
+}
+.leftLion{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 55vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 9;
+}
+.rightLion{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 55vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 9;
 }
 /* .heroImg{
     position: absolute;

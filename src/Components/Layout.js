@@ -8,8 +8,7 @@ const Layout = ({ content, navbar }) => {
     <section className="layout-section">
       <div className="fixed-bg">
         <div className="fixed-bg-red"></div>
-        <div
-          className="fixed-bg-blue"
+        <div className="fixed-bg-blue"
           // animate={{
           //   y: [500, 500, -250, 0, 0, 0, 0],
           //   x: [0, 0, 0, 0, 0, 300, 0],

@@ -13,6 +13,36 @@ const IndexPage = () => {
       navbar={true}
       content={
         <main>
+          <motion.div className={styles["statueContainer"]} 
+            animate={{ opacity: [0, 1], y: [100, 0] }}
+            transition={{
+              delay: "1.5",
+              duration: "1.5",
+              ease: "easeInOut",
+              times: [0, 1],
+            }}>
+            <img src={Statue} className={styles["statue"]} />
+          </motion.div>
+          <motion.div className={styles["leftLion"]}
+            animate={{ opacity: [0, 1], x: [100, 0] }}
+            transition={{
+              delay: "3",
+              duration: "1.5",
+              ease: "easeInOut",
+              times: [0, 1],
+            }}>
+            <img src={LeftLion} />
+          </motion.div>
+          <motion.div className={styles["rightLion"]}
+            animate={{ opacity: [0, 1], x: [-100, 0] }}
+            transition={{
+              delay: "3",
+              duration: "1.5",
+              ease: "easeInOut",
+              times: [0, 1],
+            }}>
+            <img src={RightLion} />
+          </motion.div>
           <div className={styles["container"]}>
             <motion.div
               className={styles["heading"]}
@@ -26,30 +56,9 @@ const IndexPage = () => {
             >
               <h1>BOSM</h1>
             </motion.div>
-            <div className={styles["heroWrapper"]}>
-              {/* <div className={styles["heroLeft"]}>
-                <div className={styles["heroLeftText"]}>
-                  <p><span className={styles["heroFaded"]}>The </span><span className={styles["heroBold"]}>ROAR</span></p>
-                </div>
-                <div className={styles["heroImg"]}>
-                  <img src={LeftLion} alt="Lion" style={{height: '575px', width: '575px'}}></img>
-                </div>
-                
-              </div> */}
-              <div className={styles["heroTextBox"]}>
-                <div className={styles["heroTextLeft"]}>
-                  <div>The</div><span className={styles["heroBold"]}>ROAR</span>
-                </div>
-                <div className={styles["heroTextRight"]}>
-                  <div>Of</div><span className={styles["heroBold"]}>RESILIENCE</span>
-                </div>
-                {/* <div className={styles["heroImg"]}>
-                  <div className={styles["leftLion"]}><img src={LeftLion} alt="Lion"></img></div>
-                  <div className={styles["rightLion"]}><img src={RightLion} alt="Lion"></img></div>
-                </div> */}
-              </div>
-
-            </div>
+            <motion.div className={styles["heroWrapper"]}>
+              
+            </motion.div>
             <motion.div
               className={styles["countDown"]}
               animate={{ opacity: [0, 1], x: [-100, 0] }}
