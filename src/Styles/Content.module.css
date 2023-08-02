@@ -202,11 +202,12 @@ h2 {
   font-family: Montserrat;
   font-size: 1.8rem;
   font-weight: 700;
+  padding-left: 1rem;
 }
 .formMultiInput{
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 45%;
 }
 .radioBtns{
 
