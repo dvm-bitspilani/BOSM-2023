@@ -135,7 +135,7 @@ h2 {
   position: relative;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: 0;
   background: url(../images/rp_bg.png);
 }
 .rpIcons{
@@ -149,7 +149,71 @@ h2 {
   opacity: 0.699999988079071;
   mix-blend-mode: luminosity;
   background-size: cover;
-  z-index: -1;
+  z-index: 1;
+}
+.cross{
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+}
+.rpHeadingContainer{
+  display: flex;
+  padding: 1% 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.rpHeadingContainer h3{
+  color: #F5F5F5;
+  text-align: center;
+  font-family: "Druk Wide Bold";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700; 
+  cursor: pointer;
+}
+.regForm{
+  position: relative;
+  width: 75vw;
+  z-index: 99;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.regForm label{
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+}
+.formSingleInput{
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.regInput{
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background: transparent;
+  height: 3rem;
+  color: #eee;
+  font-family: Montserrat;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.formMultiInput{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.radioBtns{
+
+}
+.radioBtns input{
+  width: 3rem;
+  height: 2rem;
 }
 
 @media (max-width: 1480px) {
