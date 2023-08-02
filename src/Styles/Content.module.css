@@ -131,6 +131,26 @@ h2 {
 .rightSubTitle h2 {
   font-size: 3.5rem;
 }
+.regPage{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background: url(../images/rp_bg.png);
+}
+.rpIcons{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../images/rp_bg_icons.png);
+  background-repeat: no-repeat;
+  opacity: 0.699999988079071;
+  mix-blend-mode: luminosity;
+  background-size: cover;
+  z-index: -1;
+}
 
 @media (max-width: 1480px) {
   .leftLion,

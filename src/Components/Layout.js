@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import "../Styles/globals.css";
 import { motion } from "framer-motion";
 
-const Layout = ({ content, navbar }) => {
+const Layout = ({ content,fixedbg, navbar }) => {
   return (
     <section className="layout-section">
-      <div className="fixed-bg">
+      {fixedbg && <div className="fixed-bg">
         <div className="fixed-bg-red"></div>
         <div className="fixed-bg-blue"
           // animate={{
@@ -32,7 +32,7 @@ const Layout = ({ content, navbar }) => {
           //   repeatDelay: 1,
           // }}
         />{" "}
-      </div>
+      </div>}
       {navbar && <Navbar />}
       <React.Fragment>{content}</React.Fragment>
     </section>
