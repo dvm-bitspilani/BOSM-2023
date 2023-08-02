@@ -38,6 +38,7 @@
 .registerBtn{
     cursor: pointer;
     position: absolute;
+    z-index: 999;
     right: 2%;
     top: 34%;
     border-radius: 12px;
@@ -58,6 +59,9 @@
 .registerBtn:hover{
     background-color: #FFF;
     /* transition: 0.5s; */
+}
+.registerBtn:hover p{
+    color: #111;
 }
 
 @media(max-width: 1380px){

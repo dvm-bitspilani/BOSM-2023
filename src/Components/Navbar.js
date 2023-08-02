@@ -2,8 +2,13 @@ import React from "react";
 import * as styles from "../Styles/Navbar.module.css";
 import Logo from "../images/logo.svg";
 import { motion } from "framer-motion";
+import { navigate } from 'gatsby';
 
 const Navbar = () => {
+
+  const goToNextPage = () => {
+    navigate('/registration');
+  };
   return (
     <React.Fragment>
       <motion.div className={styles["navbarContainer"]}
@@ -30,7 +35,7 @@ const Navbar = () => {
             <li className={styles["navLinks"]}>SPONSORS</li>
           </ul>
         </nav>
-        <div className={styles["registerBtn"]}>
+        <div className={styles["registerBtn"]} onClick={goToNextPage}>
           <p>REGISTER</p>
         </div>
       </motion.div>
