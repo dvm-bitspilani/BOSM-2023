@@ -128,6 +128,7 @@ const customStylesMulti = {
   dropdownIndicator: (provided, state) => ({
     ...provided,
     color: 'white',
+    cursor: 'pointer',
   }),
   placeholder: () => ({ display: 'none' }),
   container: (provided) => ({
@@ -189,7 +190,7 @@ const customStylesMulti = {
                 </div>
                 <form className={styles["regForm"]}> 
                     <div className={styles["formSingleInput"]}>
-                        <label htmlFor='name'>Name</label>
+                        <label htmlFor='name' className={styles["nameLabel"]}>Name</label>
                         <input className={styles["regInput"]} id='name' />
 
                         <label htmlFor='email'>E-mail</label>
@@ -209,7 +210,7 @@ const customStylesMulti = {
                         </div>
                     </div>
                     <div className={styles["formMultiInput"]}>
-                        <label htmlFor='college'>College</label>
+                        <label htmlFor='college' className={styles["collegeLabel"]}>College</label>
                         <Select options={collegeOptions} onChange={handleChange} styles={customStyles}  />
 
                         <label htmlFor='city'>City</label>
@@ -233,6 +234,9 @@ const customStylesMulti = {
                         </div>
                     </div>
                 </form>
+                <div className={styles["btnContainer"]}>
+                  <button className={styles["submitBtn"]}>REGISTER</button>
+                </div>
             </section>
         }
     />

@@ -211,8 +211,34 @@ h2 {
   width: 45%;
   overflow: visible;
 }
-.radioBtns{
-
+.nameLabel,.collegeLabel{
+  margin-top: 0 !important;
+}
+.btnContainer{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+.submitBtn{
+  background: transparent;
+  outline: none;
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+  width: 12.5rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  border: 4px solid #F5F5F5;
+  color: #F5F5F5;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: 700; 
+}
+.submitBtn:hover{
+  color: #36788A;
+  background-color: #F5F5F5;
 }
 input[type='radio'] {
   background-color: #36788A;
@@ -228,11 +254,11 @@ input[type='radio'] {
 
 .yearOfStudy input[type="radio"] + label {
   display: inline-block;
-  border: 2px solid #ccc;
+  border: 2px solid #fff;
   border-radius: 2rem;
   margin: 5px;
   cursor: pointer;
-  color: #C7D6D5;
+  color: #F5F5F5;
   font-size: 1.5rem;
   padding: 5px 1.5rem;
 }
