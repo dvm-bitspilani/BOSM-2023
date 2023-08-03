@@ -13,3 +13,8 @@ const registration = () => {
 };
 
 export default registration;
+export const Head = () =>
+ <>
+     <title>BOSM '23 | Registration</title> 
+     <link rel="icon" type="image/x-icon" href="../images/icon.png" />
+ </>;

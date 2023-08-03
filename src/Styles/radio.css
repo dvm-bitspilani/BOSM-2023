@@ -6,6 +6,11 @@
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
   }
+  #radio-label{
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
   
   .radio-input {
     margin: 0;
@@ -34,8 +39,8 @@
   
   .custom-radio::after {
     content: '';
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
     background: #fff;
     position: absolute;
     border-radius: 50%;
@@ -43,5 +48,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.1s;
+  }
+  @media (max-width: 1200px) {
+    .custom-radio{
+      width: 1.5rem;
+      height: 1.5rem;
+      top: 4px;
+      left: -10px;
+    }
+    .custom-radio::after {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+  @media (max-width: 500px){
+    #radio-label{
+      font-size: 1rem;
+    }
+    #reg-logo{
+      margin-left: -1rem;
+    }
   }

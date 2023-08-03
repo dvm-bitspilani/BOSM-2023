@@ -3,7 +3,7 @@ import "../Styles/radio.css"
 
 const RadioButton = ({ name, id, value, onChange, checked, text }) => {
     return (
-      <label htmlFor={id} className="radio-label">
+      <label htmlFor={id} className="radio-label" id='radio-label'>
         <input
           className="radio-input"
           type="radio"

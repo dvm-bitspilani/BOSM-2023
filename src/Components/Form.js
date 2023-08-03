@@ -245,7 +245,7 @@ const Form = () => {
     <section className={styles["regPage"]}>
         <div className={styles["rpIcons"]}></div>
         <div className={styles["rpHeadingContainer"]}>
-            <img src={logo} />
+            <img src={logo} id='reg-logo' />
             <h3>REGISTRATION</h3>
             <img src={cross} onClick={goBack} className={styles["cross"]} />
         </div>
