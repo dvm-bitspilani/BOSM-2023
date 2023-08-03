@@ -173,7 +173,7 @@ const Form = () => {
       college: null,
       city: null,
       sports: [],
-      yearOfStudy: '',
+      yos: '',
     });
     const handleChange = (selectedOption, { id, name, type }) => {
       const updatedFormData = { ...formData };
