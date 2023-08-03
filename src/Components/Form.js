@@ -240,6 +240,7 @@ const Form = () => {
             <h3>REGISTRATION</h3>
             <img src={cross} onClick={goBack} className={styles["cross"]} />
         </div>
+        <div className={styles["regBox"]}>
         <form className={styles["regForm"]}> 
             <div className={styles["formSingleInput"]}>
                 <label htmlFor='name' className={styles["nameLabel"]}>Name</label>
@@ -312,6 +313,7 @@ const Form = () => {
         </form>
         <div className={styles["btnContainer"]}>
         <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
+        </div>
         </div>
     </section>
   );

@@ -171,6 +171,12 @@ h2 {
   font-weight: 700; 
   cursor: pointer;
 }
+.regBox{
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .regForm{
   position: relative;
   width: 75vw;
