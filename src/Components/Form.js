@@ -4,6 +4,7 @@ import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
 import { navigate } from 'gatsby';
 import Select from 'react-select';
+import RadioButton from './RadioBtn';
 
 const Form = () => {
 
@@ -252,12 +253,36 @@ const Form = () => {
 
                 <label htmlFor='gender'>Gender</label>
                 <div className={styles["radioBtns"]}>
-                    <input id='genderM' type='radio' name='gender' value="Male" onChange={handleChange2}  />
+                    {/* <input id='genderM' type='radio' name='gender' value="Male" onChange={handleChange2}  />
                     <label htmlFor='genderM'>Male</label>
                     <input id='genderF' type='radio' name='gender' value="Female"  onChange={handleChange2} />
                     <label htmlFor='genderF'>Female</label>
                     <input id='genderO' type='radio' name='gender' value="Others"  onChange={handleChange2} />
-                    <label htmlFor='genderO'>Others</label>
+                    <label htmlFor='genderO'>Others</label> */}
+                    <RadioButton
+                      name="gender"
+                      id="Male"
+                      value="Male"
+                      text="Male"
+                      onChange={handleChange2}
+                      // checked={theme.dark}
+                    />
+                    <RadioButton
+                      name="gender"
+                      id="Female"
+                      value="Female"
+                      text="Female"
+                      onChange={handleChange2}
+                      // checked={theme.dark}
+                    />
+                    <RadioButton
+                      name="gender"
+                      id="Other"
+                      value="Other"
+                      text="Other"
+                      onChange={handleChange2}
+                      // checked={theme.dark}
+                    />
                 </div>
             </div>
             <div className={styles["formMultiInput"]}>

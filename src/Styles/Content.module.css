@@ -244,10 +244,6 @@ input[type='radio'] {
   background-color: #36788A;
   accent-color: #fff;
 }
-.radioBtns input{
-  width: 3rem;
-  height: 2rem;
-}
 .yearOfStudy input[type="radio"] {
   display: none;
 }
