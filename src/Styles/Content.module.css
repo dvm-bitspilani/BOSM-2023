@@ -180,7 +180,7 @@ h2 {
 .regForm{
   position: relative;
   width: 75vw;
-  z-index: 99;
+  z-index: 1000;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -230,7 +230,7 @@ h2 {
   background: transparent;
   outline: none;
   position: relative;
-  z-index: 999;
+  z-index: 99;
   cursor: pointer;
   width: 12.5rem;
   margin: 0 auto;

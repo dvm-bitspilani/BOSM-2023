@@ -89,6 +89,7 @@ const Form = () => {
         },
         cursor: 'text',
         overflow: 'hidden',
+        zIndex: 1000,
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -97,6 +98,7 @@ const Form = () => {
         fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '1rem',
+        zIndex: 1000,
       }),
       option: (provided, state) => ({
         ...provided,
@@ -106,6 +108,7 @@ const Form = () => {
         fontSize: '1rem',
         fontWeight: 600,
         paddingLeft: '1rem',
+        zIndex: 1000,
       }),
       multiValue: (provided) => ({
         ...provided,
@@ -115,25 +118,25 @@ const Form = () => {
         fontWeight: 700,
         backgroundColor: '#fff',
         paddingLeft: '.25rem',
+        zIndex: 1000,
       }),
       multiValueRemove: (provided) => ({
         ...provided,
         color: 'black',
         cursor: 'pointer',
-        // '&:hover': {
-        //   backgroundColor: 'black',
-        //   color: 'white',
-        // },
+        zIndex: 1000,
       }),
       dropdownIndicator: (provided, state) => ({
         ...provided,
         color: 'white',
         cursor: 'pointer',
+        zIndex: 1000,
       }),
-      placeholder: () => ({ display: 'none' }),
+      placeholder: () => ({ display: 'none', zIndex: 1000 }),
       container: (provided) => ({
         ...provided,
         overflow: 'visible',
+        zIndex: 1000,
       }),
       input: (provided) => ({
         ...provided,
@@ -144,8 +147,10 @@ const Form = () => {
         paddingLeft: '1rem',
         minHeight: '3rem',
         overflow: 'hidden',
+        zIndex: 1000,
       }),
     };
+    
   
     const collegeOptions = [
       {value:"IIT Bombay" , label: "IIT Bombay"},
@@ -160,6 +165,10 @@ const Form = () => {
       {value:"Pilani" , label: "Pilani"},
     ];
     const sportsOptions = [
+      {value:"Athletics" , label: "Athletics"},
+      {value:"Cricket" , label: "Cricket"},
+      {value:"Basketball" , label: "Basketball"},
+      {value:"Hockey" , label: "Hockey"},
       {value:"Athletics" , label: "Athletics"},
       {value:"Cricket" , label: "Cricket"},
       {value:"Basketball" , label: "Basketball"},
