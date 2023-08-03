@@ -182,11 +182,11 @@ h2 {
 }
 .regForm label{
   color: #FFF;
-  font-family: Montserrat;
-  font-size: 2rem;
+  font-family: "Montserrat"; 
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 2rem;
-  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+  margin-top: 2rem;
 }
 .formSingleInput{
   display: flex;
@@ -200,8 +200,8 @@ h2 {
   background: transparent;
   height: 3rem;
   color: #eee;
-  font-family: Montserrat;
-  font-size: 1.8rem;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
   font-weight: 700;
   padding-left: 1rem;
 }
@@ -224,15 +224,16 @@ h2 {
   background: transparent;
   outline: none;
   position: relative;
-  z-index: 9999;
+  z-index: 999;
   cursor: pointer;
   width: 12.5rem;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  text-align: center;
+  padding: .5rem 2.5rem;
   border-radius: 20px;
-  border: 4px solid #F5F5F5;
+  border: 2.5px solid #F5F5F5;
   color: #F5F5F5;
-  font-family: Montserrat;
+  font-family: "Montserrat";
   font-size: 1.5rem;
   font-weight: 700; 
 }
@@ -247,7 +248,9 @@ input[type='radio'] {
 .yearOfStudy input[type="radio"] {
   display: none;
 }
-
+.radioBtns{
+  margin-left: -.25rem;
+}
 .yearOfStudy input[type="radio"] + label {
   display: inline-block;
   border: 2px solid #fff;
@@ -256,7 +259,7 @@ input[type='radio'] {
   cursor: pointer;
   color: #F5F5F5;
   font-size: 1.5rem;
-  padding: 5px 1.5rem;
+  padding: 2px 1.25rem;
 }
 
 .yearOfStudy input[type="radio"]:hover + label {
@@ -305,5 +308,11 @@ input[type='radio'] {
   }
   .rightSubTitle h2 {
     font-size: 3.2rem;
+  }
+  .regForm label{ 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+    margin-top: 2rem;
   }
 }
