@@ -35,7 +35,7 @@ main {
   justify-content: center;
 }
 .statueContainer {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -48,7 +48,7 @@ main {
   height: 75%;
 }
 .leftLion {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 55vw;
@@ -60,7 +60,7 @@ main {
   margin-top: 5rem;
 }
 .rightLion {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   width: 55vw;

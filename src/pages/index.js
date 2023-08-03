@@ -2,13 +2,80 @@ import * as React from "react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
+import * as contact from '../Styles/Contact.module.css'
 import Statue from "../images/statue.svg";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { motion } from "framer-motion";
 
+import FrontStatue from "../images/statue2bright.png"
+import BackStatue from "../images/statue2bg.png"
+import ContactProfile from "../Components/Profile"
+
+
 const IndexPage = () => {
+
+    const contactsData = {
+        "contactData": [
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          },
+          {
+            "image": "../images/contact_profile",
+            "department": "Department Name",
+            "phone": "+91-9999999999",
+            "email": "abcd@pilani.bits-pilani.ac.in"
+          }
+        ]
+      }
+
     return (
+        <>
         <Layout
             navbar={true}
             fixedbg={true}
@@ -114,6 +181,39 @@ const IndexPage = () => {
                 </main>
             }
         />
+
+        <Layout
+            navbar={false}
+            fixedbg={true}
+
+            content={
+                <main className={contact["page"]}>
+                    <div className={contact["container"]}>
+                    <div className={contact["pageBackground"]}>
+                        <img src={FrontStatue} className={contact["frontStatue"]} />
+                        <img src={BackStatue} className={contact["backStatue"]} />
+                    </div>
+                    <div className={contact["content"]}>
+                    <div className={contact["contentContainer"]}>
+                        <div className={contact["title"]}>CONTACT US</div>
+                        <div className={contact["cardsContainer"]}>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                            <ContactProfile/>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </main>
+            }
+        />
+        </>
     );
 };
 
