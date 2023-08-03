@@ -178,6 +178,7 @@ h2 {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  overflow: visible;
 }
 .regForm label{
   color: #FFF;
@@ -208,13 +209,43 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 45%;
+  overflow: visible;
 }
 .radioBtns{
 
 }
+input[type='radio'] {
+  background-color: #36788A;
+  accent-color: #fff;
+}
 .radioBtns input{
   width: 3rem;
   height: 2rem;
+}
+.yearOfStudy input[type="radio"] {
+  display: none;
+}
+
+.yearOfStudy input[type="radio"] + label {
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 2rem;
+  margin: 5px;
+  cursor: pointer;
+  color: #C7D6D5;
+  font-size: 1.5rem;
+  padding: 5px 1.5rem;
+}
+
+.yearOfStudy input[type="radio"]:hover + label {
+  background-color: #fff;
+  border: 2px solid #fff;
+  color: #36788A;
+}
+.yearOfStudy input[type="radio"]:checked + label {
+  background-color: #fff;
+  border: 2px solid #fff;
+  color: #36788A;
 }
 
 @media (max-width: 1480px) {

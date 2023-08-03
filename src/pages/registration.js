@@ -12,52 +12,143 @@ const registration = () => {
         navigate(-1);
     };
 
-    const customStyles = {
-        control: (provided, state) => ({
-          ...provided,
-          height: '3rem',
-          backgroundColor: 'transparent',
-          border: state.isFocused ? '2px solid white' : '2px solid white',
-          '&:hover': {
-            borderColor: 'white',
-          },
-          cursor: 'text',
-        }),
-        singleValue: (provided) => ({
-          ...provided,
-          color: '#eee',
-          fontFamily: 'Montserrat',
-          fontSize: '1.8rem',
-          fontWeight: 700,
-          paddingLeft: '1rem',
-        }),
-        option: (provided, state) => ({
-          ...provided,
-          color: state.isSelected ? '#ffd700' : '#111',
-          backgroundColor: state.isSelected ? 'transparent' : 'transparent',
-          fontFamily: 'Montserrat',
-          fontSize: '1.6rem',
-          fontWeight: 600,
-          paddingLeft: '1rem',
-        }),
-        dropdownIndicator: (provided, state) => ({
-          ...provided,
-          color: 'white',
-        }),
-        placeholder: () => ({ display: 'none' }),
-        container: (provided) => ({
-          ...provided,
-          overflow: 'visible',
-        }),
-        input: (provided) => ({
-          ...provided,
-          color: '#eee',
-          fontFamily: 'Montserrat',
-          fontSize: '1.8rem',
-          fontWeight: 700,
-          paddingLeft: '1rem',
-        }),
-      };
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    height: '3rem',
+    backgroundColor: 'transparent',
+    border: state.isFocused ? '2px solid white' : '2px solid white',
+    '&:hover': {
+      borderColor: 'white',
+    },
+    cursor: 'text',
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#eee',
+    fontFamily: 'Montserrat',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    paddingLeft: '1rem',
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? '#ffd700' : '#111',
+    backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.6rem',
+    fontWeight: 600,
+    paddingLeft: '1rem',
+  }),
+  // multiValue: (provided) => ({
+  //   ...provided,
+  //   color: '#eee',
+  //   fontFamily: 'Montserrat',
+  //   fontSize: '1.8rem',
+  //   fontWeight: 700,
+  //   backgroundColor: '#ffd700',
+  //   paddingLeft: '1rem',
+  // }),
+  // multiValueRemove: (provided) => ({
+  //   ...provided,
+  //   color: 'black',
+  //   cursor: 'pointer',
+  //   // '&:hover': {
+  //   //   backgroundColor: 'black',
+  //   //   color: 'white',
+  //   // },
+  // }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: 'white',
+    cursor: 'pointer',
+  }),
+  placeholder: () => ({ display: 'none' }),
+  container: (provided) => ({
+    ...provided,
+    overflow: 'visible',
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: '#eee',
+    fontFamily: 'Montserrat',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    paddingLeft: '1rem',
+  }),
+};
+const customStylesMulti = {
+  control: (provided, state) => ({
+    ...provided,
+    height: 'auto',
+    minHeight: '3rem',
+    backgroundColor: 'transparent',
+    border: state.isFocused ? '2px solid white' : '2px solid white',
+    '&:hover': {
+      borderColor: 'white',
+    },
+    cursor: 'text',
+    overflow: 'hidden',
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#eee',
+    fontFamily: 'Montserrat',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    paddingLeft: '1rem',
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? '#ffd700' : '#111',
+    backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.6rem',
+    fontWeight: 600,
+    paddingLeft: '1rem',
+  }),
+  multiValue: (provided) => ({
+    ...provided,
+    color: '#eee',
+    fontFamily: 'Montserrat',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    backgroundColor: '#fff',
+    paddingLeft: '1rem',
+  }),
+  multiValueRemove: (provided) => ({
+    ...provided,
+    color: 'black',
+    cursor: 'pointer',
+    // '&:hover': {
+    //   backgroundColor: 'black',
+    //   color: 'white',
+    // },
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: 'white',
+  }),
+  placeholder: () => ({ display: 'none' }),
+  container: (provided) => ({
+    ...provided,
+    overflow: 'visible',
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: '#eee',
+    fontFamily: 'Montserrat',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    paddingLeft: '1rem',
+    minHeight: '3rem',
+    overflow: 'hidden',
+  }),
+};
+
+
+    
+    
       
            
            
@@ -72,6 +163,12 @@ const registration = () => {
         {value:"Delhi" , label: "Delhi"},
         {value:"Madras" , label: "Madras"},
         {value:"Pilani" , label: "Pilani"},
+    ];
+    const sportsOptions = [
+        {value:"Athletics" , label: "Athletics"},
+        {value:"Cricket" , label: "Cricket"},
+        {value:"Basketball" , label: "Basketball"},
+        {value:"Hockey" , label: "Hockey"},
     ];
 
     const handleChange = selectedCollege =>{
@@ -92,16 +189,16 @@ const registration = () => {
                 </div>
                 <form className={styles["regForm"]}> 
                     <div className={styles["formSingleInput"]}>
-                        <label htmlFor='name'>NAME</label>
+                        <label htmlFor='name'>Name</label>
                         <input className={styles["regInput"]} id='name' />
 
-                        <label htmlFor='email'>E-MAIL</label>
+                        <label htmlFor='email'>E-mail</label>
                         <input className={styles["regInput"]} id='email' />
 
-                        <label htmlFor='phone'>PHONE</label>
+                        <label htmlFor='phone'>Phone</label>
                         <input className={styles["regInput"]} id='phone' />
 
-                        <label htmlFor='gender'>GENDER</label>
+                        <label htmlFor='gender'>Gender</label>
                         <div className={styles["radioBtns"]}>
                             <input id='genderM' type='radio' name='gender' value="Male" />
                             <label htmlFor='genderM'>Male</label>
@@ -112,11 +209,28 @@ const registration = () => {
                         </div>
                     </div>
                     <div className={styles["formMultiInput"]}>
-                        <label htmlFor='college'>COLLEGE</label>
+                        <label htmlFor='college'>College</label>
                         <Select options={collegeOptions} onChange={handleChange} styles={customStyles}  />
 
-                        <label htmlFor='city'>CITY</label>
+                        <label htmlFor='city'>City</label>
                         <Select options={cityOptions} onChange={handleChange} styles={customStyles}  />
+
+                        <label htmlFor='sports'>Sports</label>
+                        <Select options={sportsOptions} onChange={handleChange} styles={customStylesMulti} isMulti />
+
+                        <label htmlFor='yos'>Year Of Study</label>
+                        <div className={styles["yearOfStudy"]}>
+                            <input id='yos1' type='radio' name='yos' value="1" />
+                            <label htmlFor='yos1'>1</label>
+                            <input id='yos2' type='radio' name='yos' value="2" />
+                            <label htmlFor='yos2'>2</label>
+                            <input id='yos3' type='radio' name='yos' value="3" />
+                            <label htmlFor='yos3'>3</label>
+                            <input id='yos4' type='radio' name='yos' value="4" />
+                            <label htmlFor='yos4'>4</label>
+                            <input id='yos5' type='radio' name='yos' value="5" />
+                            <label htmlFor='yos5'>5</label>
+                        </div>
                     </div>
                 </form>
             </section>
