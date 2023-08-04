@@ -133,16 +133,17 @@ h2 {
 }
 .regPage{
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   z-index: 0;
   background: url(../images/rp_bg.png);
 }
 .rpIcons{
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
   background: url(../images/rp_bg_icons.png);
   opacity: 0.699999988079071;
