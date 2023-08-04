@@ -109,14 +109,14 @@
 }
 
 .profileName {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 1.083px;
 }
 
 .profileDept,
 .profileEmail,
 .profilePhone {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #E0E0E0;
 }
