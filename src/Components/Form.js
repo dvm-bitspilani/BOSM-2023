@@ -22,7 +22,80 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
-        zIndex: 1001,
+      }),
+      singleValue: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '.25rem',
+        zIndex: 1002,
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        color: state.isSelected ? '#ffd700' : '#111',
+        backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+        fontFamily: 'Montserrat',
+        fontSize: '1rem',
+        fontWeight: 600,
+        paddingLeft: '1rem',
+        zIndex: 1002,
+      }),
+      menu:(provided) => ({
+        ...provided ,
+        zIndex:1002,
+      }),
+      // multiValue: (provided) => ({
+      //   ...provided,
+      //   color: '#eee',
+      //   fontFamily: 'Montserrat',
+      //   fontSize: '1.8rem',
+      //   fontWeight: 700,
+      //   backgroundColor: '#ffd700',
+      //   paddingLeft: '1rem',
+      // }),
+      // multiValueRemove: (provided) => ({
+      //   ...provided,
+      //   color: 'black',
+      //   cursor: 'pointer',
+      //   // '&:hover': {
+      //   //   backgroundColor: 'black',
+      //   //   color: 'white',
+      //   // },
+      // }),
+      dropdownIndicator: (provided, state) => ({
+        ...provided,
+        color: 'white',
+        cursor: 'pointer',
+        zIndex: 1002,
+      }),
+      placeholder: () => ({ display: 'none' , zIndex: 1002, }),
+      container: (provided) => ({
+        ...provided,
+        overflow: 'visible',
+        zIndex: 1002,
+      }),
+      input: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '1rem',
+        zIndex: 1002,
+      }),
+    };
+    const customStyles2 = {
+      control: (provided, state) => ({
+        ...provided,
+        height: '3rem',
+        backgroundColor: 'transparent',
+        border: state.isFocused ? '2px solid white' : '2px solid white',
+        '&:hover': {
+          borderColor: 'white',
+        },
+        cursor: 'text',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -45,8 +118,6 @@ const Form = () => {
       }),
       menu:(provided) => ({
         ...provided ,
-        position: 'relative',
-        zIndex:1001.
       }),
       // multiValue: (provided) => ({
       //   ...provided,
@@ -179,7 +250,7 @@ const Form = () => {
     ];
 
     const isFormFilled = () => {
-      const requiredFields = ['name', 'email', 'phone', 'gender', 'college', 'city', 'sports', 'yos'];
+      const requiredFields = ['name', 'email', 'phone', 'gender', 'college', 'city', 'sports', 'year_of_study'];
   
       for (const field of requiredFields) {
         const value = formData[field];
@@ -210,7 +281,7 @@ const Form = () => {
       college: '',
       city: '',
       sports: [],
-      yos: '',
+      year_of_study: '',
     });
     const handleChange = (selectedOption, { id, name, type }) => {
       const updatedFormData = { ...formData };
@@ -337,23 +408,23 @@ const Form = () => {
                 <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college' })} styles={customStyles}  />
 
                 <label htmlFor='city'>City</label>
-                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles}  />
+                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
 
                 <label htmlFor='sports'>Sports</label>
                 <Select options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
 
-                <label htmlFor='yos'>Year Of Study</label>
+                <label htmlFor='year_of_study'>Year Of Study</label>
                 <div className={styles["yearOfStudy"]}>
-                    <input id='yos1' type='radio' name='yos' value="1" onChange={handleChange2}  />
-                    <label htmlFor='yos1'>1</label>
-                    <input id='yos2' type='radio' name='yos' value="2" onChange={handleChange2}  />
-                    <label htmlFor='yos2'>2</label>
-                    <input id='yos3' type='radio' name='yos' value="3" onChange={handleChange2}  />
-                    <label htmlFor='yos3'>3</label>
-                    <input id='yos4' type='radio' name='yos' value="4" onChange={handleChange2}  />
-                    <label htmlFor='yos4'>4</label>
-                    <input id='yos5' type='radio' name='yos' value="5" onChange={handleChange2}  />
-                    <label htmlFor='yos5'>5</label>
+                    <input id='year_of_study1' type='radio' name='year_of_study' value="1" onChange={handleChange2}  />
+                    <label htmlFor='year_of_study1'>1</label>
+                    <input id='year_of_study2' type='radio' name='year_of_study' value="2" onChange={handleChange2}  />
+                    <label htmlFor='year_of_study2'>2</label>
+                    <input id='year_of_study3' type='radio' name='year_of_study' value="3" onChange={handleChange2}  />
+                    <label htmlFor='year_of_study3'>3</label>
+                    <input id='year_of_study4' type='radio' name='year_of_study' value="4" onChange={handleChange2}  />
+                    <label htmlFor='year_of_study4'>4</label>
+                    <input id='year_of_study5' type='radio' name='year_of_study' value="5" onChange={handleChange2}  />
+                    <label htmlFor='year_of_study5'>5</label>
                 </div>
             </div>
         </form>
