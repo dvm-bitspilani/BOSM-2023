@@ -22,6 +22,7 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
+        zIndex: 1001,
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -30,6 +31,7 @@ const Form = () => {
         fontSize: '1.5rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
+        zIndex: 1001,
       }),
       option: (provided, state) => ({
         ...provided,
@@ -39,6 +41,12 @@ const Form = () => {
         fontSize: '1rem',
         fontWeight: 600,
         paddingLeft: '1rem',
+        zIndex: 1001,
+      }),
+      menu:(provided) => ({
+        ...provided ,
+        position: 'relative',
+        zIndex:1001.
       }),
       // multiValue: (provided) => ({
       //   ...provided,
@@ -62,11 +70,13 @@ const Form = () => {
         ...provided,
         color: 'white',
         cursor: 'pointer',
+        zIndex: 1001,
       }),
-      placeholder: () => ({ display: 'none' }),
+      placeholder: () => ({ display: 'none' , zIndex: 1001, }),
       container: (provided) => ({
         ...provided,
         overflow: 'visible',
+        zIndex: 1001,
       }),
       input: (provided) => ({
         ...provided,
@@ -75,6 +85,7 @@ const Form = () => {
         fontSize: '1.5rem',
         fontWeight: 700,
         paddingLeft: '1rem',
+        zIndex: 1001,
       }),
     };
     const customStylesMulti = {
@@ -89,7 +100,6 @@ const Form = () => {
         },
         cursor: 'text',
         overflow: 'hidden',
-        zIndex: 1000,
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -98,7 +108,6 @@ const Form = () => {
         fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '1rem',
-        zIndex: 1000,
       }),
       option: (provided, state) => ({
         ...provided,
@@ -108,7 +117,6 @@ const Form = () => {
         fontSize: '1rem',
         fontWeight: 600,
         paddingLeft: '1rem',
-        zIndex: 1000,
       }),
       multiValue: (provided) => ({
         ...provided,
@@ -118,25 +126,21 @@ const Form = () => {
         fontWeight: 700,
         backgroundColor: '#fff',
         paddingLeft: '.25rem',
-        zIndex: 1000,
       }),
       multiValueRemove: (provided) => ({
         ...provided,
         color: 'black',
         cursor: 'pointer',
-        zIndex: 1000,
       }),
       dropdownIndicator: (provided, state) => ({
         ...provided,
         color: 'white',
         cursor: 'pointer',
-        zIndex: 1000,
       }),
-      placeholder: () => ({ display: 'none', zIndex: 1000 }),
+      placeholder: () => ({ display: 'none'}),
       container: (provided) => ({
         ...provided,
         overflow: 'visible',
-        zIndex: 1000,
       }),
       input: (provided) => ({
         ...provided,
@@ -147,7 +151,6 @@ const Form = () => {
         paddingLeft: '1rem',
         minHeight: '3rem',
         overflow: 'hidden',
-        zIndex: 1000,
       }),
     };
     
@@ -174,14 +177,38 @@ const Form = () => {
       {value:"Basketball" , label: "Basketball"},
       {value:"Hockey" , label: "Hockey"},
     ];
+
+    const isFormFilled = () => {
+      const requiredFields = ['name', 'email', 'phone', 'gender', 'college', 'city', 'sports', 'yos'];
+  
+      for (const field of requiredFields) {
+        const value = formData[field];
+        if (Array.isArray(value) && value.length === 0) {
+          return false;
+        } else if (!Array.isArray(value) && (!value || value.trim() === '')) {
+          return false;
+        }
+      }
+  
+      return true;
+    };
+    const isValidEmail = (email) => {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    };
+    
+    const isValidPhoneNumber = (phone) => {
+      const phonePattern = /^\d+$/;
+      return phonePattern.test(phone);
+    };
   
     const [formData, setFormData] = useState({
       name: '',
       email: '',
       phone: '',
       gender: '',
-      college: null,
-      city: null,
+      college: '',
+      city: '',
       sports: [],
       yos: '',
     });
@@ -202,7 +229,7 @@ const Form = () => {
           );
         }
       } else {
-        updatedFormData[id] = selectedOption.value;
+        updatedFormData[id] = selectedOption.value.trim();
       }
     
       setFormData(updatedFormData);
@@ -224,7 +251,7 @@ const Form = () => {
           updatedFormData[name] = updatedFormData[name].filter((val) => val !== value);
         }
       } else {
-        updatedFormData[id] = value;
+        updatedFormData[id] = value.trim();
       }
     
       setFormData(updatedFormData);
@@ -237,7 +264,17 @@ const Form = () => {
     
  
     const handleRegistration = () => {
-      console.log('Form Data:', formData);
+      if (isFormFilled(formData)) {
+        if (!isValidEmail(formData.email)) {
+          alert('Invalid email address.');
+        } else if (!isValidPhoneNumber(formData.phone)) {
+          alert('Invalid phone number. Please enter digits only.');
+        } else {
+          console.log('Form Data:', formData);
+        }
+      } else {
+        alert('Please fill in all required fields.');
+      }
     };
 
 
@@ -259,7 +296,7 @@ const Form = () => {
                 <input className={styles["regInput"]} id='email' onChange={handleChange2}  />
 
                 <label htmlFor='phone'>Phone</label>
-                <input className={styles["regInput"]} id='phone' onChange={handleChange2}  />
+                <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10"  />
 
                 <label htmlFor='gender'>Gender</label>
                 <div className={styles["radioBtns"]}>
