@@ -73,7 +73,7 @@
     column-gap: 1rem;
 }
 
-.profileContainer{
+.profileContainer {
     padding-block: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
     /* border: solid red; */
     aspect-ratio: 8/10;
     height: 10rem;
-    width: 8rem;
+    width: auto;
     border-radius: 1rem;
     margin: auto;
     margin-block: 0.5rem;
@@ -105,18 +105,66 @@
     font-weight: 600;
     line-height: normal;
     overflow: hidden;
+    padding: 0.2rem;
 }
 
-.profileName{
-    font-size: 1.05rem;
+.profileName {
+    font-size: 1rem;
     letter-spacing: 1.083px;
 }
 
 .profileDept,
 .profileEmail,
-.profilePhone{
+.profilePhone {
     font-size: 1rem;
     font-weight: 500;
     color: #E0E0E0;
 }
 
+.backStatueMobile {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .frontStatue {
+        display: none;
+    }
+
+    .backStatue {
+        display: none;
+    }
+
+    .pageBackground {
+        /* position: absolute; */
+        bottom: -100vh;
+        width: 100%;
+        z-index: 1;
+        display: flex;
+
+    }
+
+    .backStatueMobile {
+        display: block;
+        position: absolute;
+        left: 30vw;
+        margin: auto;
+        bottom: -100vh;
+        z-index: 1;
+
+    }
+
+    .container {
+        display: block;
+    }
+
+    .content {
+        width: 100vw;
+        padding-inline: 5rem;
+        z-index: 20;
+    }
+
+    .cardsContainer {
+        /* grid-template-columns: auto auto; */
+        /* justify-content: space-evenly; */
+    }
+}

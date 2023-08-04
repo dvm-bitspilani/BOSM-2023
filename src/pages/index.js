@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import FrontStatue from "../images/statue2bright.png"
 import BackStatue from "../images/statue2bg.png"
 import ContactProfile from "../Components/Profile"
+import BackStatueMobile from "../images/statue2bg_mobile.png"
 
 
 const IndexPage = () => {
@@ -192,6 +193,7 @@ const IndexPage = () => {
                     <div className={contact["pageBackground"]}>
                         <img src={FrontStatue} className={contact["frontStatue"]} />
                         <img src={BackStatue} className={contact["backStatue"]} />
+                        <img src={BackStatueMobile} className={contact["backStatueMobile"]} />
                     </div>
                     <div className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
