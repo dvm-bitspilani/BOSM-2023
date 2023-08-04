@@ -224,39 +224,53 @@ const Form = () => {
         overflow: 'hidden',
       }),
     };
+
+    function convertApiFormat(apiResponse) {
+      const result = {};
+    
+      apiResponse.forEach((sport) => {
+        const { id, name } = sport;
+        if (!result[name]) {
+          result[name] = { value: id, label: name };
+        }
+      });
+      const convertedArray = Object.values(result);
+    
+      return convertedArray;
+    }
     
   
     const collegeOptions = [
-      {value:"IIT Bombay" , label: "IIT Bombay"},
-      {value:"IIT Delhi" , label: "IIT Delhi"},
-      {value:"IIT Madras" , label: "IIT Madras"},
-      {value:"BITS Pilani" , label: "BITS Pilani"},
+      {id:1 , name: "IIT Bombay"},
+      {id:2 , name: "IIT Delhi"},
+      {id:3 , name: "IIT Madras"},
+      {id:4 , name: "BITS Pilani"},
     ];
     const cityOptions = [
-      {value:"Bombay" , label: "Bombay"},
-      {value:"Delhi" , label: "Delhi"},
-      {value:"Madras" , label: "Madras"},
-      {value:"Pilani" , label: "Pilani"},
+      {id:1 , name: "Bombay"},
+      {id:2 , name: "Delhi"},
+      {id:3 , name: "Madras"},
+      {id:4 , name: "Pilani"},
     ];
     const sportsOptions = [
-      {value:"Athletics" , label: "Athletics"},
-      {value:"Cricket" , label: "Cricket"},
-      {value:"Basketball" , label: "Basketball"},
-      {value:"Hockey" , label: "Hockey"},
-      {value:"Athletics" , label: "Athletics"},
-      {value:"Cricket" , label: "Cricket"},
-      {value:"Basketball" , label: "Basketball"},
-      {value:"Hockey" , label: "Hockey"},
+      {id:1 , name: "Athletics"},
+      {id:2 , name: "Cricket"},
+      {id:3 , name: "Basketball"},
+      {id:4 , name: "Hockey"},
+      {id:5 , name: "Athletics"},
+      {id:6 , name: "Cricket"},
+      {id:7 , name: "Basketball"},
+      {id:8 , name: "Hockey"},
     ];
 
     const isFormFilled = () => {
-      const requiredFields = ['name', 'email', 'phone', 'gender', 'college', 'city', 'sports', 'year_of_study'];
+      const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'sports', 'year_of_study'];
   
       for (const field of requiredFields) {
         const value = formData[field];
         if (Array.isArray(value) && value.length === 0) {
           return false;
-        } else if (!Array.isArray(value) && (!value || value.trim() === '')) {
+        } else if (!Array.isArray(value) && (!value || value === '')) {
           return false;
         }
       }
@@ -275,10 +289,10 @@ const Form = () => {
   
     const [formData, setFormData] = useState({
       name: '',
-      email: '',
+      email_id: '',
       phone: '',
       gender: '',
-      college: '',
+      college_id: '',
       city: '',
       sports: [],
       year_of_study: '',
@@ -300,7 +314,7 @@ const Form = () => {
           );
         }
       } else {
-        updatedFormData[id] = selectedOption.value.trim();
+        updatedFormData[id] = selectedOption.value;
       }
     
       setFormData(updatedFormData);
@@ -336,7 +350,7 @@ const Form = () => {
  
     const handleRegistration = () => {
       if (isFormFilled(formData)) {
-        if (!isValidEmail(formData.email)) {
+        if (!isValidEmail(formData.email_id)) {
           alert('Invalid email address.');
         } else if (!isValidPhoneNumber(formData.phone)) {
           alert('Invalid phone number. Please enter digits only.');
@@ -363,8 +377,8 @@ const Form = () => {
                 <label htmlFor='name' className={styles["nameLabel"]}>Name</label>
                 <input className={styles["regInput"]} id='name' onChange={handleChange2}  />
 
-                <label htmlFor='email'>E-mail</label>
-                <input className={styles["regInput"]} id='email' onChange={handleChange2}  />
+                <label htmlFor='email_id'>E-mail</label>
+                <input className={styles["regInput"]} id='email_id' onChange={handleChange2}  />
 
                 <label htmlFor='phone'>Phone</label>
                 <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10"  />
@@ -383,7 +397,6 @@ const Form = () => {
                       value="Male"
                       text="Male"
                       onChange={handleChange2}
-                      // checked={theme.dark}
                     />
                     <RadioButton
                       name="gender"
@@ -391,7 +404,6 @@ const Form = () => {
                       value="Female"
                       text="Female"
                       onChange={handleChange2}
-                      // checked={theme.dark}
                     />
                     <RadioButton
                       name="gender"
@@ -399,19 +411,18 @@ const Form = () => {
                       value="Other"
                       text="Other"
                       onChange={handleChange2}
-                      // checked={theme.dark}
                     />
                 </div>
             </div>
             <div className={styles["formMultiInput"]}>
-                <label htmlFor='college' className={styles["collegeLabel"]}>College</label>
-                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college' })} styles={customStyles}  />
+                <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
+                <Select options={convertApiFormat(collegeOptions)} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles}  />
 
                 <label htmlFor='city'>City</label>
-                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
+                <Select options={convertApiFormat(cityOptions)} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
 
                 <label htmlFor='sports'>Sports</label>
-                <Select options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
+                <Select options={convertApiFormat(sportsOptions)} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
 
                 <label htmlFor='year_of_study'>Year Of Study</label>
                 <div className={styles["yearOfStudy"]}>
