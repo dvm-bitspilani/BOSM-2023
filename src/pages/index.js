@@ -224,5 +224,5 @@ export default IndexPage;
 export const Head = () =>
  <>
      <title>BOSM '23 | The Roar of Resilience</title> 
-     <link rel="icon" type="image/x-icon" href="../../public/favicon-32x32.png" />
+     <link rel="icon" type="image/x-icon" href="../images/icon.png" />
  </>;
