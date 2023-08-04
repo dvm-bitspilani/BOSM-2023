@@ -11,15 +11,15 @@ const Countdown = () => {
     [days, setDays] = useState(0);
 
   const [hrs, setHrs] = useState(
-      Math.floor((BOSM - curr) / (1000 * 60 * 60)) - days * 24
-    ),
+    Math.floor((BOSM - curr) / (1000 * 60 * 60)) - days * 24
+  ),
     [prevHr, setPrevHr] = useState(
       Math.floor((BOSM - curr) / (1000 * 60 * 60)) - days * 24
     );
 
   const [prevMin, setPrevMin] = useState(
-      Math.floor((BOSM - curr) / (1000 * 60)) - days * 24 * 60 - hrs * 60
-    ),
+    Math.floor((BOSM - curr) / (1000 * 60)) - days * 24 * 60 - hrs * 60
+  ),
     [mins, setMins] = useState(
       Math.floor((BOSM - curr) / (1000 * 60)) - days * 24 * 60 - hrs * 60
     );

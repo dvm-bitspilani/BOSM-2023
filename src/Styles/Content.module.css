@@ -1,6 +1,7 @@
 main {
   height: 80vh;
   width: 100vw;
+  cursor: none;
 }
 .container {
   height: 100%;

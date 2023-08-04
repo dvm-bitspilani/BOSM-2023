@@ -1,109 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@1,700&family=Montserrat:wght@100;500&family=Outfit:wght@400;700&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Livvic:ital,wght@1,700&family=Montserrat:wght@100;500&family=Outfit:wght@400;700&family=Work+Sans&display=swap");
 
-.navbarContainer{
-    position: relative;
-    display: flex;
-    margin-top: 1%;
-    padding: 3rem;
-    overflow: hidden;
+.navbarContainer {
+  position: relative;
+  display: flex;
+  margin-top: 1%;
+  padding: 3rem;
+  overflow: hidden;
 }
-.navbarRight{
-    width: 100%;
-    padding-left: 1rem;
+.navbarRight {
+  width: 100%;
+  padding-left: 1rem;
 }
-.navbarLeft{
-    width: 100%;
+.navbarLeft {
+  width: 100%;
 }
-.navbarRight ul{
-    display: flex;
-    justify-content: flex-start;
+.navbarRight ul {
+  display: flex;
+  justify-content: flex-start;
 }
-.navbarLeft ul{
-    display: flex;
-    justify-content: flex-end;
+.navbarLeft ul {
+  display: flex;
+  justify-content: flex-end;
 }
-.navLinks{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.75rem;
-    color: #ffffff;
-    padding: 0 3rem 0 0;
+.navLinks {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: #ffffff;
+  padding: 0 3rem 0 0;
 }
-.navLogo{
-    position: absolute;
-    left: 3%;
-    top: 0;
+.navLogo {
+  position: absolute;
+  left: 3%;
+  top: 0;
 }
-.registerBtn{
-    cursor: pointer;
-    position: absolute;
-    z-index: 999;
-    right: 2%;
-    top: 34%;
-    border-radius: 12px;
-    border: 1.415px solid #FFF;
-    padding: 0.5rem 2rem;
-}
-
-.registerBtn p{
-    color: #FFF;
-    font-family: 'Montserrat';
-    font-size: 1.2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 2px;
+.registerBtn {
+  cursor: none;
+  position: absolute;
+  z-index: 999;
+  right: 2%;
+  top: 34%;
+  border-radius: 12px;
+  border: 1.415px solid #fff;
+  padding: 0.5rem 2rem;
 }
 
-.registerBtn:hover{
-    background-color: #FFF;
-    /* transition: 0.5s; */
-}
-.registerBtn:hover p{
-    color: #111;
+.registerBtn p {
+  color: #fff;
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2px;
 }
 
-@media(max-width: 1380px){
-    .navLogo img{
-        transform: scale(.9);
-    }
-    .navLinks{
-        padding-right: 2.5rem;
-        font-size: 1.5rem;
-    }
-    .registerBtn{
-        top: 27.5%;
-        padding: .75rem 2rem;
-    }
+.registerBtn:hover {
+  background-color: #fff;
+  /* transition: 0.5s; */
 }
-@media(max-width: 1200px){
-    .navLogo img{
-        transform: scale(.75);
-    }
-    .navLinks{
-        padding-right: 2.25rem;
-        font-size: 1.4rem;
-    }
-    .registerBtn{
-        top: 31.5%;
-        padding: .5rem 1.75rem;
-    }
-    .registerBtn p{
-        font-size: 1.25rem;
-    }
+.registerBtn:hover p {
+  color: #111;
 }
-@media(max-width: 1080px){
-    .navLinks{
-        padding-right: 2rem;
-        font-size: 1.15rem;
-    }
-    .registerBtn{
-        padding: .5rem 1.25rem;
-    }
+
+@media (max-width: 1380px) {
+  .navLogo img {
+    transform: scale(0.9);
+  }
+  .navLinks {
+    padding-right: 2.5rem;
+    font-size: 1.5rem;
+  }
+  .registerBtn {
+    top: 27.5%;
+    padding: 0.75rem 2rem;
+  }
 }
-@media(max-width: 920px){
-    .navLinks{
-        display: none;
-    }
+@media (max-width: 1200px) {
+  .navLogo img {
+    transform: scale(0.75);
+  }
+  .navLinks {
+    padding-right: 2.25rem;
+    font-size: 1.4rem;
+  }
+  .registerBtn {
+    top: 31.5%;
+    padding: 0.5rem 1.75rem;
+  }
+  .registerBtn p {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 1080px) {
+  .navLinks {
+    padding-right: 2rem;
+    font-size: 1.15rem;
+  }
+  .registerBtn {
+    padding: 0.5rem 1.25rem;
+  }
+}
+@media (max-width: 920px) {
+  .navLinks {
+    display: none;
+  }
 }
