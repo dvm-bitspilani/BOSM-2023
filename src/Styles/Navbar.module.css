@@ -93,3 +93,17 @@
         font-size: 1.25rem;
     }
 }
+@media(max-width: 1080px){
+    .navLinks{
+        padding-right: 2rem;
+        font-size: 1.15rem;
+    }
+    .registerBtn{
+        padding: .5rem 1.25rem;
+    }
+}
+@media(max-width: 920px){
+    .navLinks{
+        display: none;
+    }
+}

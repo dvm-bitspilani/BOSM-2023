@@ -162,11 +162,6 @@
         padding-inline: 5rem;
         z-index: 20;
     }
-
-    .cardsContainer {
-        /* grid-template-columns: auto auto; */
-        /* justify-content: space-evenly; */
-    }
 }
 @media (max-width: 580px){
     .content{

@@ -342,6 +342,12 @@ input[type='radio'] {
   .radioBtns{
     overflow: hidden;
   }
+  .leftLion img {
+    height: 60vh;
+  }
+  .rightLion img {
+    height: 50vh;
+  }
 }
 @media (max-width: 1080px){
   .regBox{
@@ -369,6 +375,38 @@ input[type='radio'] {
   }
   .radioBtns{
     margin-left: 0;
+  }
+  .leftLion img {
+    height: 55vh;
+  }
+  .rightLion img {
+    height: 45vh;
+  }
+  .statue{
+    height: 70%;
+  }
+  .rightSubTitle{
+    bottom: 42%;
+    right: 1rem;
+  }
+  .leftSubTitle,
+  .rightSubTitle {
+    left: 1rem;
+  }
+  .leftSubTitle h1,
+  .rightSubTitle h1 {
+    font-size: 2.5rem;
+  }
+  .leftSubTitle h2 {
+    font-size: 4.5rem;
+  }
+  .rightSubTitle h2 {
+    font-size: 2.5rem;
+  }
+}
+@media(max-width: 920px){
+  .container{
+    margin-top: 1rem;
   }
 }
 @media (max-width: 580px){
