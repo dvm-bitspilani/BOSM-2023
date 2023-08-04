@@ -168,3 +168,20 @@
         /* justify-content: space-evenly; */
     }
 }
+@media (max-width: 580px){
+    .content{
+        padding: 5rem 1rem;
+        position: relative;
+    }
+    .cardsContainer{
+        grid-template-columns: auto auto;
+        column-gap: 6rem;
+        justify-content: center;
+        height: auto;
+    }
+}
+@media (max-width: 480px){
+    .cardsContainer{
+        column-gap: 3rem;
+    }
+}
