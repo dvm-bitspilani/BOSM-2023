@@ -28,9 +28,9 @@
 }
 
 .frontStatue {
-    left: 12vw;
+    left: 10vw;
     overflow: hidden;
-    height: 75vh;
+    height: 80vh;
     bottom: -100vh;
     z-index: 10;
 }
@@ -39,90 +39,93 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 45vw 55vw;
-}
-
-.content {
-    z-index: 11;
-    margin-left: auto;
-    height: 100%;
-    width: 100%;
-    padding-right: 5rem;
-    padding-top: 3rem;
-}
-
-.title {
-    color: #FFF;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.15rem;
-    padding-bottom: 1rem;
-}
-
-.cardsContainer {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    width: 100%;
-    height: 80vh;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 1rem;
-}
-
-.profileContainer {
-    padding-block: 0.5vh;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.profileImg {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* border: solid red; */
-    aspect-ratio: 8/10;
-    height: 10rem;
-    width: auto;
-    border-radius: 1rem;
-    margin: auto;
-    margin-block: 0.5vh;
-}
-
-.profileName,
-.profileDept,
-.profilePhone,
-.profileEmail {
-    color: white;
-    width: 100%;
-    text-align: center;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    overflow: hidden;
-    padding: 0.2rem;
-}
-
-.profileName {
-    font-size: 0.9rem;
-    letter-spacing: 1.083px;
-}
-
-.profileDept,
-.profileEmail,
-.profilePhone {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #E0E0E0;
+    grid-template-columns: calc(50% - 10vw) calc(50% + 10vw);
 }
 
 .backStatueMobile {
     display: none;
+}
+
+.content{
+    height: 100%;
+    margin: auto;
+    /* border: solid red; */
+    overflow: hidden;
+    /* display: flex; */
+    /* align-items: center; */
+    z-index: 11;
+}
+
+.title{
+    font-family: Montserrat;
+    font-size: 4vh;
+    font-weight: 700;
+    letter-spacing: 0.23vh;
+    color: white;
+    margin-bottom: 3vh;
+    padding-top: 6vh;
+}
+
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    /* border: solid red; */
+    width: calc(10vh + 8.5vw);
+    align-items: center;
+    margin-block: 0.5vh;
+}
+
+.profileImg{
+    height: 19vh;
+    width: 15vh;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1.1vh;
+    background-color: #D9D9D9;;
+}
+
+.profileName,
+.profileDept,
+.profileEmail,
+.profilePhone{
+    word-wrap: break-word;
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
+.profileName{
+    color: white;
+    font-size: 2vh;
+    letter-spacing: 0.2vh;
+    font-weight: 600;
+    margin-block: 0.4vh;
+}
+
+.profileDept,
+.profileEmail,
+.profilePhone{
+    color: #E0E0E0;
+    letter-spacing: 0.15vh;
+    font-size: 1.6vh;
+    margin-block: 1.5px;
+
+}
+
+.cardsContainer{
+    width: 100%;
+    display: grid;
+    /* border: solid blue; */
+    grid-template-columns: auto auto auto;
+    /* grid-column-gap: min(5rem, 27vh); */
+}
+
+.contentContainer{
+    padding-right: 5vw;
+    /* border: solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -146,37 +149,48 @@
     .backStatueMobile {
         display: block;
         position: absolute;
-        left: 30vw;
+        left: 0;
         margin: auto;
         bottom: -100vh;
-        z-index: 1;
+        width: 100vw;
+        height: 80vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
+    .content{
+        position: relative;
+        z-index: 2;
+        overflow: auto;
+    }
+
+    .contentContainer{
+        padding: 0;
+    }
+
+    .cardsContainer{
+        width: 100vw;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 0;
+    }
+
+    .profileContainer{
+        width: 100%;
     }
 
     .container {
         display: block;
     }
 
-    .content {
-        width: 100vw;
-        padding-inline: 5rem;
-        z-index: 20;
-    }
 }
 @media (max-width: 580px){
-    .content{
-        padding: 5rem 1rem;
-        position: relative;
-    }
-    .cardsContainer{
-        grid-template-columns: auto auto;
-        column-gap: 6rem;
-        justify-content: center;
-        height: auto;
-    }
+
 }
 @media (max-width: 480px){
-    .cardsContainer{
-        column-gap: 3rem;
-    }
+
 }

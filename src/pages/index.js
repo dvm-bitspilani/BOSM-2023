@@ -242,9 +242,12 @@ const IndexPage = () => {
                             <div className={contact["pageBackground"]}>
                                 <img src={FrontStatue} className={contact["frontStatue"]} />
                                 <img src={BackStatue} className={contact["backStatue"]} />
-                                <img src={BackStatueMobile} className={contact["backStatueMobile"]} />
+                                {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
+
                             </div>
+                            <div className={contact["backStatueMobile"]} style={{ backgroundImage: `url(${BackStatueMobile})` }}></div>
                             <div className={contact["content"]}>
+                                
                                 <div className={contact["contentContainer"]}>
                                     <div className={contact["title"]}>CONTACT US</div>
                                     <div className={contact["cardsContainer"]}>
