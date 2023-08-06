@@ -22,6 +22,8 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -41,10 +43,20 @@ const Form = () => {
         fontWeight: 600,
         paddingLeft: '1rem',
         zIndex: 1002,
+        '&:hover': {
+          backgroundColor: '#333', 
+          color:'#fff'
+        },
       }),
       menu:(provided) => ({
         ...provided ,
         zIndex:1002,
+        '&::-webkit-scrollbar': {
+          width: '1px', 
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: '#000',
+        },
       }),
       // multiValue: (provided) => ({
       //   ...provided,
@@ -96,6 +108,8 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -115,6 +129,10 @@ const Form = () => {
         fontWeight: 600,
         paddingLeft: '1rem',
         zIndex: 1001,
+        '&:hover': {
+          backgroundColor: '#333', 
+          color:'#fff'
+        },
       }),
       menu:(provided) => ({
         ...provided ,
@@ -169,6 +187,8 @@ const Form = () => {
         },
         cursor: 'text',
         overflow: 'hidden',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -190,6 +210,10 @@ const Form = () => {
         fontSize: '1rem',
         fontWeight: 600,
         paddingLeft: '1rem',
+        '&:hover': {
+          backgroundColor: '#333', 
+          color:'#fff'
+        },
       }),
       multiValue: (provided) => ({
         ...provided,
