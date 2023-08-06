@@ -412,10 +412,6 @@ input[type='radio'] {
     bottom: 42%;
     /* right: 1rem; */
   }
-  .leftSubTitle,
-  .rightSubTitle {
-    /* left: 1rem; */
-  }
   .leftSubTitle h1,
   .rightSubTitle h1 {
     font-size: 2.5rem;

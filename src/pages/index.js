@@ -9,7 +9,7 @@ import MobileStatue from "../images/statue-mobile.svg";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { motion } from "framer-motion";
-import Cursor from "../images/cursor.svg"
+import Cursor from "../images/cursor.png"
 import FrontStatue from "../images/statue2bright.png"
 import BackStatue from "../images/statue2bg.png"
 import ContactProfile from "../Components/Profile"
@@ -233,10 +233,16 @@ const IndexPage = () => {
                     </main>
                 }
             />
-
+            {/* <Layout 
+            navbar={false}
+            fixedbg={false}
+            content={
+                <main></main>
+            }
+            /> */}
             <Layout
                 navbar={false}
-                fixedbg={true}
+                fixedbg={false}
 
                 content={
                     <main className={contact["page"]}>
