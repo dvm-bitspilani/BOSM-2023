@@ -40,11 +40,11 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
         zIndex: 1002,
         '&:hover': {
-          backgroundColor: '#333', 
+          backgroundColor: '#555', 
           color:'#fff'
         },
       }),
@@ -126,11 +126,11 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
         zIndex: 1001,
         '&:hover': {
-          backgroundColor: '#333', 
+          backgroundColor: '#555', 
           color:'#fff'
         },
       }),
@@ -208,10 +208,10 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
         '&:hover': {
-          backgroundColor: '#333', 
+          backgroundColor: '#555', 
           color:'#fff'
         },
       }),
