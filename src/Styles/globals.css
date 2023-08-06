@@ -14,6 +14,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
   user-select: none;
+  cursor: none;
 }
 /* :root{
     use variable here
@@ -93,6 +94,39 @@ body {
   top: 0;
   left: 0;
   transform: scale(1);
+}
+.blackScreen{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background: url(../images/red-bg.png);
+  background-size: cover;
+  animation: slideUp 2s ease 1 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blackScreen img{
+  scale: 1.5;
+  filter: drop-shadow(10px 10px 10px #000);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  40%{
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-100%);
+  }
 }
 @keyframes rotation {
   from {

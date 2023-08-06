@@ -4,10 +4,18 @@ import Logo from "../images/logo.svg";
 import { motion } from "framer-motion";
 import { navigate } from 'gatsby';
 
-const Navbar = () => {
+const Navbar = ({setRegPage , setShowBlackScreen}) => {
 
   const goToNextPage = () => {
-    navigate('/registration');
+    setShowBlackScreen(true);
+    setTimeout(() => {
+      setShowBlackScreen(false)
+      
+    }, 2000);
+    
+    setTimeout(() => {
+      setRegPage(true);
+    }, 1000); 
   };
   return (
     <React.Fragment>

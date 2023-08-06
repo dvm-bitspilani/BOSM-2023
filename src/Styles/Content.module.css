@@ -189,6 +189,7 @@ h2 {
   font-style: normal;
   font-weight: 700; 
   cursor: pointer;
+  transform: translateX(-2rem);
 }
 .regBox{
   min-height: 75%;
@@ -239,6 +240,9 @@ h2 {
 .nameLabel,.collegeLabel{
   margin-top: 0 !important;
 }
+.genderLabel{
+  margin-bottom: 1rem !important;
+}
 .btnContainer{
   margin: 3rem 0;
   display: flex;
@@ -278,6 +282,7 @@ input[type='radio'] {
   margin-left: -.25rem;
   display: flex;
   align-items: center;
+  height: 3rem;
 }
 .yearOfStudy input[type="radio"] + label {
   display: inline-block;
@@ -289,6 +294,11 @@ input[type='radio'] {
   font-size: 1.5rem;
   padding: 2px 1.25rem;
 }
+.disabledYearOfStudy {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 
 .yearOfStudy input[type="radio"]:hover + label {
   background-color: #fff;
@@ -353,6 +363,7 @@ input[type='radio'] {
   }
   .rpHeadingContainer h3{
     font-size: 2.5rem;
+    transform: translateX(0) !important;
   }
   .regForm label{
     font-size: 1.25rem;
@@ -406,10 +417,6 @@ input[type='radio'] {
   .rightSubTitle{
     bottom: 42%;
     /* right: 1rem; */
-  }
-  .leftSubTitle,
-  .rightSubTitle {
-    /* left: 1rem; */
   }
   .leftSubTitle h1,
   .rightSubTitle h1 {

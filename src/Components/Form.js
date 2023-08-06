@@ -2,14 +2,13 @@ import React, {useState , useEffect} from 'react';
 import cross from "../images/cross.svg";
 import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
-import { navigate } from 'gatsby';
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
 
-const Form = () => {
+const Form = ({setRegPage}) => {
 
     const goBack = () => {
-        navigate(-1);
+      setRegPage(false)
     };
   
     const customStyles = {
@@ -22,6 +21,8 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -38,13 +39,23 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
         zIndex: 1002,
+        '&:hover': {
+          backgroundColor: '#777', 
+          color:'#fff'
+        },
       }),
       menu:(provided) => ({
         ...provided ,
         zIndex:1002,
+        '&::-webkit-scrollbar': {
+          width: '1px', 
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: '#000',
+        },
       }),
       // multiValue: (provided) => ({
       //   ...provided,
@@ -96,6 +107,8 @@ const Form = () => {
           borderColor: 'white',
         },
         cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -112,9 +125,13 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
         zIndex: 1001,
+        '&:hover': {
+          backgroundColor: '#777', 
+          color:'#fff'
+        },
       }),
       menu:(provided) => ({
         ...provided ,
@@ -159,6 +176,85 @@ const Form = () => {
         zIndex: 1001,
       }),
     };
+    const customStyles3 = {
+      control: (provided, state) => ({
+        ...provided,
+        height: '3rem',
+        backgroundColor: 'transparent',
+        border: state.isFocused ? '2px solid white' : '2px solid white',
+        '&:hover': {
+          borderColor: 'white',
+        },
+        cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
+      }),
+      singleValue: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '.25rem',
+        zIndex: 1003,
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        color: state.isSelected ? '#ffd700' : '#111',
+        backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+        fontFamily: 'Montserrat',
+        fontSize: '1rem',
+        fontWeight: 500,
+        paddingLeft: '1rem',
+        zIndex: 1003,
+        '&:hover': {
+          backgroundColor: '#777', 
+          color:'#fff'
+        },
+      }),
+      menu:(provided) => ({
+        ...provided ,
+      }),
+      // multiValue: (provided) => ({
+      //   ...provided,
+      //   color: '#eee',
+      //   fontFamily: 'Montserrat',
+      //   fontSize: '1.8rem',
+      //   fontWeight: 700,
+      //   backgroundColor: '#ffd700',
+      //   paddingLeft: '1rem',
+      // }),
+      // multiValueRemove: (provided) => ({
+      //   ...provided,
+      //   color: 'black',
+      //   cursor: 'pointer',
+      //   // '&:hover': {
+      //   //   backgroundColor: 'black',
+      //   //   color: 'white',
+      //   // },
+      // }),
+      dropdownIndicator: (provided, state) => ({
+        ...provided,
+        color: 'white',
+        cursor: 'pointer',
+        zIndex: 1003,
+      }),
+      placeholder: () => ({ display: 'none' , zIndex: 1003, }),
+      container: (provided) => ({
+        ...provided,
+        overflow: 'visible',
+        zIndex: 1003,
+      }),
+      input: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '.25rem',
+        zIndex: 1003,
+      }),
+    };
     const customStylesMulti = {
       control: (provided, state) => ({
         ...provided,
@@ -169,6 +265,8 @@ const Form = () => {
         },
         cursor: 'text',
         overflow: 'hidden',
+        outline: 'none',
+        boxShadow : 'none',
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -180,7 +278,9 @@ const Form = () => {
       }),
       valueContainer:(provided)=>({
         ...provided,
-        padding:'0px 8px'
+        padding:'0px 8px',
+        alignItems:'',
+        webkitAlignItems:''
       }),
       option: (provided, state) => ({
         ...provided,
@@ -188,8 +288,12 @@ const Form = () => {
         backgroundColor: state.isSelected ? 'transparent' : 'transparent',
         fontFamily: 'Montserrat',
         fontSize: '1rem',
-        fontWeight: 600,
+        fontWeight: 500,
         paddingLeft: '1rem',
+        '&:hover': {
+          backgroundColor: '#777', 
+          color:'#fff'
+        },
       }),
       multiValue: (provided) => ({
         ...provided,
@@ -199,6 +303,7 @@ const Form = () => {
         fontWeight: 700,
         backgroundColor: '#fff',
         paddingLeft: '.25rem',
+        alignItems :'center',
       }),
       multiValueRemove: (provided) => ({
         ...provided,
@@ -251,6 +356,14 @@ const Form = () => {
       {value:"Bangalore" , label: "Bangalore"},
       {value:"Kolkata" , label: "Kolkata"},
     ];
+    const stateOptions = [
+      {value:"Haryana" , label: "Haryana"},
+      {value:"Punjab" , label: "Punjab"},
+      {value:"Bihar" , label: "Bihar"},
+      {value:"Assam" , label: "Assam"},
+      {value:"Maharashtra" , label: "Maharashtra"},
+      {value:"Kerala" , label: "Kolkata"},
+    ];
   
     useEffect(() => {
       const fetchCollegeOptions = async () => {
@@ -277,6 +390,18 @@ const Form = () => {
       //   }
       // };
   
+      // const fetchStateOptions = async () => {
+      //   try {
+      //     const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
+      //     const data = await response.json();
+      //     // console.log(data)
+      //     // console.log(convertApiFormat(data))
+      //     const convertedOptions = convertApiFormat(data);
+      //     setSportsOptions(convertedOptions);
+      //   } catch (error) {
+      //     console.error('Error fetching sports:', error);
+      //   }
+      // };
       const fetchSportsOptions = async () => {
         try {
           const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
@@ -292,22 +417,29 @@ const Form = () => {
   
       fetchCollegeOptions();
       // fetchCityOptions();
+      // fetchStateOptions();
       fetchSportsOptions();
     }, []);
 
 
     const isFormFilled = () => {
-      const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'sports', 'year_of_study'];
-  
+      const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'state', 'sports' , 'year_of_study'];
+      const missingFields = [];
+    
       for (const field of requiredFields) {
         const value = formData[field];
         if (Array.isArray(value) && value.length === 0) {
-          return false;
+          missingFields.push(field);
         } else if (!Array.isArray(value) && (!value || value === '')) {
-          return false;
+          missingFields.push(field);
         }
       }
-  
+    
+      if (missingFields.length > 0) {
+        // console.log("Missing fields:", missingFields);
+        return false;
+      }
+    
       return true;
     };
     const isValidEmail = (email) => {
@@ -328,7 +460,8 @@ const Form = () => {
       college_id: '',
       city: '',
       sports: [],
-      year_of_study: '',
+      year_of_study: '0',
+      is_coach:false
     });
     const changeKeyName = (formData) => {
       const updatedFormData = { ...formData };
@@ -360,11 +493,18 @@ const Form = () => {
     
       setFormData(updatedFormData);
     };
+
+    const [isCoach, setIsCoach] = useState(false);
+
       
     const handleChange2 = (event) => {
       const { id, value, name, type } = event.target;
       const updatedFormData = { ...formData };
-    
+      updatedFormData["is_coach"] = isCoach;
+      if (name === 'is_coach') {
+        setIsCoach(value === 'true');
+        updatedFormData["is_coach"] = value === 'true';
+      }
       if (type === 'radio') {
         updatedFormData[name] = value;
       } else if (type === 'checkbox') {
@@ -379,9 +519,11 @@ const Form = () => {
       } else {
         updatedFormData[id] = value.trim();
       }
-    
+      updatedFormData["is_coach"] = isCoach;
       setFormData(updatedFormData);
     };
+
+
     const handleChangeMulti = (selectedOptions, { name }) => {
       const updatedFormData = { ...formData };
       updatedFormData[name] = selectedOptions ? selectedOptions.map(option => option.value) : [];
@@ -391,6 +533,11 @@ const Form = () => {
  
     const submitFormData = async (data) => {
       try {
+
+        if (data.is_coach) {
+          data.year_of_study = "0"; 
+        }
+    
         const response = await fetch('https://bitsbosm.org/2023/registrations/register/', {
           method: 'POST',
           headers: {
@@ -404,22 +551,24 @@ const Form = () => {
           alert("Your Registration is completed!");
         } else {
           console.error('Error submitting form data:', response.status, response.statusText);
-          alert("There was some error submittion you request. Please try again!")
+          alert("There was some error submitting your request. Please try again!");
         }
       } catch (error) {
         console.error('Error submitting form data:', error);
-        alert("There was some error submittion you request. Please try again!")
+        alert("There was some error submitting your request. Please try again!");
       }
     };
     
+    
     const handleRegistration = () => {
+      // console.log('Form Data:', changeKeyName(formData));
       if (isFormFilled(formData)) {
         if (!isValidEmail(formData.email_id)) {
           alert('Invalid email address.');
         } else if (!isValidPhoneNumber(formData.phone)) {
           alert('Invalid phone number. Please enter digits only.');
         } else {
-          console.log('Form Data:', changeKeyName(formData));
+          // console.log('Form Data:', changeKeyName(formData));
           submitFormData(changeKeyName(formData))
         }
       } else {
@@ -450,12 +599,7 @@ const Form = () => {
 
                 <label htmlFor='gender' className={styles["genderLabel"]}>Gender</label>
                 <div className={styles["radioBtns"]}>
-                    {/* <input id='genderM' type='radio' name='gender' value="Male" onChange={handleChange2}  />
-                    <label htmlFor='genderM'>Male</label>
-                    <input id='genderF' type='radio' name='gender' value="Female"  onChange={handleChange2} />
-                    <label htmlFor='genderF'>Female</label>
-                    <input id='genderO' type='radio' name='gender' value="Others"  onChange={handleChange2} />
-                    <label htmlFor='genderO'>Others</label> */}
+
                     <RadioButton
                       name="gender"
                       id="M"
@@ -478,28 +622,51 @@ const Form = () => {
                       onChange={handleChange2}
                     />
                 </div>
+
+                <label htmlFor='is_coach' >Are You a Coach?</label>
+                <div className={styles["radioBtns"]}>
+                    <RadioButton
+                      name="is_coach"
+                      id="true"
+                      value={true}
+                      text="Yes"
+                      onChange={handleChange2}
+                      checked={isCoach}
+                    />
+                    <RadioButton
+                      name="is_coach"
+                      id="false"
+                      value={false}
+                      text="No"
+                      onChange={handleChange2}
+                      checked={!isCoach}
+                    />
+                </div>
             </div>
             <div className={styles["formMultiInput"]}>
                 <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
-                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles}  />
+                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3}  />
 
                 <label htmlFor='city'>City</label>
-                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
+                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles}  />
+
+                <label htmlFor='state'>State</label>
+                <Select options={stateOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'state' })} styles={customStyles2}  />
 
                 <label htmlFor='sports'>Sports</label>
                 <Select options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
 
                 <label htmlFor='year_of_study'>Year Of Study</label>
-                <div className={styles["yearOfStudy"]}>
-                    <input id='year_of_study1' type='radio' name='year_of_study' value="1" onChange={handleChange2}  />
+                <div className={`${styles["yearOfStudy"]} ${isCoach ? styles["disabledYearOfStudy"] : ""}`}>
+                    <input id='year_of_study1' type='radio' name='year_of_study' value="1" onChange={handleChange2} disabled={isCoach} checked={isCoach ? false : formData.year_of_study === '1'}  />
                     <label htmlFor='year_of_study1'>1</label>
-                    <input id='year_of_study2' type='radio' name='year_of_study' value="2" onChange={handleChange2}  />
+                    <input id='year_of_study2' type='radio' name='year_of_study' value="2" onChange={handleChange2} disabled={isCoach} checked={isCoach ? false : formData.year_of_study === '2'}  />
                     <label htmlFor='year_of_study2'>2</label>
-                    <input id='year_of_study3' type='radio' name='year_of_study' value="3" onChange={handleChange2}  />
+                    <input id='year_of_study3' type='radio' name='year_of_study' value="3" onChange={handleChange2} disabled={isCoach} checked={isCoach ? false : formData.year_of_study === '3'}  />
                     <label htmlFor='year_of_study3'>3</label>
-                    <input id='year_of_study4' type='radio' name='year_of_study' value="4" onChange={handleChange2}  />
+                    <input id='year_of_study4' type='radio' name='year_of_study' value="4" onChange={handleChange2} disabled={isCoach} checked={isCoach ? false : formData.year_of_study === '4'}  />
                     <label htmlFor='year_of_study4'>4</label>
-                    <input id='year_of_study5' type='radio' name='year_of_study' value="5" onChange={handleChange2}  />
+                    <input id='year_of_study5' type='radio' name='year_of_study' value="5" onChange={handleChange2} disabled={isCoach} checked={isCoach ? false : formData.year_of_study === '5'}  />
                     <label htmlFor='year_of_study5'>5</label>
                 </div>
             </div>

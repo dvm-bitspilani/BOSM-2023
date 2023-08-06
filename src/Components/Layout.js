@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import "../Styles/globals.css";
 import { motion } from "framer-motion";
 
-const Layout = ({ content,fixedbg, navbar }) => {
+const Layout = ({ content,fixedbg, navbar , setRegPage , setShowBlackScreen}) => {
   return (
     <section className="layout-section">
       {fixedbg && <div className="fixed-bg">
@@ -33,7 +33,7 @@ const Layout = ({ content,fixedbg, navbar }) => {
           // }}
         />{" "}
       </div>}
-      {navbar && <Navbar />}
+      {navbar && <Navbar setRegPage={setRegPage} setShowBlackScreen={setShowBlackScreen} />}
       <React.Fragment>{content}</React.Fragment>
     </section>
   );
