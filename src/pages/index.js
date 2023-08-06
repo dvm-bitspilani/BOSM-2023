@@ -14,6 +14,8 @@ import FrontStatue from "../images/statue2bright.png"
 import BackStatue from "../images/statue2bg.png"
 import ContactProfile from "../Components/Profile"
 import BackStatueMobile from "../images/statue2bg_mobile.png"
+import logo from "../images/logo.svg"
+import Form from "../Components/Form"
 
 
 const IndexPage = () => {
@@ -122,16 +124,21 @@ const IndexPage = () => {
         };
     }, [])
 
+    const [regPage, setRegPage] = useState(false);
+    const [showBlackScreen, setShowBlackScreen] = useState(false);
 
     return (
         <>
-            <Layout
+            <div className="cursor" id="cursor"></div>
+            <div className="cursorFollower" id="cursorFollower"><img id="cursorImg" src={Cursor}></img></div>
+            {showBlackScreen && <div className="blackScreen"><img src={logo} /></div>}
+            {!regPage && <Layout
+                setRegPage={setRegPage}
+                setShowBlackScreen={setShowBlackScreen}
                 navbar={true}
                 fixedbg={true}
                 content={
                     <main>
-                        <div className="cursor" id="cursor"></div>
-                        <div className="cursorFollower" id="cursorFollower"><img id="cursorImg" src={Cursor}></img></div>
                         <motion.div className={styles["statueContainer"]}
                             initial={{ y: [600] }}
                             animate={{ y: [600, 0] }}
@@ -232,7 +239,7 @@ const IndexPage = () => {
                         </div>
                     </main>
                 }
-            />
+            />}
             {/* <Layout 
             navbar={false}
             fixedbg={false}
@@ -240,7 +247,7 @@ const IndexPage = () => {
                 <main></main>
             }
             /> */}
-            <Layout
+            {!regPage && <Layout
                 navbar={false}
                 fixedbg={false}
 
@@ -255,7 +262,7 @@ const IndexPage = () => {
                             </div>
                             <div className={contact["backStatueMobile"]} style={{ backgroundImage: `url(${BackStatueMobile})` }}></div>
                             <div className={contact["content"]}>
-                                
+
                                 <div className={contact["contentContainer"]}>
                                     <div className={contact["title"]}>CONTACT US</div>
                                     <div className={contact["cardsContainer"]}>
@@ -274,7 +281,12 @@ const IndexPage = () => {
                         </div>
                     </main>
                 }
-            />
+            />}
+            {regPage && <Layout
+                navbar={false}
+                fixedbg={false}
+                content={<Form setRegPage={setRegPage} />}
+            />}
         </>
     );
 };
@@ -284,5 +296,5 @@ export default IndexPage;
 export const Head = () =>
     <>
         <title>BOSM '23 | The Roar of Resilience</title>
-        <link rel="icon" type="image/x-icon" href="../images/icon.png" />
+        <link rel="icon" type="image/x-icon" href={logo} />
     </>;

@@ -2,14 +2,13 @@ import React, {useState , useEffect} from 'react';
 import cross from "../images/cross.svg";
 import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
-import { navigate } from 'gatsby';
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
 
-const Form = () => {
+const Form = ({setRegPage}) => {
 
     const goBack = () => {
-        navigate(-1);
+      setRegPage(false)
     };
   
     const customStyles = {
@@ -600,12 +599,7 @@ const Form = () => {
 
                 <label htmlFor='gender' className={styles["genderLabel"]}>Gender</label>
                 <div className={styles["radioBtns"]}>
-                    {/* <input id='genderM' type='radio' name='gender' value="Male" onChange={handleChange2}  />
-                    <label htmlFor='genderM'>Male</label>
-                    <input id='genderF' type='radio' name='gender' value="Female"  onChange={handleChange2} />
-                    <label htmlFor='genderF'>Female</label>
-                    <input id='genderO' type='radio' name='gender' value="Others"  onChange={handleChange2} />
-                    <label htmlFor='genderO'>Others</label> */}
+
                     <RadioButton
                       name="gender"
                       id="M"
