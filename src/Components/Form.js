@@ -177,6 +177,85 @@ const Form = () => {
         zIndex: 1001,
       }),
     };
+    const customStyles3 = {
+      control: (provided, state) => ({
+        ...provided,
+        height: '3rem',
+        backgroundColor: 'transparent',
+        border: state.isFocused ? '2px solid white' : '2px solid white',
+        '&:hover': {
+          borderColor: 'white',
+        },
+        cursor: 'text',
+        outline: 'none',
+        boxShadow : 'none',
+      }),
+      singleValue: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '.25rem',
+        zIndex: 1003,
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        color: state.isSelected ? '#ffd700' : '#111',
+        backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+        fontFamily: 'Montserrat',
+        fontSize: '1rem',
+        fontWeight: 500,
+        paddingLeft: '1rem',
+        zIndex: 1003,
+        '&:hover': {
+          backgroundColor: '#777', 
+          color:'#fff'
+        },
+      }),
+      menu:(provided) => ({
+        ...provided ,
+      }),
+      // multiValue: (provided) => ({
+      //   ...provided,
+      //   color: '#eee',
+      //   fontFamily: 'Montserrat',
+      //   fontSize: '1.8rem',
+      //   fontWeight: 700,
+      //   backgroundColor: '#ffd700',
+      //   paddingLeft: '1rem',
+      // }),
+      // multiValueRemove: (provided) => ({
+      //   ...provided,
+      //   color: 'black',
+      //   cursor: 'pointer',
+      //   // '&:hover': {
+      //   //   backgroundColor: 'black',
+      //   //   color: 'white',
+      //   // },
+      // }),
+      dropdownIndicator: (provided, state) => ({
+        ...provided,
+        color: 'white',
+        cursor: 'pointer',
+        zIndex: 1003,
+      }),
+      placeholder: () => ({ display: 'none' , zIndex: 1003, }),
+      container: (provided) => ({
+        ...provided,
+        overflow: 'visible',
+        zIndex: 1003,
+      }),
+      input: (provided) => ({
+        ...provided,
+        color: '#eee',
+        fontFamily: 'Montserrat',
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        paddingLeft: '.25rem',
+        zIndex: 1003,
+      }),
+    };
     const customStylesMulti = {
       control: (provided, state) => ({
         ...provided,
@@ -200,7 +279,9 @@ const Form = () => {
       }),
       valueContainer:(provided)=>({
         ...provided,
-        padding:'0px 8px'
+        padding:'0px 8px',
+        alignItems:'',
+        webkitAlignItems:''
       }),
       option: (provided, state) => ({
         ...provided,
@@ -223,6 +304,7 @@ const Form = () => {
         fontWeight: 700,
         backgroundColor: '#fff',
         paddingLeft: '.25rem',
+        alignItems :'center',
       }),
       multiValueRemove: (provided) => ({
         ...provided,
@@ -569,10 +651,10 @@ const Form = () => {
             </div>
             <div className={styles["formMultiInput"]}>
                 <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
-                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles}  />
+                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3}  />
 
                 <label htmlFor='city'>City</label>
-                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
+                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles}  />
 
                 <label htmlFor='state'>State</label>
                 <Select options={stateOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'state' })} styles={customStyles2}  />
