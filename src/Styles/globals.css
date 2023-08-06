@@ -18,6 +18,9 @@
 /* :root{
     use variable here
 } */
+body {
+  width: calc(100vw - (100vw - 100%));
+}
 .layout-section {
   width: 100vw;
   height: 100vh;
