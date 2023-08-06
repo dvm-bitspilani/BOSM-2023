@@ -72,10 +72,10 @@
     padding-right: 2.5rem;
     font-size: 1.5rem;
   }
-  .registerBtn {
+  /* .registerBtn {
     top: 27.5%;
     padding: 0.75rem 2rem;
-  }
+  } */
 }
 @media (max-width: 1200px) {
   .navLogo img {
@@ -85,12 +85,12 @@
     padding-right: 2.25rem;
     font-size: 1.4rem;
   }
-  .registerBtn {
+  /* .registerBtn {
     top: 31.5%;
     padding: 0.5rem 1.75rem;
-  }
+  } */
   .registerBtn p {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 @media (max-width: 1080px) {
@@ -98,12 +98,19 @@
     padding-right: 2rem;
     font-size: 1.15rem;
   }
-  .registerBtn {
+  /* .registerBtn {
     padding: 0.5rem 1.25rem;
+  } */
+  .registerBtn p {
+    font-size: 0.95rem;
   }
 }
 @media (max-width: 920px) {
   .navLinks {
     display: none;
   }
+  .registerBtn p{
+    font-size: 0.95rem;
+  }
 }
+

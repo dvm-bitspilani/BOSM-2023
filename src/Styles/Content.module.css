@@ -12,7 +12,7 @@ main {
 }
 .heading {
   text-align: center;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
   margin-top: -2rem;
   position: absolute;
   z-index: 10;
@@ -27,6 +27,7 @@ main {
   line-height: normal;
   letter-spacing: 8.432px;
   z-index: 10;
+  padding-inline: 1rem;
 }
 .heroWrapper {
   display: flex;
@@ -79,9 +80,11 @@ main {
 }
 .leftLion img {
   height: 75vh;
+  aspect-ratio: 119/135;
 }
 .rightLion img {
   height: 65vh;
+  aspect-ratio: 197/198;
 }
 .countDown {
   position: absolute;
@@ -402,7 +405,7 @@ input[type='radio'] {
   }
   .rightSubTitle{
     bottom: 42%;
-    right: 1rem;
+    /* right: 1rem; */
   }
   .leftSubTitle,
   .rightSubTitle {
@@ -488,6 +491,15 @@ input[type='radio'] {
   }
 }
 
+@media (max-width : 711px){
+  .countDown{
+    display: none;
+  }
+  .heading h1{
+    font-size: 18vw;
+  }
+}
+
 @media (max-width: 580px){
   .rpHeadingContainer{
     padding: 1% 1rem;
@@ -498,6 +510,20 @@ input[type='radio'] {
   .rpHeadingContainer h3{
     font-size: 1.75rem;
     font-weight: 400;
+  }
+  .leftLion img, .rightLion img{
+    width: 100%;
+    height: auto;
+  }
+  .leftSubTitle h1,
+  .rightSubTitle h1 {
+    font-size: 1.75rem;
+  }
+  .leftSubTitle h2 {
+    font-size: 2.5rem;
+  }
+  .rightSubTitle h2 {
+    font-size: 1.75rem;
   }
 }
 @media (max-width: 500px){
