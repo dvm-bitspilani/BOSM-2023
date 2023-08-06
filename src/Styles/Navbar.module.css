@@ -34,7 +34,16 @@
   position: absolute;
   left: 3%;
   top: 0;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
 }
+
+.navLogo img {
+  filter: drop-shadow(10px 10px 10px #000);
+  transform: scale(1);
+  transition: 0.5s;
+}
+
 .registerBtn {
   cursor: none;
   position: absolute;
