@@ -330,6 +330,14 @@ const Form = () => {
       sports: [],
       year_of_study: '',
     });
+    const changeKeyName = (formData) => {
+      const updatedFormData = { ...formData };
+    
+      updatedFormData['sports_ids'] = updatedFormData['sports'];
+      delete updatedFormData['sports'];
+    
+      return updatedFormData;
+    };
     const handleChange = (selectedOption, { id, name, type }) => {
       const updatedFormData = { ...formData };
     
@@ -411,8 +419,8 @@ const Form = () => {
         } else if (!isValidPhoneNumber(formData.phone)) {
           alert('Invalid phone number. Please enter digits only.');
         } else {
-          console.log('Form Data:', formData);
-          submitFormData(formData)
+          console.log('Form Data:', changeKeyName(formData));
+          submitFormData(changeKeyName(formData))
         }
       } else {
         alert('Please fill in all required fields.');
