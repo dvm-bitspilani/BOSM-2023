@@ -175,6 +175,9 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+.rpHeadingContainer img{
+  scale: 0.75;
+}
 .rpHeadingContainer h3{
   color: #F5F5F5;
   text-align: center;
@@ -215,7 +218,7 @@ h2 {
 .regInput{
   outline: none;
   border: 2px solid #fff;
-  border-radius: 2px;
+  border-radius: 4px;
   background: transparent;
   height: 3rem;
   color: #eee;
