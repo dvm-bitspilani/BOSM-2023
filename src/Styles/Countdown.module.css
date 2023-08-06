@@ -1,61 +1,71 @@
 .countdown {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    color: #eee;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+}
+
+.label {
+  gap: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8rem 0.4rem;
+  align-items: center;
+}
+
+.numbers {
+  color: #e9faff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 5.4px;
+}
+
+.card-flip {
+  animation: card-flip 0.6s;
+}
+
+.labels {
+  color: #e9faff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@keyframes card-flip {
+  0% {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: rotateX(0deg);
   }
-  
-  .label {
-    gap: 0.4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0.8rem 0.4rem;
-    align-items: center;
+
+  50% {
+    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transform: rotateX(180deg);
   }
-  
-  .numbers {
-    color: #E9FAFF;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-size: 2.25rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    letter-spacing: 5.4px;
+
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+    transform: rotateX(360deg);
   }
-  
-  .card-flip {
-    animation: card-flip 0.6s;
+}
+
+@media screen and (max-width: 920px) {
+  .countdown{
+    gap: 0.5rem;
   }
-  
-  .labels {
-    color: #E9FAFF;
-    text-align: center;
-    font-family: 'Montserrat';
+  .numbers{
+    font-size: 1.5rem;
+  }
+  .labels{
     font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
-  
-  @keyframes card-flip {
-    0% {
-      background-color: rgba(255, 255, 255, 0.4);
-      transform: rotateX(0deg);
-    }
-  
-    50% {
-      background-color: rgba(255, 255, 255, 0.4);
-      opacity: 0;
-      transform: rotateX(180deg);
-    }
-  
-    100% {
-      background-color: rgba(255, 255, 255, 0);
-      transform: rotateX(360deg);
-    }
-  }
-  
-  
+}

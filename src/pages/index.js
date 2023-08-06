@@ -5,6 +5,7 @@ import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
 import * as contact from '../Styles/Contact.module.css'
 import Statue from "../images/statue.svg";
+import MobileStatue from "../images/statue-mobile.svg";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { motion } from "framer-motion";
@@ -140,7 +141,8 @@ const IndexPage = () => {
                                 ease: "easeInOut",
                                 times: [0, 1],
                             }}>
-                            <img src={Statue} className={styles["statue"]} />
+                            <img src={Statue} className={`${styles["statue"]} ${styles["desktopStatue"]}`} />
+                            <img src={MobileStatue} className={`${styles["statue"]} ${styles["mobileStatue"]}`} />
                         </motion.div>
                         <motion.div className={styles["leftLion"]}
                             initial={{ opacity: [0], x: [100] }}
