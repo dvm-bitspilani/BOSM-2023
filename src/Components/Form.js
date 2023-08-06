@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState , useEffect} from 'react';
 import cross from "../images/cross.svg";
 import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
@@ -82,7 +82,7 @@ const Form = () => {
         fontFamily: 'Montserrat',
         fontSize: '1.5rem',
         fontWeight: 700,
-        paddingLeft: '1rem',
+        paddingLeft: '.25rem',
         zIndex: 1002,
       }),
     };
@@ -155,7 +155,7 @@ const Form = () => {
         fontFamily: 'Montserrat',
         fontSize: '1.5rem',
         fontWeight: 700,
-        paddingLeft: '1rem',
+        paddingLeft: '.25rem',
         zIndex: 1001,
       }),
     };
@@ -228,42 +228,73 @@ const Form = () => {
     };
 
     function convertApiFormat(apiResponse) {
-      const result = {};
-    
-      apiResponse.forEach((sport) => {
-        const { id, name } = sport;
-        if (!result[name]) {
-          result[name] = { value: id, label: name };
-        }
-      });
-      const convertedArray = Object.values(result);
-    
-      return convertedArray;
+      if (apiResponse && apiResponse.data && Array.isArray(apiResponse.data)) {
+        return apiResponse.data.map((item) => ({
+          label: item.name,
+          value: item.id,
+        }));
+      } else {
+        return [];
+      }
     }
     
-  
-    const collegeOptions = [
-      {id:1 , name: "IIT Bombay"},
-      {id:2 , name: "IIT Delhi"},
-      {id:3 , name: "IIT Madras"},
-      {id:4 , name: "BITS Pilani"},
-    ];
+
+    const [collegeOptions, setCollegeOptions] = useState([]);
+    // const [cityOptions, setCityOptions] = useState([]);
+    const [sportsOptions, setSportsOptions] = useState([]);
+
     const cityOptions = [
-      {id:1 , name: "Bombay"},
-      {id:2 , name: "Delhi"},
-      {id:3 , name: "Madras"},
-      {id:4 , name: "Pilani"},
+      {value:"Bombay" , label: "Bombay"},
+      {value:"Delhi" , label: "Delhi"},
+      {value:"Madras" , label: "Madras"},
+      {value:"Pilani" , label: "Pilani"},
+      {value:"Bangalore" , label: "Bangalore"},
+      {value:"Kolkata" , label: "Kolkata"},
     ];
-    const sportsOptions = [
-      {id:1 , name: "Athletics"},
-      {id:2 , name: "Cricket"},
-      {id:3 , name: "Basketball"},
-      {id:4 , name: "Hockey"},
-      {id:5 , name: "Athletics"},
-      {id:6 , name: "Cricket"},
-      {id:7 , name: "Basketball"},
-      {id:8 , name: "Hockey"},
-    ];
+  
+    useEffect(() => {
+      const fetchCollegeOptions = async () => {
+        try {
+          const response = await fetch('https://bitsbosm.org/2023/registrations/get_colleges/');
+          const data = await response.json();
+          // console.log(data)
+          // console.log(convertApiFormat(data))
+          const convertedOptions = convertApiFormat(data);
+          setCollegeOptions(convertedOptions);
+        } catch (error) {
+          console.error('Error fetching colleges:', error);
+        }
+      };
+  
+      // const fetchCityOptions = async () => {
+      //   try {
+      //     const response = await fetch('API_ENDPOINT_FOR_CITIES');
+      //     const data = await response.json();
+      //     const convertedOptions = convertApiFormat(data);
+      //     setCityOptions(convertedOptions);
+      //   } catch (error) {
+      //     console.error('Error fetching cities:', error);
+      //   }
+      // };
+  
+      const fetchSportsOptions = async () => {
+        try {
+          const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
+          const data = await response.json();
+          // console.log(data)
+          // console.log(convertApiFormat(data))
+          const convertedOptions = convertApiFormat(data);
+          setSportsOptions(convertedOptions);
+        } catch (error) {
+          console.error('Error fetching sports:', error);
+        }
+      };
+  
+      fetchCollegeOptions();
+      // fetchCityOptions();
+      fetchSportsOptions();
+    }, []);
+
 
     const isFormFilled = () => {
       const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'sports', 'year_of_study'];
@@ -299,6 +330,14 @@ const Form = () => {
       sports: [],
       year_of_study: '',
     });
+    const changeKeyName = (formData) => {
+      const updatedFormData = { ...formData };
+    
+      updatedFormData['sports_ids'] = updatedFormData['sports'];
+      delete updatedFormData['sports'];
+    
+      return updatedFormData;
+    };
     const handleChange = (selectedOption, { id, name, type }) => {
       const updatedFormData = { ...formData };
     
@@ -350,6 +389,29 @@ const Form = () => {
     };
     
  
+    const submitFormData = async (data) => {
+      try {
+        const response = await fetch('https://bitsbosm.org/2023/registrations/register/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+    
+        if (response.ok) {
+          console.log('Form data submitted successfully!');
+          alert("Your Registration is completed!");
+        } else {
+          console.error('Error submitting form data:', response.status, response.statusText);
+          alert("There was some error submittion you request. Please try again!")
+        }
+      } catch (error) {
+        console.error('Error submitting form data:', error);
+        alert("There was some error submittion you request. Please try again!")
+      }
+    };
+    
     const handleRegistration = () => {
       if (isFormFilled(formData)) {
         if (!isValidEmail(formData.email_id)) {
@@ -357,7 +419,8 @@ const Form = () => {
         } else if (!isValidPhoneNumber(formData.phone)) {
           alert('Invalid phone number. Please enter digits only.');
         } else {
-          console.log('Form Data:', formData);
+          console.log('Form Data:', changeKeyName(formData));
+          submitFormData(changeKeyName(formData))
         }
       } else {
         alert('Please fill in all required fields.');
@@ -395,22 +458,22 @@ const Form = () => {
                     <label htmlFor='genderO'>Others</label> */}
                     <RadioButton
                       name="gender"
-                      id="Male"
-                      value="Male"
+                      id="M"
+                      value="M"
                       text="Male"
                       onChange={handleChange2}
                     />
                     <RadioButton
                       name="gender"
-                      id="Female"
-                      value="Female"
+                      id="F"
+                      value="F"
                       text="Female"
                       onChange={handleChange2}
                     />
                     <RadioButton
                       name="gender"
-                      id="Other"
-                      value="Other"
+                      id="O"
+                      value="O"
                       text="Other"
                       onChange={handleChange2}
                     />
@@ -418,13 +481,13 @@ const Form = () => {
             </div>
             <div className={styles["formMultiInput"]}>
                 <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
-                <Select options={convertApiFormat(collegeOptions)} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles}  />
+                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles}  />
 
                 <label htmlFor='city'>City</label>
-                <Select options={convertApiFormat(cityOptions)} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
+                <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2}  />
 
                 <label htmlFor='sports'>Sports</label>
-                <Select options={convertApiFormat(sportsOptions)} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
+                <Select options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
 
                 <label htmlFor='year_of_study'>Year Of Study</label>
                 <div className={styles["yearOfStudy"]}>
