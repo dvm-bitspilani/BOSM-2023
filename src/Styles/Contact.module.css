@@ -10,6 +10,7 @@
 
 .pageBackground {
     max-height: 100vh;
+    position: relative;
 }
 
 .backStatue,
@@ -25,14 +26,17 @@
     overflow: hidden;
     bottom: -100vh;
     z-index: 0;
+    bottom: 0;
 }
 
 .frontStatue {
-    left: 10vw;
+    left: 19vw;
     overflow: hidden;
     height: 80vh;
     bottom: -100vh;
     z-index: 10;
+    bottom: 0;
+    scale: 1;
 }
 
 .container {
@@ -62,8 +66,8 @@
     font-weight: 700;
     letter-spacing: 0.23vh;
     color: white;
-    margin-bottom: 3vh;
-    padding-top: 6vh;
+    /* margin-bottom: 3vh; */
+    padding-top: 3vh;
 }
 
 .profileContainer{
@@ -92,6 +96,7 @@
     word-wrap: break-word;
     font-family: Montserrat;
     font-weight: 700;
+    text-align: center;
 }
 
 .profileName{
@@ -101,7 +106,6 @@
     font-weight: 600;
     margin-block: 0.4vh;
 }
-
 .profileDept,
 .profileEmail,
 .profilePhone{
@@ -112,12 +116,18 @@
 
 }
 
+.profileEmail img{
+    width: 30px;
+}
+
 .cardsContainer{
     width: 100%;
     display: grid;
     /* border: solid blue; */
     grid-template-columns: auto auto auto;
     /* grid-column-gap: min(5rem, 27vh); */
+    padding: 4vh;
+    padding-block: 2vh;
 }
 
 .contentContainer{
@@ -129,6 +139,17 @@
 }
 
 @media only screen and (max-width: 1000px) {
+    .layout-section{
+        min-height: 100vh;
+        height: auto;
+    }
+    .page{
+        height: auto;
+    }
+    .container{
+        height: auto;
+    }
+
     .frontStatue {
         display: none;
     }
@@ -159,14 +180,22 @@
         background-position: center;
     }
 
-    .content{
+    /* .content{
         position: relative;
         z-index: 2;
         overflow: auto;
-    }
-
+        min-height: 100vh;
+    } */
+.content{
+    height: auto;
+    overflow: hidden;
+}
     .contentContainer{
         padding: 0;
+        /* min-height: 100vh; */
+
+        /* overflow-y: auto; */
+        height: auto;
     }
 
     .cardsContainer{
@@ -177,6 +206,8 @@
         justify-content: space-evenly;
         align-items: center;
         column-gap: 0;
+        /* min-height: 100vh; */
+        height: auto;
     }
 
     .profileContainer{
@@ -192,5 +223,15 @@
 
 }
 @media (max-width: 480px){
-
+    
+}
+@media (max-width: 280px){
+    .profileName{
+        font-size: 1.8vh;
+    }
+}
+@media (max-width: 1110px){
+    .frontStatue{
+        left: 16vw;
+    }
 }
