@@ -162,8 +162,6 @@ const Form = () => {
     const customStylesMulti = {
       control: (provided, state) => ({
         ...provided,
-        height: 'auto',
-        minHeight: '3rem',
         backgroundColor: 'transparent',
         border: state.isFocused ? '2px solid white' : '2px solid white',
         '&:hover': {
@@ -179,6 +177,10 @@ const Form = () => {
         fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '1rem',
+      }),
+      valueContainer:(provided)=>({
+        ...provided,
+        padding:'0px 8px'
       }),
       option: (provided, state) => ({
         ...provided,
@@ -220,7 +222,7 @@ const Form = () => {
         fontSize: '1.8rem',
         fontWeight: 700,
         paddingLeft: '1rem',
-        minHeight: '3rem',
+        // height: '3rem',
         overflow: 'hidden',
       }),
     };
@@ -383,7 +385,7 @@ const Form = () => {
                 <label htmlFor='phone'>Phone</label>
                 <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10"  />
 
-                <label htmlFor='gender'>Gender</label>
+                <label htmlFor='gender' className={styles["genderLabel"]}>Gender</label>
                 <div className={styles["radioBtns"]}>
                     {/* <input id='genderM' type='radio' name='gender' value="Male" onChange={handleChange2}  />
                     <label htmlFor='genderM'>Male</label>

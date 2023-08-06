@@ -27,10 +27,9 @@
   
   .custom-radio {
     left: -8px;
-    top: 6px;
     cursor: pointer;
-    width: 2rem;
-    height: 2rem;
+    width: 1.4rem;
+    height: 1.4rem;
     border: 2px solid #fff;
     border-radius: 50%;
     display: inline-block;
@@ -39,8 +38,8 @@
   
   .custom-radio::after {
     content: '';
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
     background: #fff;
     position: absolute;
     border-radius: 50%;
@@ -49,6 +48,9 @@
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.1s;
+  }
+  .genderLabel{
+    margin-bottom: 1rem;
   }
   @media (max-width: 1200px) {
     .custom-radio{
