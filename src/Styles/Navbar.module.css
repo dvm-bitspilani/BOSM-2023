@@ -79,7 +79,7 @@
 }
 @media (max-width: 1200px) {
   .navLogo img {
-    transform: scale(0.75);
+    transform: scale(0.7);
   }
   .navLinks {
     padding-right: 2.25rem;
@@ -108,6 +108,12 @@
 @media (max-width: 920px) {
   .navLinks {
     display: none;
+  }
+  .navLogo img{
+    transform: scale(0.6);
+  }
+  .navbarContainer{
+    height: 100px;
   }
   .registerBtn p{
     font-size: 0.95rem;
