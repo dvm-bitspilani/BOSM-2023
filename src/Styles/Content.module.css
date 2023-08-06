@@ -282,6 +282,7 @@ input[type='radio'] {
   margin-left: -.25rem;
   display: flex;
   align-items: center;
+  height: 3rem;
 }
 .yearOfStudy input[type="radio"] + label {
   display: inline-block;
@@ -293,6 +294,11 @@ input[type='radio'] {
   font-size: 1.5rem;
   padding: 2px 1.25rem;
 }
+.disabledYearOfStudy {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 
 .yearOfStudy input[type="radio"]:hover + label {
   background-color: #fff;
