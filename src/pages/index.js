@@ -43,11 +43,20 @@ const IndexPage = () => {
         const contactPage = document.getElementById("contactPage");
         const frontStatue = document.getElementById("frontStatue");
         const backStatue = document.getElementById("backStatue");
+        const backStatueMobile = document.getElementById("backStatueMobile");
         const contactContent = document.getElementById("contactContent");
+        const fixedBG = document.getElementsByClassName("fixed-bg");
+        const rightLion = document.getElementsByClassName(styles["rightLion"]);
+        const leftLion = document.getElementsByClassName(styles["leftLion"]);
+        const countDown = document.getElementsByClassName(styles["countDown"]);
+        const rightSubTitle = document.getElementsByClassName(styles["rightSubTitle"]);
+        const leftSubtitle = document.getElementsByClassName(styles["leftSubTitle"]);
+        const heading = document.getElementsByClassName(styles["heading"]);
+
 
         window.scrollTo(0,0);
 
-        if (window.innerWidth > 1000 ) {
+        if (window.innerWidth > 920 ) {
             window.onpointermove = (event) => {
                 const { clientX, clientY } = event;
 
@@ -82,7 +91,6 @@ const IndexPage = () => {
                 // console.log(statueLeft);      //16.25
                 // const backStatueLeft = -20 + (position / 100);
 
-
                 
                 cursorImg.style.transform = `rotate(${position / 5}deg)`;
                 statue.style.height = `${statueHeight}%`;
@@ -109,6 +117,7 @@ const IndexPage = () => {
                 }
                 if (position <= (window.innerHeight - 1)) {
                     contactContent.style.transform = 'translateX(60vw)';
+                    contactContent.style.opacity = 0;
                     frontStatue.style.left = '-40vw';
                     backStatue.style.left = '-60vw';
                     contactPage.style.top = `${contactPageTop}vh`;
@@ -116,14 +125,111 @@ const IndexPage = () => {
                     
                 }
                 else {
-                    frontStatue.style.left = '16.25vw';
+                    frontStatue.style.left = '14.15vw';
                     backStatue.style.left = '-10.5vw';
                     contactPage.style.top = 0;
+                    contactContent.style.opacity = 1;
                     contactContent.style.transform = 'translateX(0)';
                     // contactPage.style.transform = `scale(1)`;
                 }}
             };
             window.addEventListener('scroll', handleScroll, { passive: true });
+        }
+        if (window.innerWidth <= 920) {
+                window.onpointermove = (event) => {
+                    const { clientX, clientY } = event;
+    
+                    cursor.style.display = "block";
+                    cursorCircle.style.display = "block";
+                    cursor.style.opacity = "1";
+                    cursorCircle.style.opacity = "1";
+                    cursor.style.left = `${clientX}px`;
+                    cursor.style.top = `${clientY}px`;
+    
+                    let _clientX = clientX - 52;
+                    let _clientY = clientY - 52;
+    
+                    cursorCircle.animate(
+                        {
+                            left: `${_clientX}px`,
+                            top: `${_clientY}px`,
+                        },
+                        { duration: 500, fill: "forwards" }
+                    );
+                };
+                const handleScroll = () => {
+                    if(statue){
+                    const position = window.scrollY;
+                    const statueHeight = 68 + (position / 20);
+                    const contactRadius = 150 - (position / 5);
+                    const contactPageTop = 50 - (position / 15);
+                    const blur = (position / 50)
+
+                    
+                    cursorImg.style.transform = `rotate(${position / 5}deg)`;
+                    statueMobile.style.height = `${statueHeight}%`;
+
+                    if (position > 100) {
+                        fixedBG[0].style.filter = `blur(${blur}px)`;
+                        fixedBG[0].style.transform = 'scale(1.1)';
+                        rightLion[0].style.filter = `blur(${blur}px)`;
+                        leftLion[0].style.filter = `blur(${blur}px)`;
+                        countDown[0].style.filter = `blur(${blur}px)`;
+                        rightSubTitle[0].style.filter = `blur(${blur}px)`;
+                        leftSubtitle[0].style.filter = `blur(${blur}px)`;
+                        heading[0].style.filter = `blur(${blur}px)`;
+                        statueMobile.style.filter = `blur(${blur}px)`;
+                    }
+                    else {
+                        fixedBG[0].style.filter = 'blur(0)';
+                        fixedBG[0].style.transform = 'scale(1)';
+                        rightLion[0].style.filter = 'blur(0)';
+                        leftLion[0].style.filter = 'blur(0)';
+                        countDown[0].style.filter = 'blur(0)';
+                        leftSubtitle[0].style.filter = 'blur(0)';
+                        rightSubTitle[0].style.filter = 'blur(0)';
+                        heading[0].style.filter = 'blur(0)';
+                        statueMobile.style.filter = 'blur(0)';
+                    }
+
+                    if (position <= window.innerHeight) {
+                        statueContainer.style.position = "fixed";
+                        contactPage.style.borderRadius = '50%';
+                    }
+                    else {
+                        statueContainer.style.position = "absolute";
+                    }
+                    if (position <= (window.innerHeight - 20)) {
+                        if (contactRadius > 0) {
+                            contactPage.style.borderRadius = `${contactRadius}%`;
+                        }
+                        else {
+                            contactPage.style.borderRadius = 0;
+                        }
+                        
+                    }
+                    else {
+                        contactPage.style.borderRadius = 0;
+                    }
+                    if (position <= (window.innerHeight - 50)) {
+                        contactContent.style.transform = 'translateX(85vw)';
+                        contactContent.style.opacity = 0;
+                        backStatue.style.opacity = 0;
+                        backStatueMobile.style.opacity = 0;
+                        contactPage.style.top = 0;
+                        // backStatue.style.left = '-75vw';
+                        
+                    }
+                    else {
+                        backStatue.style.left = '-10.5vw';
+                        backStatue.style.opacity = 1;
+                        backStatueMobile.style.opacity = 1;
+                        contactPage.style.top = 0;
+                        contactContent.style.transform = 'translateX(0)';
+                        contactContent.style.opacity = 1;
+                    }}
+                };
+                window.addEventListener('scroll', handleScroll, { passive: true }); 
         }
         return () => {
             window.onpointermove = null;
@@ -460,6 +566,7 @@ const IndexPage = () => {
                   {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                 </div>
                 <div
+                id="backStatueMobile"
                   className={contact["backStatueMobile"]}
                   style={{ backgroundImage: `url(${BackStatueMobile})` }}
                 ></div>
