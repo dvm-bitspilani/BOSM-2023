@@ -1,33 +1,35 @@
 import React from "react";
 import * as styles from "../Styles/Navbar.module.css";
 import Logo from "../images/logo.svg";
-import { motion } from "framer-motion";
-import { navigate } from 'gatsby';
+import hamIcon from "../images/Ham Icon.svg";
+import { motion, transform } from "framer-motion";
+import { navigate } from "gatsby";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
-const Navbar = ({setRegPage , setShowBlackScreen}) => {
-
+const Navbar = ({ setRegPage, setShowBlackScreen, setIsHamOpen }) => {
   const goToNextPage = () => {
     setShowBlackScreen(true);
     setTimeout(() => {
-      setShowBlackScreen(false)
-      
+      setShowBlackScreen(false);
     }, 2000);
-    
+
     setTimeout(() => {
       setRegPage(true);
-    }, 1000); 
+    }, 1000);
   };
   return (
     <React.Fragment>
-      <motion.div className={styles["navbarContainer"]}
-      initial={{y: [-150]}}
-      animate={{ y: [-150, 0] }}
-      transition={{
-        delay: "0",
-        duration: "1",
-        ease: "easeInOut",
-        times: [0, 1],
-      }}>
+      <motion.div
+        className={styles["navbarContainer"]}
+        initial={{ y: [-150] }}
+        animate={{ y: [-150, 0] }}
+        transition={{
+          delay: "0",
+          duration: "1",
+          ease: "easeInOut",
+          times: [0, 1],
+        }}
+      >
         <div className={styles["navLogo"]}>
           <img src={Logo} alt="logo" />
         </div>
@@ -43,8 +45,14 @@ const Navbar = ({setRegPage , setShowBlackScreen}) => {
             <li className={styles["navLinks"]}>SPONSORS</li>
           </ul>
         </nav>
-        <div className={styles["registerBtn"]} onClick={goToNextPage}>
-          <p>REGISTER</p>
+
+        <div className={styles["navbarRightCorner"]}>
+          <div className={styles["registerBtn"]} onClick={goToNextPage}>
+            <p>REGISTER</p>
+          </div>
+          <div className={styles["hamburger"]} onClick={setIsHamOpen}>
+            <img src={hamIcon} alt="hamIcon" />
+          </div>
         </div>
       </motion.div>
     </React.Fragment>

@@ -177,8 +177,9 @@ const IndexPage = () => {
 
     const [regPage, setRegPage] = useState(false);
     const [showBlackScreen, setShowBlackScreen] = useState(false);
+    const [isHamOpen, setIsHamOpen] = useState(false);
 
-
+    console.log(isHamOpen);
 
     return (
         <>
@@ -188,6 +189,8 @@ const IndexPage = () => {
             {!regPage && <Layout
                 setRegPage={setRegPage}
                 setShowBlackScreen={setShowBlackScreen}
+                isHamOpen={isHamOpen}
+                setIsHamOpen={setIsHamOpen}
                 navbar={true}
                 fixedbg={true}
                 overflow={false}
