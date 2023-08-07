@@ -86,6 +86,7 @@ const IndexPage = () => {
         const cursorImg = document.getElementById("cursorImg");
         const statueContainer = document.getElementById("statueContainer");
         const statue = document.getElementById("statue");
+        const statueMobile = document.getElementById("statueMobile");
         const contactPage = document.getElementById("contactPage");
         const frontStatue = document.getElementById("frontStatue");
         const backStatue = document.getElementById("backStatue");
@@ -206,7 +207,7 @@ const IndexPage = () => {
                                 times: [0, 1],
                             }}>
                             <img id="statue" src={Statue} className={`${styles["statue"]} ${styles["desktopStatue"]}`} />
-                            <img src={MobileStatue} className={`${styles["statue"]} ${styles["mobileStatue"]}`} />
+                            <img id="statueMobile" src={MobileStatue} className={`${styles["statue"]} ${styles["mobileStatue"]}`} />
                         </motion.div>
                         <motion.div className={styles["leftLion"]}
                             initial={{ opacity: [0], x: [100] }}
