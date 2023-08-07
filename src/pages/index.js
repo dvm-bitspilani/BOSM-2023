@@ -91,6 +91,8 @@ const IndexPage = () => {
         const statueContainer = document.getElementById("statueContainer");
         const statue = document.getElementById("statue");
         const contactPage = document.getElementById("contactPage");
+        const frontStatue = document.getElementById("frontStatue");
+        const backStatue = document.getElementById("backStatue");
 
         if (window.innerWidth >= 1000) {
             window.onpointermove = (event) => {
@@ -118,11 +120,16 @@ const IndexPage = () => {
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
                 const contactRadius = 70 - (position / 10);
+                const statueLeft = (position / 50);
+                const backStatueLeft = -10 + (position / 100);
+
                 cursorImg.style.transform = `rotate(${position / 5}deg)`;
                 statue.style.height = `${statueHeight}%`;
                 if (position <= window.innerHeight) {
                     statueContainer.style.position = "fixed";
                     contactPage.style.borderRadius = `${contactRadius}%`;
+                    frontStatue.style.left = `${statueLeft}vw`;
+                    backStatue.style.left = `${backStatueLeft}vw`;
                 }
                 else {
                     statueContainer.style.position = "absolute";
@@ -268,8 +275,8 @@ const IndexPage = () => {
                     <main id="contactPage" className={contact["page"]}>
                         <div id="contactContainer" className={contact["container"]}>
                             <div className={contact["pageBackground"]}>
-                                <img src={FrontStatue} className={contact["frontStatue"]} />
-                                <img src={BackStatue} className={contact["backStatue"]} />
+                                <img id="frontStatue" src={FrontStatue} className={contact["frontStatue"]} />
+                                <img id="backStatue" src={BackStatue} className={contact["backStatue"]} />
                                 {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
 
                             </div>
