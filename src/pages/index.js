@@ -91,8 +91,9 @@ const IndexPage = () => {
         const contactPage = document.getElementById("contactPage");
         const frontStatue = document.getElementById("frontStatue");
         const backStatue = document.getElementById("backStatue");
+        const contactContent = document.getElementById("contactContent");
 
-        if (window.innerWidth >= 1000) {
+        if (window.innerWidth > 1000) {
             window.onpointermove = (event) => {
                 const { clientX, clientY } = event;
 
@@ -117,9 +118,13 @@ const IndexPage = () => {
             const handleScroll = () => {
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
-                const contactRadius = 70 - (position / 10);
+                const contactRadius = 70 - (position / 15);
                 const statueLeft = 5 + (position / 80);
                 const backStatueLeft = -15 + (position / 200);
+                const contactPageTop = 50 - (position / 20);
+                const contactScale = 1 + (position / 1000);
+                // console.log(backStatueLeft);  //-10.5
+                // console.log(statueLeft);      //16.25
                 // const backStatueLeft = -20 + (position / 100);
 
 
@@ -128,13 +133,27 @@ const IndexPage = () => {
                 statue.style.height = `${statueHeight}%`;
                 if (position <= window.innerHeight) {
                     statueContainer.style.position = "fixed";
-                    contactPage.style.borderRadius = `${contactRadius}%`;
-                    frontStatue.style.left = `${statueLeft}vw`;
-                    backStatue.style.left = `${backStatueLeft}vw`;
+                    contactPage.style.borderRadius = '50%';
                 }
                 else {
                     statueContainer.style.position = "absolute";
+                }
+                if (position <= (window.innerHeight - 10)) {
+                    contactPage.style.borderRadius = `${contactRadius}%`;
+                    contactPage.style.top = `${contactPageTop}vh`;
+                    contactContent.style.transform = 'translateX(60vw)';
+                    frontStatue.style.left = '-40vw';
+                    backStatue.style.left = '-60vw';
+                    // contactPage.style.transform = `scale(${contactScale})`;
+                    
+                }
+                else {
+                    frontStatue.style.left = '16.25vw';
+                    backStatue.style.left = '-10.5vw';
                     contactPage.style.borderRadius = 0;
+                    contactPage.style.top = 0;
+                    contactContent.style.transform = 'translateX(0)';
+                    // contactPage.style.transform = `scale(1)`;
                 }
             };
             window.addEventListener('scroll', handleScroll, { passive: true });
@@ -277,7 +296,7 @@ const IndexPage = () => {
                 fixedbg={false}
 
                 content={
-                    <main id="contactPage" className={contact["page"]}>
+                    <main id="contactPage" className={contact["page"]} style={{top: '50vh'}}>
                         <div id="contactContainer" className={contact["container"]}>
                             <div className={contact["pageBackground"]}>
                                 <img id="frontStatue" src={FrontStatue} className={contact["frontStatue"]} />
@@ -286,7 +305,7 @@ const IndexPage = () => {
 
                             </div>
                             <div className={contact["backStatueMobile"]} style={{ backgroundImage: `url(${BackStatueMobile})` }}></div>
-                            <div className={contact["content"]}>
+                            <div id="contactContent" className={contact["content"]} style={{transform: 'translateX(60vw)'}}>
                                 <div className={contact["contentContainer"]}>
                                     <div className={contact["title"]}>CONTACT US</div>
                                     <div className={contact["cardsContainer"]}>
