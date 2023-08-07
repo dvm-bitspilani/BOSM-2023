@@ -30,97 +30,106 @@ const IndexPage = () => {
         )
     })
 
-  useEffect(() => {
-    const cursor = document.getElementById("cursor");
-    const cursorCircle = document.getElementById("cursorFollower");
-    const cursorImg = document.getElementById("cursorImg");
-    const statueContainer = document.getElementById("statueContainer");
-    const statue = document.getElementById("statue");
-    const statueMobile = document.getElementById("statueMobile");
-    const contactPage = document.getElementById("contactPage");
-    const frontStatue = document.getElementById("frontStatue");
-    const backStatue = document.getElementById("backStatue");
-    const contactContent = document.getElementById("contactContent");
-
-    window.scrollTo(0, 0);
-
-    if (window.innerWidth > 1000) {
-      window.onpointermove = (event) => {
-        const { clientX, clientY } = event;
-
-        cursor.style.display = "block";
-        cursorCircle.style.display = "block";
-        cursor.style.opacity = "1";
-        cursorCircle.style.opacity = "1";
-        cursor.style.left = `${clientX}px`;
-        cursor.style.top = `${clientY}px`;
-
-        let _clientX = clientX - 52;
-        let _clientY = clientY - 52;
-
-        cursorCircle.animate(
-          {
-            left: `${_clientX}px`,
-            top: `${_clientY}px`,
-          },
-          { duration: 500, fill: "forwards" }
-        );
-      };
-      const handleScroll = () => {
-        const position = window.scrollY;
-        const statueHeight = 75 + position / 20;
-        const contactRadius = 150 - position / 5;
-        const statueLeft = 5 + position / 80;
-        const backStatueLeft = -15 + position / 200;
-        const contactPageTop = 50 - position / 15;
-        const contactScale = 1 + position / 1000;
-        // console.log(backStatueLeft);  //-10.5
-        // console.log(statueLeft);      //16.25
-        // const backStatueLeft = -20 + (position / 100);
-
-        cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        statue.style.height = `${statueHeight}%`;
-        if (position <= window.innerHeight) {
-          statueContainer.style.position = "fixed";
-          contactPage.style.borderRadius = "50%";
-        } else {
-          statueContainer.style.position = "absolute";
-        }
-        if (position <= window.innerHeight - 20) {
-          if (contactRadius > 0) {
-            contactPage.style.borderRadius = `${contactRadius}%`;
-          } else {
-            contactPage.style.borderRadius = 0;
-          }
-          // contactPage.style.transform = `scale(${contactScale})`;
-        } else {
-          contactPage.style.borderRadius = 0;
-          // contactPage.style.transform = `scale(1)`;
-        }
-        if (position <= window.innerHeight - 1) {
-          contactContent.style.transform = "translateX(60vw)";
-          frontStatue.style.left = "-40vw";
-          backStatue.style.left = "-60vw";
-          contactPage.style.top = `${contactPageTop}vh`;
-          // contactPage.style.transform = `scale(${contactScale})`;
-        } else {
-          frontStatue.style.left = "16.25vw";
-          backStatue.style.left = "-10.5vw";
-          contactPage.style.top = 0;
-          contactContent.style.transform = "translateX(0)";
-          // contactPage.style.transform = `scale(1)`;
-        }
-      };
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    }
-    return () => {
-      window.onpointermove = null;
-      window.scrollTo(0, 0);
-    };
-  }, []);
-
   const [regPage, setRegPage] = useState(false);
-  const [showBlackScreen, setShowBlackScreen] = useState(false);
+    const [showBlackScreen, setShowBlackScreen] = useState(false);
+
+    useEffect(() => {
+        const cursor = document.getElementById("cursor");
+        const cursorCircle = document.getElementById("cursorFollower");
+        const cursorImg = document.getElementById("cursorImg");
+        const statueContainer = document.getElementById("statueContainer");
+        const statue = document.getElementById("statue");
+        const statueMobile = document.getElementById("statueMobile");
+        const contactPage = document.getElementById("contactPage");
+        const frontStatue = document.getElementById("frontStatue");
+        const backStatue = document.getElementById("backStatue");
+        const contactContent = document.getElementById("contactContent");
+
+        window.scrollTo(0,0);
+
+        if (window.innerWidth > 1000 ) {
+            window.onpointermove = (event) => {
+                const { clientX, clientY } = event;
+
+                cursor.style.display = "block";
+                cursorCircle.style.display = "block";
+                cursor.style.opacity = "1";
+                cursorCircle.style.opacity = "1";
+                cursor.style.left = `${clientX}px`;
+                cursor.style.top = `${clientY}px`;
+
+                let _clientX = clientX - 52;
+                let _clientY = clientY - 52;
+
+                cursorCircle.animate(
+                    {
+                        left: `${_clientX}px`,
+                        top: `${_clientY}px`,
+                    },
+                    { duration: 500, fill: "forwards" }
+                );
+            };
+            const handleScroll = () => {
+                if(statue){
+                const position = window.scrollY;
+                const statueHeight = 75 + (position / 20);
+                const contactRadius = 150 - (position / 5);
+                const statueLeft = 5 + (position / 80);
+                const backStatueLeft = -15 + (position / 200);
+                const contactPageTop = 50 - (position / 15);
+                const contactScale = 1 + (position / 1000);
+                // console.log(backStatueLeft);  //-10.5
+                // console.log(statueLeft);      //16.25
+                // const backStatueLeft = -20 + (position / 100);
+
+
+                
+                cursorImg.style.transform = `rotate(${position / 5}deg)`;
+                statue.style.height = `${statueHeight}%`;
+                if (position <= window.innerHeight) {
+                    statueContainer.style.position = "fixed";
+                    contactPage.style.borderRadius = '50%';
+                }
+                else {
+                    statueContainer.style.position = "absolute";
+                }
+                if (position <= (window.innerHeight - 20)) {
+                    if (contactRadius > 0) {
+                        contactPage.style.borderRadius = `${contactRadius}%`;
+                    }
+                    else {
+                        contactPage.style.borderRadius = 0;
+                    }
+                    // contactPage.style.transform = `scale(${contactScale})`;
+                    
+                }
+                else {
+                    contactPage.style.borderRadius = 0;
+                    // contactPage.style.transform = `scale(1)`;
+                }
+                if (position <= (window.innerHeight - 1)) {
+                    contactContent.style.transform = 'translateX(60vw)';
+                    frontStatue.style.left = '-40vw';
+                    backStatue.style.left = '-60vw';
+                    contactPage.style.top = `${contactPageTop}vh`;
+                    // contactPage.style.transform = `scale(${contactScale})`;
+                    
+                }
+                else {
+                    frontStatue.style.left = '16.25vw';
+                    backStatue.style.left = '-10.5vw';
+                    contactPage.style.top = 0;
+                    contactContent.style.transform = 'translateX(0)';
+                    // contactPage.style.transform = `scale(1)`;
+                }}
+            };
+            window.addEventListener('scroll', handleScroll, { passive: true });
+        }
+        return () => {
+            window.onpointermove = null;
+            window.scrollTo(0,0);
+        };
+    }, [regPage , showBlackScreen])
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -134,7 +143,7 @@ const IndexPage = () => {
     hidden: {
       y: 650,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -142,7 +151,7 @@ const IndexPage = () => {
     visible: {
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 0,
+        delay: isLoaded ? 0 : 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -153,7 +162,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "-25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -162,7 +171,28 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -174,7 +204,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -183,7 +213,70 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -195,7 +288,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 200,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -204,7 +297,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -283,14 +376,14 @@ const IndexPage = () => {
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={leftLionVariants}
+                      variants={leftHeadingVariants}
                     >
                       BO
                     </motion.span>
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={rightLionVariants}
+                      variants={rightHeadingVariants}
                     >
                       SM
                     </motion.span>
@@ -300,7 +393,7 @@ const IndexPage = () => {
                   className={styles["leftSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={leftLionVariants}
+                  variants={leftTextVariants}
                 >
                   <h1>The</h1>
                   <h2>ROAR</h2>
@@ -310,7 +403,7 @@ const IndexPage = () => {
                   className={styles["rightSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={rightLionVariants}
+                  variants={rightTextVariants}
                 >
                   <h1>of</h1>
                   <h2>RESILIENCE</h2>

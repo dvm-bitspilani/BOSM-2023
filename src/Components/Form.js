@@ -25,6 +25,7 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      indicatorSeparator: () => {},
       valueContainer: (provided) => ({
         ...provided,
         height: '1.8rem'
@@ -121,6 +122,7 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      indicatorSeparator: () => {},
       valueContainer: (provided) => ({
         ...provided,
         height: '1.8rem'
@@ -210,6 +212,7 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      indicatorSeparator: () => {},
       valueContainer: (provided) => ({
         ...provided,
         height: '1.8rem'
@@ -285,6 +288,7 @@ const Form = ({setRegPage}) => {
         zIndex: 1003,
       }),
     };
+
     const customStylesMulti = {
       control: (provided, state) => ({
         ...provided,
@@ -293,12 +297,21 @@ const Form = ({setRegPage}) => {
         '&:hover': {
           borderColor: 'white',
         },
-        cursor: 'text',
+        // cursor: 'text',
         overflow: 'hidden',
         outline: 'none',
         boxShadow : 'none',
         // height: '2rem',
         minHeight: '2rem'
+      }),
+      indicatorSeparator: () => {},
+      noOptionsMessage: (provided) => ({
+        ...provided,
+        color: '#111',             
+        fontFamily: 'Montserrat',
+        fontSize: '1rem',
+        fontWeight: 500,     
+        paddingLeft: '1rem',      
       }),
       indicatorsContainer: (provided)=>({
         ...provided,
@@ -344,12 +357,21 @@ const Form = ({setRegPage}) => {
       multiValueRemove: (provided) => ({
         ...provided,
         color: 'black',
-        cursor: 'pointer',
+        padding: '4px',
+        // cursor: 'pointer',
+      }),
+      clearIndicator: (provided) => ({
+        ...provided,
+        color: '#fff', 
+        cursor: 'pointer', 
+        '&:hover':{
+          color: '#ffd700'
+        }
       }),
       dropdownIndicator: (provided, state) => ({
         ...provided,
         color: 'white',
-        cursor: 'pointer',
+        // cursor: 'pointer',
         padding: '5px'
       }),
       placeholder: () => ({ display: 'none'}),
