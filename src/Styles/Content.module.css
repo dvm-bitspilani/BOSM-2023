@@ -57,34 +57,41 @@ main {
 .leftLion {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 55vw;
+  left: -5vw;
+  width: 50vw;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   z-index: 9;
   margin-top: 5rem;
+  overflow: hidden;
 }
 .rightLion {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 55vw;
+  right: -5vw;
+  width: 50vw;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   z-index: 9;
   margin-top: 5rem;
+  overflow: hidden;
 }
 .leftLion img {
+  overflow: hidden;
   height: 75vh;
   aspect-ratio: 119/135;
+  position: absolute;
+  right: 0;
 }
 .rightLion img {
   height: 65vh;
   aspect-ratio: 197/198;
+  position: absolute;
+  left: 0;
 }
 .countDown {
   position: absolute;
@@ -114,7 +121,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 55vw;
+  width: 50vw;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
@@ -126,7 +133,7 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  width: 55vw;
+  width: 50vw;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
@@ -137,10 +144,12 @@ main {
 .leftLion img {
   height: 75vh;
   aspect-ratio: 119/135;
+  right: -5vw;
 }
 .rightLion img {
   height: 65vh;
   aspect-ratio: 197/198;
+  left: -5vw;
 }
 .countDown {
   position: absolute;
