@@ -1,10 +1,17 @@
 import React , {useEffect} from "react";
 import cross from "../images/cross.svg";
 import Cursor from "../images/cursor.png";
+import { navigate } from "gatsby";
 import * as classes from "../Styles/ignition.module.css";
 import arrow from "../images/arrow-up-right.svg";
 
 const Ignition = props => {
+
+    const closeButtonHandler = () => {
+        navigate("/");
+    };
+
+
     useEffect(() => {
         const cursor = document.getElementById("cursor");
         const cursorCircle = document.getElementById("cursorFollower");
@@ -46,7 +53,7 @@ const Ignition = props => {
             <div className={classes.header}>
                 <img src={cross} style={{visibility: 'hidden' , pointerEvents: 'none'}} />
                 <h2>IGNITION 2023</h2>
-                <img src={cross} />
+                <img src={cross} onClick={closeButtonHandler} />
             </div>
             <div className={classes.gamesContainer}>
                 <div className={classes.gameGroup}>
