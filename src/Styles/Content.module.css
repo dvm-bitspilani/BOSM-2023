@@ -520,6 +520,12 @@ input[type='radio'] {
   .heading{
     margin-top: -1rem;
   }
+  .submitBtn{
+    font-size: 1.1rem;
+  }
+  .regForm label{
+    margin-top: .75rem !important;
+  }
 }
 
 @media (max-width : 820px){

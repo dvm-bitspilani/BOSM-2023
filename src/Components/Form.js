@@ -89,7 +89,7 @@ const Form = ({setRegPage}) => {
         color: 'white',
         cursor: 'pointer',
         zIndex: 1002,
-        padding:'5px'
+        padding:'5px',
       }),
       placeholder: () => ({ display: 'none' , zIndex: 1002, }),
       container: (provided) => ({
@@ -682,7 +682,7 @@ const Form = ({setRegPage}) => {
             </div>
             <div className={styles["formMultiInput"]}>
                 <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
-                <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3}  />
+                <Select  options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3}  />
 
                 <label htmlFor='city'>City</label>
                 <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles}  />

@@ -8,6 +8,14 @@
   font-weight: normal;
   src: local("Gilroy-Bold"), url("../fonts/Gilroy-Bold.ttf");
 }
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url(../fonts/Montserrat900.ttf);
+}
+@font-face {
+  font-family: "PressStart2p";
+  src: local("PressStart2p"), url(../fonts/PressStart2P-Regular.ttf);
+}
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +27,9 @@
 /* :root{
     use variable here
 } */
+::-webkit-scrollbar {
+  display: none;
+}
 body {
   width: calc(100vw - (100vw - 100%));
 }
