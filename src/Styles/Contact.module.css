@@ -83,18 +83,18 @@
     display: flex;
     flex-direction: column;
     /* border: solid red; */
-    width: calc(10vh + 8.5vw);
+    width: calc(14vh + 5vw);
     align-items: center;
-    margin-block: 0.5vh;
+    margin-block: 1.2vh;
 }
 
 .profileImg{
-    height: 19vh;
-    width: 15vh;
+    height: 17vh;
+    width: 13vh;
     background-repeat: none;
     background-size: cover;
     background-position: center;
-    border-radius: 1.1vh;
+    border-radius: 1vh;
     background-color: #D9D9D9;;
 }
 
@@ -108,7 +108,7 @@
 
 .profileName{
     color: white;
-    font-size: 2vh;
+    font-size: 1.85vh;
     letter-spacing: 0.2vh;
     font-weight: 600;
     margin-top: 0.8vh;
@@ -131,7 +131,7 @@
 }
 
 .icons img{
-    height: 2.5vh;
+    height: 2.2vh;
 }
 
 .cardsContainer{
