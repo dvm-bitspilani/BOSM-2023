@@ -14,6 +14,45 @@ const Layout = ({
   overflow,
 }) => {
 
+  const redBgVariants = {
+    open: {
+      x : 0,
+      transition: {
+        delay : 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    closed: {
+      x: "-25vw",
+      transition: {
+        delay : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const blueBgVariants = {
+    open: {
+      x : 0,
+      transition: {
+        delay : 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    closed: {
+      x: "25vw",
+      transition: {
+        delay : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+
   return (
     <section
       className="layout-section"
@@ -21,9 +60,14 @@ const Layout = ({
     >
       {fixedbg && (
         <div className="fixed-bg">
-          <div className="fixed-bg-red"></div>
-          <div
+          <motion.div className="fixed-bg-red"
+          animate={isHamOpen ? "closed" : "open"}
+          variants={redBgVariants}
+          ></motion.div>
+          <motion.div
             className="fixed-bg-blue"
+            animate={isHamOpen ? "closed" : "open"}
+            variants={blueBgVariants}
             // animate={{
             //   y: [500, 500, -250, 0, 0, 0, 0],
             //   x: [0, 0, 0, 0, 0, 300, 0],
@@ -53,6 +97,7 @@ const Layout = ({
         <Navbar
           setRegPage={setRegPage}
           setShowBlackScreen={setShowBlackScreen}
+          isHamOpen={isHamOpen}
           setIsHamOpen={()=>setIsHamOpen(!isHamOpen)}
         />
       )}
