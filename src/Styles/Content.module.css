@@ -18,7 +18,8 @@ main {
   z-index: 10;
   width: 100%;
 }
-.heading h1 {
+.heading span {
+  display: inline-block;
   color: #eee;
   font-family: "Druk Wide Bold";
   font-size: 9rem;
@@ -27,7 +28,7 @@ main {
   line-height: normal;
   letter-spacing: 8.432px;
   z-index: 10;
-  padding-inline: 1rem;
+  /* padding-inline: 1rem; */
 }
 .heroWrapper {
   display: flex;
@@ -386,7 +387,7 @@ input[type='radio'] {
   }
 }
 @media (max-width: 1380px) {
-  .heading h1 {
+  .heading span {
     font-size: 7.5rem;
   }
   .rpHeadingContainer{
@@ -573,7 +574,7 @@ input[type='radio'] {
   .countDown{
     display: none;
   }
-  .heading h1{
+  .heading span{
     font-size: 18vw;
   }
 }
