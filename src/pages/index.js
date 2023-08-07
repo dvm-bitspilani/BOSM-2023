@@ -88,8 +88,9 @@ const IndexPage = () => {
         const cursor = document.getElementById("cursor");
         const cursorCircle = document.getElementById("cursorFollower");
         const cursorImg = document.getElementById("cursorImg");
-        console.log(cursorCircle);
-
+        const statueContainer = document.getElementById("statueContainer");
+        const statue = document.getElementById("statue");
+        const contactPage = document.getElementById("contactPage");
 
         if (window.innerWidth >= 1000) {
             window.onpointermove = (event) => {
@@ -115,7 +116,18 @@ const IndexPage = () => {
             };
             const handleScroll = () => {
                 const position = window.scrollY;
+                const statueHeight = 75 + (position / 20);
+                const contactRadius = 70 - (position / 10);
                 cursorImg.style.transform = `rotate(${position / 5}deg)`;
+                statue.style.height = `${statueHeight}%`;
+                if (position <= window.innerHeight) {
+                    statueContainer.style.position = "fixed";
+                    contactPage.style.borderRadius = `${contactRadius}%`;
+                }
+                else {
+                    statueContainer.style.position = "absolute";
+                    contactPage.style.borderRadius = 0;
+                }
             };
             window.addEventListener('scroll', handleScroll, { passive: true });
         }
@@ -139,7 +151,7 @@ const IndexPage = () => {
                 fixedbg={true}
                 content={
                     <main>
-                        <motion.div className={styles["statueContainer"]}
+                        <motion.div className={styles["statueContainer"]} id="statueContainer"
                             initial={{ y: [600] }}
                             animate={{ y: [600, 0] }}
                             transition={{
@@ -148,7 +160,7 @@ const IndexPage = () => {
                                 ease: "easeInOut",
                                 times: [0, 1],
                             }}>
-                            <img src={Statue} className={`${styles["statue"]} ${styles["desktopStatue"]}`} />
+                            <img id="statue" src={Statue} className={`${styles["statue"]} ${styles["desktopStatue"]}`} />
                             <img src={MobileStatue} className={`${styles["statue"]} ${styles["mobileStatue"]}`} />
                         </motion.div>
                         <motion.div className={styles["leftLion"]}
@@ -243,6 +255,7 @@ const IndexPage = () => {
             {/* <Layout 
             navbar={false}
             fixedbg={false}
+            id
             content={
                 <main></main>
             }
@@ -252,8 +265,8 @@ const IndexPage = () => {
                 fixedbg={false}
 
                 content={
-                    <main className={contact["page"]}>
-                        <div className={contact["container"]}>
+                    <main id="contactPage" className={contact["page"]}>
+                        <div id="contactContainer" className={contact["container"]}>
                             <div className={contact["pageBackground"]}>
                                 <img src={FrontStatue} className={contact["frontStatue"]} />
                                 <img src={BackStatue} className={contact["backStatue"]} />
