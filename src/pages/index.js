@@ -79,7 +79,6 @@ const IndexPage = () => {
         ]
     }
 
-    
 
 
     useEffect(() => {
@@ -160,8 +159,10 @@ const IndexPage = () => {
         }
         return () => {
             window.onpointermove = null;
+            window.scrollTo(0,0);
         };
     }, [])
+
 
     const [regPage, setRegPage] = useState(false);
     const [showBlackScreen, setShowBlackScreen] = useState(false);
