@@ -136,34 +136,13 @@ const IndexPage = () => {
             window.addEventListener('scroll', handleScroll, { passive: true });
         }
         if (window.innerWidth <= 920) {
-                window.onpointermove = (event) => {
-                    const { clientX, clientY } = event;
-    
-                    cursor.style.display = "block";
-                    cursorCircle.style.display = "block";
-                    cursor.style.opacity = "1";
-                    cursorCircle.style.opacity = "1";
-                    cursor.style.left = `${clientX}px`;
-                    cursor.style.top = `${clientY}px`;
-    
-                    let _clientX = clientX - 52;
-                    let _clientY = clientY - 52;
-    
-                    cursorCircle.animate(
-                        {
-                            left: `${_clientX}px`,
-                            top: `${_clientY}px`,
-                        },
-                        { duration: 500, fill: "forwards" }
-                    );
-                };
                 const handleScroll = () => {
                     if(statue){
                     const position = window.scrollY;
                     const statueHeight = 68 + (position / 20);
                     const contactRadius = 150 - (position / 5);
                     const contactPageTop = 50 - (position / 15);
-                    const blur = (position / 50)
+                    const blur = (position / 30)
 
                     
                     cursorImg.style.transform = `rotate(${position / 5}deg)`;
@@ -201,7 +180,7 @@ const IndexPage = () => {
                     }
                     if (position <= (window.innerHeight - 20)) {
                         if (contactRadius > 0) {
-                            contactPage.style.borderRadius = `${contactRadius}%`;
+                            contactPage.style.borderRadius = 0;
                         }
                         else {
                             contactPage.style.borderRadius = 0;
