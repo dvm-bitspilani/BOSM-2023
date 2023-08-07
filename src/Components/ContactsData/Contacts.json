@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Shreyas Sesham",
+    "image": "../images/contact_profile",
+    "department": "Publications and Correspondence",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Anushka Patil",
+    "image": "../images/contact_profile",
+    "department": "Controls",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Ayush Singh Bhandari",
+    "image": "../images/contact_profile",
+    "department": "Sponsorship and Marketing",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Shirish Kumaravel",
+    "image": "../images/contact_profile",
+    "department": "Reception and Accomodation",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Adiya Kumar Sriram",
+    "image": "../images/contact_profile",
+    "department": "Sports Secretary",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Anushka Shukla",
+    "image": "../images/contact_profile",
+    "department": "Join Sports Secretary",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Syed Aga Hani Riza",
+    "image": "../images/contact_profile",
+    "department": "Join Sports Secretary",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Yashwasin Jain",
+    "image": "../images/contact_profile",
+    "department": "Join Sports Secretary",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  },
+  {
+    "name": "Shivang Rai",
+    "image": "../images/contact_profile",
+    "department": "Online Registrations",
+    "phone": "+91-9999999999",
+    "email": "abcd@pilani.bits-pilani.ac.in"
+  }
+]

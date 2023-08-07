@@ -16,66 +16,19 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
+import ContactsData from "../Components/ContactsData/Contacts.json"
 
 const IndexPage = () => {
-  const contactsData = {
-    contactData: [
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-    ],
-  };
+
+    const ContactsCards = ContactsData.map((contact) => {
+        return(
+            <ContactProfile
+                name = {contact.name}
+                img = {contact.image}
+                dept = {contact.department}
+            />
+        )
+    })
 
   const [regPage, setRegPage] = useState(false);
     const [showBlackScreen, setShowBlackScreen] = useState(false);
@@ -518,15 +471,7 @@ const IndexPage = () => {
                   <div className={contact["contentContainer"]}>
                     <div className={contact["title"]}>CONTACT US</div>
                     <div className={contact["cardsContainer"]}>
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
+                      {ContactsCards}
                     </div>
                   </div>
                 </div>
