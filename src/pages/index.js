@@ -79,6 +79,8 @@ const IndexPage = () => {
         ]
     }
 
+    const [regPage, setRegPage] = useState(false);
+    const [showBlackScreen, setShowBlackScreen] = useState(false);
 
     useEffect(() => {
         const cursor = document.getElementById("cursor");
@@ -94,7 +96,7 @@ const IndexPage = () => {
 
         window.scrollTo(0,0);
 
-        if (window.innerWidth > 1000) {
+        if (window.innerWidth > 1000 ) {
             window.onpointermove = (event) => {
                 const { clientX, clientY } = event;
 
@@ -117,6 +119,7 @@ const IndexPage = () => {
                 );
             };
             const handleScroll = () => {
+                if(statue){
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
                 const contactRadius = 150 - (position / 5);
@@ -167,7 +170,7 @@ const IndexPage = () => {
                     contactPage.style.top = 0;
                     contactContent.style.transform = 'translateX(0)';
                     // contactPage.style.transform = `scale(1)`;
-                }
+                }}
             };
             window.addEventListener('scroll', handleScroll, { passive: true });
         }
@@ -175,11 +178,9 @@ const IndexPage = () => {
             window.onpointermove = null;
             window.scrollTo(0,0);
         };
-    }, [])
+    }, [regPage , showBlackScreen])
 
 
-    const [regPage, setRegPage] = useState(false);
-    const [showBlackScreen, setShowBlackScreen] = useState(false);
     const [isHamOpen, setIsHamOpen] = useState(false);
 
     console.log(isHamOpen);
