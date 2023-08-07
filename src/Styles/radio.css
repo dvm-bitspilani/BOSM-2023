@@ -4,7 +4,6 @@
     font-weight: 400;
     margin-right: 7px;
     -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
   }
   #radio-label{
     margin-top: 0;
@@ -27,7 +26,6 @@
   
   .custom-radio {
     left: -8px;
-    cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
     border: 2px solid #fff;
