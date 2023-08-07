@@ -79,9 +79,7 @@ const IndexPage = () => {
         ]
     }
 
-
-
-
+    
 
 
     useEffect(() => {
@@ -120,9 +118,11 @@ const IndexPage = () => {
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
                 const contactRadius = 70 - (position / 10);
-                const statueLeft = (position / 50);
-                const backStatueLeft = -10 + (position / 100);
+                const statueLeft = 5 + (position / 50);
+                const backStatueLeft = -10 + (position / 70);
 
+
+                
                 cursorImg.style.transform = `rotate(${position / 5}deg)`;
                 statue.style.height = `${statueHeight}%`;
                 if (position <= window.innerHeight) {
@@ -145,6 +145,8 @@ const IndexPage = () => {
 
     const [regPage, setRegPage] = useState(false);
     const [showBlackScreen, setShowBlackScreen] = useState(false);
+
+
 
     return (
         <>
@@ -284,7 +286,6 @@ const IndexPage = () => {
                             </div>
                             <div className={contact["backStatueMobile"]} style={{ backgroundImage: `url(${BackStatueMobile})` }}></div>
                             <div className={contact["content"]}>
-
                                 <div className={contact["contentContainer"]}>
                                     <div className={contact["title"]}>CONTACT US</div>
                                     <div className={contact["cardsContainer"]}>

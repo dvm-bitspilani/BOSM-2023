@@ -1,7 +1,7 @@
 .page {
     height: 100vw;
     width: 100vw;
-    z-index: 0;
+    /* z-index: 0; */
     background: url(../images/contact_bg.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -14,6 +14,7 @@
 .pageBackground {
     max-height: 100vh;
     position: relative;
+    z-index: 999;
 }
 
 .backStatue,
@@ -33,7 +34,7 @@
 }
 
 .frontStatue {
-    left: 19vw;
+    left: 22vw;
     overflow: hidden;
     height: 80vh;
     bottom: -100vh;
@@ -59,10 +60,11 @@
     height: 100%;
     margin: auto;
     /* border: solid red; */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* display: flex; */
     /* align-items: center; */
-    z-index: 11;
+    z-index: 1;
+    overflow: auto;
 }
 
 .title{
@@ -95,9 +97,7 @@
 }
 
 .profileName,
-.profileDept,
-.profileEmail,
-.profilePhone{
+.profileDept{
     word-wrap: break-word;
     font-family: Montserrat;
     font-weight: 700;
@@ -109,20 +109,32 @@
     font-size: 2vh;
     letter-spacing: 0.2vh;
     font-weight: 600;
-    margin-block: 0.4vh;
+    margin-top: 0.8vh;
+    margin-bottom: 0.2vh;
 }
-.profileDept,
-.profileEmail,
-.profilePhone{
+.profileDept{
     color: #E0E0E0;
     letter-spacing: 0.15vh;
     font-size: 1.6vh;
-    margin-block: 1.5px;
-
+    margin-block: 0.2vh;
 }
 
-.profileEmail img{
-    width: 30px;
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5vh;
+    width: 100%;
+    padding: 0.5vh;
+}
+
+.icons img{
+    height: 2.5vh;
+}
+
+.button{
+    background-color: transparent;
+    border: none;
 }
 
 .cardsContainer{
@@ -185,21 +197,21 @@
         background-position: center;
     }
 
-    /* .content{
+    .content{
         position: relative;
         z-index: 2;
         overflow: auto;
         min-height: 100vh;
-    } */
-.content{
+    }
+/* .content{
     height: auto;
     overflow: hidden;
-}
+} */
     .contentContainer{
         padding: 0;
-        /* min-height: 100vh; */
+        min-height: 100vh;
 
-        /* overflow-y: auto; */
+        overflow-y: auto;
         height: auto;
     }
 
@@ -240,6 +252,6 @@
 }
 @media (max-width: 1110px){
     .frontStatue{
-        left: 16vw;
+        left: 15vw;
     }
 }
