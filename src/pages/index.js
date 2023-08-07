@@ -118,8 +118,9 @@ const IndexPage = () => {
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
                 const contactRadius = 70 - (position / 10);
-                const statueLeft = 5 + (position / 50);
-                const backStatueLeft = -10 + (position / 70);
+                const statueLeft = 5 + (position / 60);
+                const backStatueLeft = -15 + (position / 200);
+                // const backStatueLeft = -20 + (position / 100);
 
 
                 
