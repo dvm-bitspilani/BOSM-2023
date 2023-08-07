@@ -104,8 +104,8 @@ const IndexPage = () => {
                 cursor.style.left = `${clientX}px`;
                 cursor.style.top = `${clientY}px`;
 
-                let _clientX = clientX - 68;
-                let _clientY = clientY - 68;
+                let _clientX = clientX - 52;
+                let _clientY = clientY - 52;
 
                 cursorCircle.animate(
                     {
