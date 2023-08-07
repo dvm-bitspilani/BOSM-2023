@@ -6,7 +6,7 @@ import { motion, transform } from "framer-motion";
 import { navigate } from "gatsby";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
-const Navbar = ({ setRegPage, setShowBlackScreen, setIsHamOpen }) => {
+const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => {
   const goToNextPage = () => {
     setShowBlackScreen(true);
     setTimeout(() => {
@@ -17,18 +17,33 @@ const Navbar = ({ setRegPage, setShowBlackScreen, setIsHamOpen }) => {
       setRegPage(true);
     }, 1000);
   };
+
+  const navbarVariants = {
+    open: {
+      y: 0,
+      transition: {
+        delay : 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    closed: {
+      y: -150,
+      transition: {
+        delay : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <React.Fragment>
       <motion.div
         className={styles["navbarContainer"]}
         initial={{ y: [-150] }}
-        animate={{ y: [-150, 0] }}
-        transition={{
-          delay: "0",
-          duration: "1",
-          ease: "easeInOut",
-          times: [0, 1],
-        }}
+        animate={isHamOpen ? "closed" : "open"}
+        variants={navbarVariants}
       >
         <div className={styles["navLogo"]}>
           <img src={Logo} alt="logo" />
