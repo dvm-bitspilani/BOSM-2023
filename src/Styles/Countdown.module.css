@@ -1,6 +1,6 @@
 .countdown {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.3rem;
   justify-content: center;
   align-items: center;
   color: #eee;
@@ -19,7 +19,7 @@
   color: #e9faff;
   text-align: center;
   font-family: "Montserrat";
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -34,7 +34,7 @@
   color: #e9faff;
   text-align: center;
   font-family: "Montserrat";
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
