@@ -83,14 +83,14 @@
     display: flex;
     flex-direction: column;
     /* border: solid red; */
-    width: calc(14vh + 5vw);
+    width: calc(15vh + 5vw);
     align-items: center;
     margin-block: 1.2vh;
 }
 
 .profileImg{
     height: 17vh;
-    width: 13vh;
+    width: 14vh;
     background-repeat: none;
     background-size: cover;
     background-position: center;
