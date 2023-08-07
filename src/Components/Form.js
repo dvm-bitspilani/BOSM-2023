@@ -14,7 +14,8 @@ const Form = ({setRegPage}) => {
     const customStyles = {
       control: (provided, state) => ({
         ...provided,
-        height: '3rem',
+        minHeight : '2rem',
+        height: '2rem',
         backgroundColor: 'transparent',
         border: state.isFocused ? '2px solid white' : '2px solid white',
         '&:hover': {
@@ -24,11 +25,19 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      valueContainer: (provided) => ({
+        ...provided,
+        height: '1.8rem'
+      }),
+      indicatorsContainer: (provided)=>({
+        ...provided,
+        height: '1.8rem',         
+      }),
       singleValue: (provided) => ({
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1002,
@@ -80,6 +89,7 @@ const Form = ({setRegPage}) => {
         color: 'white',
         cursor: 'pointer',
         zIndex: 1002,
+        padding:'5px'
       }),
       placeholder: () => ({ display: 'none' , zIndex: 1002, }),
       container: (provided) => ({
@@ -91,7 +101,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1002,
@@ -100,7 +110,8 @@ const Form = ({setRegPage}) => {
     const customStyles2 = {
       control: (provided, state) => ({
         ...provided,
-        height: '3rem',
+        minHeight : '2rem',
+        height: '2rem',
         backgroundColor: 'transparent',
         border: state.isFocused ? '2px solid white' : '2px solid white',
         '&:hover': {
@@ -110,11 +121,19 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      valueContainer: (provided) => ({
+        ...provided,
+        height: '1.8rem'
+      }),
+      indicatorsContainer: (provided)=>({
+        ...provided,
+        height: '1.8rem',         
+      }),
       singleValue: (provided) => ({
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1001,
@@ -159,6 +178,7 @@ const Form = ({setRegPage}) => {
         color: 'white',
         cursor: 'pointer',
         zIndex: 1001,
+        padding:'5px'
       }),
       placeholder: () => ({ display: 'none' , zIndex: 1001, }),
       container: (provided) => ({
@@ -170,7 +190,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1001,
@@ -179,7 +199,8 @@ const Form = ({setRegPage}) => {
     const customStyles3 = {
       control: (provided, state) => ({
         ...provided,
-        height: '3rem',
+        minHeight : '2rem',
+        height: '2rem',
         backgroundColor: 'transparent',
         border: state.isFocused ? '2px solid white' : '2px solid white',
         '&:hover': {
@@ -189,11 +210,19 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
       }),
+      valueContainer: (provided) => ({
+        ...provided,
+        height: '1.8rem'
+      }),
+      indicatorsContainer: (provided)=>({
+        ...provided,
+        height: '1.8rem',         
+      }),
       singleValue: (provided) => ({
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1003,
@@ -238,6 +267,7 @@ const Form = ({setRegPage}) => {
         color: 'white',
         cursor: 'pointer',
         zIndex: 1003,
+        padding:'5px'
       }),
       placeholder: () => ({ display: 'none' , zIndex: 1003, }),
       container: (provided) => ({
@@ -249,7 +279,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.5rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '.25rem',
         zIndex: 1003,
@@ -267,6 +297,12 @@ const Form = ({setRegPage}) => {
         overflow: 'hidden',
         outline: 'none',
         boxShadow : 'none',
+        // height: '2rem',
+        minHeight: '2rem'
+      }),
+      indicatorsContainer: (provided)=>({
+        ...provided,
+        height: '1.8rem',         
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -314,6 +350,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: 'white',
         cursor: 'pointer',
+        padding: '5px'
       }),
       placeholder: () => ({ display: 'none'}),
       container: (provided) => ({
@@ -324,7 +361,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.8rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '1rem',
         // height: '3rem',
@@ -597,7 +634,7 @@ const Form = ({setRegPage}) => {
                 <label htmlFor='phone'>Phone</label>
                 <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10"  />
 
-                <label htmlFor='gender' className={styles["genderLabel"]}>Gender</label>
+                <label htmlFor='gender'>Gender</label>
                 <div className={styles["radioBtns"]}>
 
                     <RadioButton
