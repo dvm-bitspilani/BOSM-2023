@@ -8,6 +8,7 @@
     background-size: cover;
     position: relative;
     z-index: 100;
+    transition: top .01s ease;
 }
 
 .pageBackground {
