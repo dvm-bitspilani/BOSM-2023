@@ -92,6 +92,62 @@ main {
   left: 0;
   bottom: 0rem;
 }
+.statueContainer {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 99;
+}
+.statue {
+  height: 75%;
+}
+
+.mobileStatue{
+  display: none;
+}
+
+.leftLion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 9;
+  margin-top: 5rem;
+}
+.rightLion {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9;
+  margin-top: 5rem;
+}
+.leftLion img {
+  height: 75vh;
+  aspect-ratio: 119/135;
+}
+.rightLion img {
+  height: 65vh;
+  aspect-ratio: 197/198;
+}
+.countDown {
+  position: absolute;
+  padding-inline: 2rem;
+  left: 0;
+  bottom: 0rem;
+}
 
 .leftSubTitle,
 .rightSubTitle {
@@ -168,7 +224,6 @@ h2 {
   z-index: 1;
 }
 .cross{
-  cursor: pointer;
   z-index: 999;
   position: relative;
 }
@@ -188,7 +243,6 @@ h2 {
   font-size: 3rem;
   font-style: normal;
   font-weight: 700; 
-  cursor: pointer;
   transform: translateX(-2rem);
 }
 .regBox{
@@ -214,6 +268,7 @@ h2 {
   margin-bottom: .5rem;
   margin-top: 2rem;
 }
+
 .formSingleInput{
   display: flex;
   flex-direction: column;
@@ -254,7 +309,6 @@ h2 {
   outline: none;
   position: relative;
   z-index: 99;
-  cursor: pointer;
   width: 12.5rem;
   padding: .5rem 2.5rem;
   border-radius: 20px;

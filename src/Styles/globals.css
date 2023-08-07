@@ -25,6 +25,7 @@ body {
 .layout-section {
   width: 100vw;
   height: 100vh;
+  overflow-y: hidden;
 }
 .layout-section:nth-child(2) {
   width: 100vw;
