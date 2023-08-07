@@ -92,6 +92,8 @@ const IndexPage = () => {
         const backStatue = document.getElementById("backStatue");
         const contactContent = document.getElementById("contactContent");
 
+        window.scrollTo(0,0);
+
         if (window.innerWidth > 1000) {
             window.onpointermove = (event) => {
                 const { clientX, clientY } = event;
