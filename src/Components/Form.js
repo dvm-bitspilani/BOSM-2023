@@ -298,7 +298,11 @@ const Form = ({setRegPage}) => {
         outline: 'none',
         boxShadow : 'none',
         // height: '2rem',
-        // minHeight: '2rem'
+        minHeight: '2rem'
+      }),
+      indicatorsContainer: (provided)=>({
+        ...provided,
+        height: '1.8rem',         
       }),
       singleValue: (provided) => ({
         ...provided,
@@ -346,6 +350,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: 'white',
         cursor: 'pointer',
+        padding: '5px'
       }),
       placeholder: () => ({ display: 'none'}),
       container: (provided) => ({
@@ -356,7 +361,7 @@ const Form = ({setRegPage}) => {
         ...provided,
         color: '#eee',
         fontFamily: 'Montserrat',
-        fontSize: '1.8rem',
+        fontSize: '1.2rem',
         fontWeight: 700,
         paddingLeft: '1rem',
         // height: '3rem',
@@ -629,7 +634,7 @@ const Form = ({setRegPage}) => {
                 <label htmlFor='phone'>Phone</label>
                 <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10"  />
 
-                <label htmlFor='gender' className={styles["genderLabel"]}>Gender</label>
+                <label htmlFor='gender'>Gender</label>
                 <div className={styles["radioBtns"]}>
 
                     <RadioButton

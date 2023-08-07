@@ -336,7 +336,7 @@ input[type='radio'] {
   margin-left: -.25rem;
   display: flex;
   align-items: center;
-  height: 3rem;
+  height: 2.8rem;
 }
 .yearOfStudy input[type="radio"] + label {
   display: inline-block;
@@ -380,6 +380,9 @@ input[type='radio'] {
 @media (max-width: 1380px) {
   .heading h1 {
     font-size: 7.5rem;
+  }
+  .rpHeadingContainer{
+    padding: 0% 3%;
   }
   .leftLion,
   .rightLion {
