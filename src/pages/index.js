@@ -158,6 +158,7 @@ const IndexPage = () => {
                 setShowBlackScreen={setShowBlackScreen}
                 navbar={true}
                 fixedbg={true}
+                overflow={false}
                 content={
                     <main>
                         <motion.div className={styles["statueContainer"]} id="statueContainer"
@@ -270,6 +271,7 @@ const IndexPage = () => {
             }
             /> */}
             {!regPage && <Layout
+                overflow={false}
                 navbar={false}
                 fixedbg={false}
 
@@ -304,6 +306,7 @@ const IndexPage = () => {
                 }
             />}
             {regPage && <Layout
+                overflow={true}
                 navbar={false}
                 fixedbg={false}
                 content={<Form setRegPage={setRegPage} />}
