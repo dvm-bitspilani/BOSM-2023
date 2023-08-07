@@ -4,8 +4,8 @@ import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
 import * as contact from '../Styles/Contact.module.css'
-import Statue from "../images/statue.svg";
-import MobileStatue from "../images/statue-mobile.svg";
+import Statue from "../images/statue.png";
+import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { motion } from "framer-motion";
