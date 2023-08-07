@@ -1,10 +1,51 @@
-.hamburger{
-    padding: 5px;
-    height: 100vh;
-    width: 50vw;
-    position: absolute;
-    top: 0;
-    left: 25vw;
-    z-index: -3;
-    background-color: black;
+.hamburger {
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  left: 25vw;
+  z-index: -3;
+  background-color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25%;
+  overflow: hidden;
+}
+
+.container img {
+  width: 100%;
+  object-fit: cover;
+  visibility: hidden;
+}
+
+.text {
+  position: absolute;
+  top: 70%;
+  bottom: 10%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+
+  padding-left: 2rem;
+
+  color: #ebebeb;
+  font-family: Druk Wide Bold;
+  font-size: 200%;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
