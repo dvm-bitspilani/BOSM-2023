@@ -80,7 +80,6 @@ const IndexPage = () => {
     }
 
 
-
     useEffect(() => {
         const cursor = document.getElementById("cursor");
         const cursorCircle = document.getElementById("cursorFollower");
@@ -241,7 +240,7 @@ const IndexPage = () => {
                                     times: [0, 1],
                                 }}
                             >
-                                <h1>BOSM</h1>
+                                <h1> <span>BO</span><span>SM</span> </h1>
                             </motion.div>
                             <motion.div
                                 className={styles["leftSubTitle"]}

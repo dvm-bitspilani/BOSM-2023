@@ -7,6 +7,7 @@
   margin-top: 1%;
   padding: 3rem;
   overflow: hidden;
+  height: 140px;
 }
 .navbarRight {
   width: 100%;
@@ -29,7 +30,9 @@
   font-size: 1.75rem;
   color: #ffffff;
   padding: 0 3rem 0 0;
+  display: none;
 }
+
 .navLogo {
   position: absolute;
   left: 3%;
