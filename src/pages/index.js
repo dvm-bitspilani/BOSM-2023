@@ -181,7 +181,7 @@ const IndexPage = () => {
     hidden: {
       y: 650,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -189,7 +189,7 @@ const IndexPage = () => {
     visible: {
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 0,
+        delay: isLoaded ? 0 : 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -200,7 +200,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "-25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -209,7 +209,28 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -221,7 +242,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -230,7 +251,70 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -242,7 +326,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 200,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -251,7 +335,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -330,14 +414,14 @@ const IndexPage = () => {
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={leftLionVariants}
+                      variants={leftHeadingVariants}
                     >
                       BO
                     </motion.span>
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={rightLionVariants}
+                      variants={rightHeadingVariants}
                     >
                       SM
                     </motion.span>
@@ -347,7 +431,7 @@ const IndexPage = () => {
                   className={styles["leftSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={leftLionVariants}
+                  variants={leftTextVariants}
                 >
                   <h1>The</h1>
                   <h2>ROAR</h2>
@@ -357,7 +441,7 @@ const IndexPage = () => {
                   className={styles["rightSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={rightLionVariants}
+                  variants={rightTextVariants}
                 >
                   <h1>of</h1>
                   <h2>RESILIENCE</h2>

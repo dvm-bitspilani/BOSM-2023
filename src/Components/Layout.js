@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import "../Styles/globals.css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Hamburger from "./Hamburger";
 
 const Layout = ({
   content,
@@ -13,12 +14,11 @@ const Layout = ({
   setIsHamOpen,
   overflow,
 }) => {
-
   const redBgVariants = {
     open: {
-      x : 0,
+      x: 0,
       transition: {
-        delay : 0,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -26,7 +26,7 @@ const Layout = ({
     closed: {
       x: "-25vw",
       transition: {
-        delay : 1,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -35,9 +35,9 @@ const Layout = ({
 
   const blueBgVariants = {
     open: {
-      x : 0,
+      x: 0,
       transition: {
-        delay : 0,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -45,13 +45,31 @@ const Layout = ({
     closed: {
       x: "25vw",
       transition: {
-        delay : 1,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },
     },
   };
 
+  const blackScreenVariants = {
+    open: {
+      opacity: 1,
+      transition: {
+        delay: 2,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        delay: 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
 
   return (
     <section
@@ -60,9 +78,10 @@ const Layout = ({
     >
       {fixedbg && (
         <div className="fixed-bg">
-          <motion.div className="fixed-bg-red"
-          animate={isHamOpen ? "closed" : "open"}
-          variants={redBgVariants}
+          <motion.div
+            className="fixed-bg-red"
+            animate={isHamOpen ? "closed" : "open"}
+            variants={redBgVariants}
           ></motion.div>
           <motion.div
             className="fixed-bg-blue"
@@ -98,9 +117,32 @@ const Layout = ({
           setRegPage={setRegPage}
           setShowBlackScreen={setShowBlackScreen}
           isHamOpen={isHamOpen}
-          setIsHamOpen={()=>setIsHamOpen(!isHamOpen)}
+          setIsHamOpen={() => setIsHamOpen(!isHamOpen)}
         />
       )}
+      <Hamburger closeHam={() => setIsHamOpen(false)} isHamOpen={isHamOpen} />
+      <AnimatePresence>
+        {isHamOpen && (
+          <>
+            <motion.div
+              onMouseDown={() => setIsHamOpen(false)}
+              className="ham-black-screen-right"
+              initial={{ opacity: 0 }}
+              animate={isHamOpen ? "open" : "closed"}
+              variants={blackScreenVariants}
+              exit={{ opacity: 0 }}
+            />
+            <motion.div
+              onClick={() => setIsHamOpen(false)}
+              className="ham-black-screen-left"
+              initial={{ opacity: 0 }}
+              animate={isHamOpen ? "open" : "closed"}
+              variants={blackScreenVariants}
+              exit={{ opacity: 0 }}
+            />
+          </>
+        )}
+      </AnimatePresence>
       <React.Fragment>{content}</React.Fragment>
     </section>
   );
