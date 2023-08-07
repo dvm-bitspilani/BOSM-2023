@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 import "../Styles/globals.css";
 import { motion } from "framer-motion";
 
-const Layout = ({ content,fixedbg, navbar , setRegPage , setShowBlackScreen}) => {
+const Layout = ({ content,fixedbg, navbar , setRegPage , setShowBlackScreen , overflow}) => {
   return (
-    <section className="layout-section">
+    <section className="layout-section" style={{ overflow: overflow ? 'visible' : 'hidden' }}>
       {fixedbg && <div className="fixed-bg">
         <div className="fixed-bg-red"></div>
         <div className="fixed-bg-blue"
