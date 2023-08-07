@@ -117,7 +117,7 @@ const IndexPage = () => {
             const handleScroll = () => {
                 const position = window.scrollY;
                 const statueHeight = 75 + (position / 20);
-                const contactRadius = 70 - (position / 15);
+                const contactRadius = 70 - (position / 12);
                 const statueLeft = 5 + (position / 80);
                 const backStatueLeft = -15 + (position / 200);
                 const contactPageTop = 50 - (position / 20);
@@ -137,19 +137,31 @@ const IndexPage = () => {
                 else {
                     statueContainer.style.position = "absolute";
                 }
-                if (position <= (window.innerHeight - 10)) {
-                    contactPage.style.borderRadius = `${contactRadius}%`;
-                    contactPage.style.top = `${contactPageTop}vh`;
+                if (position <= (window.innerHeight - 20)) {
+                    if (contactRadius > 0) {
+                        contactPage.style.borderRadius = `${contactRadius}%`;
+                    }
+                    else {
+                        contactPage.style.borderRadius = 0;
+                    }
+                    // contactPage.style.transform = `scale(${contactScale})`;
+                    
+                }
+                else {
+                    contactPage.style.borderRadius = 0;
+                    // contactPage.style.transform = `scale(1)`;
+                }
+                if (position <= (window.innerHeight - 1)) {
                     contactContent.style.transform = 'translateX(60vw)';
                     frontStatue.style.left = '-40vw';
                     backStatue.style.left = '-60vw';
+                    contactPage.style.top = `${contactPageTop}vh`;
                     // contactPage.style.transform = `scale(${contactScale})`;
                     
                 }
                 else {
                     frontStatue.style.left = '16.25vw';
                     backStatue.style.left = '-10.5vw';
-                    contactPage.style.borderRadius = 0;
                     contactPage.style.top = 0;
                     contactContent.style.transform = 'translateX(0)';
                     // contactPage.style.transform = `scale(1)`;
