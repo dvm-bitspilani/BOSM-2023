@@ -62,7 +62,6 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
   z-index: 999;
   right: 2%;
   top: 34%;
@@ -80,7 +79,7 @@
   font-family: "Montserrat";
   font-size: 1.2rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 401;
   line-height: normal;
   letter-spacing: 2px;
 }

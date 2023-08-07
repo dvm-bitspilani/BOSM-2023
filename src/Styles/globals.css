@@ -128,6 +128,26 @@ body {
   filter: drop-shadow(10px 10px 10px #000);
 }
 
+.ham-black-screen-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width : 25vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+.ham-black-screen-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width : 25vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);

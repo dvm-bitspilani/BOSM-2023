@@ -16,66 +16,19 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
+import ContactsData from "../Components/ContactsData/Contacts.json"
 
 const IndexPage = () => {
-  const contactsData = {
-    contactData: [
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-      {
-        image: "../images/contact_profile",
-        department: "Department Name",
-        phone: "+91-9999999999",
-        email: "abcd@pilani.bits-pilani.ac.in",
-      },
-    ],
-  };
+
+    const ContactsCards = ContactsData.map((contact) => {
+        return(
+            <ContactProfile
+                name = {contact.name}
+                img = {contact.image}
+                dept = {contact.department}
+            />
+        )
+    })
 
   const [regPage, setRegPage] = useState(false);
     const [showBlackScreen, setShowBlackScreen] = useState(false);
@@ -296,7 +249,7 @@ const IndexPage = () => {
     hidden: {
       y: 650,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -304,7 +257,7 @@ const IndexPage = () => {
     visible: {
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 0,
+        delay: isLoaded ? 0 : 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -315,7 +268,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "-25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -324,7 +277,28 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -336,7 +310,7 @@ const IndexPage = () => {
       opacity: 1,
       x: "25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -345,7 +319,70 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightHeadingVariants = {
+    hidden: {
+      opacity: 1,
+      x: "26vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const leftTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "-25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const rightTextVariants = {
+    hidden: {
+      opacity: 1,
+      x: "25vw",
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: isLoaded ? 0 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -357,7 +394,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 200,
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -366,7 +403,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -445,14 +482,14 @@ const IndexPage = () => {
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={leftLionVariants}
+                      variants={leftHeadingVariants}
                     >
                       BO
                     </motion.span>
                     <motion.span
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
-                      variants={rightLionVariants}
+                      variants={rightHeadingVariants}
                     >
                       SM
                     </motion.span>
@@ -462,7 +499,7 @@ const IndexPage = () => {
                   className={styles["leftSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={leftLionVariants}
+                  variants={leftTextVariants}
                 >
                   <h1>The</h1>
                   <h2>ROAR</h2>
@@ -472,7 +509,7 @@ const IndexPage = () => {
                   className={styles["rightSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
-                  variants={rightLionVariants}
+                  variants={rightTextVariants}
                 >
                   <h1>of</h1>
                   <h2>RESILIENCE</h2>
@@ -541,15 +578,7 @@ const IndexPage = () => {
                   <div className={contact["contentContainer"]}>
                     <div className={contact["title"]}>CONTACT US</div>
                     <div className={contact["cardsContainer"]}>
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
-                      <ContactProfile />
+                      {ContactsCards}
                     </div>
                   </div>
                 </div>

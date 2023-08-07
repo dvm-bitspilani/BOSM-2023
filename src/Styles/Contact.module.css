@@ -99,7 +99,7 @@
     /* border: solid red; */
     width: calc(15vh + 5vw);
     align-items: center;
-    margin-block: 1.2vh;
+    margin-block: 0.5vh;
 }
 
 .profileImg{
