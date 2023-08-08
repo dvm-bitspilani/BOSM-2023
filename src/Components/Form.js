@@ -327,7 +327,7 @@ const Form = ({setRegPage}) => {
       }),
       valueContainer:(provided)=>({
         ...provided,
-        padding:'0px 8px',
+        padding:'2px 8px',
         alignItems:'',
         webkitAlignItems:''
       }),
