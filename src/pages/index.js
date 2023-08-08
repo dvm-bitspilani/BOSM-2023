@@ -20,7 +20,7 @@ import ContactsData from "../Components/ContactsData/Contacts.json";
 import LocomotiveScroll from 'locomotive-scroll';
 
 const scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
+    el: document.querySelector('.layout-section'),
     smooth: true
 });
 
