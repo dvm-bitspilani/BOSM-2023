@@ -67,15 +67,15 @@ const Navbar = ({
     <React.Fragment>
       <motion.div
         className={styles["navbarContainer"]}
-        initial={window.innerWidth > 711 && { y: [-150] }}
+        initial={process.browser && window.innerWidth > 711 && { y: [-150] }}
         animate={isHamOpen ? "closed" : "open"}
-        variants={window.innerWidth > 711 && navbarUpVariants}
+        variants={process.browser && window.innerWidth > 711 && navbarUpVariants}
       >
         <motion.div
           className={styles["navLogo"]}
-          initial={window.innerWidth < 711 && { y: [-150] }}
+          initial={process.browser && window.innerWidth < 711 && { y: [-150] }}
           animate={isHamOpen ? "closed" : "open"}
-          variants={window.innerWidth < 711 && navbarUpVariants}
+          variants={process.browser && window.innerWidth < 711 && navbarUpVariants}
         >
           <img src={Logo} alt="logo" />
         </motion.div>
@@ -96,18 +96,18 @@ const Navbar = ({
           <motion.div
             className={styles["registerBtn"]}
             onClick={goToNextPage}
-            initial={window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
+            initial={process.browser && window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
             animate={isHamOpen ? "closed" : "open"}
-            variants={window.innerWidth < 711 && navbarDownVariants}
+            variants={process.browser && window.innerWidth < 711 && navbarDownVariants}
           >
             <p>REGISTER</p>
           </motion.div>
           <motion.div
             className={styles["hamburger"]}
             onClick={setIsHamOpen}
-            initial={window.innerWidth < 711 && { y: [-150] }}
+            initial={process.browser && window.innerWidth < 711 && { y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
-            variants={window.innerWidth < 711 && navbarUpVariants}
+            variants={process.browser && window.innerWidth < 711 && navbarUpVariants}
           >
             <img src={hamIcon} alt="hamIcon" />
           </motion.div>

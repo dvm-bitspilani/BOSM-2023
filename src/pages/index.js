@@ -55,10 +55,6 @@ const IndexPage = () => {
     const leftSubtitle = document.getElementsByClassName(styles["leftSubTitle"]);
     const heading = document.getElementsByClassName(styles["heading"]);
 
-    if (!isBrowser) {
-      return;
-    }
-
     window.scrollTo(0, 0);
 
     if (window.innerWidth > 920) {
@@ -252,7 +248,7 @@ const IndexPage = () => {
   const leftLionVariants = {
     hidden: {
       opacity: 1,
-      x: window.innerWidth > 711 ? "-25vw" : "-100vw",
+      x:(process.browser && window.innerWidth > 711) ? "-25vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -273,7 +269,7 @@ const IndexPage = () => {
   const leftHeadingVariants = {
     hidden: {
       opacity: 1,
-      x: window.innerWidth > 711 ? "-26vw" : "-100vw",
+      x:process.browser && window.innerWidth > 711 ? "-26vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -294,7 +290,7 @@ const IndexPage = () => {
   const rightLionVariants = {
     hidden: {
       opacity: 1,
-      x: window.innerWidth > 711 ? "25vw" : "100vw",
+      x:process.browser && window.innerWidth > 711 ? "25vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -315,7 +311,7 @@ const IndexPage = () => {
   const rightHeadingVariants = {
     hidden: {
       opacity: 1,
-      x : window.innerWidth > 711 ? "26vw" : "100vw",
+      x : process.browser && window.innerWidth > 711 ? "26vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -336,7 +332,7 @@ const IndexPage = () => {
   const leftTextVariants = {
     hidden: {
       opacity: 1,
-      x: window.innerWidth > 711 ? "-25vw" : "-100vw",
+      x: process.browser && window.innerWidth > 711 ? "-25vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -357,7 +353,7 @@ const IndexPage = () => {
   const rightTextVariants = {
     hidden: {
       opacity: 1,
-      x: window.innerWidth > 711 ? "25vw" : "100vw",
+      x: process.browser && window.innerWidth > 711 ? "25vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,
