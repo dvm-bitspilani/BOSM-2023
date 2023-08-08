@@ -92,5 +92,5 @@
 .closeHam img{
   width: 2rem;
   height: 2rem;
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: multiply; */
 }
