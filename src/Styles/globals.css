@@ -27,6 +27,13 @@
 /* :root{
     use variable here
 } */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 999999s ease-in-out 0s;
+}
 ::-webkit-scrollbar {
   display: none;
 }
