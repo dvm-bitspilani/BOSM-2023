@@ -39,15 +39,57 @@ html{
   font-family: "Montserrat";
   font-size: 3.5rem;
 }
-.gamesContainer {
-  width: 100vw;
-  height: 90vh;
+.gameWrapper{
   display: flex;
-  padding: 0 5% 2rem 5%;
-  justify-content: space-between;
-  gap: 5%;
+  align-items: center;
+  justify-content: center;
+  /* margin: 10%; */
+  height: 90vh;
+  overflow: visible;
+}
+.backBtn{
+  width: 3.25em;
+  height: 3.25em;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+.nextBtn{
+  width: 3.25em;
+  height: 3.25em;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-left: 2rem;
+}
+.backBtn img{
+  rotate: 180deg;
+}
+.gamesContainer{
+  width: 80vw;
+  display: flex;
+  overflow-x:scroll;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+.gamesContainer::-webkit-scrollbar{
+  display: none;
+}
+.gamesContainer .divContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  padding: 10px;
+  flex: none;
 }
 .gameGroup {
+  flex: none;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -56,14 +98,42 @@ html{
   overflow: visible;
 }
 .game {
-  background: url(../images/COD_game.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
   transition: all 0.5s ease;
 }
+.cod{
+  background: url(../images/COD_game.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cr{
+  background: url(../images/cr.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.valo{
+  background: url(../images/valorant.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgmi{
+  background: url(../images/bgmi.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fifa{
+  background: url(../images/fifa.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tekken{
+  background: url(../images/Tekken.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .gameGroup p {
   font-family: "PressStart2p";
   color: #fff;
@@ -75,8 +145,8 @@ html{
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 3.25em;
-  height: 3.25em;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background-color: #fafafa;
   display: flex;

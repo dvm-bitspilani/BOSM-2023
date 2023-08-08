@@ -47,6 +47,82 @@ const Ignition = props => {
         };
     }, [])
 
+    useEffect(() => {
+        let scrollContainer = document.getElementById("gamesContainer");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+        
+        let isScrolling = false; 
+    
+        const scrollSpeed = 5;
+        const scrollDistance = 0.3 * window.innerWidth;
+    
+        const handleWheel = (e) => {
+            e.preventDefault();
+            if (!isScrolling) {
+                performScroll(e.deltaY * scrollSpeed);
+            }
+        };
+    
+        const performScroll = (scrollAmount) => {
+            isScrolling = true;
+    
+            const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
+            const start = scrollContainer.scrollLeft;
+            const change = targetScrollLeft - start;
+            const duration = 800;
+    
+            let startTime;
+    
+            const animateScroll = (currentTime) => {
+                if (!startTime) startTime = currentTime;
+                const elapsedTime = currentTime - startTime;
+    
+                const easedScrollLeft = easeInOutQuad(elapsedTime, start, change, duration);
+    
+                scrollContainer.scrollLeft = easedScrollLeft;
+    
+                if (elapsedTime < duration) {
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    isScrolling = false;
+                }
+            };
+    
+            requestAnimationFrame(animateScroll);
+        };
+    
+        const handleNextClick = () => {
+            performScroll(scrollDistance);
+        };
+    
+        const handleBackClick = () => {
+            performScroll(-scrollDistance);
+        };
+    
+        nextBtn.addEventListener("click", handleNextClick);
+        backBtn.addEventListener("click", handleBackClick);
+        scrollContainer.addEventListener("wheel", handleWheel);
+    
+        return () => {
+            scrollContainer.removeEventListener("wheel", handleWheel);
+            nextBtn.removeEventListener("click", handleNextClick);
+            backBtn.removeEventListener("click", handleBackClick);
+        };
+    }, []);
+    
+    // Rest of your code...
+    
+    
+    
+    function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+
     return <React.Fragment>
         <div className="cursor" id="cursor"></div>
         <div className="cursorFollower" id="cursorFollower"><img id="cursorImg" src={Cursor}></img></div>
@@ -56,24 +132,54 @@ const Ignition = props => {
                 <h2>IGNITION <span>2023</span></h2>
                 <img src={cross} onClick={closeButtonHandler} />
             </div>
-            <div className={classes.gamesContainer}>
-                <div className={classes.gameGroup}>
-                    <div className={classes.game}>
-                        <div className={classes.arrowContainer}><img src={arrow} /></div>
-                    </div>
-                    <p>COD Mobile</p>
+            <div className={classes.gameWrapper}> 
+                <div className={classes.backBtn} id="backBtn">
+                    <img src={arrow}></img>
                 </div>
-                <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
-                    <div className={classes.game}>
-                        <div className={classes.arrowContainer}><img src={arrow} /></div>
+                <div className={classes.gamesContainer} id="gamesContainer">
+                    <div className={classes.divContainer}>
+                        <div className={classes.gameGroup}>
+                            <div className={`${classes.game} ${classes.cr}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>Clash Royale</p>
+                        </div>
+                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
+                            <div className={`${classes.game} ${classes.fifa}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>&nbsp;&nbsp;FIFA '23&nbsp;&nbsp;  </p>
+                        </div>
+                        <div className={classes.gameGroup}>
+                            <div className={`${classes.game} ${classes.bgmi}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;BGMI&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        </div>
                     </div>
-                    <p>COD Mobile</p>
+                    <div className={classes.divContainer}>
+                        <div className={classes.gameGroup}>
+                            <div className={`${classes.game} ${classes.valo}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>&nbsp;&nbsp;Valorant&nbsp;&nbsp;</p>
+                        </div>
+                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
+                            <div className={`${classes.game} ${classes.tekken}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>&nbsp;&nbsp;Tekken 7&nbsp;&nbsp;</p>
+                        </div>
+                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
+                            <div className={`${classes.game} ${classes.cod}`}>
+                                <div className={classes.arrowContainer}><img src={arrow} /></div>
+                            </div>
+                            <p>&nbsp;COD Mobile&nbsp;</p>
+                        </div>
+                    </div>
                 </div>
-                <div className={classes.gameGroup}>
-                    <div className={classes.game}>
-                        <div className={classes.arrowContainer}><img src={arrow} /></div>
-                    </div>
-                    <p>COD Mobile</p>
+                <div className={classes.nextBtn} id="nextBtn">
+                    <img src={arrow}></img>
                 </div>
             </div>
         </section>

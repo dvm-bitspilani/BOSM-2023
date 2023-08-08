@@ -6,7 +6,7 @@ module.exports = {
     title: `BOSM '23 | The Roar of Resilience`,
     siteUrl: `https://bosm-2023.netlify.app`
   },
-  plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",'gatsby-plugin-react-css-modules', {
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",'gatsby-plugin-react-css-modules',`gatsby-plugin-postcss`, {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
