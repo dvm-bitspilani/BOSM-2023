@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import HamburgerLinks from "./HamburgerLinks";
 import * as styles from "../Styles/Hamburger.module.css";
 
-import galleryImg from "../images/gallery.png";
-import archiveImg from "../images/archive.png";
-import loginImg from "../images/login.png";
-import developersImg from "../images/developers.png";
+import galleryImg from "../images/gallery-full.jpg";
+import archiveImg from "../images/archive-full.jpg";
+import loginImg from "../images/login-full.jpg";
+import developersImg from "../images/developers-full.jpg";
 
 export default function Hamburger({ closeHam, isHamOpen }) {
   React.useEffect(() => {
@@ -28,7 +28,7 @@ export default function Hamburger({ closeHam, isHamOpen }) {
         Close
       </button> */}
       {/* <div>Hamburger</div> */}
-      {/* <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" /> */}
+      <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" />
       <HamburgerLinks img={archiveImg} text="Archive" color="#458B2C" />
       <HamburgerLinks img={loginImg} text="Login" color="#872424" />
       <HamburgerLinks img={developersImg} text="Developers" color="#397589" />
