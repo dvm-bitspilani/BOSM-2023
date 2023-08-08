@@ -2,11 +2,13 @@ import React from "react";
 import closeHamIcon from "../images/closeHam.svg"
 
 import * as styles from "../Styles/Hamburger.module.css";
+import { Link } from "gatsby";
 
 export default function Hamburger({ closeHam, isHamOpen }) {
 
   return (<>
     <div className={styles["mobileContainer"]}>
+        
         <div className={styles["mobileLinks"]}>
             Ignition
         </div>

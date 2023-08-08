@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "../Styles/Hamburger.module.css";
 import { motion } from "framer-motion";
+import { Link } from "gatsby";
 
 export default function HamburgerLinks({ img, text, color, align }) {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -27,21 +28,23 @@ export default function HamburgerLinks({ img, text, color, align }) {
   };
 
   return (
-    <div
-      style={{ backgroundImage: `url(${img})` }}
-      className={styles["container"]}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <img src={img} alt={text} />
-      <motion.div
-        style={{ backgroundColor: `${color}`, justifyContent: `${align}` }}
-        className={styles["text"]}
-        variants={variants}
-        animate={isHovered ? "hovered" : "notHovered"}
+    <Link to={(text === "Ignition")?"/ignition" : null}>
+      <div
+        style={{ backgroundImage: `url(${img})` }}
+        className={styles["container"]}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        {text}
-      </motion.div>
-    </div>
+        <img src={img} alt={text} />
+        <motion.div
+          style={{ backgroundColor: `${color}`, justifyContent: `${align}` }}
+          className={styles["text"]}
+          variants={variants}
+          animate={isHovered ? "hovered" : "notHovered"}
+        >
+          {text}
+        </motion.div>
+      </div>
+    </Link>
   );
 }
