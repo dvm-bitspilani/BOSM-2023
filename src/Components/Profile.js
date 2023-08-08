@@ -6,18 +6,19 @@ import MailIcon from "../images/mailIcon.png"
 import PhoneIcon from "../images/phoneIcon.png"
 import ContactsData from "./ContactsData/Contacts.json"
 
-export default function Profile(props) { 
+export default function Profile(props) {
 
     return (
         <div className={contact["profileContainer"]}>
-            {/* <img src={ProfilePic} alt="profile image" className={contact["profileImg"]}/> */}
             <div className={contact["profileImg"]}
                 style={{ backgroundImage: `url(${props.img})` }}
             ></div>
             <div className={contact["profileName"]}>
-                {props.name}
+                <div>{props.name}</div>
             </div>
-            <div className={contact["profileDept"]}>{props.dept}</div>
+            <div className={contact["profileDept"]}>
+                <div>{props.dept}</div>
+            </div>
             <div className={contact["icons"]}>
                 <motion.div whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 1 }}><img src={PhoneIcon} alt="phone" /></motion.div>
