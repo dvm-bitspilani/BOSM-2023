@@ -33,6 +33,8 @@ const IndexPage = () => {
   const [regPage, setRegPage] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
 
+  const isBrowser = typeof window !== "undefined"
+
   useEffect(() => {
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
@@ -53,6 +55,9 @@ const IndexPage = () => {
     const leftSubtitle = document.getElementsByClassName(styles["leftSubTitle"]);
     const heading = document.getElementsByClassName(styles["heading"]);
 
+    if (!isBrowser) {
+      return;
+    }
 
     window.scrollTo(0, 0);
 
