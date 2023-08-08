@@ -168,6 +168,23 @@ body {
   place-items: center;
 }
 
+.loader{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.loader video{
+  width: 50vw;
+  height: auto;
+  margin: auto;
+  padding-left: 5vw;
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
