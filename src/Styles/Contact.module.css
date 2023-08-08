@@ -81,6 +81,7 @@
   z-index: 2;
   overflow: auto;
   transition: all 2s ease;
+  transform: translateX(60vw);
 }
 
 .title {
@@ -186,6 +187,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
+    transform: translateX(0);
   }
   .contentContainer {
     padding-right: 0;
