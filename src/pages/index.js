@@ -17,14 +17,28 @@ import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
-import LocomotiveScroll from 'locomotive-scroll';
+import LocomotiveScroll from "locomotive-scroll";
+import LoaderVideo from "../images/loader.mp4"
 
 const scroll = new LocomotiveScroll({
-    el: document.querySelector('.layout-section'),
+    el: document.querySelector('[data-scroll-container]'),
     smooth: true
 });
 
 const IndexPage = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
+
+
 
   const ContactsCards = ContactsData.map((contact) => {
     return (
@@ -40,6 +54,8 @@ const IndexPage = () => {
   const [showBlackScreen, setShowBlackScreen] = useState(false);
 
   const isBrowser = typeof window !== "undefined"
+
+  
 
   useEffect(() => {
     const cursor = document.getElementById("cursor");
@@ -80,13 +96,8 @@ const IndexPage = () => {
         let _clientX = clientX - 52;
         let _clientY = clientY - 52;
 
-        cursorCircle.animate(
-          {
-            left: `${_clientX}px`,
-            top: `${_clientY}px`,
-          },
-          { duration: 500, fill: "forwards" }
-        );
+        cursorCircle.style.left = `${_clientX}px`;
+        cursorCircle.style.top = `${_clientY}px`;    
       };
       const handleScroll = () => {
         if (statue) {
@@ -130,7 +141,12 @@ const IndexPage = () => {
             contactContent.style.opacity = 0;
             frontStatue.style.left = '-40vw';
             backStatue.style.left = '-60vw';
-            contactPage.style.top = `${contactPageTop}vh`;
+            if (contactPageTop > 0) {
+              contactPage.style.top = `${contactPageTop}vh`;
+            }
+            else {
+              contactPage.style.top = 0;
+            }
             // contactPage.style.transform = `scale(${contactScale})`;
 
           }
@@ -150,10 +166,10 @@ const IndexPage = () => {
       const handleScroll = () => {
         if (statue) {
           const position = window.scrollY;
-          const statueHeight = 68 + (position / 20);
+          const statueHeight = 60 + (position / 20);
           const contactRadius = 150 - (position / 5);
           const contactPageTop = 50 - (position / 15);
-          const blur = (position / 30)
+          const blur = (position / 50)
 
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
@@ -204,8 +220,6 @@ const IndexPage = () => {
             contactPage.style.borderRadius = 0;
           }
           if (position <= (window.innerHeight - 50)) {
-            contactContent.style.transform = 'translateY(85vw)';
-            contactContent.style.opacity = 0;
             backStatue.style.opacity = 0;
             backStatueMobile.style.opacity = 0;
             contactPage.style.top = 0;
@@ -217,8 +231,6 @@ const IndexPage = () => {
             backStatue.style.opacity = 1;
             backStatueMobile.style.opacity = 1;
             contactPage.style.top = 0;
-            contactContent.style.transform = 'translateY(0)';
-            contactContent.style.opacity = 1;
           }
         }
       };
@@ -228,9 +240,9 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen])
+  }, [regPage, showBlackScreen, isLoading])
   const [isHamOpen, setIsHamOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false)
 
   console.log(isHamOpen);
 
@@ -409,11 +421,14 @@ const IndexPage = () => {
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor}></img>
       </div>
-      {showBlackScreen && (
-        <div className="blackScreen">
-          <img src={logo} />
-        </div>
-      )}
+      {isLoading ? (
+        <div className="loader">
+        <video autoPlay loop muted>
+          <source src={LoaderVideo} type="video/mp4" />
+        </video>
+      </div>
+      ) : (
+      <>
       {!regPage && (
         <Layout
           setRegPage={setRegPage}
@@ -424,7 +439,7 @@ const IndexPage = () => {
           fixedbg={true}
           overflow={false}
           content={
-            <main>
+            <main id="landing">
               <motion.div data-scroll
                 className={styles["statueContainer"]}
                 id="statueContainer"
@@ -588,6 +603,7 @@ const IndexPage = () => {
           content={<Form setRegPage={setRegPage} />}
         />
       )}
+      </>)}
     </>
   );
 };

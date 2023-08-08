@@ -74,9 +74,11 @@ const Layout = ({
   };
 
   const isBrowser = typeof window !== "undefined";
+  const [isAnimationComplete, setIsAnimationComplete] = React.useState(false);
 
   return (
-    <section data-scroll-section
+    <section
+      data-scroll-section
       id={sectionId}
       className="layout-section"
       style={{ overflow: overflow ? "visible" : "hidden" }}
@@ -125,21 +127,33 @@ const Layout = ({
           setIsHamOpen={() => setIsHamOpen(!isHamOpen)}
         />
       )}
-      <Hamburger closeHam={() => setIsHamOpen(false)} isHamOpen={isHamOpen} />
+      <Hamburger
+        closeHam={() => setIsHamOpen(false)}
+        isHamOpen={isHamOpen}
+        isAnimationComplete={isAnimationComplete}
+      />
 
       <AnimatePresence>
         {isHamOpen && isBrowser && window.innerWidth > 711 && (
           <>
             <motion.div
-              onMouseDown={() => setIsHamOpen(false)}
+              onMouseDown={() => {
+                if (isAnimationComplete) setIsHamOpen(false);
+              }}
               className="ham-black-screen-right"
               initial={{ opacity: 0 }}
               animate={isHamOpen ? "open" : "closed"}
               variants={blackScreenVariants}
               exit={{ opacity: 0 }}
+              onAnimationComplete={() =>
+                setIsAnimationComplete((prev) => !prev)
+              }
+              // onAnimationEnd={()=>console.log("end")}
             />
             <motion.div
-              onClick={() => setIsHamOpen(false)}
+              onMouseDown={() => {
+                if (isAnimationComplete) setIsHamOpen(false);
+              }}
               className="ham-black-screen-left"
               initial={{ opacity: 0 }}
               animate={isHamOpen ? "open" : "closed"}
