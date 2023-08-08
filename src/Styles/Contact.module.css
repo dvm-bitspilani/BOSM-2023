@@ -91,6 +91,7 @@
     color: white;
     /* margin-bottom: 3vh; */
     padding-top: 3vh;
+    overflow: hidden;
 }
 
 .profileContainer{
@@ -171,6 +172,9 @@
     .frontStatue{
         display: none;
     }
+    .container{
+        overflow: hidden;
+    }
     .content{
         width: 100vw;
         left: 0;
@@ -202,6 +206,7 @@
 @media (max-width: 780px){
     .cardsContainer{
         column-gap: 4vw;
+        padding: 0;
     } 
     
 }
@@ -209,15 +214,26 @@
     .cardsContainer{
         column-gap: 1vw;
     } 
+    .pageBackground{
+        display: none;
+    }
 }
-@media (max-width: 600px){
+@media (max-width: 650px){
+    .page{
+        height: 100%;
+    }
     .content{
         height: auto;
     }
     .cardsContainer{
-        grid-template-columns: auto auto auto;
-        column-gap: 0vw;
+        margin-top: 4rem;
+        grid-template-columns: auto auto;
+        column-gap: 10vw;
         /* overflow: scroll; */
     } 
+    .profileName{
+        font-size: 1.25rem;
+        letter-spacing: 0.05rem;
+    }
 }
 

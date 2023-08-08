@@ -177,3 +177,13 @@ body {
     transform: rotate(359deg);
   }
 }
+@media(min-height: 920px){
+  #contact-section{
+    height: 175vh;
+  }
+}
+@media(max-height: 920px){
+  #contact-section{
+    height: 200vh;
+  }
+}
