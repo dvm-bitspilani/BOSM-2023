@@ -18,7 +18,6 @@ import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
 
-<<<<<<< HEAD
 import LoaderVideo from "../images/loader.mp4"
 
 const scroll = new LocomotiveScroll({
