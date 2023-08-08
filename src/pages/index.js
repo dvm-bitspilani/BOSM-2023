@@ -25,9 +25,6 @@ const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true
 });
-=======
-
->>>>>>> b0636a9221fe0b541f22d4bce66694e0ce6c6b1c
 
 const IndexPage = () => {
 
@@ -248,7 +245,11 @@ const IndexPage = () => {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // console.log(isHamOpen);
+  console.log(isHamOpen);
+
+  setTimeout(() => {
+    setIsLoaded(true);
+  }, 3000);
 
   const statueVariants = {
     hidden: {
