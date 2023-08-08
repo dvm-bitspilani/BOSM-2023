@@ -300,6 +300,11 @@ h2 {
   font-size: 1.2rem;
   font-weight: 700;
   padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 .formMultiInput {
   display: flex;
@@ -620,6 +625,9 @@ input[type="radio"] {
   .formMultiInput {
     width: 100%;
   }
+  .formMultiInput{
+    margin-top: 0;
+  }
   .rpHeadingContainer {
     padding: 0.5% 0.5rem;
   }
@@ -638,6 +646,9 @@ input[type="radio"] {
   }
   .regInput {
     font-size: 1.15rem;
+  }
+  .regForm{
+    width: 85vw;
   }
 }
 @media (max-width: 400px) {

@@ -69,4 +69,10 @@
   #reg-logo {
     margin-left: -1rem;
   }
+  .custom-radio {
+    width: 1rem;
+    height: 1rem;
+    top: 4px;
+    left: -10px;
+  }
 }
