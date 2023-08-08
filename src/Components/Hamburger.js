@@ -11,7 +11,8 @@ import developersImg from "../images/developers-full.jpg";
 export default function Hamburger({ closeHam, isHamOpen }) {
   React.useEffect(() => {
     const hamburger = document.querySelector(`.${styles["hamburger"]}`);
-    if (isHamOpen) {
+    if (isHamOpen && window.innerWidth > 711) {
+        // console.log("Hamburger opened");
       setTimeout(() => {
         hamburger.style.zIndex = 100;
       }, 2000);

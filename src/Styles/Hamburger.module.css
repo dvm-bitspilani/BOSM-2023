@@ -50,3 +50,47 @@
   line-height: normal;
   text-transform: uppercase;
 }
+
+.mobileContainer{
+  position : absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobileLinks {
+  text-transform: uppercase;
+  text-align: center;
+  color: #ebebeb;
+  font-family: Druk Wide Bold;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.mobileLinks:hover {
+  color: #ebebeb;
+  text-decoration: underline;
+}
+
+.mobileLinks:active {
+  color: #ebebeb;
+  text-decoration: underline;
+}
+
+.closeHam{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.closeHam img{
+  width: 2rem;
+  height: 2rem;
+  mix-blend-mode: multiply;
+}

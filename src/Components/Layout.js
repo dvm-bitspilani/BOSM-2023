@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import "../Styles/globals.css";
 import { AnimatePresence, motion } from "framer-motion";
 import Hamburger from "./Hamburger";
+import MobileHamburger from "./MobileHamburger";
 
 const Layout = ({
   content,
@@ -81,12 +82,12 @@ const Layout = ({
           <motion.div
             className="fixed-bg-red"
             animate={isHamOpen ? "closed" : "open"}
-            variants={redBgVariants}
+            variants={window.innerWidth > 731 && redBgVariants}
           ></motion.div>
           <motion.div
             className="fixed-bg-blue"
             animate={isHamOpen ? "closed" : "open"}
-            variants={blueBgVariants}
+            variants={window.innerWidth > 731 && blueBgVariants}
             // animate={{
             //   y: [500, 500, -250, 0, 0, 0, 0],
             //   x: [0, 0, 0, 0, 0, 300, 0],
@@ -121,8 +122,9 @@ const Layout = ({
         />
       )}
       <Hamburger closeHam={() => setIsHamOpen(false)} isHamOpen={isHamOpen} />
+
       <AnimatePresence>
-        {isHamOpen && (
+        {isHamOpen && window.innerWidth > 711 && (
           <>
             <motion.div
               onMouseDown={() => setIsHamOpen(false)}
@@ -143,6 +145,24 @@ const Layout = ({
           </>
         )}
       </AnimatePresence>
+
+      <AnimatePresence>
+        {isHamOpen && window.innerWidth < 711 && (
+          <motion.div
+            className="mobileHamburger"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
+          >
+            <MobileHamburger
+              closeHam={() => setIsHamOpen(false)}
+              isHamOpen={isHamOpen}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <React.Fragment>{content}</React.Fragment>
     </section>
   );
