@@ -28,7 +28,7 @@ export default function HamburgerLinks({ img, text, color, align }) {
   };
 
   return (
-    // <Link to={(text === "Ignition")?"/ignition" : null}>
+    <Link to={(text === "Ignition")?"/ignition" : null}>
       <div
         style={{ backgroundImage: `url(${img})` }}
         className={styles["container"]}
@@ -45,6 +45,6 @@ export default function HamburgerLinks({ img, text, color, align }) {
           {text}
         </motion.div>
       </div>
-    // </Link>
+    </Link>
   );
 }
