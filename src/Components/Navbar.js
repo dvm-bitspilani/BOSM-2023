@@ -22,7 +22,7 @@ const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => 
     open: {
       y: 0,
       transition: {
-        delay : 0,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -30,7 +30,7 @@ const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => 
     closed: {
       y: -150,
       transition: {
-        delay : 1,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },

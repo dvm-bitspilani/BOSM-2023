@@ -158,18 +158,17 @@
   .registerBtn p {
     font-size: 0.95rem;
   }
-  .navLogo img{
+  .navLogo img {
     pointer-events: none;
   }
 }
 
-@media (max-width:711px) {
-
+@media (max-width: 711px) {
   .navbarContainer {
     position: static;
   }
 
-  .navbarRightCorner{
+  .navbarRightCorner {
     position: static;
     height: fit-content;
     width: fit-content;
@@ -182,7 +181,7 @@
     bottom: 5%;
   }
 
-  .hamburger{
+  .hamburger {
     width: 80px;
   }
 }

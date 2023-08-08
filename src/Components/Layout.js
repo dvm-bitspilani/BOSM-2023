@@ -14,6 +14,7 @@ const Layout = ({
   isHamOpen,
   setIsHamOpen,
   overflow,
+  sectionId
 }) => {
   const redBgVariants = {
     open: {
@@ -74,6 +75,7 @@ const Layout = ({
 
   return (
     <section
+      id={sectionId}
       className="layout-section"
       style={{ overflow: overflow ? "visible" : "hidden" }}
     >
