@@ -17,10 +17,28 @@ import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
+import LocomotiveScroll from "locomotive-scroll";
+import LoaderVideo from "../images/loader.mp4"
 
-
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+});
 
 const IndexPage = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
+
+
 
   const ContactsCards = ContactsData.map((contact) => {
     return (
@@ -36,6 +54,8 @@ const IndexPage = () => {
   const [showBlackScreen, setShowBlackScreen] = useState(false);
 
   const isBrowser = typeof window !== "undefined"
+
+  
 
   useEffect(() => {
     const cursor = document.getElementById("cursor");
@@ -220,11 +240,11 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen])
+  }, [regPage, showBlackScreen, isLoading])
   const [isHamOpen, setIsHamOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  // console.log(isHamOpen);
+  console.log(isHamOpen);
 
   setTimeout(() => {
     setIsLoaded(true);
@@ -401,11 +421,14 @@ const IndexPage = () => {
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor}></img>
       </div>
-      {showBlackScreen && (
-        <div className="blackScreen">
-          <img src={logo} />
-        </div>
-      )}
+      {isLoading ? (
+        <div className="loader">
+        <video autoPlay loop muted>
+          <source src={LoaderVideo} type="video/mp4" />
+        </video>
+      </div>
+      ) : (
+      <>
       {!regPage && (
         <Layout
           setRegPage={setRegPage}
@@ -416,7 +439,7 @@ const IndexPage = () => {
           fixedbg={true}
           overflow={false}
           content={
-            <main>
+            <main id="landing">
               <motion.div data-scroll
                 className={styles["statueContainer"]}
                 id="statueContainer"
@@ -580,6 +603,7 @@ const IndexPage = () => {
           content={<Form setRegPage={setRegPage} />}
         />
       )}
+      </>)}
     </>
   );
 };

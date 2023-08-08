@@ -1,6 +1,6 @@
 import React from "react";
 import * as contact from "../Styles/Contact.module.css"
-import ProfilePic from "../images/sample_contact_image.png"
+// import ProfilePic from "../images/sample_contact_image.png"
 import { motion } from "framer-motion";
 import MailIcon from "../images/mailIcon.png"
 import PhoneIcon from "../images/phoneIcon.png"

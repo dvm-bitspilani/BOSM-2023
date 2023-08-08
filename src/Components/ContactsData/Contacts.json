@@ -1,7 +1,7 @@
 [
   {
     "name": "Shreyas Sesham",
-    "image": "../images/contact_profile",
+    "image": "../Components/ContactsData/ContactImages/contact_boy.png",
     "department": "Publications and Correspondence",
     "phone": "+91-9999999999",
     "email": "abcd@pilani.bits-pilani.ac.in"
