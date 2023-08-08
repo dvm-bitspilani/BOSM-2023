@@ -159,3 +159,27 @@
     font-size: 0.95rem;
   }
 }
+
+@media (max-width:711px) {
+
+  .navbarContainer {
+    position: static;
+  }
+
+  .navbarRightCorner{
+    position: static;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .registerBtn {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 5%;
+  }
+
+  .hamburger{
+    width: 80px;
+  }
+}
