@@ -2,7 +2,7 @@ import React from "react";
 import * as styles from "../Styles/Hamburger.module.css";
 import { motion } from "framer-motion";
 
-export default function HamburgerLinks({ img, text, color }) {
+export default function HamburgerLinks({ img, text, color, align }) {
     const [isHovered, setIsHovered] = React.useState(false);
 
     const variants = {
@@ -35,7 +35,7 @@ export default function HamburgerLinks({ img, text, color }) {
     >
       <img src={img} alt={text} />
       <motion.div
-        style={{ backgroundColor: `${color}` }}
+        style={{ backgroundColor: `${color}`, justifyContent: `${align}` }}
         className={styles["text"]}
         variants={variants}
         animate={isHovered ? "hovered" : "notHovered"}
