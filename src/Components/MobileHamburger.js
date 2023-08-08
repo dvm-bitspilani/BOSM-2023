@@ -9,9 +9,11 @@ export default function Hamburger({ closeHam, isHamOpen }) {
   return (<>
     <div className={styles["mobileContainer"]}>
         
-        <div className={styles["mobileLinks"]}>
-            Ignition
-        </div>
+        <Link to="/ignition">
+            <div className={styles["mobileLinks"]}>
+                Ignition
+            </div>
+        </Link>
         <div className={styles["mobileLinks"]}>
             Gallery
         </div>
