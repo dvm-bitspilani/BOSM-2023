@@ -1,142 +1,148 @@
-.section{
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.60) 100%), url(../images/ignition_bg.png), lightgray -392.932px 0px / 145.478% 100% no-repeat;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.section {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url(../images/ignition_bg.png),
+    lightgray -392.932px 0px / 145.478% 100% no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-.header{
-    display: flex;
-    width: 100vw;
-    justify-content: space-between;
-    padding: 0 5%;
-    align-items: center;
-    margin-top: 2rem;
+.header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 0 5%;
+  align-items: center;
+  margin-top: 2rem;
 }
-.header h2{
-    color: #FFF;
-    text-align: center;
-    font-family: "Montserrat";
-    font-size: 3.5rem;
+.header h2 {
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 3.5rem;
 }
-.header h2 span{
-    color: #FFF;
-    text-align: center;
-    font-family: "Montserrat";
-    font-size: 3.5rem;
+.header h2 span {
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 3.5rem;
 }
-.gamesContainer{
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    padding: 0 5% 2rem 5%;
-    justify-content: space-between;
-    gap: 5%;
+.gamesContainer {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  padding: 0 5% 2rem 5%;
+  justify-content: space-between;
+  gap: 5%;
 }
-.gameGroup{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4rem;
-    overflow: visible;
+.gameGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  overflow: visible;
 }
-.game{
-    background: url(../images/COD_game.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    aspect-ratio: 1/1;
-    position: relative;
-    transition: all 0.5s ease;
+.game {
+  background: url(../images/COD_game.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  transition: all 0.5s ease;
 }
-.gameGroup p{
-    font-family: "PressStart2p";
-    color: #FFF;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 400;
+.gameGroup p {
+  font-family: "PressStart2p";
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
 }
-.arrowContainer{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 3.25em;
-    height: 3.25em;
-    border-radius: 50%;
-    background-color: #FAFAFA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.arrowContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3.25em;
+  height: 3.25em;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-.arrowContainer img{
-    transition: all 0.5s ease;
+.arrowContainer img {
+  transition: all 0.5s ease;
 }
 
-.game:hover > .arrowContainer > img{
-    transform: rotate(-45deg);
+.game:hover > .arrowContainer > img {
+  transform: rotate(-45deg);
 }
 .game:hover {
-    scale: 1.1;
+  scale: 1.1;
 }
 @media (max-width: 1000px) {
-    .section{
-        min-height: 100vh;
-        height: auto;
-    }
-    .header h2{
-        font-size: 4.5rem;
-    }
-    .header h2 span{
-        display: none;
-    }
-    .gamesContainer{
-        flex-direction: column;
-        min-height: 100vh;
-        height: auto;
-        padding-top: 2rem;
-    }
-    .gameGroup{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: #2A2A2A;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        margin-top: 2rem;
-    }
-    .secondGameGroup p{
-        order: 1;
-    }
-    .secondGameGroup .game{
-        order: 2;
-    }
+  .section {
+    min-height: 100vh;
+    height: auto;
+  }
+  .header h2 {
+    font-size: 4.5rem;
+  }
+  .header h2 span {
+    display: none;
+  }
+  .gamesContainer {
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    padding-top: 2rem;
+  }
+  .gameGroup {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-top: 2rem;
+  }
+  .secondGameGroup p {
+    order: 1;
+  }
+  .secondGameGroup .game {
+    order: 2;
+  }
 }
 @media (max-width: 650px) {
-    .gameGroup{
-        margin-top: 1rem;
-    }
-    .header h2{
-        font-size: 2.5rem;
-    }
-    .gamesContainer{
-        gap: 0;
-        min-height: 90vh;
-        justify-content: space-evenly;
-    }
-    .gameGroup{
-        gap: 1rem;
-    }
-    .gameGroup p{
-        font-size: 1rem;
-    }
-    .header img{
-        scale: 0.75;
-    }
+  .gameGroup {
+    margin-top: 1rem;
+  }
+  .header h2 {
+    font-size: 2.5rem;
+  }
+  .gamesContainer {
+    gap: 0;
+    min-height: 90vh;
+    justify-content: space-evenly;
+  }
+  .gameGroup {
+    gap: 1rem;
+  }
+  .gameGroup p {
+    font-size: 1rem;
+  }
+  .header img {
+    scale: 0.75;
+  }
 }

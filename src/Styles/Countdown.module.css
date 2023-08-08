@@ -62,13 +62,13 @@
 }
 
 @media screen and (max-width: 920px) {
-  .countdown{
+  .countdown {
     gap: 0.5rem;
   }
-  .numbers{
+  .numbers {
     font-size: 1.5rem;
   }
-  .labels{
+  .labels {
     font-size: 1rem;
   }
 }

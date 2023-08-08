@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React, { useEffect } from "react";
 import cross from "../images/cross.svg";
 import Cursor from "../images/cursor.png";
 import { navigate } from "gatsby";
@@ -17,7 +17,7 @@ const Ignition = props => {
         const cursor = document.getElementById("cursor");
         const cursorCircle = document.getElementById("cursorFollower");
         const cursorImg = document.getElementById("cursorImg");
-        
+
         if (window.innerWidth > 1000) {
             window.onpointermove = (event) => {
                 const { clientX, clientY } = event;
@@ -43,7 +43,7 @@ const Ignition = props => {
         }
         return () => {
             window.onpointermove = null;
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         };
     }, [])
 
@@ -52,7 +52,7 @@ const Ignition = props => {
         <div className="cursorFollower" id="cursorFollower"><img id="cursorImg" src={Cursor}></img></div>
         <section className={classes.section}>
             <div className={classes.header}>
-                <img src={cross} style={{visibility: 'hidden' , pointerEvents: 'none'}} />
+                <img src={cross} style={{ visibility: 'hidden', pointerEvents: 'none' }} />
                 <h2>IGNITION <span>2023</span></h2>
                 <img src={cross} onClick={closeButtonHandler} />
             </div>
@@ -84,7 +84,7 @@ export default Ignition;
 
 export const Head = () => (
     <>
-      <title>IGNITION | BOSM '23 </title>
-      <link rel="icon" type="image/x-icon" href={logo} />
+        <title>IGNITION | BOSM '23 </title>
+        <link rel="icon" type="image/x-icon" href={logo} />
     </>
-  );
+);

@@ -28,10 +28,10 @@ export default function Hamburger({ closeHam, isHamOpen }) {
         Close
       </button> */}
       {/* <div>Hamburger</div> */}
-      <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" align="left"/>
-      <HamburgerLinks img={archiveImg} text="Archive" color="#458B2C" align="right"/>
-      <HamburgerLinks img={loginImg} text="Login" color="#872424" align="left"/>
-      <HamburgerLinks img={developersImg} text="Developers" color="#397589" align="right"/>
+      <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" align="left" />
+      <HamburgerLinks img={archiveImg} text="Archive" color="#458B2C" align="right" />
+      <HamburgerLinks img={loginImg} text="Login" color="#872424" align="left" />
+      <HamburgerLinks img={developersImg} text="Developers" color="#397589" align="right" />
     </div>
   );
 }

@@ -116,7 +116,7 @@ body {
   left: 0;
   transform: scale(1);
 }
-.blackScreen{
+.blackScreen {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -125,31 +125,31 @@ body {
   z-index: 9999;
   background: url(../images/red-bg.png);
   background-size: cover;
-  animation: slideUp 2s ease 1 ;
+  animation: slideUp 2s ease 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.blackScreen img{
+.blackScreen img {
   scale: 1.5;
   filter: drop-shadow(10px 10px 10px #000);
 }
 
-.ham-black-screen-right{
+.ham-black-screen-right {
   position: absolute;
   top: 0;
   right: 0;
-  width : 25vw;
+  width: 25vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 9999;
 }
 
-.ham-black-screen-left{
+.ham-black-screen-left {
   position: absolute;
   top: 0;
   left: 0;
-  width : 25vw;
+  width: 25vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 9999;
@@ -159,13 +159,13 @@ body {
   0% {
     transform: translateY(100%);
   }
-  40%{
+  40% {
     transform: translateY(0);
   }
   60% {
     transform: translateY(0);
   }
-  100%{
+  100% {
     transform: translateY(-100%);
   }
 }
@@ -177,13 +177,13 @@ body {
     transform: rotate(359deg);
   }
 }
-@media(min-height: 920px) and (max-width: 650px){
-  #contact-section{
+@media (min-height: 920px) and (max-width: 650px) {
+  #contact-section {
     height: 175vh;
   }
 }
-@media(max-height: 920px) and (max-width: 650px){
-  #contact-section{
+@media (max-height: 920px) and (max-width: 650px) {
+  #contact-section {
     height: 200vh;
   }
 }
