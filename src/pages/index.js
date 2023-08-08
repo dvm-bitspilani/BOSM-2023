@@ -121,18 +121,14 @@ const IndexPage = () => {
             contactContent.style.opacity = 0;
             frontStatue.style.left = '-40vw';
             backStatue.style.left = '-60vw';
-            if (contactPageTop > 0) {
-              contactPage.style.top = `${contactPageTop}vh`;
-            }
-            else {
-              contactPage.style.top = 0;
-            }
+            contactPage.style.top = `${contactPageTop}vh`;
             // contactPage.style.transform = `scale(${contactScale})`;
 
           }
           else {
             frontStatue.style.left = '14.15vw';
             backStatue.style.left = '-10.5vw';
+            contactPage.style.top = 0;
             contactContent.style.opacity = 1;
             contactContent.style.transform = 'translateX(0)';
             // contactPage.style.transform = `scale(1)`;
@@ -201,12 +197,7 @@ const IndexPage = () => {
           if (position <= (window.innerHeight - 50)) {
             backStatue.style.opacity = 0;
             backStatueMobile.style.opacity = 0;
-            if (contactPageTop > 0) {
-              contactPage.style.top = `${contactPageTop}vh`;
-            }
-            else {
-              contactPage.style.top = 0;
-            }
+            contactPage.style.top = 0;
             // backStatue.style.left = '-75vw';
 
           }
