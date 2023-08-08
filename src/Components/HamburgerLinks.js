@@ -16,7 +16,7 @@ export default function HamburgerLinks({ img, text, color, align }) {
       },
     },
     notHovered: {
-      top: "70%",
+      top: "65%",
       bottom: "10%",
       transition: {
         delay: 0,

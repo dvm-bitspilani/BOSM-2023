@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import HamburgerLinks from "./HamburgerLinks";
 import * as styles from "../Styles/Hamburger.module.css";
 
+import ignitionImg from "../images/ignition-full.jpg";
 import galleryImg from "../images/gallery-full.jpg";
 import archiveImg from "../images/archive-full.jpg";
-import loginImg from "../images/login-full.jpg";
+import sponsorsImg from "../images/sponsors-full.jpg";
 import developersImg from "../images/developers-full.jpg";
 
 export default function Hamburger({ closeHam, isHamOpen }) {
@@ -29,10 +30,11 @@ export default function Hamburger({ closeHam, isHamOpen }) {
         Close
       </button> */}
       {/* <div>Hamburger</div> */}
-      <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" align="left" />
-      <HamburgerLinks img={archiveImg} text="Archive" color="#458B2C" align="right" />
-      <HamburgerLinks img={loginImg} text="Login" color="#872424" align="left" />
-      <HamburgerLinks img={developersImg} text="Developers" color="#397589" align="right" />
+      <HamburgerLinks img={ignitionImg} text="Ignition" color="#872424" align="left" />
+      <HamburgerLinks img={galleryImg} text="Gallery" color="#AD912E" align="right" />
+      <HamburgerLinks img={archiveImg} text="Archive" color="#397589" align="left" />
+      <HamburgerLinks img={sponsorsImg} text="Sponsors" color="#458B2C" align="rightt" />
+      <HamburgerLinks img={developersImg} text="Developers" color="#4B2280" align="left" />
     </div>
   );
 }
