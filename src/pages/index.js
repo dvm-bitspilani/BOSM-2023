@@ -16,7 +16,13 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-import ContactsData from "../Components/ContactsData/Contacts.json"
+import ContactsData from "../Components/ContactsData/Contacts.json";
+import LocomotiveScroll from 'locomotive-scroll';
+
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+});
 
 const IndexPage = () => {
 
@@ -414,7 +420,7 @@ const IndexPage = () => {
           overflow={false}
           content={
             <main>
-              <motion.div
+              <motion.div data-scroll
                 className={styles["statueContainer"]}
                 id="statueContainer"
                 initial={{ y: [600] }}
@@ -432,7 +438,7 @@ const IndexPage = () => {
                   className={`${styles["statue"]} ${styles["mobileStatue"]}`}
                 />
               </motion.div>
-              <motion.div
+              <motion.div data-scroll
                 className={styles["leftLion"]}
                 initial={{ opacity: [0], x: [100] }}
                 animate={isHamOpen ? "hidden" : "visible"}
@@ -440,7 +446,7 @@ const IndexPage = () => {
               >
                 <img src={LeftLion} />
               </motion.div>
-              <motion.div
+              <motion.div data-scroll
                 className={styles["rightLion"]}
                 initial={{ opacity: [0], x: [-100] }}
                 animate={isHamOpen ? "hidden" : "visible"}
@@ -449,7 +455,7 @@ const IndexPage = () => {
                 <img src={RightLion} />
               </motion.div>
               <div className={styles["container"]}>
-                <motion.div
+                <motion.div data-scroll
                   className={styles["heading"]}
                 //   initial={{ opacity: [0] }}
                 //   animate={{ opacity: [0, 1] }}
@@ -477,7 +483,7 @@ const IndexPage = () => {
                     </motion.span>
                   </>
                 </motion.div>
-                <motion.div
+                <motion.div data-scroll
                   className={styles["leftSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -487,7 +493,7 @@ const IndexPage = () => {
                   <h2>ROAR</h2>
                 </motion.div>
 
-                <motion.div
+                <motion.div data-scroll
                   className={styles["rightSubTitle"]}
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -529,13 +535,13 @@ const IndexPage = () => {
           fixedbg={false}
           sectionId='contact-section'
           content={
-            <main
+            <main data-scroll
               id="contactPage"
               className={contact["page"]}
               style={{ top: "50vh" }}
             >
               <div id="contactContainer" className={contact["container"]}>
-                <div className={contact["pageBackground"]}>
+                <div data-scroll className={contact["pageBackground"]}>
                   <img
                     id="frontStatue"
                     src={FrontStatue}
@@ -548,12 +554,12 @@ const IndexPage = () => {
                   />
                   {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                 </div>
-                <div
+                <div data-scroll
                   id="backStatueMobile"
                   className={contact["backStatueMobile"]}
                   style={{ backgroundImage: `url(${BackStatueMobile})` }}
                 ></div>
-                <div
+                <div data-scroll
                   id="contactContent"
                   className={contact["content"]}
                   style={{ transform: "translateX(60vw)" }}
