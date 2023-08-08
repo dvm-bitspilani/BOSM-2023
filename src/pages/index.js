@@ -195,8 +195,6 @@ const IndexPage = () => {
             contactPage.style.borderRadius = 0;
           }
           if (position <= (window.innerHeight - 50)) {
-            contactContent.style.transform = 'translateY(85vw)';
-            contactContent.style.opacity = 0;
             backStatue.style.opacity = 0;
             backStatueMobile.style.opacity = 0;
             contactPage.style.top = 0;
@@ -208,8 +206,6 @@ const IndexPage = () => {
             backStatue.style.opacity = 1;
             backStatueMobile.style.opacity = 1;
             contactPage.style.top = 0;
-            contactContent.style.transform = 'translateY(0)';
-            contactContent.style.opacity = 1;
           }
         }
       };
