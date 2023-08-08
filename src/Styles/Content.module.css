@@ -133,7 +133,7 @@ main {
   justify-content: flex-end;
   align-items: center;
   z-index: 9;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 .rightLion {
   position: absolute;
@@ -145,7 +145,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   z-index: 9;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 .leftLion img {
   height: 75vh;

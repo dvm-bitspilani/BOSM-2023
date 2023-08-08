@@ -18,7 +18,7 @@ const Layout = ({
     open: {
       x: 0,
       transition: {
-        delay: 0,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -26,7 +26,7 @@ const Layout = ({
     closed: {
       x: "-25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -37,7 +37,7 @@ const Layout = ({
     open: {
       x: 0,
       transition: {
-        delay: 0,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -45,7 +45,7 @@ const Layout = ({
     closed: {
       x: "25vw",
       transition: {
-        delay: 1,
+        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
