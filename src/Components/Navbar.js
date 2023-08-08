@@ -6,7 +6,12 @@ import { motion, transform } from "framer-motion";
 import { navigate } from "gatsby";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
-const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => {
+const Navbar = ({
+  setRegPage,
+  setShowBlackScreen,
+  isHamOpen,
+  setIsHamOpen,
+}) => {
   const goToNextPage = () => {
     setShowBlackScreen(true);
     setTimeout(() => {
@@ -18,7 +23,7 @@ const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => 
     }, 1000);
   };
 
-  const navbarVariants = {
+  const navbarUpVariants = {
     open: {
       y: 0,
       transition: {
@@ -37,17 +42,43 @@ const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => 
     },
   };
 
+  const navbarDownVariants = {
+    open: {
+      y: 0,
+      x: "-50%",
+      opacity: 1,
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    closed: {
+      y: 150,
+      transition: {
+        delay: 1,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <React.Fragment>
       <motion.div
         className={styles["navbarContainer"]}
-        initial={{ y: [-150] }}
+        initial={window.innerWidth > 711 && { y: [-150] }}
         animate={isHamOpen ? "closed" : "open"}
-        variants={navbarVariants}
+        variants={window.innerWidth > 711 && navbarUpVariants}
       >
-        <div className={styles["navLogo"]}>
+        <motion.div
+          className={styles["navLogo"]}
+          initial={window.innerWidth < 711 && { y: [-150] }}
+          animate={isHamOpen ? "closed" : "open"}
+          variants={window.innerWidth < 711 && navbarUpVariants}
+        >
           <img src={Logo} alt="logo" />
-        </div>
+        </motion.div>
         <nav className={styles["navbarLeft"]}>
           <ul>
             <li className={styles["navLinks"]}>ABOUT US</li>
@@ -62,12 +93,24 @@ const Navbar = ({ setRegPage, setShowBlackScreen, isHamOpen, setIsHamOpen }) => 
         </nav>
 
         <div className={styles["navbarRightCorner"]}>
-          <div className={styles["registerBtn"]} onClick={goToNextPage}>
+          <motion.div
+            className={styles["registerBtn"]}
+            onClick={goToNextPage}
+            initial={window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
+            animate={isHamOpen ? "closed" : "open"}
+            variants={window.innerWidth < 711 && navbarDownVariants}
+          >
             <p>REGISTER</p>
-          </div>
-          <div className={styles["hamburger"]} onClick={setIsHamOpen}>
+          </motion.div>
+          <motion.div
+            className={styles["hamburger"]}
+            onClick={setIsHamOpen}
+            initial={window.innerWidth < 711 && { y: [-150] }}
+            animate={isHamOpen ? "closed" : "open"}
+            variants={window.innerWidth < 711 && navbarUpVariants}
+          >
             <img src={hamIcon} alt="hamIcon" />
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </React.Fragment>
