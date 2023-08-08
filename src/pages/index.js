@@ -159,27 +159,29 @@ const IndexPage = () => {
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
           statueMobile.style.height = `${statueHeight}%`;
 
-          if (position > 100) {
-            fixedBG[0].style.filter = `blur(${blur}px)`;
-            fixedBG[0].style.transform = 'scale(1.1)';
-            rightLion[0].style.filter = `blur(${blur}px)`;
-            leftLion[0].style.filter = `blur(${blur}px)`;
-            countDown[0].style.filter = `blur(${blur}px)`;
-            rightSubTitle[0].style.filter = `blur(${blur}px)`;
-            leftSubtitle[0].style.filter = `blur(${blur}px)`;
-            heading[0].style.filter = `blur(${blur}px)`;
-            statueMobile.style.filter = `blur(${blur}px)`;
-          }
-          else {
-            fixedBG[0].style.filter = 'blur(0)';
-            fixedBG[0].style.transform = 'scale(1)';
-            rightLion[0].style.filter = 'blur(0)';
-            leftLion[0].style.filter = 'blur(0)';
-            countDown[0].style.filter = 'blur(0)';
-            leftSubtitle[0].style.filter = 'blur(0)';
-            rightSubTitle[0].style.filter = 'blur(0)';
-            heading[0].style.filter = 'blur(0)';
-            statueMobile.style.filter = 'blur(0)';
+          if (fixedBG[0]) {
+            if (position > 100) {
+              fixedBG[0].style.filter = `blur(${blur}px)`;
+              fixedBG[0].style.transform = 'scale(1.1)';
+              rightLion[0].style.filter = `blur(${blur}px)`;
+              leftLion[0].style.filter = `blur(${blur}px)`;
+              countDown[0].style.filter = `blur(${blur}px)`;
+              rightSubTitle[0].style.filter = `blur(${blur}px)`;
+              leftSubtitle[0].style.filter = `blur(${blur}px)`;
+              heading[0].style.filter = `blur(${blur}px)`;
+              statueMobile.style.filter = `blur(${blur}px)`;
+            }
+            else {
+              fixedBG[0].style.filter = 'blur(0)';
+              fixedBG[0].style.transform = 'scale(1)';
+              rightLion[0].style.filter = 'blur(0)';
+              leftLion[0].style.filter = 'blur(0)';
+              countDown[0].style.filter = 'blur(0)';
+              leftSubtitle[0].style.filter = 'blur(0)';
+              rightSubTitle[0].style.filter = 'blur(0)';
+              heading[0].style.filter = 'blur(0)';
+              statueMobile.style.filter = 'blur(0)';
+            }
           }
 
           if (position <= window.innerHeight) {
