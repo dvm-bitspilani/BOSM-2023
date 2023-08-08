@@ -158,6 +158,9 @@
   .registerBtn p {
     font-size: 0.95rem;
   }
+  .navLogo img{
+    pointer-events: none;
+  }
 }
 
 @media (max-width:711px) {
