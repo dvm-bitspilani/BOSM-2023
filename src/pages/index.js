@@ -121,7 +121,12 @@ const IndexPage = () => {
             contactContent.style.opacity = 0;
             frontStatue.style.left = '-40vw';
             backStatue.style.left = '-60vw';
-            contactPage.style.top = `${contactPageTop}vh`;
+            if (contactPageTop > 0) {
+              contactPage.style.top = `${contactPageTop}vh`;
+            }
+            else {
+              contactPage.style.top = 0;
+            }
             // contactPage.style.transform = `scale(${contactScale})`;
 
           }
