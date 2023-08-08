@@ -17,7 +17,7 @@ import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
-
+import LocomotiveScroll from "locomotive-scroll";
 import LoaderVideo from "../images/loader.mp4"
 
 const scroll = new LocomotiveScroll({
