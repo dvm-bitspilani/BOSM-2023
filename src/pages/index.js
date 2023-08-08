@@ -17,12 +17,8 @@ import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
-import LocomotiveScroll from 'locomotive-scroll';
 
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('.layout-section'),
-    smooth: true
-});
+
 
 const IndexPage = () => {
 
