@@ -23,6 +23,7 @@ export default function Hamburger({ closeHam, isHamOpen }) {
     }
     if (isHamOpen){
         document.documentElement.style.overflow = "hidden";
+        window.scrollTo(0, 0);
     }
 
   }, [isHamOpen]);

@@ -219,7 +219,7 @@ const IndexPage = () => {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log(isHamOpen);
+  // console.log(isHamOpen);
 
   setTimeout(() => {
     setIsLoaded(true);
