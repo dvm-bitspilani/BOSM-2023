@@ -56,7 +56,7 @@ const Layout = ({
     open: {
       opacity: 1,
       transition: {
-        delay: 1,
+        delay: 0.5,
         duration: 1,
         ease: "easeInOut",
       },
@@ -64,7 +64,7 @@ const Layout = ({
     closed: {
       opacity: 0,
       transition: {
-        delay: 1,
+        delay: 0.5,
         duration: 1,
         ease: "easeInOut",
       },
