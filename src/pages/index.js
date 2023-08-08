@@ -80,13 +80,8 @@ const IndexPage = () => {
         let _clientX = clientX - 52;
         let _clientY = clientY - 52;
 
-        cursorCircle.animate(
-          {
-            left: `${_clientX}px`,
-            top: `${_clientY}px`,
-          },
-          { duration: 500, fill: "forwards" }
-        );
+        cursorCircle.style.left = `${_clientX}px`;
+        cursorCircle.style.top = `${_clientY}px`;    
       };
       const handleScroll = () => {
         if (statue) {
@@ -150,10 +145,10 @@ const IndexPage = () => {
       const handleScroll = () => {
         if (statue) {
           const position = window.scrollY;
-          const statueHeight = 68 + (position / 20);
+          const statueHeight = 60 + (position / 20);
           const contactRadius = 150 - (position / 5);
           const contactPageTop = 50 - (position / 15);
-          const blur = (position / 30)
+          const blur = (position / 50)
 
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
