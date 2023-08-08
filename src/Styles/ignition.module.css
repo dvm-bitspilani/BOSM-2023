@@ -164,58 +164,15 @@ html{
 .game:hover {
   scale: 1.1;
 }
-@media (max-width: 1000px) {
-  .section {
-    min-height: 100vh;
-    height: auto;
-  }
-  .header h2 {
-    font-size: 4.5rem;
-  }
-  .header h2 span {
+@media (max-width: 1160px) {
+  .backBtn , .nextBtn{
     display: none;
   }
-  .gamesContainer {
+  .gamesContainer{
     flex-direction: column;
-    min-height: 100vh;
-    height: auto;
-    padding-top: 2rem;
   }
-  .gameGroup {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: #2a2a2a;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    margin-top: 2rem;
-  }
-  .secondGameGroup p {
-    order: 1;
-  }
-  .secondGameGroup .game {
-    order: 2;
-  }
-}
-@media (max-width: 650px) {
-  .gameGroup {
-    margin-top: 1rem;
-  }
-  .header h2 {
-    font-size: 2.5rem;
-  }
-  .gamesContainer {
-    gap: 0;
-    min-height: 90vh;
-    justify-content: space-evenly;
-  }
-  .gameGroup {
-    gap: 1rem;
-  }
-  .gameGroup p {
-    font-size: 1rem;
-  }
-  .header img {
-    scale: 0.75;
+  .divContainer{
+    display: flex !important;
+    flex-direction: column;
   }
 }
