@@ -63,6 +63,9 @@ const IndexPage = () => {
 
     window.scrollTo(0, 0);
 
+    // window.scroll = scroll;
+
+
     if (window.innerWidth > 920) {
       window.onpointermove = (event) => {
         const { clientX, clientY } = event;
@@ -562,7 +565,6 @@ const IndexPage = () => {
                 <div data-scroll
                   id="contactContent"
                   className={contact["content"]}
-                  style={{ transform: "translateX(60vw)" }}
                 >
                   <div className={contact["contentContainer"]}>
                     <div className={contact["title"]}>CONTACT US</div>
