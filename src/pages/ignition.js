@@ -4,6 +4,7 @@ import Cursor from "../images/cursor.png";
 import { navigate } from "gatsby";
 import * as classes from "../Styles/ignition.module.css";
 import arrow from "../images/arrow-up-right.svg";
+import logo from "../images/logo.svg";
 
 const Ignition = props => {
 
@@ -52,7 +53,7 @@ const Ignition = props => {
         <section className={classes.section}>
             <div className={classes.header}>
                 <img src={cross} style={{visibility: 'hidden' , pointerEvents: 'none'}} />
-                <h2>IGNITION 2023</h2>
+                <h2>IGNITION <span>2023</span></h2>
                 <img src={cross} onClick={closeButtonHandler} />
             </div>
             <div className={classes.gamesContainer}>
@@ -62,7 +63,7 @@ const Ignition = props => {
                     </div>
                     <p>COD Mobile</p>
                 </div>
-                <div className={classes.gameGroup}>
+                <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
                     <div className={classes.game}>
                         <div className={classes.arrowContainer}><img src={arrow} /></div>
                     </div>
@@ -80,3 +81,10 @@ const Ignition = props => {
 };
 
 export default Ignition;
+
+export const Head = () => (
+    <>
+      <title>IGNITION | BOSM '23 </title>
+      <link rel="icon" type="image/x-icon" href={logo} />
+    </>
+  );

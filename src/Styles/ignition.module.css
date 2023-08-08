@@ -23,7 +23,12 @@
     text-align: center;
     font-family: "Montserrat";
     font-size: 3.5rem;
-    font-weight: 900;
+}
+.header h2 span{
+    color: #FFF;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 3.5rem;
 }
 .gamesContainer{
     width: 100vw;
@@ -79,4 +84,59 @@
 }
 .game:hover {
     scale: 1.1;
+}
+@media (max-width: 1000px) {
+    .section{
+        min-height: 100vh;
+        height: auto;
+    }
+    .header h2{
+        font-size: 4.5rem;
+    }
+    .header h2 span{
+        display: none;
+    }
+    .gamesContainer{
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+        padding-top: 2rem;
+    }
+    .gameGroup{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #2A2A2A;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        margin-top: 2rem;
+    }
+    .secondGameGroup p{
+        order: 1;
+    }
+    .secondGameGroup .game{
+        order: 2;
+    }
+}
+@media (max-width: 650px) {
+    .gameGroup{
+        margin-top: 1rem;
+    }
+    .header h2{
+        font-size: 2.5rem;
+    }
+    .gamesContainer{
+        gap: 0;
+        min-height: 90vh;
+        justify-content: space-evenly;
+    }
+    .gameGroup{
+        gap: 1rem;
+    }
+    .gameGroup p{
+        font-size: 1rem;
+    }
+    .header img{
+        scale: 0.75;
+    }
 }
