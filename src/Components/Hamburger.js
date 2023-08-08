@@ -17,11 +17,14 @@ export default function Hamburger({ closeHam, isHamOpen }) {
       setTimeout(() => {
         hamburger.style.zIndex = 100;
       }, 2000);
-      document.documentElement.style.overflow = "hidden";
     } else {
       hamburger.style.zIndex = -3;
       document.documentElement.style.overflow = "scroll";
     }
+    if (isHamOpen){
+        document.documentElement.style.overflow = "hidden";
+    }
+
   }, [isHamOpen]);
 
   return (
