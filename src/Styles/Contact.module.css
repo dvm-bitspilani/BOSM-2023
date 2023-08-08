@@ -119,20 +119,25 @@
   font-family: Montserrat;
   font-weight: 700;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .profileName {
   color: white;
   font-size: 1.85vh;
+  /* height: 4vh; */
   letter-spacing: 0.2vh;
   font-weight: 600;
   margin-top: 0.8vh;
   margin-bottom: 0.2vh;
+
 }
 .profileDept {
   color: #e0e0e0;
   letter-spacing: 0.15vh;
   font-size: 1.6vh;
+  /* height: 3.95vh; */
   margin-block: 0.2vh;
 }
 
