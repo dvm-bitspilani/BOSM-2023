@@ -23,6 +23,8 @@ const Navbar = ({
     }, 1000);
   };
 
+  const isBrowser = typeof window !== "undefined"
+
   const navbarUpVariants = {
     open: {
       y: 0,
@@ -67,15 +69,15 @@ const Navbar = ({
     <React.Fragment>
       <motion.div
         className={styles["navbarContainer"]}
-        initial={process.browser && window.innerWidth > 711 && { y: [-150] }}
+        initial={isBrowser && window.innerWidth > 711 && { y: [-150] }}
         animate={isHamOpen ? "closed" : "open"}
-        variants={process.browser && window.innerWidth > 711 && navbarUpVariants}
+        variants={isBrowser && window.innerWidth > 711 && navbarUpVariants}
       >
         <motion.div
           className={styles["navLogo"]}
-          initial={process.browser && window.innerWidth < 711 && { y: [-150] }}
+          initial={isBrowser && window.innerWidth < 711 && { y: [-150] }}
           animate={isHamOpen ? "closed" : "open"}
-          variants={process.browser && window.innerWidth < 711 && navbarUpVariants}
+          variants={isBrowser && window.innerWidth < 711 && navbarUpVariants}
         >
           <img src={Logo} alt="logo" />
         </motion.div>
@@ -96,18 +98,18 @@ const Navbar = ({
           <motion.div
             className={styles["registerBtn"]}
             onClick={goToNextPage}
-            initial={process.browser && window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
+            initial={isBrowser && window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
             animate={isHamOpen ? "closed" : "open"}
-            variants={process.browser && window.innerWidth < 711 && navbarDownVariants}
+            variants={isBrowser && window.innerWidth < 711 && navbarDownVariants}
           >
             <p>REGISTER</p>
           </motion.div>
           <motion.div
             className={styles["hamburger"]}
             onClick={setIsHamOpen}
-            initial={process.browser && window.innerWidth < 711 && { y: [-150] }}
+            initial={isBrowser && window.innerWidth < 711 && { y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
-            variants={process.browser && window.innerWidth < 711 && navbarUpVariants}
+            variants={isBrowser && window.innerWidth < 711 && navbarUpVariants}
           >
             <img src={hamIcon} alt="hamIcon" />
           </motion.div>

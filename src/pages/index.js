@@ -248,7 +248,7 @@ const IndexPage = () => {
   const leftLionVariants = {
     hidden: {
       opacity: 1,
-      x:(process.browser && window.innerWidth > 711) ? "-25vw" : "-100vw",
+      x:(isBrowser && window.innerWidth > 711) ? "-25vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -269,7 +269,7 @@ const IndexPage = () => {
   const leftHeadingVariants = {
     hidden: {
       opacity: 1,
-      x:process.browser && window.innerWidth > 711 ? "-26vw" : "-100vw",
+      x:isBrowser && window.innerWidth > 711 ? "-26vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -290,7 +290,7 @@ const IndexPage = () => {
   const rightLionVariants = {
     hidden: {
       opacity: 1,
-      x:process.browser && window.innerWidth > 711 ? "25vw" : "100vw",
+      x:isBrowser && window.innerWidth > 711 ? "25vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -311,7 +311,7 @@ const IndexPage = () => {
   const rightHeadingVariants = {
     hidden: {
       opacity: 1,
-      x : process.browser && window.innerWidth > 711 ? "26vw" : "100vw",
+      x : isBrowser && window.innerWidth > 711 ? "26vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -332,7 +332,7 @@ const IndexPage = () => {
   const leftTextVariants = {
     hidden: {
       opacity: 1,
-      x: process.browser && window.innerWidth > 711 ? "-25vw" : "-100vw",
+      x: isBrowser && window.innerWidth > 711 ? "-25vw" : "-100vw",
       transition: {
         delay: 0,
         duration: 1,
@@ -353,7 +353,7 @@ const IndexPage = () => {
   const rightTextVariants = {
     hidden: {
       opacity: 1,
-      x: process.browser && window.innerWidth > 711 ? "25vw" : "100vw",
+      x: isBrowser && window.innerWidth > 711 ? "25vw" : "100vw",
       transition: {
         delay: 0,
         duration: 1,

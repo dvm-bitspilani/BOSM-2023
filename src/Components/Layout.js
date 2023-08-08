@@ -14,7 +14,7 @@ const Layout = ({
   isHamOpen,
   setIsHamOpen,
   overflow,
-  sectionId
+  sectionId,
 }) => {
   const redBgVariants = {
     open: {
@@ -73,6 +73,8 @@ const Layout = ({
     },
   };
 
+  const isBrowser = typeof window !== "undefined";
+
   return (
     <section
       id={sectionId}
@@ -84,12 +86,12 @@ const Layout = ({
           <motion.div
             className="fixed-bg-red"
             animate={isHamOpen ? "closed" : "open"}
-            variants={process.browser && window.innerWidth > 731 && redBgVariants}
+            variants={isBrowser && window.innerWidth > 731 && redBgVariants}
           ></motion.div>
           <motion.div
             className="fixed-bg-blue"
             animate={isHamOpen ? "closed" : "open"}
-            variants={process.browser && window.innerWidth > 731 && blueBgVariants}
+            variants={isBrowser && window.innerWidth > 731 && blueBgVariants}
             // animate={{
             //   y: [500, 500, -250, 0, 0, 0, 0],
             //   x: [0, 0, 0, 0, 0, 300, 0],
@@ -126,7 +128,7 @@ const Layout = ({
       <Hamburger closeHam={() => setIsHamOpen(false)} isHamOpen={isHamOpen} />
 
       <AnimatePresence>
-        {isHamOpen && process.browser &&  window.innerWidth > 711 && (
+        {isHamOpen && isBrowser && window.innerWidth > 711 && (
           <>
             <motion.div
               onMouseDown={() => setIsHamOpen(false)}
