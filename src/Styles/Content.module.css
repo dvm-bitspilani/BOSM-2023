@@ -440,7 +440,7 @@ input[type='radio'] {
     font-size: 1.25rem;
   }
   .radioBtns{
-    overflow: hidden;
+    overflow: visible;
   }
   .leftLion img {
     height: 60vh;
