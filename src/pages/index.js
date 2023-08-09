@@ -157,10 +157,10 @@ const IndexPage = () => {
           const position = window.scrollY;
           const statueHeight = 75 + position / 20;
           const contactRadius = 150 - position / 5;
-          const statueLeft = 5 + position / 80;
-          const backStatueLeft = -15 + position / 200;
+          // const statueLeft = 5 + position / 80;
+          // const backStatueLeft = -15 + position / 200;
           const contactPageTop = 50 - position / 15;
-          const contactScale = 1 + position / 1000;
+          // const contactScale = 1 + position / 1000;
           // console.log(backStatueLeft);  //-10.5
           // console.log(statueLeft);      //16.25
           // const backStatueLeft = -20 + (position / 100);
@@ -460,20 +460,20 @@ const IndexPage = () => {
 
   useEffect(() => {
     const assets = document.querySelectorAll(
-      "img, font" , "style"
+      "img, font", "style"
     );
-  
+
     let assetsLoaded = 0;
-  
+
     const handleAssetLoad = () => {
       assetsLoaded++;
       if (assetsLoaded === assets.length) {
         setTimeout(() => {
           setIsLoading(false);
-        }, 2000); 
+        }, 2000);
       }
     };
-  
+
     assets.forEach((asset) => {
       if (
         asset.complete ||
@@ -486,18 +486,18 @@ const IndexPage = () => {
         asset.addEventListener("error", handleAssetLoad);
       }
     });
-  
+
     const cleanup = () => {
       assets.forEach((asset) => {
         asset.removeEventListener("load", handleAssetLoad);
         asset.removeEventListener("error", handleAssetLoad);
       });
     };
-  
+
     return cleanup;
   }, []);
-  
-  
+
+
 
 
   return (
@@ -525,7 +525,6 @@ const IndexPage = () => {
             content={
               <main id="landing">
                 {!isLoading && <motion.div
-                //   data-scroll
                   className={styles["statueContainer"]}
                   id="statueContainer"
                   initial={{ y: [600] }}
@@ -544,7 +543,7 @@ const IndexPage = () => {
                   />
                 </motion.div>}
                 {!isLoading && <motion.div
-                  data-scroll
+
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -553,7 +552,7 @@ const IndexPage = () => {
                   <img src={LeftLion} />
                 </motion.div>}
                 {!isLoading && <motion.div
-                  data-scroll
+
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -563,7 +562,7 @@ const IndexPage = () => {
                 </motion.div>}
                 <div className={styles["container"]}>
                   <motion.div
-                    data-scroll
+
                     className={styles["heading"]}
                   //   initial={{ opacity: [0] }}
                   //   animate={{ opacity: [0, 1] }}
@@ -592,7 +591,7 @@ const IndexPage = () => {
                     </>
                   </motion.div>
                   {!isLoading && <motion.div
-                    data-scroll
+
                     className={styles["leftSubTitle"]}
                     initial={{ opacity: [0] }}
                     animate={isHamOpen ? "hidden" : "visible"}
@@ -603,7 +602,7 @@ const IndexPage = () => {
                   </motion.div>}
 
                   {!isLoading && <motion.div
-                    data-scroll
+
                     className={styles["rightSubTitle"]}
                     initial={{ opacity: [0] }}
                     animate={isHamOpen ? "hidden" : "visible"}
@@ -648,13 +647,13 @@ const IndexPage = () => {
             sectionId="contact-section"
             content={
               <main
-                data-scroll
+
                 id="contactPage"
                 className={contact["page"]}
                 style={{ top: "50vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
-                  <div data-scroll className={contact["pageBackground"]}>
+                  <div className={contact["pageBackground"]}>
                     <img
                       id="frontStatue"
                       src={FrontStatue}
@@ -668,13 +667,13 @@ const IndexPage = () => {
                     {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                   </div>
                   <div
-                    data-scroll
+
                     id="backStatueMobile"
                     className={contact["backStatueMobile"]}
                     style={{ backgroundImage: `url(${BackStatueMobile})` }}
                   ></div>
                   <div
-                    data-scroll
+
                     id="contactContent"
                     className={contact["content"]}
                   >
@@ -697,13 +696,13 @@ const IndexPage = () => {
         )}
         {regPage && (
           <div>
-          <Layout
-            overflow={true}
-            navbar={false}
-            regPage={regPage}
-            fixedbg={false}
-            content={<Form setRegPage={setRegPage} />}
-          />
+            <Layout
+              overflow={true}
+              navbar={false}
+              regPage={regPage}
+              fixedbg={false}
+              content={<Form setRegPage={setRegPage} />}
+            />
           </div>
         )}
       </>
