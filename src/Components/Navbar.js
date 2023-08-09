@@ -7,6 +7,7 @@ import { navigate } from "gatsby";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
 const Navbar = ({
+  isLoading,
   setRegPage,
   setShowBlackScreen,
   isHamOpen,
@@ -68,15 +69,15 @@ const Navbar = ({
 
   return (
     <React.Fragment>
-      <motion.div className={styles["navbarContainer"]}>
-        <motion.div
+      {!isLoading && <motion.div className={styles["navbarContainer"]}>
+        {!isLoading && <motion.div
           className={styles["navLogo"]}
           initial={{ y: [-150] }}
           animate={isHamOpen ? "closed" : "open"}
           variants={navbarUpVariants}
         >
           <img src={Logo} alt="logo" />
-        </motion.div>
+        </motion.div>}
         <nav className={styles["navbarLeft"]}>
           <ul>
             <li className={styles["navLinks"]}>ABOUT US</li>
@@ -91,7 +92,7 @@ const Navbar = ({
         </nav>
 
         <div className={styles["navbarRightCorner"]}>
-          <motion.div
+          {!isLoading && <motion.div
             className={styles["registerBtn"]}
             onClick={goToNextPage}
             initial={{ y: [-150] }}
@@ -99,8 +100,8 @@ const Navbar = ({
             variants={navbarUpVariants}
           >
             <p>REGISTER</p>
-          </motion.div>
-          <motion.div
+          </motion.div>}
+          {!isLoading && <motion.div
             className={styles["hamburger"]}
             onClick={setIsHamOpen}
             initial={{ y: [-150] }}
@@ -108,10 +109,10 @@ const Navbar = ({
             variants={navbarUpVariants}
           >
             <img src={hamIcon} alt="hamIcon" />
-          </motion.div>
+          </motion.div>}
         </div>
-      </motion.div>
-      <motion.div
+      </motion.div>}
+      {!isLoading && <motion.div
         className={styles["registerBtnMobile"]}
         onClick={goToNextPage}
         initial={{ y: 0, x: "-50%", opacity: 0 }}
@@ -119,7 +120,7 @@ const Navbar = ({
         variants={navbarDownVariants}
       >
         <p>REGISTER</p>
-      </motion.div>
+      </motion.div>}
     </React.Fragment>
   );
 };
