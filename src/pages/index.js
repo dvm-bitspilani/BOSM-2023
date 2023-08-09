@@ -705,7 +705,7 @@ const IndexPage = () => {
               navbar={false}
               regPage={regPage}
               fixedbg={false}
-              content={<Form setRegPage={setRegPage} />}
+              content={<Form setShowBlackScreen={setShowBlackScreen} setRegPage={setRegPage} />}
             />
           </div>
         )}

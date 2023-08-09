@@ -5,10 +5,20 @@ import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
 
-const Form = ({ setRegPage }) => {
+const Form = ({ setRegPage , setShowBlackScreen }) => {
 
+  // const goBack = () => {
+  //   setRegPage(false)
+  // };
   const goBack = () => {
-    setRegPage(false)
+    setShowBlackScreen(true);
+    setTimeout(() => {
+      setShowBlackScreen(false);
+    }, 2000);
+
+    setTimeout(() => {
+      setRegPage(false);
+    }, 1000);
   };
 
   const customStyles = {
