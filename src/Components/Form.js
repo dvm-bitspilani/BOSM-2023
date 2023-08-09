@@ -315,7 +315,7 @@ const Form = ({ setRegPage }) => {
     }),
     indicatorsContainer: (provided) => ({
       ...provided,
-      height: '1.8rem',
+      // height: '1.8rem',
       height:'inherit',
     }),
     singleValue: (provided) => ({
@@ -644,9 +644,9 @@ const Form = ({ setRegPage }) => {
     <section className={styles["regPage"]}>
       <div className={styles["rpIcons"]}></div>
       <div className={styles["rpHeadingContainer"]}>
-        <img src={logo} id='reg-logo' />
+        <img alt="" src={logo} id='reg-logo' />
         <h3>REGISTRATION</h3>
-        <img src={cross} onClick={goBack} className={styles["cross"]} />
+        <img alt='' src={cross} onClick={goBack} className={styles["cross"]} />
       </div>
       <div className={styles["regBox"]}>
         <form className={styles["regForm"]}>
