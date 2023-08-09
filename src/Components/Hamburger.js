@@ -14,6 +14,7 @@ export default function Hamburger({
   closeHam,
   isHamOpen,
   isAnimationComplete,
+  regPage
 }) {
   // function setZIndex() {
   // const hamburger = document.querySelector(`.${styles["hamburger"]}`);
@@ -47,7 +48,7 @@ export default function Hamburger({
 
   return (
     <>
-    {!isLoading && <div className={styles["hamburger"]}>
+    {!isLoading && <div className={styles["hamburger"]} style={{display: regPage? 'none':'block'}}>
       {/* <button onClick={closeHam}>
         Close
       </button> */}

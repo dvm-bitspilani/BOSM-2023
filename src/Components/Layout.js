@@ -15,6 +15,7 @@ const Layout = ({
   setIsHamOpen,
   overflow,
   sectionId,
+  regPage,
 }) => {
   const redBgVariants = {
     open: {
@@ -128,6 +129,7 @@ const Layout = ({
         />
       )}
       <Hamburger
+      regPage={regPage}
         closeHam={() => setIsHamOpen(false)}
         isHamOpen={isHamOpen}
         isAnimationComplete={isAnimationComplete}

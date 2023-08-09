@@ -436,6 +436,7 @@ const IndexPage = () => {
         {!regPage && (
           <Layout
             setRegPage={setRegPage}
+            regPage={regPage}
             setShowBlackScreen={setShowBlackScreen}
             isHamOpen={isHamOpen}
             setIsHamOpen={setIsHamOpen}
@@ -563,6 +564,7 @@ const IndexPage = () => {
           <Layout
             overflow={false}
             navbar={false}
+            regPage={regPage}
             fixedbg={false}
             sectionId="contact-section"
             content={
@@ -619,6 +621,7 @@ const IndexPage = () => {
           <Layout
             overflow={true}
             navbar={false}
+            regPage={regPage}
             fixedbg={false}
             content={<Form setRegPage={setRegPage} />}
           />
