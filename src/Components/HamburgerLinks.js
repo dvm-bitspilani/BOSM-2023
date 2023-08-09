@@ -31,7 +31,7 @@ export default function HamburgerLinks({ img, text, color, align }) {
     <Link
       to={text === "Ignition" ? "/ignition" : "/"}
       style={{ textDecoration: "none" }}
-      onMouseDown={() => (document.documentElement.style.overflowY = "scroll")}
+      onMouseDown={() => (document.documentElement.style.overflow = "scroll")}
     >
       <div
         style={{ backgroundImage: `url(${img})` }}

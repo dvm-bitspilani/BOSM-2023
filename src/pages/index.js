@@ -432,9 +432,6 @@ const IndexPage = () => {
           <source src={LoaderVideo} type="video/mp4" />
         </video>
       </div>}
-      {/* {isLoading ? (
-        
-      ) : ( */}
       <>
         {!regPage && (
           <Layout
@@ -618,12 +615,14 @@ const IndexPage = () => {
           </div>
         )}
         {regPage && (
+          <div>
           <Layout
             overflow={true}
             navbar={false}
             fixedbg={false}
             content={<Form setRegPage={setRegPage} />}
           />
+          </div>
         )}
       </>
     </>
