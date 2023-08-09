@@ -448,11 +448,11 @@ const IndexPage = () => {
             content={
               <main id="landing">
                 {!isLoading && <motion.div
-                  data-scroll
+                //   data-scroll
                   className={styles["statueContainer"]}
                   id="statueContainer"
                   initial={{ y: [600] }}
-                  animate={isHamOpen && isLoading ? "hidden" : "visible"}
+                  animate={isHamOpen ? "hidden" : "visible"}
                   variants={statueVariants}
                 >
                   <img
@@ -467,7 +467,7 @@ const IndexPage = () => {
                   />
                 </motion.div>}
                 {!isLoading && <motion.div
-                  // data-scroll
+                  data-scroll
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -476,7 +476,7 @@ const IndexPage = () => {
                   <img src={LeftLion} />
                 </motion.div>}
                 {!isLoading && <motion.div
-                  // data-scroll
+                  data-scroll
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
