@@ -137,13 +137,12 @@ const Ignition = (props) => {
       <section className={classes.section}>
         <div className={classes.header}>
           <img
-            src={arrow2}
-            style={{ visibility: "hidden", pointerEvents: "none" }}
+            src={arrow2} onClick={closeButtonHandler}
           />
           <h2>
             IGNITION <span>2023</span>
           </h2>
-          <img src={arrow2} onClick={closeButtonHandler} />
+          <img src={arrow2} style={{ visibility: "hidden", pointerEvents: "none" }}  />
         </div>
         <div className={classes.gameWrapper}>
           <div className={classes.backBtn} id="backBtn">

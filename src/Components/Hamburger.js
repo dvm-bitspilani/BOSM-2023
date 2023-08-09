@@ -28,10 +28,10 @@ export default function Hamburger({
       // setTimeout(setZIndex, 2000);
     } else {
       hamburger.style.zIndex = -3;
-      document.documentElement.style.overflowY = "scroll";
+      // document.documentElement.style.overflowY = "scroll";
     }
     if (isHamOpen) {
-      document.documentElement.style.overflow = "hidden";
+      // document.documentElement.style.overflow = "hidden";
       // document.documentElement.style.overflowY = "hidden";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
