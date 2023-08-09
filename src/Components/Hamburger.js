@@ -14,23 +14,23 @@ export default function Hamburger({
   isHamOpen,
   isAnimationComplete,
 }) {
-  function setZIndex() {
-    const hamburger = document.querySelector(`.${styles["hamburger"]}`);
+  // function setZIndex() {
+    // const hamburger = document.querySelector(`.${styles["hamburger"]}`);
     // console.log(isHamOpen)
     // hamburger.style.zIndex = isHamOpen ? 100 : -3;
-  }
+  // }
 
   React.useEffect(() => {
     const hamburger = document.querySelector(`.${styles["hamburger"]}`);
     if (isHamOpen && window.innerWidth > 711) {
       // console.log("Hamburger opened");
-      setTimeout(setZIndex, 2000);
+      // setTimeout(setZIndex, 2000);
     } else {
       hamburger.style.zIndex = -3;
-      document.documentElement.style.overflow = "scroll";
+      document.documentElement.style.overflowY = "scroll";
     }
     if (isHamOpen) {
-      // document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     // console.log("isHamOpen", isHamOpen);

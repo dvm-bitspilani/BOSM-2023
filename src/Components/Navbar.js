@@ -69,15 +69,12 @@ const Navbar = ({
     <React.Fragment>
       <motion.div
         className={styles["navbarContainer"]}
-        initial={isBrowser && window.innerWidth > 711 && { y: [-150] }}
-        animate={isHamOpen ? "closed" : "open"}
-        variants={isBrowser && window.innerWidth > 711 && navbarUpVariants}
       >
         <motion.div
           className={styles["navLogo"]}
-          initial={isBrowser && window.innerWidth < 711 && { y: [-150] }}
+          initial={{ y: [-150] }}
           animate={isHamOpen ? "closed" : "open"}
-          variants={isBrowser && window.innerWidth < 711 && navbarUpVariants}
+          variants={navbarUpVariants}
         >
           <img src={Logo} alt="logo" />
         </motion.div>
@@ -98,18 +95,18 @@ const Navbar = ({
           <motion.div
             className={styles["registerBtn"]}
             onClick={goToNextPage}
-            initial={isBrowser && window.innerWidth < 711 && { y : 0 , x : "-50%", opacity : 0}}
+            initial={isBrowser && window.innerWidth < 711 ? { y : 0 , x : "-50%", opacity : 0} : { y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
-            variants={isBrowser && window.innerWidth < 711 && navbarDownVariants}
+            variants={isBrowser && window.innerWidth < 711 ? navbarDownVariants : navbarUpVariants}
           >
             <p>REGISTER</p>
           </motion.div>
           <motion.div
             className={styles["hamburger"]}
             onClick={setIsHamOpen}
-            initial={isBrowser && window.innerWidth < 711 && { y: [-150] }}
+            initial={{ y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
-            variants={isBrowser && window.innerWidth < 711 && navbarUpVariants}
+            variants={navbarUpVariants}
           >
             <img src={hamIcon} alt="hamIcon" />
           </motion.div>

@@ -257,7 +257,7 @@ const IndexPage = () => {
     visible: {
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 0,
+        delay: isLoaded ? 0.5 : 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -277,7 +277,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0.5 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -298,7 +298,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0.5 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -319,7 +319,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0.5 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -340,7 +340,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0.5 : 1,
         duration: 1,
         ease: "easeInOut",
       },
@@ -361,7 +361,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 2,
+        delay: isLoaded ? 0.5 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -382,7 +382,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 1 : 2,
+        delay: isLoaded ? 0.5 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -403,7 +403,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: isLoaded ? 1 : 1,
+        delay: isLoaded ? 0.5 : 1,
         duration: 1,
         ease: "easeInOut",
       },

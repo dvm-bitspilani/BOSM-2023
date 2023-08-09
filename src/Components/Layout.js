@@ -20,7 +20,7 @@ const Layout = ({
     open: {
       x: 0,
       transition: {
-        delay: 1,
+        delay: 0.5,
         duration: 1,
         ease: "easeInOut",
       },
@@ -39,7 +39,7 @@ const Layout = ({
     open: {
       x: 0,
       transition: {
-        delay: 1,
+        delay: 0.5,
         duration: 1,
         ease: "easeInOut",
       },
