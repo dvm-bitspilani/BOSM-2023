@@ -9,7 +9,7 @@ export default function Hamburger({ closeHam, isHamOpen }) {
   return (<>
     <div className={styles["mobileContainer"]}>
         
-        <Link to="/ignition">
+        <Link to="/ignition" onMouseDown={()=>document.documentElement.style.overflowY = "scroll"}>
             <div className={styles["mobileLinks"]}>
                 Ignition
             </div>
