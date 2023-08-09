@@ -170,9 +170,43 @@ html{
   }
   .gamesContainer{
     flex-direction: column;
+    width: 90vw;
   }
   .divContainer{
     display: flex !important;
     flex-direction: column;
+  }
+  .section{
+    height: auto;
+    min-height: 100vh;
+  }
+  .gameWrapper{
+    height: auto;
+  }
+  .arrowContainer{
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .header{
+    margin-bottom: 2rem;
+  }
+  .header h2{
+    font-size: 2.5rem;
+  }
+  .header h2 span{
+    display: none;
+  }
+  .gameGroup{
+    flex-direction: row;
+    align-items: center;
+    background: #2A2A2A;
+    border-radius: 1rem;
+    padding: .5rem;
+  }
+}
+@media (max-width: 580px) {
+  .arrowContainer{
+    width: 2rem;
+    height: 2rem;
   }
 }

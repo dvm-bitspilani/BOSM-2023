@@ -49,67 +49,70 @@ const Ignition = props => {
     }, [])
 
     useEffect(() => {
-        let scrollContainer = document.getElementById("gamesContainer");
-        let backBtn = document.getElementById("backBtn");
-        let nextBtn = document.getElementById("nextBtn");
+        if(window.innerWidth>1160){
+
+            let scrollContainer = document.getElementById("gamesContainer");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
+            
+            let isScrolling = false; 
         
-        let isScrolling = false; 
-    
-        const scrollSpeed = 5;
-        const scrollDistance = 0.3 * window.innerWidth;
-    
-        const handleWheel = (e) => {
-            e.preventDefault();
-            if (!isScrolling) {
-                performScroll(e.deltaY * scrollSpeed);
-            }
-        };
-    
-        const performScroll = (scrollAmount) => {
-            isScrolling = true;
-    
-            const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
-            const start = scrollContainer.scrollLeft;
-            const change = targetScrollLeft - start;
-            const duration = 800;
-    
-            let startTime;
-    
-            const animateScroll = (currentTime) => {
-                if (!startTime) startTime = currentTime;
-                const elapsedTime = currentTime - startTime;
-    
-                const easedScrollLeft = easeInOutQuad(elapsedTime, start, change, duration);
-    
-                scrollContainer.scrollLeft = easedScrollLeft;
-    
-                if (elapsedTime < duration) {
-                    requestAnimationFrame(animateScroll);
-                } else {
-                    isScrolling = false;
+            const scrollSpeed = 5;
+            const scrollDistance = 0.3 * window.innerWidth;
+        
+            const handleWheel = (e) => {
+                e.preventDefault();
+                if (!isScrolling) {
+                    performScroll(e.deltaY * scrollSpeed);
                 }
             };
-    
-            requestAnimationFrame(animateScroll);
-        };
-    
-        const handleNextClick = () => {
-            performScroll(scrollDistance);
-        };
-    
-        const handleBackClick = () => {
-            performScroll(-scrollDistance);
-        };
-    
-        nextBtn.addEventListener("click", handleNextClick);
-        backBtn.addEventListener("click", handleBackClick);
-        scrollContainer.addEventListener("wheel", handleWheel);
-    
-        return () => {
-            scrollContainer.removeEventListener("wheel", handleWheel);
-            nextBtn.removeEventListener("click", handleNextClick);
-            backBtn.removeEventListener("click", handleBackClick);
-        };
+        
+            const performScroll = (scrollAmount) => {
+                isScrolling = true;
+        
+                const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
+                const start = scrollContainer.scrollLeft;
+                const change = targetScrollLeft - start;
+                const duration = 800;
+        
+                let startTime;
+        
+                const animateScroll = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const elapsedTime = currentTime - startTime;
+        
+                    const easedScrollLeft = easeInOutQuad(elapsedTime, start, change, duration);
+        
+                    scrollContainer.scrollLeft = easedScrollLeft;
+        
+                    if (elapsedTime < duration) {
+                        requestAnimationFrame(animateScroll);
+                    } else {
+                        isScrolling = false;
+                    }
+                };
+        
+                requestAnimationFrame(animateScroll);
+            };
+        
+            const handleNextClick = () => {
+                performScroll(scrollDistance);
+            };
+        
+            const handleBackClick = () => {
+                performScroll(-scrollDistance);
+            };
+        
+            nextBtn.addEventListener("click", handleNextClick);
+            backBtn.addEventListener("click", handleBackClick);
+            scrollContainer.addEventListener("wheel", handleWheel);
+        
+            return () => {
+                scrollContainer.removeEventListener("wheel", handleWheel);
+                nextBtn.removeEventListener("click", handleNextClick);
+                backBtn.removeEventListener("click", handleBackClick);
+            };
+        }
     }, []);
     
     // Rest of your code...
@@ -149,33 +152,33 @@ const Ignition = props => {
                             <div className={`${classes.game} ${classes.fifa}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;FIFA '23&nbsp;&nbsp;  </p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}FIFA '23{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
                         <div className={classes.gameGroup}>
                             <div className={`${classes.game} ${classes.bgmi}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;BGMI&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;&nbsp;&nbsp;" : ""}BGMI{window.innerWidth > 1160 ? "&nbsp;&nbsp;&nbsp;&nbsp;" : ""}</p>
                         </div>
                     </div>
                     <div className={classes.divContainer}>
-                        <div className={classes.gameGroup}>
+                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
                             <div className={`${classes.game} ${classes.valo}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;Valorant&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}Valorant{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
-                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
+                        <div className={`${classes.gameGroup}`}>
                             <div className={`${classes.game} ${classes.tekken}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;Tekken 7&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}Tekken 7{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
                         <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
                             <div className={`${classes.game} ${classes.cod}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;COD Mobile&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;" : ""}COD Mobile{window.innerWidth > 1160 ? "&nbsp;" : ""}</p>
                         </div>
                     </div>
                 </div>

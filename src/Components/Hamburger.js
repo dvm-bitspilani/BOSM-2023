@@ -10,6 +10,7 @@ import sponsorsImg from "../images/sponsors-full.jpg";
 import developersImg from "../images/developers-full.jpg";
 
 export default function Hamburger({
+  isLoading,
   closeHam,
   isHamOpen,
   isAnimationComplete,
@@ -31,7 +32,7 @@ export default function Hamburger({
     }
     if (isHamOpen) {
       document.documentElement.style.overflowX = "hidden";
-      document.documentElement.style.overflowY = "hidden";
+      // document.documentElement.style.overflowY = "hidden";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     // console.log("isHamOpen", isHamOpen);
@@ -45,7 +46,8 @@ export default function Hamburger({
   }, [isAnimationComplete]);
 
   return (
-    <div className={styles["hamburger"]}>
+    <>
+    {!isLoading && <div className={styles["hamburger"]}>
       {/* <button onClick={closeHam}>
         Close
       </button> */}
@@ -80,6 +82,7 @@ export default function Hamburger({
         color="#4B2280"
         align="left"
       />
-    </div>
+    </div>}
+    </>
   );
 }
