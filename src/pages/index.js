@@ -22,69 +22,69 @@ import LoaderVideo from "../images/loader.mp4";
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const assets = document.querySelectorAll(
-  //     " img, font"
-  //   );
-  //     console.log(assets)
-  //   let assetsLoaded = 0;
+  useEffect(() => {
+    const assets = document.querySelectorAll(
+      " img, font"
+    );
+      console.log(assets)
+    let assetsLoaded = 0;
 
-  //   const handleAssetLoad = () => {
-  //     assetsLoaded++;
-  //     if (assetsLoaded === assets.length) {
-  //       const timeRemaining = 2000 - (Date.now() - startTime);
-  //       setTimeout(() => {
-  //         setIsLoading(false);
-  //       }, Math.max(timeRemaining, 0));
-  //     }
-  //   };
+    const handleAssetLoad = () => {
+      assetsLoaded++;
+      if (assetsLoaded === assets.length) {
+        const timeRemaining = 2000 - (Date.now() - startTime);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, Math.max(timeRemaining, 0));
+      }
+    };
 
-  //   assets.forEach((asset) => {
-  //     if (
-  //       asset.complete ||
-  //       asset.readyState === 4 || 
-  //       asset.tagName === "LINK"
-  //     ) {
-  //       handleAssetLoad();
-  //     } else {
-  //       asset.addEventListener("load", handleAssetLoad);
-  //       asset.addEventListener("error", handleAssetLoad);
-  //     }
-  //   });
+    assets.forEach((asset) => {
+      if (
+        asset.complete ||
+        asset.readyState === 4 || 
+        asset.tagName === "LINK"
+      ) {
+        handleAssetLoad();
+      } else {
+        asset.addEventListener("load", handleAssetLoad);
+        asset.addEventListener("error", handleAssetLoad);
+      }
+    });
 
-  //   const startTime = Date.now();
+    const startTime = Date.now();
 
-  //   const cleanup = () => {
-  //     assets.forEach((asset) => {
-  //       asset.removeEventListener("load", handleAssetLoad);
-  //       asset.removeEventListener("error", handleAssetLoad);
-  //     });
-  //   };
+    const cleanup = () => {
+      assets.forEach((asset) => {
+        asset.removeEventListener("load", handleAssetLoad);
+        asset.removeEventListener("error", handleAssetLoad);
+      });
+    };
 
-  //   return cleanup;
-  // }, []);
-
-  // useEffect(() => {
-  //   const loader = document.getElementById("loader")
-
-  //   const loadingTimer = setTimeout(() => {
-  //     setIsLoading(false);
-  //     loader.classList.add('loader-hide')
-  //   }, 3000);
-
-  //   return () =>{ 
-  //     loader.classList.remove('loader-hide')
-  //     clearTimeout(loadingTimer);}
-  // }, []);
+    return cleanup;
+  }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-    window.addEventListener("load", setLoaderHandle);
-    setLoaderHandle();
-    return () => {
-      window.removeEventListener("load", setLoaderHandle);
-    };
+    const loader = document.getElementById("loader")
+
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+      loader.classList.add('loader-hide')
+    }, 3000);
+
+    return () =>{ 
+      loader.classList.remove('loader-hide')
+      clearTimeout(loadingTimer);}
   }, []);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   window.addEventListener("load", setLoaderHandle);
+  //   setLoaderHandle();
+  //   return () => {
+  //     window.removeEventListener("load", setLoaderHandle);
+  //   };
+  // }, []);
 
 
   const setLoaderHandle = () => {
@@ -457,6 +457,48 @@ const IndexPage = () => {
   //   video.defaultPlaybackRate = 0.7
   //   video.load()
   // }, []);
+
+  useEffect(() => {
+    const assets = document.querySelectorAll(
+      "img, font"
+    );
+  
+    let assetsLoaded = 0;
+  
+    const handleAssetLoad = () => {
+      assetsLoaded++;
+      if (assetsLoaded === assets.length) {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000); // Ensure a minimum delay of 2 seconds
+      }
+    };
+  
+    assets.forEach((asset) => {
+      if (
+        asset.complete ||
+        asset.readyState === 4 ||
+        asset.tagName === "LINK"
+      ) {
+        handleAssetLoad();
+      } else {
+        asset.addEventListener("load", handleAssetLoad);
+        asset.addEventListener("error", handleAssetLoad);
+      }
+    });
+  
+    const cleanup = () => {
+      assets.forEach((asset) => {
+        asset.removeEventListener("load", handleAssetLoad);
+        asset.removeEventListener("error", handleAssetLoad);
+      });
+    };
+  
+    return cleanup;
+  }, []);
+  
+  
+
 
   return (
     <>
