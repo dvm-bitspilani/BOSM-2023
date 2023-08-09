@@ -389,6 +389,9 @@ const Form = ({ setRegPage }) => {
       paddingLeft: '1rem',
       // height: '3rem',
       overflow: 'hidden',
+      margin: '0',
+      paddingTop: '0',
+      paddngBottom: '0',
     }),
   };
 
@@ -471,7 +474,7 @@ const Form = ({ setRegPage }) => {
         const convertedOptions = convertApiFormat(data);
         setSportsOptions(convertedOptions);
       } catch (error) {
-        console.error('Error fetching sports:', error);
+        // console.error('Error fetching sports:', error);
       }
     };
 
@@ -607,14 +610,14 @@ const Form = ({ setRegPage }) => {
       });
 
       if (response.ok) {
-        console.log('Form data submitted successfully!');
+        // console.log('Form data submitted successfully!');
         alert("Your Registration is completed!");
       } else {
-        console.error('Error submitting form data:', response.status, response.statusText);
+        // console.error('Error submitting form data:', response.status, response.statusText);
         alert("There was some error submitting your request. Please try again!");
       }
     } catch (error) {
-      console.error('Error submitting form data:', error);
+      // console.error('Error submitting form data:', error);
       alert("There was some error submitting your request. Please try again!");
     }
   };
@@ -657,7 +660,7 @@ const Form = ({ setRegPage }) => {
             <label htmlFor='phone'>Phone</label>
             <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10" />
 
-            <label htmlFor='gender'>Gender</label>
+            <label htmlFor='gender' className={styles.genderLabel}>Gender</label>
             <div className={styles["radioBtns"]}>
 
               <RadioButton
@@ -683,7 +686,7 @@ const Form = ({ setRegPage }) => {
               />
             </div>
 
-            <label htmlFor='is_coach' >Are You a Coach?</label>
+            <label htmlFor='is_coach' className={styles.genderLabel}>Are You a Coach?</label>
             <div className={styles["radioBtns"]}>
               <RadioButton
                 name="is_coach"

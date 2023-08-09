@@ -318,9 +318,6 @@ h2 {
 .collegeLabel {
   margin-top: 0 !important;
 }
-.genderLabel {
-  margin-bottom: 1rem !important;
-}
 .btnContainer {
   margin: 3rem 0;
   display: flex;
@@ -385,7 +382,9 @@ input[type="radio"] {
   border: 2px solid #fff;
   color: #36788a;
 }
-
+.genderLabel{
+  
+}
 @media (max-width: 1480px) {
   .leftLion,
   .rightLion {
@@ -651,6 +650,12 @@ input[type="radio"] {
   }
   .regForm{
     width: 85vw;
+  }
+  .genderLabel{
+    margin-bottom: 0 !important;
+  }
+  .radioBtns{
+    height: auto;
   }
 }
 @media (max-width: 400px) {

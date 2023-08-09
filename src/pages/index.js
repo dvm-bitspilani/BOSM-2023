@@ -285,7 +285,7 @@ const IndexPage = () => {
 
   // console.log(isHamOpen);
 
-  console.log(isLoaded);
+  // console.log(isLoaded);
 
   const statueVariants = {
     hidden: {
@@ -470,7 +470,7 @@ const IndexPage = () => {
       if (assetsLoaded === assets.length) {
         setTimeout(() => {
           setIsLoading(false);
-        }, 2000); // Ensure a minimum delay of 2 seconds
+        }, 2000); 
       }
     };
   
