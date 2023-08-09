@@ -241,8 +241,13 @@
     margin-top: 4rem;
     grid-template-columns: auto auto;
     column-gap: 10vw;
-    /* overflow: scroll; */
   }
+  .profileContainer:nth-child(9){
+    grid-column: span 2;
+    align-self: center;
+    margin: auto;
+  }
+
   .profileName {
     font-size: .85rem;
   }
