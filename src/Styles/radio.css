@@ -66,6 +66,10 @@
   #radio-label {
     font-size: 1rem;
   }
+  .custom-radio::after {
+    height: .5rem;
+    width: .5rem;
+  }
   #reg-logo {
     margin-left: -1rem;
   }
