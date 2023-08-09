@@ -21,14 +21,37 @@ import LoaderVideo from "../images/loader.mp4";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
+  
+
+  // useEffect(() => {
+  //   const loader = document.getElementById("loader")
+
+  //   const loadingTimer = setTimeout(() => {
+  //     setIsLoading(false);
+  //     loader.classList.add('loader-hide')
+  //   }, 3000);
+
+  //   return () =>{ 
+  //     loader.classList.remove('loader-hide')
+  //     clearTimeout(loadingTimer);}
+  // }, []);
 
   useEffect(() => {
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(loadingTimer);
+    setIsLoading(true);
+    window.addEventListener("load", setLoaderHandle);
+    setLoaderHandle();
+    return () => {
+      window.removeEventListener("load", setLoaderHandle);
+    };
   }, []);
+
+
+const setLoaderHandle = () => {
+    const time = setTimeout(() => setIsLoading(false), 2000);
+}
+
+  // const showLoader = () => loader.classList.remove('loader-hide')
+  // const hideLoader = () => loader.classList.add('loader-hide')
 
   const ContactsCards = ContactsData.map((contact) => {
     return (
@@ -216,6 +239,8 @@ const IndexPage = () => {
       window.scrollTo(0, 0);
     };
   }, [regPage, showBlackScreen, isLoading]);
+
+
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -394,31 +419,32 @@ const IndexPage = () => {
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor}></img>
       </div>
-      {isLoading ? (
-        <div className="loader">
+      {isLoading && <div className="loader" id="loader">
           <video autoPlay loop muted>
             <source src={LoaderVideo} type="video/mp4" />
           </video>
-        </div>
-      ) : (
+        </div>}
+      {/* {isLoading ? (
+        
+      ) : ( */}
         <>
-          {!regPage && (
+         {!regPage && (
             <Layout
               setRegPage={setRegPage}
               setShowBlackScreen={setShowBlackScreen}
               isHamOpen={isHamOpen}
               setIsHamOpen={setIsHamOpen}
-              navbar={true}
+              navbar={!isLoading && true}
               fixedbg={true}
               overflow={false}
               content={
                 <main id="landing">
-                  <motion.div
+                  {!isLoading && <motion.div
                     data-scroll
                     className={styles["statueContainer"]}
                     id="statueContainer"
                     initial={{ y: [600] }}
-                    animate={isHamOpen ? "hidden" : "visible"}
+                    animate={isHamOpen && isLoading ? "hidden" : "visible"}
                     variants={statueVariants}
                   >
                     <img
@@ -431,8 +457,8 @@ const IndexPage = () => {
                       src={MobileStatue}
                       className={`${styles["statue"]} ${styles["mobileStatue"]}`}
                     />
-                  </motion.div>
-                  <motion.div
+                  </motion.div>}
+                  {!isLoading && <motion.div
                     // data-scroll
                     className={styles["leftLion"]}
                     initial={{ opacity: [0], x: [100] }}
@@ -440,8 +466,8 @@ const IndexPage = () => {
                     variants={leftLionVariants}
                   >
                     <img src={LeftLion} />
-                  </motion.div>
-                  <motion.div
+                  </motion.div>}
+                  {!isLoading && <motion.div
                     // data-scroll
                     className={styles["rightLion"]}
                     initial={{ opacity: [0], x: [-100] }}
@@ -449,7 +475,7 @@ const IndexPage = () => {
                     variants={rightLionVariants}
                   >
                     <img src={RightLion} />
-                  </motion.div>
+                  </motion.div>}
                   <div className={styles["container"]}>
                     <motion.div
                       data-scroll
@@ -464,23 +490,23 @@ const IndexPage = () => {
                       //   }}
                     >
                       <>
-                        <motion.span
+                        {!isLoading && <motion.span
                           initial={{ opacity: [0] }}
                           animate={isHamOpen ? "hidden" : "visible"}
                           variants={leftHeadingVariants}
                         >
                           BO
-                        </motion.span>
-                        <motion.span
+                        </motion.span>}
+                        {!isLoading && <motion.span
                           initial={{ opacity: [0] }}
                           animate={isHamOpen ? "hidden" : "visible"}
                           variants={rightHeadingVariants}
                         >
                           SM
-                        </motion.span>
+                        </motion.span>}
                       </>
                     </motion.div>
-                    <motion.div
+                    {!isLoading && <motion.div
                       data-scroll
                       className={styles["leftSubTitle"]}
                       initial={{ opacity: [0] }}
@@ -489,9 +515,9 @@ const IndexPage = () => {
                     >
                       <h1>The</h1>
                       <h2>ROAR</h2>
-                    </motion.div>
+                    </motion.div>}
 
-                    <motion.div
+                    {!isLoading && <motion.div
                       data-scroll
                       className={styles["rightSubTitle"]}
                       initial={{ opacity: [0] }}
@@ -501,20 +527,20 @@ const IndexPage = () => {
                     >
                       <h1>of</h1>
                       <h2>RESILIENCE</h2>
-                    </motion.div>
+                    </motion.div>}
 
                     {/* Hero Wrapper */}
                     <motion.div className={styles["heroWrapper"]}></motion.div>
 
                     {/* Countdown */}
-                    <motion.div
+                    {!isLoading && <motion.div
                       className={styles["countDown"]}
                       initial={{ opacity: [0] }}
                       animate={isHamOpen ? "hidden" : "visible"}
                       variants={countdownVariants}
                     >
                       <Countdown />
-                    </motion.div>
+                    </motion.div>}
                   </div>
                 </main>
               }
@@ -587,7 +613,7 @@ const IndexPage = () => {
             />
           )}
         </>
-      )}
+      )
     </>
   );
 };

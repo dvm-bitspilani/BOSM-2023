@@ -176,6 +176,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: black;
+  z-index: 99999;
 }
 
 .loader video{
@@ -183,6 +184,10 @@ body {
   height: auto;
   margin: auto;
   padding-left: 5vw;
+}
+
+.loader-hide{
+  opacity: 0;
 }
 
 @keyframes slideUp {
