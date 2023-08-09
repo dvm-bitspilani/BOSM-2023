@@ -213,7 +213,7 @@ const IndexPage = () => {
           const position = window.scrollY;
           const statueHeight = 60 + position / 20;
           const contactRadius = 150 - position / 5;
-          const contactPageTop = 50 - position / 15;
+          // const contactPageTop = 50 - position / 15;
           const blur = position / 50;
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
@@ -504,7 +504,7 @@ const IndexPage = () => {
     <>
       <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
-        <img id="cursorImg" src={Cursor}></img>
+        <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
       {isLoading && <div className="loader" id="loader">
         <video autoPlay loop muted>
@@ -534,11 +534,13 @@ const IndexPage = () => {
                   <img
                     id="statue"
                     src={Statue}
+                    alt=""
                     className={`${styles["statue"]} ${styles["desktopStatue"]}`}
                   />
                   <img
                     id="statueMobile"
                     src={MobileStatue}
+                    alt=""
                     className={`${styles["statue"]} ${styles["mobileStatue"]}`}
                   />
                 </motion.div>}
@@ -549,7 +551,7 @@ const IndexPage = () => {
                   animate={isHamOpen ? "hidden" : "visible"}
                   variants={leftLionVariants}
                 >
-                  <img src={LeftLion} />
+                  <img src={LeftLion} alt="" />
                 </motion.div>}
                 {!isLoading && <motion.div
 
@@ -558,7 +560,7 @@ const IndexPage = () => {
                   animate={isHamOpen ? "hidden" : "visible"}
                   variants={rightLionVariants}
                 >
-                  <img src={RightLion} />
+                  <img src={RightLion} alt="" />
                 </motion.div>}
                 <div className={styles["container"]}>
                   <motion.div
@@ -656,11 +658,13 @@ const IndexPage = () => {
                   <div className={contact["pageBackground"]}>
                     <img
                       id="frontStatue"
+                      alt=""
                       src={FrontStatue}
                       className={contact["frontStatue"]}
                     />
                     <img
                       id="backStatue"
+                      alt=""
                       src={BackStatue}
                       className={contact["backStatue"]}
                     />
@@ -691,7 +695,7 @@ const IndexPage = () => {
         )}
         {showBlackScreen && (
           <div className="blackScreen">
-            <img src={logo} />
+            <img alt="" src={logo} />
           </div>
         )}
         {regPage && (
