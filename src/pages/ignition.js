@@ -49,67 +49,70 @@ const Ignition = props => {
     }, [])
 
     useEffect(() => {
-        let scrollContainer = document.getElementById("gamesContainer");
-        let backBtn = document.getElementById("backBtn");
-        let nextBtn = document.getElementById("nextBtn");
+        if(window.innerWidth>1160){
+
+            let scrollContainer = document.getElementById("gamesContainer");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
+            
+            let isScrolling = false; 
         
-        let isScrolling = false; 
-    
-        const scrollSpeed = 5;
-        const scrollDistance = 0.3 * window.innerWidth;
-    
-        const handleWheel = (e) => {
-            e.preventDefault();
-            if (!isScrolling) {
-                performScroll(e.deltaY * scrollSpeed);
-            }
-        };
-    
-        const performScroll = (scrollAmount) => {
-            isScrolling = true;
-    
-            const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
-            const start = scrollContainer.scrollLeft;
-            const change = targetScrollLeft - start;
-            const duration = 800;
-    
-            let startTime;
-    
-            const animateScroll = (currentTime) => {
-                if (!startTime) startTime = currentTime;
-                const elapsedTime = currentTime - startTime;
-    
-                const easedScrollLeft = easeInOutQuad(elapsedTime, start, change, duration);
-    
-                scrollContainer.scrollLeft = easedScrollLeft;
-    
-                if (elapsedTime < duration) {
-                    requestAnimationFrame(animateScroll);
-                } else {
-                    isScrolling = false;
+            const scrollSpeed = 5;
+            const scrollDistance = 0.3 * window.innerWidth;
+        
+            const handleWheel = (e) => {
+                e.preventDefault();
+                if (!isScrolling) {
+                    performScroll(e.deltaY * scrollSpeed);
                 }
             };
-    
-            requestAnimationFrame(animateScroll);
-        };
-    
-        const handleNextClick = () => {
-            performScroll(scrollDistance);
-        };
-    
-        const handleBackClick = () => {
-            performScroll(-scrollDistance);
-        };
-    
-        nextBtn.addEventListener("click", handleNextClick);
-        backBtn.addEventListener("click", handleBackClick);
-        scrollContainer.addEventListener("wheel", handleWheel);
-    
-        return () => {
-            scrollContainer.removeEventListener("wheel", handleWheel);
-            nextBtn.removeEventListener("click", handleNextClick);
-            backBtn.removeEventListener("click", handleBackClick);
-        };
+        
+            const performScroll = (scrollAmount) => {
+                isScrolling = true;
+        
+                const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
+                const start = scrollContainer.scrollLeft;
+                const change = targetScrollLeft - start;
+                const duration = 800;
+        
+                let startTime;
+        
+                const animateScroll = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const elapsedTime = currentTime - startTime;
+        
+                    const easedScrollLeft = easeInOutQuad(elapsedTime, start, change, duration);
+        
+                    scrollContainer.scrollLeft = easedScrollLeft;
+        
+                    if (elapsedTime < duration) {
+                        requestAnimationFrame(animateScroll);
+                    } else {
+                        isScrolling = false;
+                    }
+                };
+        
+                requestAnimationFrame(animateScroll);
+            };
+        
+            const handleNextClick = () => {
+                performScroll(scrollDistance);
+            };
+        
+            const handleBackClick = () => {
+                performScroll(-scrollDistance);
+            };
+        
+            nextBtn.addEventListener("click", handleNextClick);
+            backBtn.addEventListener("click", handleBackClick);
+            scrollContainer.addEventListener("wheel", handleWheel);
+        
+            return () => {
+                scrollContainer.removeEventListener("wheel", handleWheel);
+                nextBtn.removeEventListener("click", handleNextClick);
+                backBtn.removeEventListener("click", handleBackClick);
+            };
+        }
     }, []);
     
     // Rest of your code...

@@ -170,9 +170,30 @@ html{
   }
   .gamesContainer{
     flex-direction: column;
+    width: auto;
   }
   .divContainer{
     display: flex !important;
     flex-direction: column;
+  }
+  .section{
+    height: auto;
+    min-height: 100vh;
+  }
+  .gameWrapper{
+    height: auto;
+  }
+  .arrowContainer{
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .header{
+    margin-bottom: 2rem;
+  }
+  .header h2{
+    font-size: 2.5rem;
+  }
+  .header h2 span{
+    display: none;
   }
 }
