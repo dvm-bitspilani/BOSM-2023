@@ -59,6 +59,9 @@
   cursor: none;
   position: absolute;
 
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -72,6 +75,7 @@
   border-radius: 12px;
   border: 1.415px solid #fff;
   padding: 0.5rem 2rem;
+  z-index: 100;
 }
 .registerBtnMobile{
   display: none;
@@ -97,14 +101,18 @@
 
 .hamburger {
   padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  overflow: visible;
 }
 
 .hamburger img {
-  transform: scale(0.7);
+  transform: scale(0.8);
+  overflow: visible;
 }
 
 .hamburger:hover img {
-  transform: scale(0.8);
+  transform: scale(1);
 }
 
 @media (max-width: 1380px) {
@@ -153,7 +161,7 @@
     display: none;
   }
   .navLogo img {
-    transform: scale(0.6);
+    transform: scale(0.7);
   }
   .navbarContainer {
     height: 100px;
@@ -168,14 +176,8 @@
 
 @media (max-width: 711px) {
 
-  .navbarContainer {
-    position : static;
-  }
-
   .navbarRightCorner {
-    position: static;
-    height: fit-content;
-    width: fit-content;
+    right: 6%;
   }
 
   .registerBtn {
@@ -195,6 +197,6 @@
 
   }
   .hamburger {
-    width: 100px;
+    width: 50px;
   }
 }
