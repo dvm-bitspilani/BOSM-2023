@@ -22,6 +22,47 @@ import LoaderVideo from "../images/loader.mp4";
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const assets = document.querySelectorAll(
+      " img, font"
+    );
+      console.log(assets)
+    let assetsLoaded = 0;
+
+    const handleAssetLoad = () => {
+      assetsLoaded++;
+      if (assetsLoaded === assets.length) {
+        const timeRemaining = 2000 - (Date.now() - startTime);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, Math.max(timeRemaining, 0));
+      }
+    };
+
+    assets.forEach((asset) => {
+      if (
+        asset.complete ||
+        asset.readyState === 4 || 
+        asset.tagName === "LINK"
+      ) {
+        handleAssetLoad();
+      } else {
+        asset.addEventListener("load", handleAssetLoad);
+        asset.addEventListener("error", handleAssetLoad);
+      }
+    });
+
+    const startTime = Date.now();
+
+    const cleanup = () => {
+      assets.forEach((asset) => {
+        asset.removeEventListener("load", handleAssetLoad);
+        asset.removeEventListener("error", handleAssetLoad);
+      });
+    };
+
+    return cleanup;
+  }, []);
 
   // useEffect(() => {
   //   const loader = document.getElementById("loader")
@@ -405,50 +446,6 @@ const IndexPage = () => {
   //   video.defaultPlaybackRate = 0.7
   //   video.load()
   // }, []);
-
-
-  useEffect(() => {
-    const assets = document.querySelectorAll(
-      " img, font"
-    );
-      console.log(assets)
-    let assetsLoaded = 0;
-
-    const handleAssetLoad = () => {
-      assetsLoaded++;
-      if (assetsLoaded === assets.length) {
-        const timeRemaining = 2000 - (Date.now() - startTime);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, Math.max(timeRemaining, 0));
-      }
-    };
-
-    assets.forEach((asset) => {
-      if (
-        asset.complete ||
-        asset.readyState === 4 || 
-        asset.tagName === "LINK"
-      ) {
-        handleAssetLoad();
-      } else {
-        asset.addEventListener("load", handleAssetLoad);
-        asset.addEventListener("error", handleAssetLoad);
-      }
-    });
-
-    const startTime = Date.now();
-
-    const cleanup = () => {
-      assets.forEach((asset) => {
-        asset.removeEventListener("load", handleAssetLoad);
-        asset.removeEventListener("error", handleAssetLoad);
-      });
-    };
-
-    return cleanup;
-  }, []);
-
 
   return (
     <>
