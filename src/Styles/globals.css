@@ -222,14 +222,24 @@ a{
   .blackScreen img{
     scale: 0.75;
   }
+
+  .loader video{
+    width: 100vw;
+  }
 }
 @media (max-width: 650px) and (min-height: 770px) {
   #contact-section {
     min-height: 165vh;
   }
+  .loader video{
+    width: 100vw;
+  }
 }
 @media (max-width: 650px) and (min-height: 890px) {
   #contact-section {
     min-height: 160vh;
+  }
+  .loader video{
+    width: 100vw;
   }
 }
