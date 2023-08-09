@@ -202,11 +202,43 @@ html{
     background: #2A2A2A;
     border-radius: 1rem;
     padding: .5rem;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  .gameGroup p{
+    text-align: end;
+    width: 50%;
+    font-size: 0.8rem;
+  }
+  .game{
+    width: 50%;
+  }
+  .secondGameGroup .game{
+    order: 2 !important;
+  }
+  .secondGameGroup p{
+    order: 1 !important;
+    text-align: start !important;
   }
 }
 @media (max-width: 580px) {
   .arrowContainer{
     width: 2rem;
     height: 2rem;
+  }
+  .header h2{
+    font-size: 2rem;
+  }
+}
+@media (max-width: 470px) {
+  .arrowContainer{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+@media (max-width: 400px) {
+  .arrowContainer{
+    width: 1rem;
+    height: 1rem;
   }
 }
