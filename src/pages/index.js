@@ -578,6 +578,11 @@ const IndexPage = () => {
               }
             />
           )}
+          {showBlackScreen && (
+            <div className="blackScreen">
+              <img src={logo} />
+            </div>
+          )}
           {regPage && (
             <Layout
               overflow={true}

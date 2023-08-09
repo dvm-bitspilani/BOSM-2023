@@ -152,33 +152,33 @@ const Ignition = props => {
                             <div className={`${classes.game} ${classes.fifa}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;FIFA '23&nbsp;&nbsp;  </p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}FIFA '23{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
                         <div className={classes.gameGroup}>
                             <div className={`${classes.game} ${classes.bgmi}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;BGMI&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;&nbsp;&nbsp;" : ""}BGMI{window.innerWidth > 1160 ? "&nbsp;&nbsp;&nbsp;&nbsp;" : ""}</p>
                         </div>
                     </div>
                     <div className={classes.divContainer}>
-                        <div className={classes.gameGroup}>
+                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
                             <div className={`${classes.game} ${classes.valo}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;Valorant&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}Valorant{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
-                        <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
+                        <div className={`${classes.gameGroup}`}>
                             <div className={`${classes.game} ${classes.tekken}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;&nbsp;Tekken 7&nbsp;&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}Tekken 7{window.innerWidth > 1160 ? "&nbsp;&nbsp;" : ""}</p>
                         </div>
                         <div className={`${classes.gameGroup} ${classes.secondGameGroup}`}>
                             <div className={`${classes.game} ${classes.cod}`}>
                                 <div className={classes.arrowContainer}><img src={arrow} /></div>
                             </div>
-                            <p>&nbsp;COD Mobile&nbsp;</p>
+                            <p>{window.innerWidth > 1160 ? "&nbsp;" : ""}COD Mobile{window.innerWidth > 1160 ? "&nbsp;" : ""}</p>
                         </div>
                     </div>
                 </div>

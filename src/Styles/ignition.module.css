@@ -170,7 +170,7 @@ html{
   }
   .gamesContainer{
     flex-direction: column;
-    width: auto;
+    width: 90vw;
   }
   .divContainer{
     display: flex !important;
@@ -195,5 +195,18 @@ html{
   }
   .header h2 span{
     display: none;
+  }
+  .gameGroup{
+    flex-direction: row;
+    align-items: center;
+    background: #2A2A2A;
+    border-radius: 1rem;
+    padding: .5rem;
+  }
+}
+@media (max-width: 580px) {
+  .arrowContainer{
+    width: 2rem;
+    height: 2rem;
   }
 }
