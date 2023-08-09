@@ -53,9 +53,10 @@ const setLoaderHandle = () => {
   // const showLoader = () => loader.classList.remove('loader-hide')
   // const hideLoader = () => loader.classList.add('loader-hide')
 
-  const ContactsCards = ContactsData.map((contact) => {
+  const ContactsCards = ContactsData.map((contact, key) => {
     return (
       <ContactProfile
+        key={key}
         name={contact.name}
         img={contact.image}
         dept={contact.department}
