@@ -206,9 +206,10 @@ html{
     justify-content: space-between;
   }
   .gameGroup p{
-    text-align: end;
+    text-align: center;
     width: 50%;
     font-size: 0.8rem;
+    padding-right: .5rem;
   }
   .game{
     width: 50%;
@@ -218,7 +219,9 @@ html{
   }
   .secondGameGroup p{
     order: 1 !important;
-    text-align: start !important;
+    text-align: center !important;
+    padding-right: 0;
+    padding-left: .5rem;
   }
 }
 @media (max-width: 580px) {
