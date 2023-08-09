@@ -28,7 +28,7 @@ export default function HamburgerLinks({ img, text, color, align }) {
   };
 
   return (
-    <Link to={(text === "Ignition")?"/ignition" : null} style={{textDecoration: 'none'}}>
+    <Link to={(text === "Ignition")?"/ignition" : "/"} style={{textDecoration: 'none'}}>
       <div
         style={{ backgroundImage: `url(${img})` }}
         className={styles["container"]}

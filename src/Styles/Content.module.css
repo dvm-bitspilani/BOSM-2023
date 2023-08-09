@@ -95,6 +95,7 @@ main {
   right: 0;
 }
 .rightLion img {
+  overflow: hidden;
   height: 65vh;
   aspect-ratio: 197/198;
   position: absolute;

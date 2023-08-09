@@ -21,7 +21,7 @@ import LoaderVideo from "../images/loader.mp4";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  
+
 
   // useEffect(() => {
   //   const loader = document.getElementById("loader")
@@ -46,16 +46,17 @@ const IndexPage = () => {
   }, []);
 
 
-const setLoaderHandle = () => {
+  const setLoaderHandle = () => {
     const time = setTimeout(() => setIsLoading(false), 2000);
-}
+  }
 
   // const showLoader = () => loader.classList.remove('loader-hide')
   // const hideLoader = () => loader.classList.add('loader-hide')
 
-  const ContactsCards = ContactsData.map((contact) => {
+  const ContactsCards = ContactsData.map((contact, key) => {
     return (
       <ContactProfile
+        key={key}
         name={contact.name}
         img={contact.image}
         dept={contact.department}
@@ -413,6 +414,13 @@ const setLoaderHandle = () => {
     },
   };
 
+  useEffect(() => {
+    let video = document.querySelector('video')
+    video.defaultPlaybackRate = 0.7
+    video.load()
+  }, []);
+
+
   return (
     <>
       <div className="cursor" id="cursor"></div>
@@ -420,133 +428,133 @@ const setLoaderHandle = () => {
         <img id="cursorImg" src={Cursor}></img>
       </div>
       {isLoading && <div className="loader" id="loader">
-          <video autoPlay loop muted>
-            <source src={LoaderVideo} type="video/mp4" />
-          </video>
-        </div>}
+        <video autoPlay loop muted>
+          <source src={LoaderVideo} type="video/mp4" />
+        </video>
+      </div>}
       {/* {isLoading ? (
         
       ) : ( */}
-        <>
-         {!regPage && (
-            <Layout
-              setRegPage={setRegPage}
-              setShowBlackScreen={setShowBlackScreen}
-              isHamOpen={isHamOpen}
-              setIsHamOpen={setIsHamOpen}
-              navbar={!isLoading && true}
-              fixedbg={true}
-              overflow={false}
-              content={
-                <main id="landing">
+      <>
+        {!regPage && (
+          <Layout
+            setRegPage={setRegPage}
+            setShowBlackScreen={setShowBlackScreen}
+            isHamOpen={isHamOpen}
+            setIsHamOpen={setIsHamOpen}
+            navbar={!isLoading && true}
+            fixedbg={true}
+            overflow={false}
+            content={
+              <main id="landing">
+                {!isLoading && <motion.div
+                  data-scroll
+                  className={styles["statueContainer"]}
+                  id="statueContainer"
+                  initial={{ y: [600] }}
+                  animate={isHamOpen && isLoading ? "hidden" : "visible"}
+                  variants={statueVariants}
+                >
+                  <img
+                    id="statue"
+                    src={Statue}
+                    className={`${styles["statue"]} ${styles["desktopStatue"]}`}
+                  />
+                  <img
+                    id="statueMobile"
+                    src={MobileStatue}
+                    className={`${styles["statue"]} ${styles["mobileStatue"]}`}
+                  />
+                </motion.div>}
+                {!isLoading && <motion.div
+                  // data-scroll
+                  className={styles["leftLion"]}
+                  initial={{ opacity: [0], x: [100] }}
+                  animate={isHamOpen ? "hidden" : "visible"}
+                  variants={leftLionVariants}
+                >
+                  <img src={LeftLion} />
+                </motion.div>}
+                {!isLoading && <motion.div
+                  // data-scroll
+                  className={styles["rightLion"]}
+                  initial={{ opacity: [0], x: [-100] }}
+                  animate={isHamOpen ? "hidden" : "visible"}
+                  variants={rightLionVariants}
+                >
+                  <img src={RightLion} />
+                </motion.div>}
+                <div className={styles["container"]}>
+                  <motion.div
+                    data-scroll
+                    className={styles["heading"]}
+                  //   initial={{ opacity: [0] }}
+                  //   animate={{ opacity: [0, 1] }}
+                  //   transition={{
+                  //     delay: "2",
+                  //     duration: "1",
+                  //     ease: "easeInOut",
+                  //     times: [0, 1],
+                  //   }}
+                  >
+                    <>
+                      {!isLoading && <motion.span
+                        initial={{ opacity: [0] }}
+                        animate={isHamOpen ? "hidden" : "visible"}
+                        variants={leftHeadingVariants}
+                      >
+                        BO
+                      </motion.span>}
+                      {!isLoading && <motion.span
+                        initial={{ opacity: [0] }}
+                        animate={isHamOpen ? "hidden" : "visible"}
+                        variants={rightHeadingVariants}
+                      >
+                        SM
+                      </motion.span>}
+                    </>
+                  </motion.div>
                   {!isLoading && <motion.div
                     data-scroll
-                    className={styles["statueContainer"]}
-                    id="statueContainer"
-                    initial={{ y: [600] }}
-                    animate={isHamOpen && isLoading ? "hidden" : "visible"}
-                    variants={statueVariants}
-                  >
-                    <img
-                      id="statue"
-                      src={Statue}
-                      className={`${styles["statue"]} ${styles["desktopStatue"]}`}
-                    />
-                    <img
-                      id="statueMobile"
-                      src={MobileStatue}
-                      className={`${styles["statue"]} ${styles["mobileStatue"]}`}
-                    />
-                  </motion.div>}
-                  {!isLoading && <motion.div
-                    // data-scroll
-                    className={styles["leftLion"]}
-                    initial={{ opacity: [0], x: [100] }}
+                    className={styles["leftSubTitle"]}
+                    initial={{ opacity: [0] }}
                     animate={isHamOpen ? "hidden" : "visible"}
-                    variants={leftLionVariants}
+                    variants={leftTextVariants}
                   >
-                    <img src={LeftLion} />
+                    <h1>The</h1>
+                    <h2>ROAR</h2>
                   </motion.div>}
+
                   {!isLoading && <motion.div
-                    // data-scroll
-                    className={styles["rightLion"]}
-                    initial={{ opacity: [0], x: [-100] }}
+                    data-scroll
+                    className={styles["rightSubTitle"]}
+                    initial={{ opacity: [0] }}
                     animate={isHamOpen ? "hidden" : "visible"}
-                    variants={rightLionVariants}
+                    variants={rightTextVariants}
+                    onAnimationComplete={() => setIsLoaded(true)}
                   >
-                    <img src={RightLion} />
+                    <h1>of</h1>
+                    <h2>RESILIENCE</h2>
                   </motion.div>}
-                  <div className={styles["container"]}>
-                    <motion.div
-                      data-scroll
-                      className={styles["heading"]}
-                      //   initial={{ opacity: [0] }}
-                      //   animate={{ opacity: [0, 1] }}
-                      //   transition={{
-                      //     delay: "2",
-                      //     duration: "1",
-                      //     ease: "easeInOut",
-                      //     times: [0, 1],
-                      //   }}
-                    >
-                      <>
-                        {!isLoading && <motion.span
-                          initial={{ opacity: [0] }}
-                          animate={isHamOpen ? "hidden" : "visible"}
-                          variants={leftHeadingVariants}
-                        >
-                          BO
-                        </motion.span>}
-                        {!isLoading && <motion.span
-                          initial={{ opacity: [0] }}
-                          animate={isHamOpen ? "hidden" : "visible"}
-                          variants={rightHeadingVariants}
-                        >
-                          SM
-                        </motion.span>}
-                      </>
-                    </motion.div>
-                    {!isLoading && <motion.div
-                      data-scroll
-                      className={styles["leftSubTitle"]}
-                      initial={{ opacity: [0] }}
-                      animate={isHamOpen ? "hidden" : "visible"}
-                      variants={leftTextVariants}
-                    >
-                      <h1>The</h1>
-                      <h2>ROAR</h2>
-                    </motion.div>}
 
-                    {!isLoading && <motion.div
-                      data-scroll
-                      className={styles["rightSubTitle"]}
-                      initial={{ opacity: [0] }}
-                      animate={isHamOpen ? "hidden" : "visible"}
-                      variants={rightTextVariants}
-                      onAnimationComplete={() => setIsLoaded(true)}
-                    >
-                      <h1>of</h1>
-                      <h2>RESILIENCE</h2>
-                    </motion.div>}
+                  {/* Hero Wrapper */}
+                  <motion.div className={styles["heroWrapper"]}></motion.div>
 
-                    {/* Hero Wrapper */}
-                    <motion.div className={styles["heroWrapper"]}></motion.div>
-
-                    {/* Countdown */}
-                    {!isLoading && <motion.div
-                      className={styles["countDown"]}
-                      initial={{ opacity: [0] }}
-                      animate={isHamOpen ? "hidden" : "visible"}
-                      variants={countdownVariants}
-                    >
-                      <Countdown />
-                    </motion.div>}
-                  </div>
-                </main>
-              }
-            />
-          )}
-          {/* <Layout 
+                  {/* Countdown */}
+                  {!isLoading && <motion.div
+                    className={styles["countDown"]}
+                    initial={{ opacity: [0] }}
+                    animate={isHamOpen ? "hidden" : "visible"}
+                    variants={countdownVariants}
+                  >
+                    <Countdown />
+                  </motion.div>}
+                </div>
+              </main>
+            }
+          />
+        )}
+        {/* <Layout 
             navbar={false}
             fixedbg={false}
             id
@@ -554,70 +562,70 @@ const setLoaderHandle = () => {
                 <main></main>
             }
             /> */}
-          {!regPage && (
-            <Layout
-              overflow={false}
-              navbar={false}
-              fixedbg={false}
-              sectionId="contact-section"
-              content={
-                <main
-                  data-scroll
-                  id="contactPage"
-                  className={contact["page"]}
-                  style={{ top: "50vh" }}
-                >
-                  <div id="contactContainer" className={contact["container"]}>
-                    <div data-scroll className={contact["pageBackground"]}>
-                      <img
-                        id="frontStatue"
-                        src={FrontStatue}
-                        className={contact["frontStatue"]}
-                      />
-                      <img
-                        id="backStatue"
-                        src={BackStatue}
-                        className={contact["backStatue"]}
-                      />
-                      {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
-                    </div>
-                    <div
-                      data-scroll
-                      id="backStatueMobile"
-                      className={contact["backStatueMobile"]}
-                      style={{ backgroundImage: `url(${BackStatueMobile})` }}
-                    ></div>
-                    <div
-                      data-scroll
-                      id="contactContent"
-                      className={contact["content"]}
-                    >
-                      <div className={contact["contentContainer"]}>
-                        <div className={contact["title"]}>CONTACT US</div>
-                        <div className={contact["cardsContainer"]}>
-                          {ContactsCards}
-                        </div>
+        {!regPage && (
+          <Layout
+            overflow={false}
+            navbar={false}
+            fixedbg={false}
+            sectionId="contact-section"
+            content={
+              <main
+                data-scroll
+                id="contactPage"
+                className={contact["page"]}
+                style={{ top: "50vh" }}
+              >
+                <div id="contactContainer" className={contact["container"]}>
+                  <div data-scroll className={contact["pageBackground"]}>
+                    <img
+                      id="frontStatue"
+                      src={FrontStatue}
+                      className={contact["frontStatue"]}
+                    />
+                    <img
+                      id="backStatue"
+                      src={BackStatue}
+                      className={contact["backStatue"]}
+                    />
+                    {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
+                  </div>
+                  <div
+                    data-scroll
+                    id="backStatueMobile"
+                    className={contact["backStatueMobile"]}
+                    style={{ backgroundImage: `url(${BackStatueMobile})` }}
+                  ></div>
+                  <div
+                    data-scroll
+                    id="contactContent"
+                    className={contact["content"]}
+                  >
+                    <div className={contact["contentContainer"]}>
+                      <div className={contact["title"]}>CONTACT US</div>
+                      <div className={contact["cardsContainer"]}>
+                        {ContactsCards}
                       </div>
                     </div>
                   </div>
-                </main>
-              }
-            />
-          )}
-          {showBlackScreen && (
-            <div className="blackScreen">
-              <img src={logo} />
-            </div>
-          )}
-          {regPage && (
-            <Layout
-              overflow={true}
-              navbar={false}
-              fixedbg={false}
-              content={<Form setRegPage={setRegPage} />}
-            />
-          )}
-        </>
+                </div>
+              </main>
+            }
+          />
+        )}
+        {showBlackScreen && (
+          <div className="blackScreen">
+            <img src={logo} />
+          </div>
+        )}
+        {regPage && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            fixedbg={false}
+            content={<Form setRegPage={setRegPage} />}
+          />
+        )}
+      </>
       )
     </>
   );
