@@ -207,13 +207,18 @@ body {
     transform: rotate(359deg);
   }
 }
-@media (min-height: 920px) and (max-width: 650px) {
+@media (max-width: 650px) {
   #contact-section {
-    height: 175vh;
+    min-height: 175vh;
   }
 }
-@media (max-height: 920px) and (max-width: 650px) {
+@media (max-width: 650px) and (min-height: 770px) {
   #contact-section {
-    height: 200vh;
+    min-height: 165vh;
+  }
+}
+@media (max-width: 650px) and (min-height: 890px) {
+  #contact-section {
+    min-height: 160vh;
   }
 }

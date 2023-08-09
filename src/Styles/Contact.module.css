@@ -209,6 +209,12 @@
   .cardsContainer {
     column-gap: 5vw;
   }
+  .profileName{
+    font-size: 1rem;
+  }
+  .profileDept{
+    font-size: .85rem;
+  }
 }
 @media (max-width: 780px) {
   .cardsContainer {
@@ -238,7 +244,9 @@
     /* overflow: scroll; */
   }
   .profileName {
-    font-size: 1.25rem;
-    letter-spacing: 0.05rem;
+    font-size: .85rem;
+  }
+  .profileDept{
+    font-size: .65rem;
   }
 }
