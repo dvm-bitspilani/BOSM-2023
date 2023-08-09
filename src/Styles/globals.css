@@ -40,6 +40,9 @@ input:-webkit-autofill:active {
 body {
   width: calc(100vw - (100vw - 100%));
 }
+a{
+  text-decoration: none;
+}
 .layout-section {
   width: 100vw;
   height: 100vh;

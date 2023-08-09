@@ -32,7 +32,7 @@ export default function Hamburger({
     }
     if (isHamOpen) {
       document.documentElement.style.overflowX = "hidden";
-      document.documentElement.style.overflowY = "hidden";
+      // document.documentElement.style.overflowY = "hidden";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     // console.log("isHamOpen", isHamOpen);
