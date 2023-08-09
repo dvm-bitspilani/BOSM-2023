@@ -115,7 +115,7 @@ const Navbar = ({
       {!isLoading && <motion.div
         className={styles["registerBtnMobile"]}
         onClick={goToNextPage}
-        initial={{ y: 0, x: "-50%", opacity: 0 }}
+        initial={{ y: 150, x: "-50%", opacity: 0 }}
         animate={isHamOpen ? "closed" : "open"}
         variants={navbarDownVariants}
       >
