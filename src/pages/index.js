@@ -22,60 +22,60 @@ import LoaderVideo from "../images/loader.mp4";
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const assets = document.querySelectorAll(
-      " img, font"
-    );
-      console.log(assets)
-    let assetsLoaded = 0;
+  // useEffect(() => {
+  //   const assets = document.querySelectorAll(
+  //     " img, font"
+  //   );
+  //     console.log(assets)
+  //   let assetsLoaded = 0;
 
-    const handleAssetLoad = () => {
-      assetsLoaded++;
-      if (assetsLoaded === assets.length) {
-        const timeRemaining = 2000 - (Date.now() - startTime);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, Math.max(timeRemaining, 0));
-      }
-    };
+  //   const handleAssetLoad = () => {
+  //     assetsLoaded++;
+  //     if (assetsLoaded === assets.length) {
+  //       const timeRemaining = 2000 - (Date.now() - startTime);
+  //       setTimeout(() => {
+  //         setIsLoading(false);
+  //       }, Math.max(timeRemaining, 0));
+  //     }
+  //   };
 
-    assets.forEach((asset) => {
-      if (
-        asset.complete ||
-        asset.readyState === 4 || 
-        asset.tagName === "LINK"
-      ) {
-        handleAssetLoad();
-      } else {
-        asset.addEventListener("load", handleAssetLoad);
-        asset.addEventListener("error", handleAssetLoad);
-      }
-    });
+  //   assets.forEach((asset) => {
+  //     if (
+  //       asset.complete ||
+  //       asset.readyState === 4 || 
+  //       asset.tagName === "LINK"
+  //     ) {
+  //       handleAssetLoad();
+  //     } else {
+  //       asset.addEventListener("load", handleAssetLoad);
+  //       asset.addEventListener("error", handleAssetLoad);
+  //     }
+  //   });
 
-    const startTime = Date.now();
+  //   const startTime = Date.now();
 
-    const cleanup = () => {
-      assets.forEach((asset) => {
-        asset.removeEventListener("load", handleAssetLoad);
-        asset.removeEventListener("error", handleAssetLoad);
-      });
-    };
+  //   const cleanup = () => {
+  //     assets.forEach((asset) => {
+  //       asset.removeEventListener("load", handleAssetLoad);
+  //       asset.removeEventListener("error", handleAssetLoad);
+  //     });
+  //   };
 
-    return cleanup;
-  }, []);
+  //   return cleanup;
+  // }, []);
 
-  useEffect(() => {
-    const loader = document.getElementById("loader")
+  // useEffect(() => {
+  //   const loader = document.getElementById("loader")
 
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-      loader.classList.add('loader-hide')
-    }, 3000);
+  //   const loadingTimer = setTimeout(() => {
+  //     setIsLoading(false);
+  //     loader.classList.add('loader-hide')
+  //   }, 3000);
 
-    return () =>{ 
-      loader.classList.remove('loader-hide')
-      clearTimeout(loadingTimer);}
-  }, []);
+  //   return () =>{ 
+  //     loader.classList.remove('loader-hide')
+  //     clearTimeout(loadingTimer);}
+  // }, []);
 
   // useEffect(() => {
   //   setIsLoading(true);
@@ -87,9 +87,9 @@ const IndexPage = () => {
   // }, []);
 
 
-  const setLoaderHandle = () => {
-    const time = setTimeout(() => setIsLoading(false), 4000);
-  }
+  // const setLoaderHandle = () => {
+  //   const time = setTimeout(() => setIsLoading(false), 4000);
+  // }
 
   const ContactsCards = ContactsData.map((contact, key) => {
     return (
@@ -460,7 +460,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     const assets = document.querySelectorAll(
-      "img, font"
+      "img, font" , "style"
     );
   
     let assetsLoaded = 0;
