@@ -48,7 +48,7 @@ export default function Hamburger({
 
   return (
     <>
-    {!isLoading && <div className={styles["hamburger"]} style={{display: regPage? 'none':'block'}}>
+    {!isLoading && <div className={styles["hamburger"]} style={{display: regPage? 'none':''}}>
       {/* <button onClick={closeHam}>
         Close
       </button> */}

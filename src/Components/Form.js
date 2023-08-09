@@ -316,6 +316,7 @@ const Form = ({ setRegPage }) => {
     indicatorsContainer: (provided) => ({
       ...provided,
       height: '1.8rem',
+      height:'100%',
     }),
     singleValue: (provided) => ({
       ...provided,

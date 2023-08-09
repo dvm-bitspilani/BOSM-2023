@@ -96,6 +96,7 @@
   justify-content: center;
   gap: 4rem;
   overflow: visible;
+  padding: 1rem;
 }
 .game {
   width: 100%;
