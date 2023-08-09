@@ -45,15 +45,15 @@ const Form = ({ setRegPage }) => {
     }),
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? '#ffd700' : '#111',
-      backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+      color: state.isSelected ? '#fff' : '#111',
+      backgroundColor: state.isSelected ? '#7CC6DB' : 'transparent',
       fontFamily: 'Montserrat',
       fontSize: '1rem',
       fontWeight: 500,
       paddingLeft: '1rem',
       zIndex: 1002,
       '&:hover': {
-        backgroundColor: '#777',
+        backgroundColor: '#7CC6DB',
         color: '#fff'
       },
     }),
@@ -142,15 +142,15 @@ const Form = ({ setRegPage }) => {
     }),
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? '#ffd700' : '#111',
-      backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+      color: state.isSelected ? '#fff' : '#111',
+      backgroundColor: state.isSelected ? '#7CC6DB' : 'transparent',
       fontFamily: 'Montserrat',
       fontSize: '1rem',
       fontWeight: 500,
       paddingLeft: '1rem',
       zIndex: 1001,
       '&:hover': {
-        backgroundColor: '#777',
+        backgroundColor: '#7CC6DB',
         color: '#fff'
       },
     }),
@@ -232,15 +232,15 @@ const Form = ({ setRegPage }) => {
     }),
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? '#ffd700' : '#111',
-      backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+      color: state.isSelected ? '#fff' : '#111',
+      backgroundColor: state.isSelected ? '#7CC6DB' : 'transparent',
       fontFamily: 'Montserrat',
       fontSize: '1rem',
       fontWeight: 500,
       paddingLeft: '1rem',
       zIndex: 1003,
       '&:hover': {
-        backgroundColor: '#777',
+        backgroundColor: '#7CC6DB',
         color: '#fff'
       },
     }),
@@ -316,7 +316,7 @@ const Form = ({ setRegPage }) => {
     indicatorsContainer: (provided) => ({
       ...provided,
       height: '1.8rem',
-      height:'100%',
+      height:'inherit',
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -334,14 +334,14 @@ const Form = ({ setRegPage }) => {
     }),
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? '#ffd700' : '#111',
-      backgroundColor: state.isSelected ? 'transparent' : 'transparent',
+      color: state.isSelected ? '#fff' : '#111',
+      backgroundColor: state.isSelected ? '#7CC6DB' : 'transparent',
       fontFamily: 'Montserrat',
       fontSize: '1rem',
       fontWeight: 500,
       paddingLeft: '1rem',
       '&:hover': {
-        backgroundColor: '#777',
+        backgroundColor: '#7CC6DB',
         color: '#fff'
       },
     }),

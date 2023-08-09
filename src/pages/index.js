@@ -36,20 +36,6 @@ const IndexPage = () => {
   //     clearTimeout(loadingTimer);}
   // }, []);
 
-  useEffect(() => {
-    setIsLoading(true);
-    window.addEventListener("load", setLoaderHandle);
-    setLoaderHandle();
-    return () => {
-      window.removeEventListener("load", setLoaderHandle);
-    };
-  }, []);
-
-
-  const setLoaderHandle = () => {
-    const time = setTimeout(() => setIsLoading(false), 2000);
-  }
-
   // const showLoader = () => loader.classList.remove('loader-hide')
   // const hideLoader = () => loader.classList.add('loader-hide')
 
@@ -414,10 +400,53 @@ const IndexPage = () => {
     },
   };
 
+  // useEffect(() => {
+  //   let video = document.querySelector('video')
+  //   video.defaultPlaybackRate = 0.7
+  //   video.load()
+  // }, []);
+
+
   useEffect(() => {
-    let video = document.querySelector('video')
-    video.defaultPlaybackRate = 0.7
-    video.load()
+    const assets = document.querySelectorAll(
+      " img, font"
+    );
+      console.log(assets)
+    let assetsLoaded = 0;
+
+    const handleAssetLoad = () => {
+      assetsLoaded++;
+      if (assetsLoaded === assets.length) {
+        const timeRemaining = 2000 - (Date.now() - startTime);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, Math.max(timeRemaining, 0));
+      }
+    };
+
+    assets.forEach((asset) => {
+      if (
+        asset.complete ||
+        asset.readyState === 4 || 
+        asset.tagName === "LINK"
+      ) {
+        handleAssetLoad();
+      } else {
+        asset.addEventListener("load", handleAssetLoad);
+        asset.addEventListener("error", handleAssetLoad);
+      }
+    });
+
+    const startTime = Date.now();
+
+    const cleanup = () => {
+      assets.forEach((asset) => {
+        asset.removeEventListener("load", handleAssetLoad);
+        asset.removeEventListener("error", handleAssetLoad);
+      });
+    };
+
+    return cleanup;
   }, []);
 
 
