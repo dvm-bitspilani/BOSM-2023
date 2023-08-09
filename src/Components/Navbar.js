@@ -57,6 +57,7 @@ const Navbar = ({
     },
     closed: {
       y: 150,
+      opacity: 1,
       transition: {
         delay: 1,
         duration: 1,
@@ -95,9 +96,18 @@ const Navbar = ({
           <motion.div
             className={styles["registerBtn"]}
             onClick={goToNextPage}
-            initial={isBrowser && window.innerWidth < 711 ? { y : 0 , x : "-50%", opacity : 0} : { y: [-150] }}
+            initial={{ y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
-            variants={isBrowser && window.innerWidth < 711 ? navbarDownVariants : navbarUpVariants}
+            variants={navbarUpVariants}
+          >
+            <p>REGISTER</p>
+          </motion.div>
+          <motion.div
+            className={styles["registerBtnMobile"]}
+            onClick={goToNextPage}
+            initial={{ y : 0 , x : "-50%", opacity : 0}}
+            animate={isHamOpen ? "closed" : "open"}
+            variants={navbarDownVariants}
           >
             <p>REGISTER</p>
           </motion.div>

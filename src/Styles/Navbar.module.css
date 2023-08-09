@@ -68,13 +68,16 @@
   width: fit-content;
 }
 
-.registerBtn {
+.registerBtn , .registerBtnMobile{
   border-radius: 12px;
   border: 1.415px solid #fff;
   padding: 0.5rem 2rem;
 }
+.registerBtnMobile{
+  display: none;
+}
 
-.registerBtn p {
+.registerBtn p , .registerBtnMobile p{
   color: #fff;
   font-family: "Montserrat";
   font-size: 1.2rem;
@@ -164,8 +167,9 @@
 }
 
 @media (max-width: 711px) {
+
   .navbarContainer {
-    position: static;
+    position : static;
   }
 
   .navbarRightCorner {
@@ -175,17 +179,21 @@
   }
 
   .registerBtn {
+    display: none;
+  }
+
+  .registerBtnMobile {
+    display: flex;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
     bottom: 5%;
     background-color: #fff;
   }
-  .registerBtn p{
+  .registerBtnMobile p{
     color: black;
 
   }
-
   .hamburger {
     width: 100px;
   }
