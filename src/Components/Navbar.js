@@ -38,7 +38,7 @@ const Navbar = ({
     closed: {
       y: -150,
       transition: {
-        delay: 1,
+        delay: isBrowser && window.innerWidth > 711 ?  1 : 0,
         duration: 1,
         ease: "easeInOut",
       },
@@ -60,7 +60,7 @@ const Navbar = ({
       y: 150,
       opacity: 1,
       transition: {
-        delay: 1,
+        delay: isBrowser && window.innerWidth > 711 ?  1 : 0,
         duration: 1,
         ease: "easeInOut",
       },
