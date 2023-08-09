@@ -6,7 +6,9 @@
   color: #eee;
   margin-bottom: 1.5rem;
 }
-
+.countdown span{
+  margin-bottom: 1.75rem;
+}
 .label {
   gap: 0.4rem;
   display: flex;
