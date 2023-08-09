@@ -239,11 +239,9 @@ const IndexPage = () => {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false)
 
-  console.log(isHamOpen);
+  // console.log(isHamOpen);
 
-  setTimeout(() => {
-    setIsLoaded(true);
-  }, 3000);
+  console.log(isLoaded);
 
   const statueVariants = {
     hidden: {
@@ -298,7 +296,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 0.5 : 1,
+        delay: isLoaded ? 0.5 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -340,7 +338,7 @@ const IndexPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: isLoaded ? 0.5 : 1,
+        delay: isLoaded ? 0.5 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -403,7 +401,7 @@ const IndexPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: isLoaded ? 0.5 : 1,
+        delay: isLoaded ? 0.5 : 2,
         duration: 1,
         ease: "easeInOut",
       },
@@ -513,6 +511,7 @@ const IndexPage = () => {
                   initial={{ opacity: [0] }}
                   animate={isHamOpen ? "hidden" : "visible"}
                   variants={rightTextVariants}
+                  onAnimationComplete={() => setIsLoaded(true)}
                 >
                   <h1>of</h1>
                   <h2>RESILIENCE</h2>

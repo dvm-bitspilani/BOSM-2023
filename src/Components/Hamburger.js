@@ -15,9 +15,9 @@ export default function Hamburger({
   isAnimationComplete,
 }) {
   // function setZIndex() {
-    // const hamburger = document.querySelector(`.${styles["hamburger"]}`);
-    // console.log(isHamOpen)
-    // hamburger.style.zIndex = isHamOpen ? 100 : -3;
+  // const hamburger = document.querySelector(`.${styles["hamburger"]}`);
+  // console.log(isHamOpen)
+  // hamburger.style.zIndex = isHamOpen ? 100 : -3;
   // }
 
   React.useEffect(() => {
@@ -30,14 +30,14 @@ export default function Hamburger({
       document.documentElement.style.overflowY = "scroll";
     }
     if (isHamOpen) {
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overflowX = "hidden";
+      document.documentElement.style.overflowY = "hidden";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     // console.log("isHamOpen", isHamOpen);
   }, [isHamOpen]);
 
   React.useEffect(() => {
-    
     const hamburger = document.querySelector(`.${styles["hamburger"]}`);
     if (isAnimationComplete) {
       hamburger.style.zIndex = 100;

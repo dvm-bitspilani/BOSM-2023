@@ -2,6 +2,7 @@ main {
   height: 80vh;
   width: 100vw;
   cursor: none;
+  /* overflow: hidden; */
 }
 .container {
   height: 100%;
