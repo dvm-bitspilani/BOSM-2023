@@ -179,6 +179,11 @@
     transform: translateX(-50%);
     position: absolute;
     bottom: 5%;
+    background-color: #fff;
+  }
+  .registerBtn p{
+    color: black;
+
   }
 
   .hamburger {
