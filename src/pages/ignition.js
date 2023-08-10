@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import cross from "../images/cross.svg";
 import arrow2 from "../images/arrow.svg";
 import Cursor from "../images/cursor.png";

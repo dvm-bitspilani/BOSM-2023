@@ -93,10 +93,11 @@
 
 .registerBtn:hover {
   background-color: #fff;
-  /* transition: 0.5s; */
+  transition: 1s;
 }
 .registerBtn:hover p {
   color: #111;
+  transition: 1s;
 }
 
 .hamburger {
@@ -112,9 +113,9 @@
   overflow: visible;
 }
 
-.hamburger:hover img {
+/* .hamburger:hover img {
   filter:contrast(0.5);
-}
+} */
 
 @media (max-width: 1380px) {
   .navLogo img {
@@ -200,4 +201,7 @@
   .hamburger {
     width: 50px;
   }
+}
+.registerBtnMobile{
+  opacity: 0.5 !important;
 }

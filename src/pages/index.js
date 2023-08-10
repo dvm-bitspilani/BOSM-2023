@@ -497,8 +497,9 @@ const IndexPage = () => {
     return cleanup;
   }, []);
 
-
-
+const handleStatueImageDrag = (event) => {
+  event.preventDefault()
+}
 
   return (
     <>
@@ -536,6 +537,7 @@ const IndexPage = () => {
                     src={Statue}
                     alt=""
                     className={`${styles["statue"]} ${styles["desktopStatue"]}`}
+                    onDragStart={handleStatueImageDrag}
                   />
                   <img
                     id="statueMobile"
