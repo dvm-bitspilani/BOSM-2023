@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "../Styles/Hamburger.module.css";
 import { motion } from "framer-motion";
-
+import { Link } from "gatsby";
 export default function HamburgerLinks({ img, text, color }) {
     const [isHovered, setIsHovered] = React.useState(false);
 
@@ -27,6 +27,11 @@ export default function HamburgerLinks({ img, text, color }) {
     };
 
   return (
+    <Link
+      to={text === "Ignition" ? "/ignition" : "/"}
+      style={{ textDecoration: "none" }}
+      onMouseDown={() => (document.documentElement.style.overflow = "scroll")}
+    >
     <div
       style={{ backgroundImage: `url(${img})` }}
       className={styles["container"]}
@@ -43,5 +48,6 @@ export default function HamburgerLinks({ img, text, color }) {
         {text}
       </motion.div>
     </div>
+    </Link>
   );
 }
