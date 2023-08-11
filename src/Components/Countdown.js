@@ -73,12 +73,12 @@ const Countdown = () => {
         <div className={styles["numbers"]}>{prevDay}</div>
         <div className={styles["labels"]}>DAYS</div>
       </div>
-      <span style={{fontWeight: 'bold', fontSize: '32px'}}>:</span>
+      <span style={{fontWeight: 'bold', fontSize: '40px'}}>:</span>
       <div className={styles["label"]} id="hours">
         <div className={styles["numbers"]}>{prevHr}</div>
         <div className={styles["labels"]}>HOURS</div>
       </div>
-      <span style={{fontWeight: 'bold', fontSize: '32px'}}>:</span>
+      <span style={{fontWeight: 'bold', fontSize: '40px'}}>:</span>
       <div className={styles["label"]} id="min">
         <div className={styles["numbers"]}>{prevMin}</div>
         <div className={styles["labels"]}>MINS</div>
