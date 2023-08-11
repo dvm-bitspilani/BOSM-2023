@@ -10,6 +10,7 @@ import LoaderVideo from "../images/loader.mp4"
 const Ignition = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
   const closeButtonHandler = () => {
     navigate("/");
   };
@@ -44,7 +45,7 @@ const Ignition = (props) => {
         );
       };
     }
-    setIsLoading(false); 
+    // setIsLoading(false); 
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -70,7 +71,7 @@ const Ignition = (props) => {
         }
       };
 
-      const performScroll = (scrollAmount) => {
+      const performScroll = (scrollAmount, callback) => {
         isScrolling = true;
 
         const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
@@ -98,6 +99,7 @@ const Ignition = (props) => {
           } else {
             isScrolling = false;
             updateButtonState();
+            callback();
           }
         };
 
@@ -120,13 +122,31 @@ const Ignition = (props) => {
           backBtn.style.pointerEvents = "auto";
         }
       };
-      const handleNextClick = () => {
-        performScroll(scrollDistance);
-      };
+      // const handleNextClick = () => {
+      //   performScroll(scrollDistance);
+      // };
 
-      const handleBackClick = () => {
-        performScroll(-scrollDistance);
+      // const handleBackClick = () => {
+      //   performScroll(-scrollDistance);
+      // };
+      const handleNextClick = () => {
+        if (!isScrolling) {
+          setIsScrolling(true);
+          performScroll(scrollDistance, () => {
+            setIsScrolling(false);
+          });
+        }
       };
+      
+      const handleBackClick = () => {
+        if (!isScrolling) {
+          setIsScrolling(true);
+          performScroll(-scrollDistance, () => {
+            setIsScrolling(false);
+          });
+        }
+      };
+      
 
       nextBtn.addEventListener("click", handleNextClick);
       backBtn.addEventListener("click", handleBackClick);
