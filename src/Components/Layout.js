@@ -81,7 +81,7 @@ const Layout = ({
       transiton: {
         delay: 0,
         duration: 1,
-        ease: "easeInOut"
+        ease: "easeOut"
       }
     },
     closed: {
@@ -162,6 +162,19 @@ const Layout = ({
               onMouseDown={() => {
                 if (isAnimationComplete) setIsHamOpen(false);
               }}
+              initial={{ opacity: 0 }}
+              animate={isHamOpen ? "open" : "closed"}
+              exit={{ opacity: 0 }}
+              variants={blackScreenVariants}
+            >
+              <button className="closeHam">
+                ✖
+              </button>
+            </motion.div>
+            <motion.div
+              onMouseDown={() => {
+                if (isAnimationComplete) setIsHamOpen(false);
+              }}
               className="ham-black-screen-right"
               initial={{ opacity: 0 }}
               animate={isHamOpen ? "open" : "closed"}
@@ -182,19 +195,7 @@ const Layout = ({
               variants={blackScreenVariants}
               exit={{ opacity: 0 }}
             />
-            <motion.div
-              onMouseDown={() => {
-                if (isAnimationComplete) setIsHamOpen(false);
-              }}
-              initial={{ opacity: 0 }}
-              animate={isHamOpen ? "open" : "closed"}
-              exit={{ opacity: 0 }}
-              variants={blackScreenVariants}
-            >
-              <button className="closeHam">
-                ✖
-              </button>
-            </motion.div>
+
           </>
         )}
       </AnimatePresence>
