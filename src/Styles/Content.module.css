@@ -382,9 +382,32 @@ input[type="radio"] {
   border: 2px solid #fff;
   color: #36788a;
 }
-.genderLabel{
-  
+
+
+.socialsContainer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  margin: 2.7rem;
+  padding-bottom: 1vh;
+  gap: 1rem;
 }
+
+.iconContainer svg{
+  height: 1.75rem;
+  cursor: pointer;
+}
+
+.socialIcon{
+  transition: all 1s ease-in-out;
+}
+
+.socialIcon:hover{
+  transform: scale(1.2);
+}
+
+
 @media (max-width: 1480px) {
   .leftLion,
   .rightLion {

@@ -45,7 +45,6 @@
   font-weight: 401;
   line-height: normal;
 }
-
 @keyframes card-flip {
   0% {
     background-color: rgba(255, 255, 255, 0.4);

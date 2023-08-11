@@ -18,6 +18,7 @@ import logo from "../images/logo.svg";
 import Form from "../Components/Form";
 import ContactsData from "../Components/ContactsData/Contacts.json";
 import LoaderVideo from "../images/loader.mp4";
+import Socials from "../Components/Socials";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -496,9 +497,9 @@ const IndexPage = () => {
     return cleanup;
   }, []);
 
-const handleStatueImageDrag = (event) => {
-  event.preventDefault()
-}
+  const handleStatueImageDrag = (event) => {
+    event.preventDefault()
+  }
 
   return (
     <>
@@ -627,6 +628,15 @@ const handleStatueImageDrag = (event) => {
                     variants={countdownVariants}
                   >
                     <Countdown />
+                  </motion.div>}
+
+                  {!isLoading && <motion.div
+                    className={styles["socials"]}
+                    initial={{ opacity: [0] }}
+                    animate={isHamOpen ? "hidden" : "visible"}
+                    variants={countdownVariants}
+                  >
+                    <Socials />
                   </motion.div>}
                 </div>
               </main>

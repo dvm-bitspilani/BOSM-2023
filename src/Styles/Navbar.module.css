@@ -93,11 +93,11 @@
 
 .registerBtn:hover {
   background-color: #fff;
-  transition: 1s;
+  transition: 0.5s;
 }
 .registerBtn:hover p {
   color: #111;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .hamburger {
