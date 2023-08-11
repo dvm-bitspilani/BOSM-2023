@@ -6,8 +6,10 @@ import { navigate } from "gatsby";
 import * as classes from "../Styles/ignition.module.css";
 import arrow from "../images/arrow-up-right.svg";
 import logo from "../images/logo.svg";
-
+import LoaderVideo from "../images/loader.mp4"
 const Ignition = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const closeButtonHandler = () => {
     navigate("/");
   };
@@ -42,6 +44,7 @@ const Ignition = (props) => {
         );
       };
     }
+    setIsLoading(false); 
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -57,7 +60,8 @@ const Ignition = (props) => {
       let isScrolling = false;
 
       const scrollSpeed = 5;
-      const scrollDistance = 0.3 * window.innerWidth;
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const scrollDistance = 0.27 * window.innerWidth;
 
       const handleWheel = (e) => {
         e.preventDefault();
@@ -93,12 +97,29 @@ const Ignition = (props) => {
             requestAnimationFrame(animateScroll);
           } else {
             isScrolling = false;
+            updateButtonState();
           }
         };
 
         requestAnimationFrame(animateScroll);
       };
+      const updateButtonState = () => {
+        if (scrollContainer.scrollLeft >= maxScroll) {
+          nextBtn.style.opacity = "0.5";
+          nextBtn.style.pointerEvents = "none";
+        } else {
+          nextBtn.style.opacity = "1";
+          nextBtn.style.pointerEvents = "auto";
+        }
 
+        if (scrollContainer.scrollLeft <= 0) {
+          backBtn.style.opacity = "0.5";
+          backBtn.style.pointerEvents = "none";
+        } else {
+          backBtn.style.opacity = "1";
+          backBtn.style.pointerEvents = "auto";
+        }
+      };
       const handleNextClick = () => {
         performScroll(scrollDistance);
       };
@@ -110,13 +131,14 @@ const Ignition = (props) => {
       nextBtn.addEventListener("click", handleNextClick);
       backBtn.addEventListener("click", handleBackClick);
       scrollContainer.addEventListener("wheel", handleWheel);
-
+      updateButtonState();
       return () => {
         scrollContainer.removeEventListener("wheel", handleWheel);
         nextBtn.removeEventListener("click", handleNextClick);
         backBtn.removeEventListener("click", handleBackClick);
       };
     }
+    setIsLoading(false);
   }, []);
 
   // Rest of your code...
@@ -130,7 +152,13 @@ const Ignition = (props) => {
 
   return (
     <React.Fragment>
-      <div className="cursor" id="cursor"></div>
+       {isLoading && <div className="loader" id="loader">
+        <video autoPlay loop muted>
+          <source src={LoaderVideo} type="video/mp4" />
+        </video>
+      </div>}
+      
+       <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor}></img>
       </div>
@@ -235,7 +263,9 @@ const Ignition = (props) => {
           </div>
         </div>
       </section>
-    </React.Fragment>
+
+    
+          </React.Fragment>
   );
 };
 

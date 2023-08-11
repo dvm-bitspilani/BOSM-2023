@@ -21,7 +21,6 @@ import LoaderVideo from "../images/loader.mp4";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-
   // useEffect(() => {
   //   const assets = document.querySelectorAll(
   //     " img, font"
@@ -184,7 +183,7 @@ const IndexPage = () => {
             contactPage.style.borderRadius = 0;
             // contactPage.style.transform = `scale(1)`;
           }
-          if (position <= window.innerHeight - 1) {
+          if (position <= window.innerHeight * 0.5 - 1) {
             contactContent.style.transform = "translateX(60vw)";
             contactContent.style.opacity = 0;
             frontStatue.style.left = "-40vw";
