@@ -48,42 +48,43 @@ export default function Hamburger({
 
   return (
     <>
-    {!isLoading && <div className={styles["hamburger"]} style={{display: regPage? 'none':''}}>
-      {/* <button onClick={closeHam}>
-        Close
-      </button> */}
-      {/* <div>Hamburger</div> */}
-      <HamburgerLinks
-        img={ignitionImg}
-        text="Ignition"
-        color="#872424"
-        align="left"
-      />
-      <HamburgerLinks
-        img={galleryImg}
-        text="Gallery"
-        color="#AD912E"
-        align="right"
-      />
-      <HamburgerLinks
-        img={archiveImg}
-        text="Archive"
-        color="#397589"
-        align="left"
-      />
-      <HamburgerLinks
-        img={sponsorsImg}
-        text="Sponsors"
-        color="#458B2C"
-        align="right"
-      />
-      <HamburgerLinks
-        img={developersImg}
-        text="Developers"
-        color="#4B2280"
-        align="left"
-      />
-    </div>}
+
+      {!isLoading && <div className={styles["hamburger"]} style={{ display: regPage ? 'none' : '' }}>
+        <button onClick={closeHam} className={styles["closeHam"]}>
+          ✖
+        </button>
+        {/* <div>Hamburger</div> */}
+        <HamburgerLinks
+          img={ignitionImg}
+          text="Ignition"
+          color="#872424"
+          align="left"
+        />
+        <HamburgerLinks
+          img={galleryImg}
+          text="Gallery"
+          color="#AD912E"
+          align="right"
+        />
+        <HamburgerLinks
+          img={archiveImg}
+          text="Archive"
+          color="#397589"
+          align="left"
+        />
+        <HamburgerLinks
+          img={sponsorsImg}
+          text="Sponsors"
+          color="#458B2C"
+          align="right"
+        />
+        <HamburgerLinks
+          img={developersImg}
+          text="Developers"
+          color="#4B2280"
+          align="left"
+        />
+      </div>}
     </>
   );
 }

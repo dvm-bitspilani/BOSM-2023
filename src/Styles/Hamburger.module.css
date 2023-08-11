@@ -82,17 +82,19 @@
 }
 
 .closeHam{
+  color: white;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -40px;
   padding: 2rem;
   cursor: pointer;
   background-color: transparent;
   border: none;
+  z-index: 99;
 }
 
-.closeHam img{
-  width: 2rem;
-  height: 2rem;
+/* .closeHam img{ */
+  /* width: 2rem;
+  height: 2rem; */
   /* mix-blend-mode: multiply; */
-}
+/* } */

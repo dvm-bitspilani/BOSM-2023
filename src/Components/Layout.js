@@ -16,6 +16,7 @@ const Layout = ({
   overflow,
   sectionId,
   regPage,
+  closeHam
 }) => {
   const redBgVariants = {
     open: {
@@ -74,6 +75,25 @@ const Layout = ({
     },
   };
 
+  const hamClose = {
+    open: {
+      opacity: 1,
+      transiton: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut"
+      }
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        delay: 0,
+        duration: 1,
+        ease: "easeInOut",
+      }
+    }
+  }
+
   const isBrowser = typeof window !== "undefined";
   const [isAnimationComplete, setIsAnimationComplete] = React.useState(false);
 
@@ -95,28 +115,28 @@ const Layout = ({
             className="fixed-bg-blue"
             animate={isHamOpen ? "closed" : "open"}
             variants={isBrowser && window.innerWidth > 731 && blueBgVariants}
-            // animate={{
-            //   y: [500, 500, -250, 0, 0, 0, 0],
-            //   x: [0, 0, 0, 0, 0, 300, 0],
-            //   scaleY: [2, 2, 2, 2, 2, 1],
-            //   scaleX: [3, 3, 3, 3, 2, 1],
-            //   rotate: [90, 90, 90, 90, 105, -10, 0],
-            //   transformOrigin: [
-            //     "center left",
-            //     "center left",
-            //     "center left",
-            //     "center left",
-            //     "center left",
-            //   ],
-            //   borderRadius: ["0%", "0%", "0%", "0%", "0%"],
-            // }}
-            // transition={{
-            //   duration: 3,
-            //   ease: "easeInOut",
-            //   times: [0, 0.1, 0.3, 0.45, 0.6, 0.8, 1],
-            //   repeat: 0,
-            //   repeatDelay: 1,
-            // }}
+          // animate={{
+          //   y: [500, 500, -250, 0, 0, 0, 0],
+          //   x: [0, 0, 0, 0, 0, 300, 0],
+          //   scaleY: [2, 2, 2, 2, 2, 1],
+          //   scaleX: [3, 3, 3, 3, 2, 1],
+          //   rotate: [90, 90, 90, 90, 105, -10, 0],
+          //   transformOrigin: [
+          //     "center left",
+          //     "center left",
+          //     "center left",
+          //     "center left",
+          //     "center left",
+          //   ],
+          //   borderRadius: ["0%", "0%", "0%", "0%", "0%"],
+          // }}
+          // transition={{
+          //   duration: 3,
+          //   ease: "easeInOut",
+          //   times: [0, 0.1, 0.3, 0.45, 0.6, 0.8, 1],
+          //   repeat: 0,
+          //   repeatDelay: 1,
+          // }}
           />{" "}
         </div>
       )}
@@ -129,7 +149,7 @@ const Layout = ({
         />
       )}
       <Hamburger
-      regPage={regPage}
+        regPage={regPage}
         closeHam={() => setIsHamOpen(false)}
         isHamOpen={isHamOpen}
         isAnimationComplete={isAnimationComplete}
@@ -150,7 +170,7 @@ const Layout = ({
               onAnimationComplete={() =>
                 setIsAnimationComplete((prev) => !prev)
               }
-              // onAnimationEnd={()=>console.log("end")}
+            // onAnimationEnd={()=>console.log("end")}
             />
             <motion.div
               onMouseDown={() => {
@@ -162,6 +182,19 @@ const Layout = ({
               variants={blackScreenVariants}
               exit={{ opacity: 0 }}
             />
+            <motion.div
+              onMouseDown={() => {
+                if (isAnimationComplete) setIsHamOpen(false);
+              }}
+              initial={{ opacity: 0 }}
+              animate={isHamOpen ? "open" : "closed"}
+              exit={{ opacity: 0 }}
+              variants={blackScreenVariants}
+            >
+              <button className="closeHam">
+                ✖
+              </button>
+            </motion.div>
           </>
         )}
       </AnimatePresence>

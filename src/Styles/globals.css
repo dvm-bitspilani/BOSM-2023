@@ -192,6 +192,19 @@ a{
   opacity: 0;
 }
 
+.closeHam{
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3rem;
+  padding-right: 3.5rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  z-index: 99999999;
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
