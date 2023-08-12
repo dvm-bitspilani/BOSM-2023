@@ -268,6 +268,9 @@ a{
   .blackScreen img{
     scale: 0.75;
   }
+  .blackScreen2 img{
+    scale: 0.75;
+  }
 
   .loader video{
     width: 100vw;
