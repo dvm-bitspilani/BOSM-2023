@@ -51,7 +51,7 @@ const Ignition = (props) => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (window.innerWidth > 1160) {
@@ -152,14 +152,14 @@ const Ignition = (props) => {
       backBtn.addEventListener("click", handleBackClick);
       scrollContainer.addEventListener("wheel", handleWheel);
       updateButtonState();
+      setIsLoading(false);
       return () => {
         scrollContainer.removeEventListener("wheel", handleWheel);
         nextBtn.removeEventListener("click", handleNextClick);
         backBtn.removeEventListener("click", handleBackClick);
       };
     }
-    setIsLoading(false);
-  }, []);
+  }, [isLoading]);
 
 
   function easeInOutQuad(t, b, c, d) {
