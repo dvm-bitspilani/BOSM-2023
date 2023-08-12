@@ -47,7 +47,7 @@ export default function Hamburger({
   }, [isAnimationComplete]);
 
   return (
-    <>
+    <div className={styles["hamContainer"]}>
 
       {!isLoading && <div className={styles["hamburger"]} style={{ display: regPage ? 'none' : '' }}>
         {/* <button onClick={closeHam} className={styles["closeHam"]}>
@@ -85,6 +85,6 @@ export default function Hamburger({
           align="left"
         />
       </div>}
-    </>
+    </div>
   );
 }
