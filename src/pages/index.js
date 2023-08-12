@@ -103,7 +103,6 @@ const IndexPage = () => {
   ]
 
   const ContactsCards = ContactsData.map((contact, key) => {
-    console.log(contact)
     return (
       <ContactProfile
         key={key}
@@ -169,13 +168,7 @@ const IndexPage = () => {
           const position = window.scrollY;
           const statueHeight = 75 + position / 20;
           const contactRadius = 150 - position / 5;
-          // const statueLeft = 5 + position / 80;
-          // const backStatueLeft = -15 + position / 200;
           const contactPageTop = 30 - position / 15;
-          // const contactScale = 1 + position / 1000;
-          // console.log(backStatueLeft);  //-10.5
-          // console.log(statueLeft);      //16.25
-          // const backStatueLeft = -20 + (position / 100);
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
           statue.style.height = `${statueHeight}%`;
@@ -191,10 +184,8 @@ const IndexPage = () => {
             } else {
               contactPage.style.borderRadius = 0;
             }
-            // contactPage.style.transform = `scale(${contactScale})`;
           } else {
             contactPage.style.borderRadius = 0;
-            // contactPage.style.transform = `scale(1)`;
           }
           if (position <= window.innerHeight * 0.5 - 1) {
             contactContent.style.transform = "translateX(60vw)";
@@ -206,14 +197,12 @@ const IndexPage = () => {
             } else {
               contactPage.style.top = 0;
             }
-            // contactPage.style.transform = `scale(${contactScale})`;
           } else {
             frontStatue.style.left = "14.15vw";
             backStatue.style.left = "-10.5vw";
             contactPage.style.top = 0;
             contactContent.style.opacity = 1;
             contactContent.style.transform = "translateX(0)";
-            // contactPage.style.transform = `scale(1)`;
           }
         }
       };
@@ -225,7 +214,6 @@ const IndexPage = () => {
           const position = window.scrollY;
           const statueHeight = 60 + position / 20;
           const contactRadius = 150 - position / 5;
-          // const contactPageTop = 50 - position / 15;
           const blur = position / 50;
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
@@ -274,7 +262,6 @@ const IndexPage = () => {
             backStatue.style.opacity = 0;
             backStatueMobile.style.opacity = 0;
             contactPage.style.top = 0;
-            // backStatue.style.left = '-75vw';
           } else {
             backStatue.style.left = "-10.5vw";
             backStatue.style.opacity = 1;
@@ -295,9 +282,6 @@ const IndexPage = () => {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // console.log(isHamOpen);
-
-  // console.log(isLoaded);
 
   const statueVariants = {
     hidden: {
@@ -469,8 +453,42 @@ const IndexPage = () => {
   //   video.defaultPlaybackRate = 0.7
   //   video.load()
   // }, []);
+  const [videoLoaded , setIsVideoLoaded] = useState(false)
 
   useEffect(() => {
+    const videos = document.querySelectorAll("video");
+
+    let videosLoaded = 0;
+
+    const handleVideoLoad = () => {
+      videosLoaded++;
+      if (videosLoaded === videos.length) {
+        setTimeout(() => {
+          setIsVideoLoaded(true);
+        }, 2000);
+      }
+    };
+
+    videos.forEach((video) => {
+      if (video.readyState >= 2) {
+        handleVideoLoad();
+      } else {
+        video.addEventListener("loadeddata", handleVideoLoad);
+        video.addEventListener("error", handleVideoLoad);
+      }
+    });
+
+    const cleanup = () => {
+      videos.forEach((video) => {
+        video.removeEventListener("loadeddata", handleVideoLoad);
+        video.removeEventListener("error", handleVideoLoad);
+      });
+    };
+
+    return cleanup;
+  }, []);
+  useEffect(() => {
+    if(videoLoaded){
     const assets = document.querySelectorAll(
       "img", "font", "style"
     );
@@ -507,7 +525,7 @@ const IndexPage = () => {
     };
 
     return cleanup;
-  }, []);
+  }}, [videoLoaded]);
 
   const handleStatueImageDrag = (event) => {
     event.preventDefault()
@@ -576,16 +594,7 @@ const IndexPage = () => {
                 </motion.div>}
                 <div className={styles["container"]}>
                   <motion.div
-
                     className={styles["heading"]}
-                  //   initial={{ opacity: [0] }}
-                  //   animate={{ opacity: [0, 1] }}
-                  //   transition={{
-                  //     delay: "2",
-                  //     duration: "1",
-                  //     ease: "easeInOut",
-                  //     times: [0, 1],
-                  //   }}
                   >
                     <>
                       {<motion.span
@@ -653,14 +662,6 @@ const IndexPage = () => {
             }
           />
         )}
-        {/* <Layout 
-            navbar={false}
-            fixedbg={false}
-            id
-            content={
-                <main></main>
-            }
-            /> */}
         {!regPage && (
           <Layout
             overflow={false}

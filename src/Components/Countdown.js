@@ -56,11 +56,11 @@ const Countdown = () => {
     mins < 10 && setMins((prevMins) => "0" + prevMins);
     days < 10 && setDays((prevDays) => "0" + prevDays);
     document.getElementById("days").style.animation =
-      prevDay != days ? "card-flip 0.6s" : "none";
+      prevDay !== days ? "card-flip 0.6s" : "none";
     document.getElementById("hours").style.animation =
-      prevHr != hrs ? "card-flip 0.6s" : "none";
+      prevHr !== hrs ? "card-flip 0.6s" : "none";
     document.getElementById("min").style.animation =
-      prevMin != mins ? "card-flip 0.6s" : "none";
+      prevMin !== mins ? "card-flip 0.6s" : "none";
 
     setPrevDay(days);
     setPrevHr(hrs);
