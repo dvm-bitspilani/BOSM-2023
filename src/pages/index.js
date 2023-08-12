@@ -22,6 +22,13 @@ import Socials from "../Components/Socials";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    if(isLoading){
+      document.documentElement.style.overflow="hidden";
+    }else
+    document.documentElement.style.overflow="scroll";
+  },[isLoading])
   // useEffect(() => {
   //   const assets = document.querySelectorAll(
   //     " img, font"
