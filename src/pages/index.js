@@ -16,7 +16,6 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-// import ContactsData from "../Components/ContactsData/Contacts.json";
 import Girl from "../Components/ContactsData/ContactImages/contact_girl.png"
 import Boy from "../Components/ContactsData/ContactImages/contact_boy.png"
 import LoaderVideo from "../images/loader.mp4";
