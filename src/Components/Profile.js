@@ -11,7 +11,8 @@ export default function Profile(props) {
     return (
         <div className={contact["profileContainer"]}>
             <div className={contact["profileImg"]}
-                style={{ backgroundImage: `url(${props.img})` }}
+                style={{ backgroundImage: `url(${props.img})`, backgroundColor: "#5E7F88"
+            }}
             ></div>
             <div className={contact["profileName"]}>
                 <div>{props.name}</div>
