@@ -45,7 +45,7 @@ const Ignition = (props) => {
         );
       };
     }
-    // setIsLoading(false); 
+    setIsLoading(false); 
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -152,16 +152,15 @@ const Ignition = (props) => {
       backBtn.addEventListener("click", handleBackClick);
       scrollContainer.addEventListener("wheel", handleWheel);
       updateButtonState();
-      setIsLoading(false);
       return () => {
         scrollContainer.removeEventListener("wheel", handleWheel);
         nextBtn.removeEventListener("click", handleNextClick);
         backBtn.removeEventListener("click", handleBackClick);
       };
     }
+    setIsLoading(false);
   }, []);
 
-  // Rest of your code...
 
   function easeInOutQuad(t, b, c, d) {
     t /= d / 2;
