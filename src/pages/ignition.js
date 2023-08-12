@@ -46,12 +46,12 @@ const Ignition = (props) => {
         );
       };
     }
-    // setIsLoading(false); 
+    setIsLoading(false); 
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (window.innerWidth > 1160) {
@@ -159,9 +159,8 @@ const Ignition = (props) => {
         backBtn.removeEventListener("click", handleBackClick);
       };
     }
-  }, []);
+  }, [isLoading]);
 
-  // Rest of your code...
 
   function easeInOutQuad(t, b, c, d) {
     t /= d / 2;
