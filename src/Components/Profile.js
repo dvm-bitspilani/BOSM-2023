@@ -5,7 +5,6 @@ import ProfilePicGirl from "../Components/ContactsData/ContactImages/contact_gir
 import { motion } from "framer-motion";
 import MailIcon from "../images/mailIcon.png"
 import PhoneIcon from "../images/phoneIcon.png"
-import ContactsData from "./ContactsData/Contacts.json"
 
 export default function Profile(props) {
 
