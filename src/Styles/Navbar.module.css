@@ -66,8 +66,9 @@
   align-items: center;
   gap: 1.2rem;
   z-index: 100;
+  padding-top: 3rem;
   right: 2%;
-  top: 34%;
+  top: 0%;
   width: fit-content;
 }
 
