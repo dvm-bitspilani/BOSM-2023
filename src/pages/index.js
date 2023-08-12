@@ -16,7 +16,9 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-import ContactsData from "../Components/ContactsData/Contacts.json";
+// import ContactsData from "../Components/ContactsData/Contacts.json";
+import Girl from "../Components/ContactsData/ContactImages/contact_girl.png"
+import Boy from "../Components/ContactsData/ContactImages/contact_boy.png"
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 
@@ -29,77 +31,79 @@ const IndexPage = () => {
     }else
     document.documentElement.style.overflow="scroll";
   },[isLoading])
-  // useEffect(() => {
-  //   const assets = document.querySelectorAll(
-  //     " img, font"
-  //   );
-  //     console.log(assets)
-  //   let assetsLoaded = 0;
-
-  //   const handleAssetLoad = () => {
-  //     assetsLoaded++;
-  //     if (assetsLoaded === assets.length) {
-  //       const timeRemaining = 2000 - (Date.now() - startTime);
-  //       setTimeout(() => {
-  //         setIsLoading(false);
-  //       }, Math.max(timeRemaining, 0));
-  //     }
-  //   };
-
-  //   assets.forEach((asset) => {
-  //     if (
-  //       asset.complete ||
-  //       asset.readyState === 4 || 
-  //       asset.tagName === "LINK"
-  //     ) {
-  //       handleAssetLoad();
-  //     } else {
-  //       asset.addEventListener("load", handleAssetLoad);
-  //       asset.addEventListener("error", handleAssetLoad);
-  //     }
-  //   });
-
-  //   const startTime = Date.now();
-
-  //   const cleanup = () => {
-  //     assets.forEach((asset) => {
-  //       asset.removeEventListener("load", handleAssetLoad);
-  //       asset.removeEventListener("error", handleAssetLoad);
-  //     });
-  //   };
-
-  //   return cleanup;
-  // }, []);
-
-  // useEffect(() => {
-  //   const loader = document.getElementById("loader")
-
-  //   const loadingTimer = setTimeout(() => {
-  //     setIsLoading(false);
-  //     loader.classList.add('loader-hide')
-  //   }, 3000);
-
-  //   return () =>{ 
-  //     loader.classList.remove('loader-hide')
-  //     clearTimeout(loadingTimer);}
-  // }, []);
-
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   window.addEventListener("load", setLoaderHandle);
-  //   setLoaderHandle();
-  //   return () => {
-  //     window.removeEventListener("load", setLoaderHandle);
-  //   };
-  // }, []);
 
 
-  // const setLoaderHandle = () => {
-  //   const time = setTimeout(() => setIsLoading(false), 4000);
-  // }
+  const ContactsData = [
+    {
+      "name": "Shreyas Sesham",
+      "image": `${Boy}`,
+      "department": "Publications and Correspondence",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+  
+    },
+    {
+      "name": "Anushka Patil",
+      "image": `${Girl}`,
+      "department": "Controls",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+      
+    },
+    {
+      "name": "Ayush Singh Bhandari",
+      "image": `${Boy}`,
+      "department": "Sponsorship and Marketing",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+  
+    },
+    {
+      "name": "Shirish Kumaravel",
+      "image": `${Boy}`,
+      "department": "Reception and Accomodation",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Aditya Kumar Sriram",
+      "image": `${Boy}`,
+      "department": "Sports Secretary",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Anushka Shukla",
+      "image": `${Girl}`,
+      "department": "Join Sports Secretary",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Syed Aga Hani Riza",
+      "image": `${Boy}`,
+      "department": "Join Sports Secretary",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Yashwasin Jain",
+      "image": `${Boy}`,
+      "department": "Join Sports Secretary",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Shivang Rai",
+      "image": `${Boy}`,
+      "department": "Online Registrations",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    }
+  ]
 
-  // console.log(ContactsData)
   const ContactsCards = ContactsData.map((contact, key) => {
+    console.log(contact)
     return (
       <ContactProfile
         key={key}
