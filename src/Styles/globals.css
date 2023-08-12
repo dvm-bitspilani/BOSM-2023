@@ -39,6 +39,7 @@ input:-webkit-autofill:active {
 }
 body {
   width: calc(100vw - (100vw - 100%));
+  overflow-x: hidden;
 }
 a{
   text-decoration: none;

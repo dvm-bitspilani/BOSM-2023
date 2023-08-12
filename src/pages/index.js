@@ -559,7 +559,7 @@ const IndexPage = () => {
             fixedbg={true}
             overflow={false}
             content={
-              <main id="landing">
+              <main className={styles["landing"]}>
                 {<motion.div
                   className={styles["statueContainer"]}
                   id="statueContainer"

@@ -11,6 +11,12 @@ main {
   display: flex;
   /* overflow: hidden; */
 }
+
+.landing{
+  width: 100vw;
+  overflow: hidden;
+}
+
 .heading {
   text-align: center;
   /* margin-left: 0.5rem; */
@@ -85,7 +91,7 @@ main {
   align-items: center;
   z-index: 9;
   margin-top: 5rem;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .leftLion img {
   overflow: hidden;
@@ -148,6 +154,7 @@ main {
   align-items: center;
   z-index: 9;
   margin-top: 1rem;
+  overflow: hidden;
 }
 .leftLion img {
   height: 75vh;
@@ -159,6 +166,7 @@ main {
   height: 65vh;
   aspect-ratio: 197/198;
   left: -5vw;
+  overflow: hidden;
 }
 .countDown {
   position: absolute;
