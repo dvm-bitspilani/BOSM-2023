@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "../Styles/Navbar.module.css";
 import Logo from "../images/logo.svg";
-import hamIcon from "../images/Ham Icon.svg";
+// import hamIcon from "../images/Ham Icon.svg";
 import { motion, transform } from "framer-motion";
 import { navigate } from "gatsby";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
@@ -67,6 +67,19 @@ const Navbar = ({
     },
   };
 
+  const hamburgerIconVariants ={
+    open:{
+
+    },
+    close:{
+
+    }
+  };
+
+  const openHam =()=>{
+    setIsHamOpen(true);
+  };
+
   return (
     <React.Fragment>
       {!isLoading && <motion.div className={styles["navbarContainer"]}>
@@ -101,15 +114,16 @@ const Navbar = ({
           >
             <p>REGISTER</p>
           </motion.div>}
-          {!isLoading && <motion.div
-            className={styles["hamburger"]}
-            onClick={setIsHamOpen}
-            initial={{ y: [-150] }}
-            animate={isHamOpen ? "closed" : "open"}
-            variants={navbarUpVariants}
-          >
-            <img src={hamIcon} alt="hamIcon" />
-          </motion.div>}
+          {!isLoading && <div>
+            {/* <img src={hamIcon} alt="hamIcon" />open
+             */}
+             <div className={styles.hamIcon} onClick={openHam}>
+                <span className={styles.hamIcon1}
+                ></span>
+                <span className={styles.hamIcon2}></span>
+                <span className={styles.hamIcon3}></span>
+             </div>
+          </div>}
         </div>
       </motion.div>}
       {!isLoading && <motion.div

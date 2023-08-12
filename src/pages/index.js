@@ -91,6 +91,7 @@ const IndexPage = () => {
   //   const time = setTimeout(() => setIsLoading(false), 4000);
   // }
 
+  // console.log(ContactsData)
   const ContactsCards = ContactsData.map((contact, key) => {
     return (
       <ContactProfile
@@ -159,7 +160,7 @@ const IndexPage = () => {
           const contactRadius = 150 - position / 5;
           // const statueLeft = 5 + position / 80;
           // const backStatueLeft = -15 + position / 200;
-          const contactPageTop = 50 - position / 15;
+          const contactPageTop = 30 - position / 15;
           // const contactScale = 1 + position / 1000;
           // console.log(backStatueLeft);  //-10.5
           // console.log(statueLeft);      //16.25
@@ -460,7 +461,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     const assets = document.querySelectorAll(
-      "img, font", "style"
+      "img", "font", "style"
     );
 
     let assetsLoaded = 0;
@@ -508,7 +509,7 @@ const IndexPage = () => {
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
       {isLoading && <div className="loader" id="loader">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src={LoaderVideo} type="video/mp4" />
         </video>
       </div>}
@@ -525,11 +526,11 @@ const IndexPage = () => {
             overflow={false}
             content={
               <main id="landing">
-                {!isLoading && <motion.div
+                {<motion.div
                   className={styles["statueContainer"]}
                   id="statueContainer"
                   initial={{ y: [600] }}
-                  animate={isHamOpen ? "hidden" : "visible"}
+                  animate={(isLoading || isHamOpen) ? "hidden" : "visible"}
                   variants={statueVariants}
                 >
                   <img
@@ -547,7 +548,6 @@ const IndexPage = () => {
                   />
                 </motion.div>}
                 {!isLoading && <motion.div
-
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -556,7 +556,6 @@ const IndexPage = () => {
                   <img src={LeftLion} alt="" />
                 </motion.div>}
                 {!isLoading && <motion.div
-
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -663,7 +662,7 @@ const IndexPage = () => {
 
                 id="contactPage"
                 className={contact["page"]}
-                style={{ top: "50vh" }}
+                style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div className={contact["pageBackground"]}>

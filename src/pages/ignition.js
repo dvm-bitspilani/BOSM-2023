@@ -6,7 +6,8 @@ import { navigate } from "gatsby";
 import * as classes from "../Styles/ignition.module.css";
 import arrow from "../images/arrow-up-right.svg";
 import logo from "../images/logo.svg";
-import LoaderVideo from "../images/loader.mp4"
+import LoaderVideo from "../images/loader.mp4";
+
 const Ignition = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -71,7 +72,7 @@ const Ignition = (props) => {
         }
       };
 
-      const performScroll = (scrollAmount, callback) => {
+      const performScroll = (scrollAmount) => {
         isScrolling = true;
 
         const targetScrollLeft = scrollContainer.scrollLeft + scrollAmount;
@@ -99,7 +100,6 @@ const Ignition = (props) => {
           } else {
             isScrolling = false;
             updateButtonState();
-            callback();
           }
         };
 
