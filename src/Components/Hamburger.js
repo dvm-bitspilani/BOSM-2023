@@ -50,9 +50,9 @@ export default function Hamburger({
     <>
 
       {!isLoading && <div className={styles["hamburger"]} style={{ display: regPage ? 'none' : '' }}>
-        <button onClick={closeHam} className={styles["closeHam"]}>
+        {/* <button onClick={closeHam} className={styles["closeHam"]}>
           ✖
-        </button>
+        </button> */}
         {/* <div>Hamburger</div> */}
         <HamburgerLinks
           img={ignitionImg}

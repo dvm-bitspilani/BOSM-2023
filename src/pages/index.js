@@ -159,8 +159,13 @@ const IndexPage = () => {
         let _clientX = clientX - 52;
         let _clientY = clientY - 52;
 
-        cursorCircle.style.left = `${_clientX}px`;
-        cursorCircle.style.top = `${_clientY}px`;
+        cursorCircle.animate(
+          {
+            left: `${_clientX}px`,
+            top: `${_clientY}px`,
+          },
+          { duration: 500, fill: "forwards" }
+        );
       };
       const handleScroll = () => {
         if (statue) {
