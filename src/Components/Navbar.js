@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as styles from "../Styles/Navbar.module.css";
 import Logo from "../images/logo.svg";
 // import hamIcon from "../images/Ham Icon.svg";
@@ -79,6 +79,25 @@ const Navbar = ({
   const openHam =()=>{
     setIsHamOpen(true);
   };
+  useEffect(() => {
+    const topBar1 = document.querySelector('#hamIcon1');
+    const topBar2 = document.querySelector('#hamIcon2');
+    const topBar3 = document.querySelector('#hamIcon3');
+    if (isHamOpen) {
+      topBar1.style.transform = 'rotatez(45deg) translate(6px,0px)';
+      topBar2.style.transform = 'rotatez(-45deg) translate(1px,0px)';
+      topBar3.style.transform = 'translate(16px,-8.5px) rotatez(47deg)';
+      topBar3.style.width = '50%';
+      topBar3.style.borderRadius = '0px 5px 5px 0px';
+    }
+    else {
+      topBar1.style.transform = 'rotate(0deg) translate(0px,0px)';
+      topBar2.style.transform = 'rotatez(0deg) translate(0px,0px)';
+      topBar3.style.transform = 'translate(0px,0px) rotatez(0deg)';
+      topBar3.style.width = '75%';
+      topBar3.style.borderRadius = '5px'
+    }
+  },[isHamOpen])
 
   return (
     <React.Fragment>
@@ -118,10 +137,9 @@ const Navbar = ({
             {/* <img src={hamIcon} alt="hamIcon" />open
              */}
              <div className={styles.hamIcon} onClick={openHam}>
-                <span className={styles.hamIcon1}
-                ></span>
-                <span className={styles.hamIcon2}></span>
-                <span className={styles.hamIcon3}></span>
+                <span id="hamIcon1" className={styles.hamIcon1}></span>
+                <span id="hamIcon2" className={styles.hamIcon2}></span>
+                <span id="hamIcon3" className={styles.hamIcon3}></span>
              </div>
           </div>}
         </div>

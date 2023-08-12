@@ -167,9 +167,6 @@ const Layout = ({
               exit={{ opacity: 0 }}
               variants={blackScreenVariants}
             >
-              <button className="closeHam">
-                ✖
-              </button>
             </motion.div>
             <motion.div
               onMouseDown={() => {
