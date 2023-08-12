@@ -20,6 +20,7 @@ import Girl from "../Components/ContactsData/ContactImages/contact_girl.png"
 import Boy from "../Components/ContactsData/ContactImages/contact_boy.png"
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
+import AboutUs from "../Components/AboutUs";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -548,6 +549,16 @@ const IndexPage = () => {
         </video>
       </div>}
       <>
+        {showBlackScreen && (
+          <div className="blackScreen">
+            <img alt="" src={logo} />
+          </div>
+        )}
+        {showBlackScreen2 && (
+          <div className="blackScreen2">
+            <img alt="" src={logo} />
+          </div>
+        )}
         {!regPage && (
           <Layout
             setRegPage={setRegPage}
@@ -667,6 +678,20 @@ const IndexPage = () => {
             }
           />
         )}
+        {/* {!regPage && (
+          <Layout
+            overflow={false}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="about-us-section"
+            content={
+              <>
+                <AboutUs />
+              </>
+            }
+          />
+        )} */}
         {!regPage && (
           <Layout
             overflow={false}
@@ -719,16 +744,6 @@ const IndexPage = () => {
               </main>
             }
           />
-        )}
-        {showBlackScreen && (
-          <div className="blackScreen">
-            <img alt="" src={logo} />
-          </div>
-        )}
-        {showBlackScreen2 && (
-          <div className="blackScreen2">
-            <img alt="" src={logo} />
-          </div>
         )}
         {regPage && (
           <div>
