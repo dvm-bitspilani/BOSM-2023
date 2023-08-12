@@ -127,6 +127,7 @@ const Navbar = ({
         </div>
       </motion.div>}
       {!isLoading && <motion.div
+        id="regBtnMobile"
         className={styles["registerBtnMobile"]}
         onClick={goToNextPage}
         initial={{ y: 150, x: "-50%", opacity: 0}}

@@ -142,6 +142,7 @@ const IndexPage = () => {
       styles["leftSubTitle"]
     );
     const heading = document.getElementsByClassName(styles["heading"]);
+    const registerBtnMobile = document.getElementById("regBtnMobile")
 
     window.scrollTo(0, 0);
 
@@ -236,6 +237,8 @@ const IndexPage = () => {
               leftSubtitle[0].style.filter = `blur(${blur}px)`;
               heading[0].style.filter = `blur(${blur}px)`;
               statueMobile.style.filter = `blur(${blur}px)`;
+              registerBtnMobile.style.filter = `blur(${blur}px)`;
+
             } else {
               fixedBG[0].style.filter = "blur(0)";
               fixedBG[0].style.transform = "scale(1)";
@@ -246,6 +249,7 @@ const IndexPage = () => {
               rightSubTitle[0].style.filter = "blur(0)";
               heading[0].style.filter = "blur(0)";
               statueMobile.style.filter = "blur(0)";
+              registerBtnMobile.style.filter = `blur(${blur}px)`
             }
           }
 

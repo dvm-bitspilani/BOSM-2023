@@ -220,8 +220,10 @@
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    bottom: 5%;
+    top: 90vh;
     background-color: #fff;
+    opacity: 0.7 !important;
+    z-index: 990;
   }
   .registerBtnMobile p{
     color: black;
@@ -231,6 +233,6 @@
     width: 50px;
   }
 }
-.registerBtnMobile{
+/* .registerBtnMobile{
   opacity: 0.5 !important;
-}
+} */
