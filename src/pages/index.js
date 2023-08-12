@@ -460,7 +460,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     const assets = document.querySelectorAll(
-      "img, font", "style"
+      "img", "font", "style"
     );
 
     let assetsLoaded = 0;
@@ -508,7 +508,7 @@ const IndexPage = () => {
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
       {isLoading && <div className="loader" id="loader">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src={LoaderVideo} type="video/mp4" />
         </video>
       </div>}
@@ -525,11 +525,11 @@ const IndexPage = () => {
             overflow={false}
             content={
               <main id="landing">
-                {!isLoading && <motion.div
+                {<motion.div
                   className={styles["statueContainer"]}
                   id="statueContainer"
                   initial={{ y: [600] }}
-                  animate={isHamOpen ? "hidden" : "visible"}
+                  animate={(isLoading || isHamOpen) ? "hidden" : "visible"}
                   variants={statueVariants}
                 >
                   <img
@@ -547,7 +547,6 @@ const IndexPage = () => {
                   />
                 </motion.div>}
                 {!isLoading && <motion.div
-
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
@@ -556,7 +555,6 @@ const IndexPage = () => {
                   <img src={LeftLion} alt="" />
                 </motion.div>}
                 {!isLoading && <motion.div
-
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
                   animate={isHamOpen ? "hidden" : "visible"}
