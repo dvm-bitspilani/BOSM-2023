@@ -220,7 +220,7 @@
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    top: 90vh;
+    top: 85vh;
     background-color: #fff;
     opacity: 0.7 !important;
     z-index: 990;

@@ -25,10 +25,18 @@ export default function HamburgerLinks({ img, text, color }) {
             },
         },
     };
+    let toText;
+    if(text === "Ignition"){
+      toText = "/ignition";
+    } else if(text === "Gallery"){
+      toText = "/gallery";
+    } else {
+      toText = "/";
+    }
 
   return (
     <Link
-      to={text === "Ignition" ? "/ignition" : "/"}
+      to={toText}
       style={{ textDecoration: "none" }}
       onMouseDown={() => (document.documentElement.style.overflow = "scroll")}
     >

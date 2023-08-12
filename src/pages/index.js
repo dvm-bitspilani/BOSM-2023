@@ -75,21 +75,21 @@ const IndexPage = () => {
     {
       "name": "Anushka Shukla",
       "image": `${Girl}`,
-      "department": "Join Sports Secretary",
+      "department": "Joint Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
     },
     {
       "name": "Syed Aga Hani Riza",
       "image": `${Boy}`,
-      "department": "Join Sports Secretary",
+      "department": "Joint Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
     },
     {
       "name": "Yashwasin Jain",
       "image": `${Boy}`,
-      "department": "Join Sports Secretary",
+      "department": "Joint Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
     },
