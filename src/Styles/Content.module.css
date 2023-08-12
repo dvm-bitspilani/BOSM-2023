@@ -155,6 +155,7 @@ main {
   right: -5vw;
 }
 .rightLion img {
+  overflow: hidden;
   height: 65vh;
   aspect-ratio: 197/198;
   left: -5vw;
@@ -412,12 +413,15 @@ input[type="radio"] {
   .leftLion,
   .rightLion {
     margin-top: 3.5rem;
+    overflow: hidden;
+
   }
   .leftLion img {
     height: 70vh;
   }
   .rightLion img {
     height: 60vh;
+    overflow: hidden;
   }
 }
 @media (max-width: 1380px) {
@@ -435,6 +439,7 @@ input[type="radio"] {
     height: 65vh;
   }
   .rightLion img {
+    overflow: hidden;
     height: 55vh;
   }
   .leftSubTitle h1,
@@ -475,6 +480,7 @@ input[type="radio"] {
     height: 60vh;
   }
   .rightLion img {
+    overflow: hidden;
     height: 50vh;
   }
 }
@@ -636,6 +642,7 @@ input[type="radio"] {
   .rightLion img {
     width: 100%;
     height: auto;
+    overflow: hidden;
   }
   .leftSubTitle h1,
   .rightSubTitle h1 {
