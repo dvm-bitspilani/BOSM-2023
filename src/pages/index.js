@@ -114,6 +114,7 @@ const IndexPage = () => {
 
   const [regPage, setRegPage] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
+  const [showBlackScreen2, setShowBlackScreen2] = useState(false);
 
   const isBrowser = typeof window !== "undefined";
 
@@ -280,7 +281,7 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen, isLoading]);
+  }, [regPage, showBlackScreen,showBlackScreen2 ,  isLoading]);
 
 
   const [isHamOpen, setIsHamOpen] = useState(false);
@@ -724,6 +725,11 @@ const IndexPage = () => {
             <img alt="" src={logo} />
           </div>
         )}
+        {showBlackScreen2 && (
+          <div className="blackScreen2">
+            <img alt="" src={logo} />
+          </div>
+        )}
         {regPage && (
           <div>
             <Layout
@@ -731,7 +737,7 @@ const IndexPage = () => {
               navbar={false}
               regPage={regPage}
               fixedbg={false}
-              content={<Form setShowBlackScreen={setShowBlackScreen} setRegPage={setRegPage} />}
+              content={<Form setShowBlackScreen2={setShowBlackScreen2} setRegPage={setRegPage} />}
             />
           </div>
         )}

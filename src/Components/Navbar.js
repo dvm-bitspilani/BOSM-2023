@@ -17,7 +17,7 @@ const Navbar = ({
     setShowBlackScreen(true);
     setTimeout(() => {
       setShowBlackScreen(false);
-    }, 2000);
+    }, 4000);
 
     setTimeout(() => {
       setRegPage(true);

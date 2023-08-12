@@ -128,12 +128,30 @@ a{
   z-index: 9999;
   background: url(../images/red-bg.png);
   background-size: cover;
-  animation: slideUp 2s ease 1;
+  animation: slideUp 4s ease 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .blackScreen img {
+  scale: 1.5;
+  filter: drop-shadow(10px 10px 10px #000);
+}
+.blackScreen2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background: url(../images/red-bg.png);
+  background-size: cover;
+  animation: slideUp2 3s ease 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blackScreen2 img {
   scale: 1.5;
   filter: drop-shadow(10px 10px 10px #000);
 }
@@ -206,6 +224,20 @@ a{
 }
 
 @keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes slideUp2 {
   0% {
     transform: translateY(100%);
   }
