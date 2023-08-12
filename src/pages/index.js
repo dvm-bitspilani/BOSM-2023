@@ -521,7 +521,7 @@ const IndexPage = () => {
             setShowBlackScreen={setShowBlackScreen}
             isHamOpen={isHamOpen}
             setIsHamOpen={setIsHamOpen}
-            navbar={!isLoading && true}
+            navbar={true}
             fixedbg={true}
             overflow={false}
             content={
@@ -547,18 +547,18 @@ const IndexPage = () => {
                     className={`${styles["statue"]} ${styles["mobileStatue"]}`}
                   />
                 </motion.div>}
-                {!isLoading && <motion.div
+                {<motion.div
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
-                  animate={isHamOpen ? "hidden" : "visible"}
+                  animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                   variants={leftLionVariants}
                 >
                   <img src={LeftLion} alt="" />
                 </motion.div>}
-                {!isLoading && <motion.div
+                {<motion.div
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
-                  animate={isHamOpen ? "hidden" : "visible"}
+                  animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                   variants={rightLionVariants}
                 >
                   <img src={RightLion} alt="" />
@@ -577,38 +577,38 @@ const IndexPage = () => {
                   //   }}
                   >
                     <>
-                      {!isLoading && <motion.span
+                      {<motion.span
                         initial={{ opacity: [0] }}
-                        animate={isHamOpen ? "hidden" : "visible"}
+                        animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                         variants={leftHeadingVariants}
                       >
                         BO
                       </motion.span>}
-                      {!isLoading && <motion.span
+                      {<motion.span
                         initial={{ opacity: [0] }}
-                        animate={isHamOpen ? "hidden" : "visible"}
+                        animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                         variants={rightHeadingVariants}
                       >
                         SM
                       </motion.span>}
                     </>
                   </motion.div>
-                  {!isLoading && <motion.div
+                  {<motion.div
 
                     className={styles["leftSubTitle"]}
                     initial={{ opacity: [0] }}
-                    animate={isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                     variants={leftTextVariants}
                   >
                     <h1>The</h1>
                     <h2>ROAR</h2>
                   </motion.div>}
 
-                  {!isLoading && <motion.div
+                  {<motion.div
 
                     className={styles["rightSubTitle"]}
                     initial={{ opacity: [0] }}
-                    animate={isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                     variants={rightTextVariants}
                     onAnimationComplete={() => setIsLoaded(true)}
                   >
@@ -620,19 +620,19 @@ const IndexPage = () => {
                   <motion.div className={styles["heroWrapper"]}></motion.div>
 
                   {/* Countdown */}
-                  {!isLoading && <motion.div
+                  {<motion.div
                     className={styles["countDown"]}
                     initial={{ opacity: [0] }}
-                    animate={isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                     variants={countdownVariants}
                   >
                     <Countdown />
                   </motion.div>}
 
-                  {!isLoading && <motion.div
+                  {<motion.div
                     className={styles["socials"]}
                     initial={{ opacity: [0] }}
-                    animate={isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
                     variants={countdownVariants}
                   >
                     <Socials />
