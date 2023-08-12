@@ -91,6 +91,7 @@ const IndexPage = () => {
   //   const time = setTimeout(() => setIsLoading(false), 4000);
   // }
 
+  // console.log(ContactsData)
   const ContactsCards = ContactsData.map((contact, key) => {
     return (
       <ContactProfile
@@ -460,7 +461,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     const assets = document.querySelectorAll(
-      "img, font", "style"
+      "img", "font", "style"
     );
 
     let assetsLoaded = 0;

@@ -1,17 +1,19 @@
 [
   {
     "name": "Shreyas Sesham",
-    "image": "../Components/ContactsData/ContactImages/contact_boy.png",
+    "image": "../images/contact_boy.png",
     "department": "Publications and Correspondence",
     "phone": "+91-9999999999",
     "email": "abcd@pilani.bits-pilani.ac.in"
+
   },
   {
     "name": "Anushka Patil",
-    "image": "../images/contact_profile",
+    "image": "./ContactsData/ContactImages/contact_girl.png",
     "department": "Controls",
     "phone": "+91-9999999999",
     "email": "abcd@pilani.bits-pilani.ac.in"
+    
   },
   {
     "name": "Ayush Singh Bhandari",
@@ -19,6 +21,7 @@
     "department": "Sponsorship and Marketing",
     "phone": "+91-9999999999",
     "email": "abcd@pilani.bits-pilani.ac.in"
+
   },
   {
     "name": "Shirish Kumaravel",

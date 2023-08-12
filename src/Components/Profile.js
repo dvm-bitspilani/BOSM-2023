@@ -1,6 +1,7 @@
 import React from "react";
 import * as contact from "../Styles/Contact.module.css"
-import ProfilePic from "../Components/ContactsData/ContactImages/contact_boy.png"
+import ProfilePicBoy from "../Components/ContactsData/ContactImages/contact_boy.png"
+import ProfilePicGirl from "../Components/ContactsData/ContactImages/contact_girl.png"
 import { motion } from "framer-motion";
 import MailIcon from "../images/mailIcon.png"
 import PhoneIcon from "../images/phoneIcon.png"
@@ -11,7 +12,7 @@ export default function Profile(props) {
     return (
         <div className={contact["profileContainer"]}>
             <div className={contact["profileImg"]}
-                style={{ backgroundImage: `url(${ProfilePic})` }}
+                style={{ backgroundImage: `url(${props.imge})` }}
             ></div>
             <div className={contact["profileName"]}>
                 <div>{props.name}</div>
