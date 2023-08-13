@@ -139,7 +139,7 @@ const Navbar = ({
           animate={isHamOpen ? "closed" : "open"}
           variants={navbarUpVariants}
         >
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" draggable={false}/>
         </motion.div>}
         <nav className={styles["navbarLeft"]}>
           <ul>
