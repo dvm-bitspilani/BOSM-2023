@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Livvic:ital,wght@1,700&family=Montserrat:wght@100;500&family=Outfit:wght@400;700&family=Work+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
 .navbarContainer {
   position: relative;
@@ -9,21 +9,26 @@
   overflow: hidden;
   height: 140px;
 }
+
 .navbarRight {
   width: 100%;
   padding-left: 1rem;
 }
+
 .navbarLeft {
   width: 100%;
 }
+
 .navbarRight ul {
   display: flex;
   justify-content: flex-start;
 }
+
 .navbarLeft ul {
   display: flex;
   justify-content: flex-end;
 }
+
 .navLinks {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -72,17 +77,20 @@
   width: fit-content;
 }
 
-.registerBtn , .registerBtnMobile{
+.registerBtn,
+.registerBtnMobile {
   border-radius: 12px;
   border: 1.415px solid #fff;
   padding: 0.5rem 2rem;
   z-index: 100;
 }
-.registerBtnMobile{
+
+.registerBtnMobile {
   display: none;
 }
 
-.registerBtn p , .registerBtnMobile p{
+.registerBtn p,
+.registerBtnMobile p {
   color: #fff;
   font-family: "Montserrat";
   font-size: 1.2rem;
@@ -96,6 +104,7 @@
   background-color: #fff;
   transition: 0.3s;
 }
+
 .registerBtn:hover p {
   color: #111;
   transition: 0.3s;
@@ -118,7 +127,7 @@
   filter:contrast(0.5);
 } */
 
-.hamIcon{
+.hamIcon {
   height: 4.75rem;
   width: 2rem;
   display: flex;
@@ -128,32 +137,35 @@
   position: relative;
   z-index: 100000;
 }
-.hamIcon1{
+
+.hamIcon1 {
   height: 3.5px;
   width: 50%;
   border-radius: 5px;
   background-color: #fff;
   display: inline-block;
   transform-origin: bottom;
-  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
-.hamIcon2{
+
+.hamIcon2 {
   height: 3.5px;
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
   display: inline-block;
-  transform-origin:top;
-  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transform-origin: top;
+  transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
-.hamIcon3{
+
+.hamIcon3 {
   height: 3.5px;
   width: 75%;
   border-radius: 5px;
   background-color: #fff;
   display: inline-block;
   transform-origin: center left;
-  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   transform-origin: bottom;
 }
 
@@ -162,23 +174,28 @@
   .navLogo img {
     transform: scale(0.9);
   }
+
   .navLinks {
     padding-right: 2.5rem;
     font-size: 1.5rem;
   }
+
   /* .registerBtn {
     top: 27.5%;
     padding: 0.75rem 2rem;
   } */
 }
+
 @media (max-width: 1200px) {
   .navLogo img {
     transform: scale(0.7);
   }
+
   .navLinks {
     padding-right: 2.25rem;
     font-size: 1.4rem;
   }
+
   /* .registerBtn {
     top: 31.5%;
     padding: 0.5rem 1.75rem;
@@ -187,11 +204,13 @@
     font-size: 1rem;
   }
 }
+
 @media (max-width: 1080px) {
   .navLinks {
     padding-right: 2rem;
     font-size: 1.15rem;
   }
+
   /* .registerBtn {
     padding: 0.5rem 1.25rem;
   } */
@@ -199,19 +218,24 @@
     font-size: 0.95rem;
   }
 }
+
 @media (max-width: 920px) {
   .navLinks {
     display: none;
   }
+
   .navLogo img {
     transform: scale(0.6);
   }
+
   .navbarContainer {
     height: 100px;
   }
+
   .registerBtn p {
     font-size: 0.95rem;
   }
+
   .navLogo img {
     pointer-events: none;
   }
@@ -237,14 +261,17 @@
     opacity: 0.7 !important;
     z-index: 990;
   }
-  .registerBtnMobile p{
+
+  .registerBtnMobile p {
     color: black;
 
   }
+
   .hamburger {
     width: 50px;
   }
 }
+
 /* .registerBtnMobile{
   opacity: 0.5 !important;
 } */
