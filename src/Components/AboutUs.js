@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import * as about from "../Styles/About.module.css";
 
 
 const AboutUs = (props) => {
 
     const { scrollYProgress } = useScroll();
+    const pageRadius = useTransform(scrollYProgress, [0, 0.3], ['75%', '0%']);
     // useEffect(()=>{
     //     const page = document.querySelector(`.${about["aboutPage"]}`)
     //     page.style.transform = `translateY(${scrollYProgress}px)`;
@@ -14,7 +15,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={{ borderRadius: scrollYProgress }}
+            style={{ borderRadius: pageRadius }}
         >
             <div className={about["topContainer"]}>
                 <div className={about["heading"]}>
