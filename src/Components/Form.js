@@ -1,13 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 import cross from "../images/cross.svg";
 import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
-import bg from "../images/rp_bg.png";
-import bg_icons from "../images/rp_bg_icons.png";
+import upload from "../images/upload.png"
+import {storage} from "../Components/firebase";
+import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
+import { ref } from 'firebase/storage';
+
+import {v4} from "uuid";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
+
+  const [fileUploaded , setFileUploaded] = useState(null);
+
+
+  const hiddenFileInput = useRef(null);
+
+  const imageUpload = event => {
+    hiddenFileInput.current.click();
+  };
+  const handleInputChange = event =>{
+    setFileUploaded(event.target.files[0]);
+  };
 
   // const goBack = () => {
   //   setRegPage(false)
@@ -536,7 +552,8 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     city: '',
     sports: [],
     year_of_study: '0',
-    is_coach: false
+    is_coach: false,
+    img_url:'',
   });
   const changeKeyName = (formData) => {
     const updatedFormData = { ...formData };
@@ -635,21 +652,52 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   };
 
 
+
+
   const handleRegistration = () => {
-    // console.log('Form Data:', changeKeyName(formData));
-    if (isFormFilled(formData)) {
-      if (!isValidEmail(formData.email_id)) {
-        alert('Invalid email address.');
-      } else if (!isValidPhoneNumber(formData.phone)) {
-        alert('Invalid phone number. Please enter digits only.');
-      } else {
-        // console.log('Form Data:', changeKeyName(formData));
-        submitFormData(changeKeyName(formData))
-      }
-    } else {
+    if (!isFormFilled(formData)) {
       alert('Please fill in all required fields.');
+      return;
     }
+  
+    if (!isValidEmail(formData.email_id)) {
+      alert('Invalid email address.');
+      return;
+    }
+  
+    if (!isValidPhoneNumber(formData.phone)) {
+      alert('Invalid phone number. Please enter digits only.');
+      return;
+    }
+  
+    if (fileUploaded === null) {
+      alert('Upload Photo');
+      return;
+    }
+  
+    const imageref = ref(storage, `images/${fileUploaded.name + v4()}`);
+  
+    uploadBytes(imageref, fileUploaded)
+      .then((snapshot) => {
+        getDownloadURL(snapshot.ref)
+          .then((url) => {
+            const updatedFormData = { ...formData };
+            updatedFormData["img_url"] = url;
+            console.log(changeKeyName(updatedFormData));
+            submitFormData(changeKeyName(updatedFormData));
+          })
+          .catch((error) => {
+            alert('Error getting image URL. Please try again.');
+            console.error(error);
+          });
+      })
+      .catch((error) => {
+        alert('Error uploading image. Please try again.');
+        console.error(error);
+      });
   };
+  
+  
 
 
   return (
@@ -747,6 +795,12 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
           </div>
         </form>
         <div className={styles["btnContainer"]}>
+          <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}><span><img src={upload}/></span>PHOTO</button>
+          <input type="file"
+            ref={hiddenFileInput}
+            style={{display:'none'}}
+            onChange={handleInputChange}
+          />
           <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
         </div>
       </div>
