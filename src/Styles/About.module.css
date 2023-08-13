@@ -1,0 +1,29 @@
+.aboutPage{
+    position: relative;
+    z-index: 100;
+    height: 100vw;
+    width: 100vw;
+    background: url(../images/about-bg.png);
+}
+.topContainer{
+    height: 100vh;
+    width: 100vw;
+}
+.heading{
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading h1{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3.2px; 
+}

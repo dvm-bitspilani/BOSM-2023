@@ -683,7 +683,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {/* {!regPage && (
+        {!regPage && (
           <Layout
             overflow={false}
             navbar={false}
@@ -696,7 +696,7 @@ const IndexPage = () => {
               </>
             }
           />
-        )} */}
+          )}
         {!regPage && (
           <Layout
             overflow={false}
