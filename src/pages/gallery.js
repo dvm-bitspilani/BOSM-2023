@@ -3,7 +3,7 @@ import * as styles from "../Styles/Gallery.module.css";
 import Layout from "../Components/Layout";
 import Cursor from "../images/cursor.png";
 import "../Styles/globals.css"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
 import logo from "../images/logo.svg";
@@ -15,6 +15,13 @@ import img7 from "../images/Gallery/box7.png"
 import img8 from "../images/Gallery/box8.png"
 import img9 from "../images/Gallery/box9.png"
 import img10 from "../images/Gallery/box10.png"
+
+import {
+    useScroll,
+    motion,
+    useTransform,
+    useMotionValue
+} from 'framer-motion';
 
 const Gallery = props => {
 
@@ -59,7 +66,6 @@ const Gallery = props => {
         navigate("/");
     };
 
-
     return (
         <>  <div className="cursor" id="cursor"></div>
             <div className="cursorFollower" id="cursorFollower">
@@ -78,19 +84,42 @@ const Gallery = props => {
                             /></div>
                             <p className={styles["gallery"]}>Gallery</p>
                         </div>
-                        <div className={styles["box2"]} style={{ backgroundImage: `url(${img2})`}}>
+                        <div className={styles["box2"]}>
+                            <motion.img src={img2} alt="not found" className={styles["image"]}
+                            />
                         </div>
-                        <div className={styles["box3"]} style={{ backgroundImage: `url(${img3})`}}></div>
-                        <div className={styles["box4"]} style={{ backgroundImage: `url(${img4})`}}></div>
-                        <div className={styles["box5"]} style={{ backgroundImage: `url(${img5})`}}></div>
+                        <div className={styles["box3"]}>
+                            <motion.img src={img3} alt="not found" className={styles["image"]}
+                            />
+                        </div>
+                        <div className={styles["box4"]}>
+                            <motion.img src={img4} alt="not found" className={styles["image"]}
+                            />
+                        </div>
+                        <div className={styles["box5"]}>
+                            <motion.img src={img5} alt="not found" className={styles["image"]}
+                            />
+                        </div>
                         <div className={styles["box6"]}>
                             <p className={styles["aboutHeading"]}>about</p>
                             <p className={styles["aboutText"]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie posuere eros, vitae bibendum lorem. Quisque volutpat eget lacus sit amet commodo. Fusce condimentum, neque vel accumsan finibus, felis nisi suscipit </p>
                         </div>
-                        <div className={styles["box7"]} style={{ backgroundImage: `url(${img7})`}}></div>
-                        <div className={styles["box8"]} style={{ backgroundImage: `url(${img8})`}}></div>
-                        <div className={styles["box9"]} style={{ backgroundImage: `url(${img9})`}}></div>
-                        <div className={styles["box10"]} style={{ backgroundImage: `url(${img10})`}}></div>
+                        <div className={styles["box7"]}>
+                            <motion.img src={img7} alt="not found" className={styles["image"]}
+                            />
+                        </div>
+                        <div className={styles["box8"]}>
+                            <motion.img src={img8} alt="not found" className={styles["image"]}
+                            />
+                        </div>
+                        <div className={styles["box9"]}>
+                            <motion.img src={img9} alt="not found" className={styles["image"]}                            
+                            />
+                        </div>
+                        <div className={styles["box10"]}>
+                            <motion.img src={img10} alt="not found" className={styles["image"]}
+                                />
+                        </div>
                     </div>
                     <div className={styles["tagline"]}>roar of resilience</div>
                 </div>
@@ -103,7 +132,7 @@ export default Gallery;
 
 export const Head = () => (
     <>
-      <title>Gallery | BOSM '23 </title>
-      <link rel="icon" type="image/x-icon" href={logo} />
+        <title>Gallery | BOSM '23 </title>
+        <link rel="icon" type="image/x-icon" href={logo} />
     </>
-  );
+);

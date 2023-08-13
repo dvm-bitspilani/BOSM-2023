@@ -172,10 +172,21 @@
 .box8,
 .box9,
 .box10 {
-    background-color: #d9d9d9;
+    background-color: transparent;
     background-repeat: none;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+}
+
+.image{
+    scale: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    transform: all 0.5s ease-out;
 }
 
 @media only screen and (max-width: 800px) {
