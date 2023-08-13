@@ -123,17 +123,16 @@ a{
 }
 .blackScreen {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 9999;
   background: url(../images/red-bg.png);
   background-size: cover;
-  animation: slideUp 4s ease 1;
+  animation: slideUp 1s ease 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 1s ease;
 }
 .blackScreen img {
   scale: 1.5;
@@ -229,15 +228,15 @@ a{
   0% {
     transform: translateY(100%);
   }
-  30% {
+  100% {
     transform: translateY(0);
   }
-  60% {
+  /* 60% {
     transform: translateY(0);
   }
   100% {
     transform: translateY(-100%);
-  }
+  } */
 }
 @keyframes slideUp2 {
   0% {

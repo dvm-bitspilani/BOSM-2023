@@ -261,6 +261,8 @@ h2 {
 }
 .rpHeadingContainer img {
   scale: 0.75;
+  z-index: 999;
+  position: relative;
 }
 .rpHeadingContainer h3 {
   color: #f5f5f5;

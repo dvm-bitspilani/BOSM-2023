@@ -4,6 +4,8 @@ import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
+import bg from "../images/rp_bg.png";
+import bg_icons from "../images/rp_bg_icons.png";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
@@ -651,10 +653,10 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
   return (
-    <section className={styles["regPage"]}>
-      <div className={styles["rpIcons"]}></div>
+    <section className={styles["regPage"]} >
+      <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
-        <img alt="" src={logo} id='reg-logo' />
+        <img alt="" src={logo} onClick={goBack} id='reg-logo' />
         <h3>REGISTRATION</h3>
         <img alt='' src={cross} onClick={goBack} className={styles["cross"]} />
       </div>

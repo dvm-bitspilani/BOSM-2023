@@ -15,9 +15,40 @@ const Navbar = ({
 }) => {
   const goToNextPage = () => {
     setShowBlackScreen(true);
-    setTimeout(() => {
-      setShowBlackScreen(false);
-    }, 4000);
+    // setTimeout(() => {
+    //   setShowBlackScreen(false);
+    // }, 4000);
+
+      const assets = document.querySelectorAll(
+        "img", "font", "style" , "div" , "section"
+      );
+  
+      let assetsLoaded = 0;
+  
+      const handleAssetLoad = () => {
+        assetsLoaded++;
+        if (assetsLoaded === assets.length) {
+          setTimeout(() => {
+            document.getElementsByClassName("blackScreen")[0].style.transform = 'translateY(-100%)';
+          }, 2000);
+          setTimeout(() => {
+            setShowBlackScreen(false);
+          }, 3000);
+        }
+      };
+  
+      assets.forEach((asset) => {
+        if (
+          asset.complete ||
+          asset.readyState === 4 ||
+          asset.tagName === "LINK"
+        ) {
+          handleAssetLoad();
+        } else {
+          asset.addEventListener("load", handleAssetLoad);
+          asset.addEventListener("error", handleAssetLoad);
+        }
+      });
 
     setTimeout(() => {
       setRegPage(true);
