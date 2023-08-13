@@ -53,6 +53,7 @@ const Gallery = props => {
             <main
                 className={styles["gallery"]}
                 isHamOpen={false}>
+                <div className={styles["wrapper"]}>
                 <div className={styles["gridContainer"]}>
                     <div className={styles["box1"]}>Gallery</div>
                     <div className={styles["box2"]}></div>
@@ -67,6 +68,8 @@ const Gallery = props => {
                     <div className={styles["box8"]}></div>
                     <div className={styles["box9"]}></div>
                     <div className={styles["box10"]}></div>
+                </div>
+                <div className={styles["tagline"]}>roar of resilience</div>
                 </div>
             </main>
         </>

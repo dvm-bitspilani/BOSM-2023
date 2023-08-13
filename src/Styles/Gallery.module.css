@@ -7,6 +7,12 @@
     font-family: 'Montserrat';
 }
 
+.wrapper{
+    margin: auto;
+    width: fit-content;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
 
 .gridContainer {
     display: grid;
@@ -113,4 +119,15 @@
     font-weight: 350;
     font-size: 1rem;
     letter-spacing: 1px;
+}
+
+.tagline{
+    padding: 1rem;
+    letter-spacing: 1.2px;
+    font-size: 1.3rem;
+    font-weight: 350;
+    font-family: Montserrat;
+    width: 100%;
+    text-align: center;
+    color: white;
 }
