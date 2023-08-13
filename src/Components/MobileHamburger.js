@@ -14,9 +14,10 @@ export default function Hamburger({ closeHam, isHamOpen }) {
                 Ignition
             </div>
         </Link>
+        <Link to="/gallery" onMouseDown={()=>document.documentElement.style.overflowY = "scroll"}>
         <div className={styles["mobileLinks"]}>
             Gallery
-        </div>
+        </div></Link>
         <div className={styles["mobileLinks"]}>
             Archive
         </div>

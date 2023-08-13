@@ -7,11 +7,14 @@
     font-family: 'Montserrat';
 }
 
-.wrapper{
+.wrapper {
     margin: auto;
     width: fit-content;
-    padding-top: 1rem;
+    padding-top: 3vw;
     padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .gridContainer {
@@ -21,13 +24,20 @@
     /* grid-template-rows: 18vw 31.5vw 24vw 27vw 37.5vw 63.75vw 61.5vw; */
 
     /* grid-template-columns: 13.625rem 14.405rem 13rem; */
-    grid-template-columns: 16.35rem 17.286rem 15.6rem;
+    /* grid-template-columns: 16.35rem 17.286rem 15.6rem; */
     /* grid-template-rows: 6rem 10.5rem 8rem 4.5rem 12.5rem 21.25rem 20.5rem; */
-    grid-template-rows: 7.2rem 12.6rem 9.6rem 5.4rem 15rem 25.5rem 24.6rem;
+    /* grid-template-rows: 7.2rem 12.6rem 9.6rem 5.4rem 15rem 25.5rem 24.6rem; */
     /* grid-column-gap: 0px; */
+
+    /* grid-template-columns: 30vw 31.6vw 28.5vw;
+    grid-template-rows: 12.25vw 21.25vw 16.25vw 10vw 28.25vw 48vw 46.3vw; */
+
+    grid-template-columns: 24vw 25.28vw 22.8vw;
+    grid-template-rows: 9.8vw 17vw 13vw 8vw 22.6vw 38.4vw 37.04vw;
+
     grid-row-gap: 0px;
     width: fit-content;
-    gap: 0.5rem;
+    gap: 1vw;
     padding: 0.5rem;
     margin: auto;
     background-color: #A63237;
@@ -47,20 +57,43 @@
 }
 
 .box1 {
+    width: 100%;
     grid-area: 1 / 1 / 2 / 3;
     background-color: #A63237;
     color: white;
     font-family: Montserrat;
-    font-size: 85px;
+    display: grid;
+    grid-template-columns: 5vw 80vw;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    gap: 0.5vw;
+}
+
+.box1 p {
+    color: white;
+    font-family: Montserrat;
+    font-size: 4vw;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 4px;
+    text-align: left;
+    padding-top: 2vw;
+}
+
+.box1 img {
+    height: 3vw;
+    /* padding-bottom: 0.5vw; */
 }
 
 .box2 {
     grid-area: 1 / 3 / 3 / 4;
 
+}
+
+.arrow {
+    width: 15vw;
 }
 
 .box3 {
@@ -82,9 +115,9 @@
     grid-area: 4 / 2 / 6 / 3;
     color: white;
     font-family: Montserrat;
-    font-size: 3rem;
+    /* font-size: 3rem; */
     background-color: #A63237;
-    padding: 1rem;
+    padding: 1.8vw;
 }
 
 .box7 {
@@ -107,27 +140,101 @@
 
 }
 
-.aboutHeading{
-    font-size: 2.5rem;
+.aboutHeading {
+    font-size: 3vw;
     font-weight: 500;
-    letter-spacing: 3.2px;
-    margin-bottom: 1rem;
+    letter-spacing: 0.2vw;
+    margin-bottom: 1.8vw;
 }
 
-.aboutText{
-    font-size: 2rem;
+.aboutText {
     font-weight: 350;
-    font-size: 1rem;
-    letter-spacing: 1px;
+    font-size: 1.5vw;
+    letter-spacing: 0.12vw;
 }
 
-.tagline{
-    padding: 1rem;
-    letter-spacing: 1.2px;
-    font-size: 1.3rem;
+.tagline {
+    padding: 1.2vw;
+    letter-spacing: 0.2vw;
+    font-size: 2vw;
     font-weight: 350;
     font-family: Montserrat;
     width: 100%;
     text-align: center;
     color: white;
+}
+
+.box2,
+.box3,
+.box4,
+.box5,
+.box7,
+.box8,
+.box9,
+.box10 {
+    background-color: #d9d9d9;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .gridContainer {
+        grid-template-columns: 30vw 31.6vw 28.5vw;
+        grid-template-rows: 12.25vw 21.25vw 16.25vw 10vw 28.25vw 48vw 46.3vw;
+    }
+
+    .box1 {
+        width: 100%;
+        grid-area: 1 / 1 / 2 / 3;
+        background-color: #A63237;
+        color: white;
+        font-family: Montserrat;
+        display: grid;
+        grid-template-columns: 5vw 80vw;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+        gap: 2vw;
+    }
+    
+    .box1 p {
+        color: white;
+        font-family: Montserrat;
+        font-size: 8vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 4px;
+        text-align: left;
+    }
+    
+    .box1 img {
+        height: 6vw;
+        padding-top: 2vw;
+    }
+    
+.aboutHeading {
+    font-size: 4vw;
+    font-weight: 500;
+    letter-spacing: 0.3vw;
+    margin-bottom: 2vw;
+}
+
+.aboutText {
+    font-weight: 350;
+    font-size: 1.7vw;
+    letter-spacing: 0.12vw;
+}
+
+.tagline {
+    padding: 1.5vw;
+    letter-spacing: 0.4vw;
+    font-size: 2.2vw;
+    font-weight: 350;
+    font-family: Montserrat;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
 }
