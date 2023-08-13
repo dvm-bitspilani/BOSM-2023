@@ -4,6 +4,9 @@
     height: 100vw;
     width: 100vw;
     background: url(../images/about-bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat:no-repeat ;
 }
 .topContainer{
     height: 100vh;
