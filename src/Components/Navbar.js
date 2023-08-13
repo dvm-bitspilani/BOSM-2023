@@ -110,7 +110,7 @@ const Navbar = ({
 
   const openHam =()=>{
     // console.log(isHamOpen, isAnimationComplete)
-    if (isHamOpen && isAnimationComplete) {
+    if (isHamOpen && (isAnimationComplete || window.innerWidth < 711)) {
       setIsHamOpen(false);
     }else{
        setIsHamOpen(true);

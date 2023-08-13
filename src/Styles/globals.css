@@ -182,7 +182,7 @@ a{
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 99;
   background-color: rgba(0, 0, 0, 0.7);
 
   display: grid;

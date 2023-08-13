@@ -1,5 +1,5 @@
 import React from "react";
-import closeHamIcon from "../images/closeHam.svg"
+// import closeHamIcon from "../images/closeHam.svg"
 
 import * as styles from "../Styles/Hamburger.module.css";
 import { Link } from "gatsby";
@@ -28,9 +28,9 @@ export default function Hamburger({ closeHam, isHamOpen }) {
             Developers
         </div>
     </div>
-    <button className={styles["closeHam"]} onClick={closeHam}>
+    {/* <button className={styles["closeHam"]} onClick={closeHam}>
         <img src={closeHamIcon} alt="close" />
-    </button>
+    </button> */}
     </>
   );
 }
