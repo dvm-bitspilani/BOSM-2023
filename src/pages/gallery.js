@@ -103,7 +103,7 @@ export default Gallery;
 
 export const Head = () => (
     <>
-      <title>GALLERY | BOSM '23 </title>
+      <title>Gallery | BOSM '23 </title>
       <link rel="icon" type="image/x-icon" href={logo} />
     </>
   );

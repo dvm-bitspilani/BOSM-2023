@@ -29,8 +29,11 @@
     /* grid-template-rows: 7.2rem 12.6rem 9.6rem 5.4rem 15rem 25.5rem 24.6rem; */
     /* grid-column-gap: 0px; */
 
-    grid-template-columns: 30vw 31.6vw 28.5vw;
-    grid-template-rows: 12.25vw 21.25vw 16.25vw 10vw 28.25vw 48vw 46.3vw;
+    /* grid-template-columns: 30vw 31.6vw 28.5vw;
+    grid-template-rows: 12.25vw 21.25vw 16.25vw 10vw 28.25vw 48vw 46.3vw; */
+
+    grid-template-columns: 24vw 25.28vw 22.8vw;
+    grid-template-rows: 9.8vw 17vw 13vw 8vw 22.6vw 38.4vw 37.04vw;
 
     grid-row-gap: 0px;
     width: fit-content;
@@ -64,22 +67,24 @@
     align-items: center;
     height: 100%;
     justify-content: space-between;
-    gap: 2vw;
+    gap: 0.5vw;
 }
 
 .box1 p {
     color: white;
     font-family: Montserrat;
-    font-size: 8vw;
+    font-size: 4vw;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 4px;
     text-align: left;
+    padding-top: 2vw;
 }
 
 .box1 img {
-    height: 4vw;
+    height: 3vw;
+    /* padding-bottom: 0.5vw; */
 }
 
 .box2 {
@@ -88,7 +93,7 @@
 }
 
 .arrow {
-    width: 20vw;
+    width: 15vw;
 }
 
 .box3 {
@@ -112,7 +117,7 @@
     font-family: Montserrat;
     /* font-size: 3rem; */
     background-color: #A63237;
-    padding: 2vw;
+    padding: 1.8vw;
 }
 
 .box7 {
@@ -136,6 +141,80 @@
 }
 
 .aboutHeading {
+    font-size: 3vw;
+    font-weight: 500;
+    letter-spacing: 0.2vw;
+    margin-bottom: 1.8vw;
+}
+
+.aboutText {
+    font-weight: 350;
+    font-size: 1.5vw;
+    letter-spacing: 0.12vw;
+}
+
+.tagline {
+    padding: 1.2vw;
+    letter-spacing: 0.2vw;
+    font-size: 2vw;
+    font-weight: 350;
+    font-family: Montserrat;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.box2,
+.box3,
+.box4,
+.box5,
+.box7,
+.box8,
+.box9,
+.box10 {
+    background-color: #d9d9d9;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .gridContainer {
+        grid-template-columns: 30vw 31.6vw 28.5vw;
+        grid-template-rows: 12.25vw 21.25vw 16.25vw 10vw 28.25vw 48vw 46.3vw;
+    }
+
+    .box1 {
+        width: 100%;
+        grid-area: 1 / 1 / 2 / 3;
+        background-color: #A63237;
+        color: white;
+        font-family: Montserrat;
+        display: grid;
+        grid-template-columns: 5vw 80vw;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+        gap: 2vw;
+    }
+    
+    .box1 p {
+        color: white;
+        font-family: Montserrat;
+        font-size: 8vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 4px;
+        text-align: left;
+    }
+    
+    .box1 img {
+        height: 6vw;
+        padding-top: 2vw;
+    }
+    
+.aboutHeading {
     font-size: 4vw;
     font-weight: 500;
     letter-spacing: 0.3vw;
@@ -158,17 +237,4 @@
     text-align: center;
     color: white;
 }
-
-.box2,
-.box3,
-.box4,
-.box5,
-.box7,
-.box8,
-.box9,
-.box10 {
-    background-color: #d9d9d9;
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
 }
