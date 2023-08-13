@@ -1,20 +1,32 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import * as about from "../Styles/About.module.css";
 
 
 const AboutUs = (props) => {
 
     const { scrollYProgress } = useScroll();
+    const pageRadius = useTransform(scrollYProgress, [0, 0.28], ['75%', '0%']);
     // useEffect(()=>{
     //     const page = document.querySelector(`.${about["aboutPage"]}`)
     //     page.style.transform = `translateY(${scrollYProgress}px)`;
     // },[])
 
+    const contentVariants = {
+        offscreen: {
+            opacity: 0
+        },
+        onscreen: {
+            opacity: 1, 
+            transition: {
+                duration: 1
+            }
+        }
+    }
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={{ borderRadius: scrollYProgress }}
+            style={{ borderRadius: pageRadius }}
         >
             <div className={about["topContainer"]}>
                 <div className={about["heading"]}>
@@ -22,7 +34,13 @@ const AboutUs = (props) => {
                 </div>
             </div>
             <div className={about["bottomContainer"]}>
-                <div className={about["contentContainer"]}>
+                <motion.div
+                className={about["contentContainer"]}
+                variants={contentVariants}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                >
                     <div className={about["group"]}>
                         <div className={about["title"]}>
                             <h1>BOSM</h1>
@@ -45,7 +63,7 @@ const AboutUs = (props) => {
                         <div className={about["desc"]}>
                             This theme encourages participants to face challenges with courage, bounce back from setbacks, and demonstrate their unwavering determination, fostering personal growth, perseverance, and the celebration of triumphs against all odds.                </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
         </motion.main>

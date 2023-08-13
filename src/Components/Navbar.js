@@ -12,6 +12,7 @@ const Navbar = ({
   setShowBlackScreen,
   isHamOpen,
   setIsHamOpen,
+  isAnimationComplete,
 }) => {
   const goToNextPage = () => {
     setShowBlackScreen(true);
@@ -108,7 +109,13 @@ const Navbar = ({
   };
 
   const openHam =()=>{
-    setIsHamOpen(true);
+    // console.log(isHamOpen, isAnimationComplete)
+    if (isHamOpen && (isAnimationComplete || window.innerWidth < 711)) {
+      setIsHamOpen(false);
+    }else{
+       setIsHamOpen(true);
+    }
+   
   };
   useEffect(() => {
     const topBar1 = document.querySelector('#hamIcon1');
@@ -139,7 +146,7 @@ const Navbar = ({
           animate={isHamOpen ? "closed" : "open"}
           variants={navbarUpVariants}
         >
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" draggable={false}/>
         </motion.div>}
         <nav className={styles["navbarLeft"]}>
           <ul>
