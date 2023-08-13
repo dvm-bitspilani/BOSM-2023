@@ -21,6 +21,7 @@ import Boy from "../Components/ContactsData/ContactImages/contact_boy.png"
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
+import Events from "../Components/Events";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -696,6 +697,20 @@ const IndexPage = () => {
             }
           />
         )} */}
+        {!regPage && (
+          <Layout
+            overflow={false}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="events-section"
+            content={
+              <>
+                <Events />
+              </>
+            }
+          />
+        )}
         {!regPage && (
           <Layout
             overflow={false}

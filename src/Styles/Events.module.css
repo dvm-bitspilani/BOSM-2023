@@ -1,0 +1,9 @@
+.eventsSection{
+    position: relative;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/event_bg.png);
+    background-size: cover;
+    background-position: center center;
+}
