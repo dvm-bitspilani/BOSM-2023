@@ -6,8 +6,6 @@ import "../Styles/globals.css"
 import { useState, useEffect } from "react";
 import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
-
-
 const Gallery = props => {
 
     const [isLoading, setIsLoading] = useState(true);

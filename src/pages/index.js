@@ -22,7 +22,6 @@ import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
-
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
