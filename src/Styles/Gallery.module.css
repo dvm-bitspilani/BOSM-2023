@@ -63,7 +63,7 @@
     color: white;
     font-family: Montserrat;
     display: grid;
-    grid-template-columns: 5vw 80vw;
+    grid-template-columns: 3vw 80vw;
     align-items: center;
     height: 100%;
     justify-content: space-between;
@@ -83,7 +83,7 @@
 }
 
 .box1 img {
-    height: 3vw;
+    height: 2vw;
     /* padding-bottom: 0.5vw; */
 }
 
@@ -156,7 +156,7 @@
 .tagline {
     padding: 1.2vw;
     letter-spacing: 0.2vw;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 350;
     font-family: Montserrat;
     width: 100%;
@@ -180,7 +180,7 @@
 }
 
 .image{
-    scale: 2;
+    scale: 1.5;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -240,8 +240,8 @@
 
 .tagline {
     padding: 1.5vw;
-    letter-spacing: 0.4vw;
-    font-size: 2.2vw;
+    letter-spacing: 0.2vw;
+    font-size: 1.5vw;
     font-weight: 350;
     font-family: Montserrat;
     width: 100%;

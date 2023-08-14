@@ -25,6 +25,17 @@ import {
 
 const Gallery = props => {
 
+    const { scrollY } = useScroll();
+    const y2 = useTransform(scrollY, [0, 2000], [10, 200]);
+    const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
+    const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
+    const y5 = useTransform(scrollY, [0, 2000], [-50, 150]);
+    const y7 = useTransform(scrollY, [0, 2000], [-60, 140]);
+    const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y10 = useTransform(scrollY, [0, 2000], [-60, 140]);
+
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -86,19 +97,19 @@ const Gallery = props => {
                         </div>
                         <div className={styles["box2"]}>
                             <motion.img src={img2} alt="not found" className={styles["image"]}
-                            />
+                            style={{y: y2}} draggable={false}/>
                         </div>
                         <div className={styles["box3"]}>
                             <motion.img src={img3} alt="not found" className={styles["image"]}
-                            />
+                            style={{y:y3}} draggable={false}/>
                         </div>
                         <div className={styles["box4"]}>
                             <motion.img src={img4} alt="not found" className={styles["image"]}
-                            />
+                            style={{y:y4}} draggable={false}/>
                         </div>
                         <div className={styles["box5"]}>
                             <motion.img src={img5} alt="not found" className={styles["image"]}
-                            />
+                            style={{y:y5}} draggable={false}/>
                         </div>
                         <div className={styles["box6"]}>
                             <p className={styles["aboutHeading"]}>about</p>
@@ -106,19 +117,19 @@ const Gallery = props => {
                         </div>
                         <div className={styles["box7"]}>
                             <motion.img src={img7} alt="not found" className={styles["image"]}
-                            />
+                            style={{y:y7}} draggable={false}/>
                         </div>
                         <div className={styles["box8"]}>
                             <motion.img src={img8} alt="not found" className={styles["image"]}
-                            />
+                            style={{y:y8}} draggable={false}/>
                         </div>
                         <div className={styles["box9"]}>
                             <motion.img src={img9} alt="not found" className={styles["image"]}                            
-                            />
+                            style={{y:y9}} draggable={false}/>
                         </div>
                         <div className={styles["box10"]}>
                             <motion.img src={img10} alt="not found" className={styles["image"]}
-                                />
+                            style={{y:y10}} draggable={false}/>
                         </div>
                     </div>
                     <div className={styles["tagline"]}>roar of resilience</div>
