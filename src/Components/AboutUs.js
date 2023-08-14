@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as about from "../Styles/About.module.css";
-// import AboutUsCarousel from "../Components/AboutUsCarousel.js"
+import AboutUsCarousel from "../Components/AboutUsCarousel.js"
+import thumbnailImage1 from "../images/aboutUsCarouselThumbnail.png"
+import thumbnailImage2 from "../images/bgmi.png"
+import thumbnailImage3 from "../images/fifa.png"
 const AboutUs = (props) => {
 
     const { scrollYProgress } = useScroll();
@@ -22,6 +25,7 @@ const AboutUs = (props) => {
             }
         }
     }
+    const images = [thumbnailImage1, thumbnailImage1, thumbnailImage1]
     return (
         <motion.main
             className={about["aboutPage"]}
@@ -31,9 +35,16 @@ const AboutUs = (props) => {
                 <div className={about["heading"]}>
                     <h1>ABOUT US</h1>
                 </div>
-            {/* <div className={about["carouselContainer"]}>
-            <AboutUsCarousel/>
-            </div> */}
+            <div className={about["carouselContainer"]}>
+            <AboutUsCarousel images = {images}/>
+            </div>
+            <div style={{
+  height: '2px',
+  background: 'white',
+  width: '80vw',
+  margin: 'auto',
+  marginTop: '5rem',
+}}></div>
             </div>
             <div className={about["bottomContainer"]}>
                 <motion.div

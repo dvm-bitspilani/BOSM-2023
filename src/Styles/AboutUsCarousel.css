@@ -1,0 +1,37 @@
+.about-us-carousel-indicator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .about-us-dot {
+    background-color: transparent;
+    border: 1px solid white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+  .active {
+    background-color: white;
+  }
+  .about-us-carousel{
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 2vw;
+  }
+  .about-us-carousel-top{
+    align-self: center;
+display: flex;
+align-content: center;
+align-items: center;
+gap: 2vw;
+  }
+  .about-us-indicator{
+    display: flex;
+gap: 1vw;
+  }
+  .about-us-carousel-img-wrapper > img{
+    width: 50vw;
+  }
