@@ -145,7 +145,8 @@ const Layout = ({
           setRegPage={setRegPage}
           setShowBlackScreen={setShowBlackScreen}
           isHamOpen={isHamOpen}
-          setIsHamOpen={() => setIsHamOpen(!isHamOpen)}
+          isAnimationComplete={isAnimationComplete}
+          setIsHamOpen={setIsHamOpen}
         />
       )}
       <Hamburger
@@ -169,9 +170,9 @@ const Layout = ({
             >
             </motion.div>
             <motion.div
-              onMouseDown={() => {
-                if (isAnimationComplete) setIsHamOpen(false);
-              }}
+              // onMouseDown={() => {
+              //   if (isAnimationComplete) setIsHamOpen(false);
+              // }}
               className="ham-black-screen-right"
               initial={{ opacity: 0 }}
               animate={isHamOpen ? "open" : "closed"}
@@ -183,9 +184,9 @@ const Layout = ({
             // onAnimationEnd={()=>console.log("end")}
             />
             <motion.div
-              onMouseDown={() => {
-                if (isAnimationComplete) setIsHamOpen(false);
-              }}
+              // onMouseDown={() => {
+              //   if (isAnimationComplete) setIsHamOpen(false);
+              // }}
               className="ham-black-screen-left"
               initial={{ opacity: 0 }}
               animate={isHamOpen ? "open" : "closed"}
