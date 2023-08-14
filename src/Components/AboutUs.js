@@ -8,7 +8,7 @@ import thumbnailImage3 from "../images/fifa.png"
 const AboutUs = (props) => {
 
     const { scrollYProgress } = useScroll();
-    const pageRadius = useTransform(scrollYProgress, [0, 0.28], ['75%', '0%']);
+    const pageRadius = useTransform(scrollYProgress, [0, 0.4], ['75%', '0%']);
     // useEffect(()=>{
     //     const page = document.querySelector(`.${about["aboutPage"]}`)
     //     page.style.transform = `translateY(${scrollYProgress}px)`;
@@ -19,7 +19,7 @@ const AboutUs = (props) => {
             opacity: 0
         },
         onscreen: {
-            opacity: 1, 
+            opacity: 1,
             transition: {
                 duration: 1
             }
@@ -35,24 +35,35 @@ const AboutUs = (props) => {
                 <div className={about["heading"]}>
                     <h1>ABOUT US</h1>
                 </div>
-            <div className={about["carouselContainer"]}>
-            <AboutUsCarousel images = {images}/>
-            </div>
-            <div style={{
-  height: '2px',
-  background: 'white',
-  width: '80vw',
-  margin: 'auto',
-  marginTop: '5rem',
-}}></div>
+                <div className={about["carouselContainer"]}>
+                    <AboutUsCarousel images={images} />
+                </div>
+                <div style={{
+                    height: '2px',
+                    background: 'white',
+                    width: '80vw',
+                    margin: 'auto',
+                    marginTop: '5rem',
+                }}></div>
+                <motion.div
+                    className={about["contentIndex"]}
+                    variants={contentVariants}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true }}
+                >
+                    <div className={about["index"]}>01</div>
+                    <div className={about["index"]}>02</div>
+                    <div className={about["index"]}>03</div>
+                </motion.div>
             </div>
             <div className={about["bottomContainer"]}>
                 <motion.div
-                className={about["contentContainer"]}
-                variants={contentVariants}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
+                    className={about["contentContainer"]}
+                    variants={contentVariants}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true }}
                 >
                     <div className={about["group"]}>
                         <div className={about["title"]}>

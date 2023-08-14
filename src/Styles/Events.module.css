@@ -18,28 +18,41 @@
     letter-spacing: 2.9px;
     padding: 5% 0;
 }
-.eventsContainer{
+.carouselContainer {
+    border-radius: 16px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
     width: 100%;
-    height: 50vh;
-    padding: 0 10%;
+    cursor: grab;
+  }
+  .container:active {
+    cursor: grabbing;
+  }
+  
+  .persons-container {
     display: flex;
-    gap: 2.5%;
-    overflow: visible;
-}
-.eventsContainer > div{
+    justify-content: center;
+  }
+  
+  .person {
+    position: absolute;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    overflow: visible;
-}
-.eventsContainer > div img{
-    width: 100%;
-    height: 100%;
-}
-.leftSport{
-    transform: rotate(-5deg) translateY(1rem);
-}
-.rightSport{
-    transform: rotate(5deg) translateY(1rem);
-}
+    user-select: none;
+  }
+  .person img {
+    position: relative;
+    pointer-events: none;
+    width: 350px;
+    height: 400px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 10px solid transparent;
+    transition: border 0.3s ease-out;
+  }
+  .person.active img {
+    border: 10px solid cadetblue;
+  }

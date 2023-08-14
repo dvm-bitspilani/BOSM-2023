@@ -9,7 +9,7 @@
     background-repeat:no-repeat ;
 }
 .topContainer{
-    height: 100vh;
+    height: auto;
     width: 100vw;
 }
 .heading{
@@ -24,11 +24,31 @@
 .heading h1{
     color: #FFF;
     font-family: Montserrat;
-    font-size: 4rem;
+    font-size: 3rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 3.2px; 
+}
+.contentIndex{
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+.index{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2.1px;
 }
 .contentContainer{
     margin: 0 auto;

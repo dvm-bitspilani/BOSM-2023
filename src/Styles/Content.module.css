@@ -378,9 +378,23 @@ h2 {
 .submitBtn span{
   margin-right: 1rem;
 }
+.submitBtn:hover span img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #36788a;
+  opacity: 1;
+  z-index: -1;
+}
 .submitBtn:hover {
   color: #36788a;
   background-color: #f5f5f5;
+}
+.submitBtn:hover span img{
+  filter: brightness(0.5) saturate(2) hue-rotate(140deg);
 }
 input[type="radio"] {
   background-color: #36788a;

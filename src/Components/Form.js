@@ -25,9 +25,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     setFileUploaded(event.target.files[0]);
   };
 
-  // const goBack = () => {
-  //   setRegPage(false)
-  // };
   const goBack = () => {
     setShowBlackScreen2(true);
     setTimeout(() => {
