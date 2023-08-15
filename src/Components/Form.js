@@ -136,6 +136,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       paddingLeft: '.25rem',
       zIndex: 1002,
     }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: '#111',
+      fontFamily: 'Montserrat',
+      fontSize: '1rem',
+      fontWeight: 500,
+      paddingLeft: '1rem',
+    }),
   };
   const customStyles2 = {
     control: (provided, state) => ({
@@ -226,6 +234,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       paddingLeft: '.25rem',
       zIndex: 1001,
     }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: '#111',
+      fontFamily: 'Montserrat',
+      fontSize: '1rem',
+      fontWeight: 500,
+      paddingLeft: '1rem',
+    }),
   };
   const customStyles3 = {
     control: (provided, state) => ({
@@ -315,6 +331,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontWeight: 700,
       paddingLeft: '.25rem',
       zIndex: 1003,
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: '#111',
+      fontFamily: 'Montserrat',
+      fontSize: '1rem',
+      fontWeight: 500,
+      paddingLeft: '1rem',
     }),
   };
 
