@@ -13,7 +13,11 @@ import {v4} from "uuid";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
+  const customNoOptionsMessage = () => "Please select a Gender First";
+  const customNoOptionsMessage2 = () => "Please select a State First";
+
   const [fileUploaded , setFileUploaded] = useState(null);
+  const [selectedState , setSelectedState] = useState("");
 
 
   const hiddenFileInput = useRef(null);
@@ -383,7 +387,11 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     multiValueRemove: (provided) => ({
       ...provided,
       color: 'black',
-      padding: '4px',
+      padding: '0',
+      paddingLeft: '0',
+      paddingRIght: '0',
+      width:'14px',
+      height:'14px',
       // cursor: 'pointer',
     }),
     clearIndicator: (provided) => ({
@@ -433,32 +441,45 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
   const [collegeOptions, setCollegeOptions] = useState([]);
-  // const [cityOptions, setCityOptions] = useState([]);
-  const [sportsOptions, setSportsOptions] = useState([]);
+  const [cityOptions, setCityOptions] = useState([]);
+  const [stateOptions, setStateOptions] = useState([]);
+  const [sportsOptionsMale, setSportsOptionsMale] = useState([]);
+  const [sportsOptionsFemale, setSportsOptionsFemale] = useState([]);
+  const [sportsOptionsOther, setSportsOptionsOther] = useState([]);
 
-  const cityOptions = [
-    { value: "Bombay", label: "Bombay" },
-    { value: "Delhi", label: "Delhi" },
-    { value: "Madras", label: "Madras" },
-    { value: "Pilani", label: "Pilani" },
-    { value: "Bangalore", label: "Bangalore" },
-    { value: "Kolkata", label: "Kolkata" },
-  ];
-  const stateOptions = [
-    { value: "Haryana", label: "Haryana" },
-    { value: "Punjab", label: "Punjab" },
-    { value: "Bihar", label: "Bihar" },
-    { value: "Assam", label: "Assam" },
-    { value: "Maharashtra", label: "Maharashtra" },
-    { value: "Kerala", label: "Kolkata" },
-  ];
+  function convertArray(arr) {
+    return arr.map(item => ({
+      value: item.id,
+      label: item.name
+    }));
+  }
+  function createOptionsFromKeys(obj) {
+    const stateOptions = Object.keys(obj).map(key => {
+      return { value: key, label: key };
+    });
+  
+    return stateOptions;
+  }
+  function createOptionsFromInputObject(inputObj) {
+    const cityOptions = [];
+  
+    for (const state in inputObj.data) {
+      const cities = inputObj.data[state];
+      cities.forEach(city => {
+        cityOptions.push({ value: city, label: city });
+      });
+    }
+  
+    return cityOptions;
+  }
 
+  const [placedata , setPlaceData] = useState([]);
   useEffect(() => {
     const fetchCollegeOptions = async () => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_colleges/');
         const data = await response.json();
-        // console.log(data)
+        console.log(data)
         // console.log(convertApiFormat(data))
         const convertedOptions = convertApiFormat(data);
         setCollegeOptions(convertedOptions);
@@ -466,49 +487,58 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         console.error('Error fetching colleges:', error);
       }
     };
+    const fetchCityOptions = async () => {
+      try {
+        const response = await fetch('https://bitsbosm.org/2023/registrations/get_cities/');
+        const data = await response.json();
+        console.log(data);
+        console.log(createOptionsFromKeys(data["data"]))
+        console.log(createOptionsFromInputObject(data))
+        setStateOptions(createOptionsFromKeys(data["data"]))
+        const convertedOptions = convertApiFormat(data);
+        setPlaceData(data["data"]);
+      } catch (error) {
+        console.error('Error fetching cities:', error);
+      }
+    };
 
-    // const fetchCityOptions = async () => {
-    //   try {
-    //     const response = await fetch('API_ENDPOINT_FOR_CITIES');
-    //     const data = await response.json();
-    //     const convertedOptions = convertApiFormat(data);
-    //     setCityOptions(convertedOptions);
-    //   } catch (error) {
-    //     console.error('Error fetching cities:', error);
-    //   }
-    // };
-
-    // const fetchStateOptions = async () => {
-    //   try {
-    //     const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
-    //     const data = await response.json();
-    //     // console.log(data)
-    //     // console.log(convertApiFormat(data))
-    //     const convertedOptions = convertApiFormat(data);
-    //     setSportsOptions(convertedOptions);
-    //   } catch (error) {
-    //     console.error('Error fetching sports:', error);
-    //   }
-    // };
     const fetchSportsOptions = async () => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
         const data = await response.json();
-        console.log(data)
-        // console.log(convertApiFormat(data))
-        const convertedOptions = convertApiFormat(data);
-        setSportsOptions(convertedOptions);
+        // console.log(data)
+        // console.log(data["male"])
+        // console.log(data["female"])
+        const other = [...data["male"] ,...data["female"]]
+        // console.log(other)
+        console.log(convertArray(data["male"]))
+        console.log(convertArray(data["female"]))
+        console.log(convertArray(other))
+        setSportsOptionsOther(convertArray(other));
+        setSportsOptionsMale(convertArray(data["male"]));
+        setSportsOptionsFemale(convertArray(data["female"]));
       } catch (error) {
         // console.error('Error fetching sports:', error);
       }
     };
 
     fetchCollegeOptions();
-    // fetchCityOptions();
+    fetchCityOptions();
     // fetchStateOptions();
     fetchSportsOptions();
   }, []);
-
+  console.log(placedata)
+  function createArrayOfObjects(inputArray) {
+    if(!inputArray)return;
+    const outputArray = [];
+  
+    for (const value of inputArray) {
+      outputArray.push({ value, label: value });
+    }
+  
+    return outputArray;
+  }
+  console.log(createArrayOfObjects(placedata[`${selectedState["value"]}`]))
 
   const isFormFilled = () => {
     const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'state', 'sports', 'year_of_study'];
@@ -585,7 +615,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const [isCoach, setIsCoach] = useState(false);
 
-
+  const [gender, setGender] = useState('');
   const handleChange2 = (event) => {
     const { id, value, name, type } = event.target;
     const updatedFormData = { ...formData };
@@ -611,7 +641,33 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     updatedFormData["is_coach"] = isCoach;
     setFormData(updatedFormData);
   };
-
+  const handleChange3 = (event) => {
+    setGender(event.target.value)
+    const { id, value, name, type } = event.target;
+    const updatedFormData = { ...formData };
+    updatedFormData["is_coach"] = isCoach;
+    if (name === 'is_coach') {
+      setIsCoach(value === 'true');
+      updatedFormData["is_coach"] = value === 'true';
+    }
+    if (type === 'radio') {
+      updatedFormData[name] = value;
+    } else if (type === 'checkbox') {
+      if (!updatedFormData[name]) {
+        updatedFormData[name] = [];
+      }
+      if (event.target.checked) {
+        updatedFormData[name].push(value);
+      } else {
+        updatedFormData[name] = updatedFormData[name].filter((val) => val !== value);
+      }
+    } else {
+      updatedFormData[id] = value.trim();
+    }
+    updatedFormData["is_coach"] = isCoach;
+    setFormData(updatedFormData);
+  };
+console.log(gender)
 
   const handleChangeMulti = (selectedOptions, { name }) => {
     const updatedFormData = { ...formData };
@@ -694,9 +750,18 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       });
   };
   
-  
+  let sportsOptions = [];
 
+  if(gender === 'M'){
+    sportsOptions = sportsOptionsMale
+  }else if(gender === 'F'){
+    sportsOptions=sportsOptionsFemale
+  }else if(gender === 'O'){
+    sportsOptions=sportsOptionsOther
+  }
 
+  console.log(selectedState)
+  console.log(createArrayOfObjects(placedata[`${selectedState["value"]}`]))
   return (
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
@@ -725,21 +790,21 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
                 id="M"
                 value="M"
                 text="Male"
-                onChange={handleChange2}
+                onChange={handleChange3}
               />
               <RadioButton
                 name="gender"
                 id="F"
                 value="F"
                 text="Female"
-                onChange={handleChange2}
+                onChange={handleChange3}
               />
               <RadioButton
                 name="gender"
                 id="O"
                 value="O"
                 text="Other"
-                onChange={handleChange2}
+                onChange={handleChange3}
               />
             </div>
 
@@ -767,14 +832,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
             <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3} />
 
-            <label htmlFor='city'>City</label>
-            <Select options={cityOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles} />
-
             <label htmlFor='state'>State</label>
-            <Select options={stateOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'state' })} styles={customStyles2} />
+            <Select options={stateOptions} onChange={(selectedOption) => {setSelectedState(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
+
+            <label htmlFor='city'>City</label>
+            <Select options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
 
             <label htmlFor='sports'>Sports</label>
-            <Select options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
+            <Select noOptionsMessage={customNoOptionsMessage} options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
 
             <label htmlFor='year_of_study'>Year Of Study</label>
             <div className={`${styles["yearOfStudy"]} ${isCoach ? styles["disabledYearOfStudy"] : ""}`}>
