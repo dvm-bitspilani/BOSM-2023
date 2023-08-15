@@ -10,18 +10,20 @@ import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
 import Error1 from './Error1';
 import Error2 from './Error2';
+import Success from "./Success";
 import {v4} from "uuid";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const [error1 , setError1]=useState(false)
   const [error2 , setError2]=useState(false)
+  const [success , setSuccess]=useState(false)
   const [errormsg , setErrorMsg] = useState("")
 
   const closeError=()=>{
     setError1(false);
     setError2(false);
-  }
+    setSuccess(false);  }
 
   const customNoOptionsMessage = () => "Please select a Gender First";
   const customNoOptionsMessage2 = () => "Please select a State First";
@@ -735,8 +737,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       });
 
       if (response.ok) {
-
-        alert("Your Registration is completed!");
+        setSuccess(true);
       } else {
         setErrorMsg("There was some error submitting your request. Please try again!");
         setError2(true)
@@ -810,6 +811,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
+    {success && <Success onClose={closeError} text={errormsg} />}
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
