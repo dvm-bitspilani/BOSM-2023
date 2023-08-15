@@ -291,7 +291,7 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen,showBlackScreen2 ,  isLoading]);
+  }, [regPage, showBlackScreen,showBlackScreen2 ,]);
 
 
   const [isHamOpen, setIsHamOpen] = useState(false);
@@ -548,15 +548,16 @@ const IndexPage = () => {
 
   return (
     <>
-      <div className="cursor" id="cursor"></div>
-      <div className="cursorFollower" id="cursorFollower">
-        <img id="cursorImg" src={Cursor} alt=""></img>
-      </div>
       {isLoading && <div className="loader" id="loader">
         <video autoPlay loop muted playsInline>
           <source src={LoaderVideo} type="video/mp4" />
         </video>
       </div>}
+      <div className="cursor" id="cursor"></div>
+      <div className="cursorFollower" id="cursorFollower">
+        <img id="cursorImg" src={Cursor} alt=""></img>
+      </div>
+      
       <>
         {showBlackScreen && (
           <div className="blackScreen">
