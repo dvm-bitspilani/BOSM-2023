@@ -8,14 +8,14 @@ import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
-import img2 from "../images/Gallery/box2.png"
-import img3 from "../images/Gallery/box3.png"
-import img4 from "../images/Gallery/box4.png"
-import img5 from "../images/Gallery/box5.png"
-import img7 from "../images/Gallery/box7.png"
-import img8 from "../images/Gallery/box8.png"
-import img9 from "../images/Gallery/box9.png"
-import img10 from "../images/Gallery/box10.png"
+import img2 from "../images/Gallery/box2.jpg"
+import img3 from "../images/Gallery/box3.jpg"
+import img4 from "../images/Gallery/box4.jpg"
+import img5 from "../images/Gallery/box5.jpg"
+import img7 from "../images/Gallery/box7.jpg"
+import img8 from "../images/Gallery/box8.jpg"
+import img9 from "../images/Gallery/box9.jpg"
+import img10 from "../images/Gallery/box10.jpg"
 import ErrorScreen from "../Components/ErrorComponent";
 import {
     useScroll,
@@ -27,26 +27,14 @@ import {
 const Gallery = props => {
 
     const { scrollY } = useScroll();
-    const y2 = useTransform(scrollY, [0, 2000], [10, 200]);
+    const y2 = useTransform(scrollY, [0, 2000], [-10,  190]);
     const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
     const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
     const y5 = useTransform(scrollY, [0, 2000], [-50, 150]);
     const y7 = useTransform(scrollY, [0, 2000], [-60, 140]);
-    const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
-    const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
-    const y10 = useTransform(scrollY, [0, 2000], [-60, 140]);
-
-
-    const { scrollY } = useScroll();
-    const y2 = useTransform(scrollY, [0, 2000], [10, 200]);
-    const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
-    const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
-    const y5 = useTransform(scrollY, [0, 2000], [-50, 150]);
-    const y7 = useTransform(scrollY, [0, 2000], [-60, 140]);
-    const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
-    const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
-    const y10 = useTransform(scrollY, [0, 2000], [-60, 140]);
-
+    const y8 = useTransform(scrollY, [0, 2000], [-100, 100]);
+    const y9 = useTransform(scrollY, [0, 2000], [-100, 100]);
+    const y10 = useTransform(scrollY, [0, 2000], [-100, 100]);
 
     const [error , setError] = useState(false);
 

@@ -180,13 +180,17 @@
 }
 
 .image{
-    scale: 1.5;
+    scale: 1.3;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     overflow: hidden;
     transform: all 0.5s ease-out;
+}
+
+.box4 img{
+    translateX: 10vw;
 }
 
 @media only screen and (max-width: 800px) {
