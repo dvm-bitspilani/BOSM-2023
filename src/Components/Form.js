@@ -530,8 +530,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_colleges/');
         const data = await response.json();
-        console.log(data)
-        // console.log(convertApiFormat(data))
+
         const convertedOptions = convertApiFormat(data);
         setCollegeOptions(convertedOptions);
       } catch (error) {
@@ -542,9 +541,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_cities/');
         const data = await response.json();
-        console.log(data);
-        console.log(createOptionsFromKeys(data["data"]))
-        console.log(createOptionsFromInputObject(data))
+
         setStateOptions(createOptionsFromKeys(data["data"]))
         const convertedOptions = convertApiFormat(data);
         setPlaceData(data["data"]);
@@ -557,14 +554,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
         const data = await response.json();
-        // console.log(data)
-        // console.log(data["male"])
-        // console.log(data["female"])
+
         const other = [...data["male"] ,...data["female"]]
-        // console.log(other)
-        console.log(convertArray(data["male"]))
-        console.log(convertArray(data["female"]))
-        console.log(convertArray(other))
+
         setSportsOptionsOther(convertArray(other));
         setSportsOptionsMale(convertArray(data["male"]));
         setSportsOptionsFemale(convertArray(data["female"]));
@@ -578,7 +570,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     // fetchStateOptions();
     fetchSportsOptions();
   }, []);
-  console.log(placedata)
+
   function createArrayOfObjects(inputArray) {
     if(!inputArray)return;
     const outputArray = [];
@@ -589,7 +581,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   
     return outputArray;
   }
-  console.log(createArrayOfObjects(placedata[`${selectedState["value"]}`]))
+
 
   const isFormFilled = () => {
     const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'state', 'sports', 'year_of_study'];
@@ -605,7 +597,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }
 
     if (missingFields.length > 0) {
-      // console.log("Missing fields:", missingFields);
+
       return false;
     }
 
@@ -718,7 +710,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     updatedFormData["is_coach"] = isCoach;
     setFormData(updatedFormData);
   };
-console.log(gender)
+
 
   const handleChangeMulti = (selectedOptions, { name }) => {
     const updatedFormData = { ...formData };
@@ -743,16 +735,13 @@ console.log(gender)
       });
 
       if (response.ok) {
-        // console.log('Form data submitted successfully!');
+
         alert("Your Registration is completed!");
       } else {
-        // console.error('Error submitting form data:', response.status, response.statusText);
         setErrorMsg("There was some error submitting your request. Please try again!");
         setError2(true)
       }
     } catch (error) {
-      // console.error('Error submitting form data:', error);
-      // alert("There was some error submitting your request. Please try again!");
       setErrorMsg("There was some error submitting your request. Please try again!");
       setError2(true)
     }
@@ -794,19 +783,16 @@ console.log(gender)
           .then((url) => {
             const updatedFormData = { ...formData };
             updatedFormData["img_url"] = url;
-            console.log(changeKeyName(updatedFormData));
             submitFormData(changeKeyName(updatedFormData));
           })
           .catch((error) => {
             setErrorMsg('Error getting image URL. Please try again.');
             setError2(true)
-            console.error(error);
           });
       })
       .catch((error) => {
         setErrorMsg('Error uploading image. Please try again.');
         setError2(true)
-        console.error(error);
       });
   };
   
@@ -820,9 +806,7 @@ console.log(gender)
     sportsOptions=sportsOptionsOther
   }
 
-  console.log(error1)
-  console.log(selectedState)
-  console.log(createArrayOfObjects(placedata[`${selectedState["value"]}`]))
+
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
