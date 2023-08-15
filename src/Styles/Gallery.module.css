@@ -189,9 +189,7 @@
     transform: all 0.5s ease-out;
 }
 
-.box4 img{
-    translateX: 10vw;
-}
+
 
 @media only screen and (max-width: 800px) {
     .gridContainer {
