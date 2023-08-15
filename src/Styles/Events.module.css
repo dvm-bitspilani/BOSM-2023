@@ -1,58 +1,44 @@
 .eventsSection{
-    position: relative;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background: url(../images/event_bg.png);
-    background-size: cover;
-    background-position: center center;
+  position: relative;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: url(../images/event_bg.png);
+  background-size: cover;
+  background-position: center center;
 }
 .eventsSection h3{
-    color: #F5F5F5;
-    text-align: center;
-    font-family: "Druk Wide Bold";
-    font-size: 3.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 2.9px;
-    padding: 5% 0;
+  color: #F5F5F5;
+  text-align: center;
+  font-family: "Druk Wide Bold";
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.9px;
+  padding: 5% 0;
 }
-.carouselContainer {
-    border-radius: 16px;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    cursor: grab;
-  }
-  .container:active {
-    cursor: grabbing;
-  }
-  
-  .persons-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .person {
-    position: absolute;
-    height: 100%;
-    user-select: none;
-  }
-  .person img {
-    position: relative;
-    pointer-events: none;
-    width: 350px;
-    height: 400px;
-    top: 50%;
-    transform: translateY(-50%);
-    overflow: hidden;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 10px solid transparent;
-    transition: border 0.3s ease-out;
-  }
-  .person.active img {
-    border: 10px solid cadetblue;
-  }
+.stage, .ring, .img {
+  width:100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  user-select:none;
+}
+
+.stage {
+  overflow:hidden;
+  background:#000;  
+}
+
+.stage div, svg {
+  position: absolute;
+}
+
+.container {
+  perspective: 2000px;
+  width: 300px;
+  height: 400px;  
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}

@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: `https://bosm-2023.netlify.app`
   },
   plugins: [
+    "swiper",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
