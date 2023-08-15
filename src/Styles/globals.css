@@ -51,7 +51,7 @@ a{
   overflow-y: hidden;
 }
 #about-us-section{
-  height: 140vh;
+  height: 150vh;
 }
 .fixed-bg {
   position: fixed;
@@ -290,11 +290,7 @@ a{
     width: 100vw;
   }
 }
-@media(max-width: 1300px){
-  #about-us-section{
-    height: 150vh;
-  }
-}
+
 @media(max-width: 920px){
   #about-us-section{
     height: 100vh;
