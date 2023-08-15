@@ -32,9 +32,9 @@ const Gallery = props => {
     const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
     const y5 = useTransform(scrollY, [0, 2000], [-20, 180]);
     const y7 = useTransform(scrollY, [0, 2000], [-30, 170]);
-    const y8 = useTransform(scrollY, [0, 2000], [-50, 150]);
-    const y9 = useTransform(scrollY, [0, 2000], [-50, 150]);
-    const y10 = useTransform(scrollY, [0, 2000], [0, 200]);
+    const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y10 = useTransform(scrollY, [0, 2000], [-30, 170]);
 
     const [error , setError] = useState(false);
 
