@@ -5,10 +5,11 @@ import AboutUsCarousel from "../Components/AboutUsCarousel.js"
 import thumbnailImage1 from "../images/aboutUsCarouselThumbnail.png"
 import thumbnailImage2 from "../images/bgmi.png"
 import thumbnailImage3 from "../images/fifa.png"
+import Carousel from "./Carousel"
 const AboutUs = (props) => {
 
     const { scrollYProgress } = useScroll();
-    const pageRadius = useTransform(scrollYProgress, [0, 0.4], ['75% 75% 0 0', '0%']);
+    const pageRadius = useTransform(scrollYProgress, [0, 0.3], ['75% 75% 0 0', '0%']);
     // useEffect(()=>{
     //     const page = document.querySelector(`.${about["aboutPage"]}`)
     //     page.style.transform = `translateY(${scrollYProgress}px)`;
@@ -45,7 +46,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={window && window.innerWidth > 920 ? { borderRadius: pageRadius } : ""}
+            style={ window ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
         >
             <div className={about["topContainer"]}>
                 <div
@@ -60,7 +61,7 @@ const AboutUs = (props) => {
                     >ABOUT US</motion.h1>
                 </div>
                 <div className={about["carouselContainer"]}>
-                    <AboutUsCarousel images={images} />
+                    <Carousel />
                 </div>
                 <div
                     className={about["whiteBar"]}
