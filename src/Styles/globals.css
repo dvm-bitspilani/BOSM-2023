@@ -271,7 +271,7 @@ a{
   }
 
   .loader video{
-    width: 100vw;
+    width: 50vw;
   }
 }
 @media (max-width: 650px) and (min-height: 770px) {
@@ -279,7 +279,7 @@ a{
     min-height: 165vh;
   }
   .loader video{
-    width: 100vw;
+    width: 50vw;
   }
 }
 @media (max-width: 650px) and (min-height: 890px) {
@@ -287,7 +287,7 @@ a{
     min-height: 160vh;
   }
   .loader video{
-    width: 100vw;
+    width:  50vw;
   }
 }
 
