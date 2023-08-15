@@ -375,7 +375,7 @@ h2 {
 .submitBtnMargin {
   margin-right: 1rem;
 }
-.submitBtn span{
+.submitBtn svg{
   margin-right: 1rem;
 }
 .submitBtn:hover span img::before {
@@ -393,8 +393,8 @@ h2 {
   color: #36788a;
   background-color: #f5f5f5;
 }
-.submitBtn:hover span img{
-  filter: brightness(0.5) saturate(2) hue-rotate(140deg);
+.submitBtn:hover svg path{
+  stroke: #36788a;
 }
 input[type="radio"] {
   background-color: #36788a;

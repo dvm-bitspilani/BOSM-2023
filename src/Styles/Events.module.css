@@ -30,7 +30,7 @@
   background:#000;  
 }
 
-.stage div, svg {
+.stage div {
   position: absolute;
 }
 

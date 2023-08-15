@@ -4,14 +4,24 @@ import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import RadioButton from './RadioBtn';
-import upload from "../images/upload.png"
+import upload from "../images/upload.svg"
 import {storage} from "../Components/firebase";
 import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
-
+import Error1 from './Error1';
+import Error2 from './Error2';
 import {v4} from "uuid";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
+
+  const [error1 , setError1]=useState(false)
+  const [error2 , setError2]=useState(false)
+  const [errormsg , setErrorMsg] = useState("")
+
+  const closeError=()=>{
+    setError1(false);
+    setError2(false);
+  }
 
   const customNoOptionsMessage = () => "Please select a Gender First";
   const customNoOptionsMessage2 = () => "Please select a State First";
@@ -720,11 +730,14 @@ console.log(gender)
         alert("Your Registration is completed!");
       } else {
         // console.error('Error submitting form data:', response.status, response.statusText);
-        alert("There was some error submitting your request. Please try again!");
+        setErrorMsg("There was some error submitting your request. Please try again!");
+        setError2(true)
       }
     } catch (error) {
       // console.error('Error submitting form data:', error);
-      alert("There was some error submitting your request. Please try again!");
+      // alert("There was some error submitting your request. Please try again!");
+      setErrorMsg("There was some error submitting your request. Please try again!");
+      setError2(true)
     }
   };
 
@@ -733,22 +746,26 @@ console.log(gender)
 
   const handleRegistration = () => {
     if (!isFormFilled(formData)) {
-      alert('Please fill in all required fields.');
+      setErrorMsg("Fill all the fields of the form");
+      setError1(true)
       return;
     }
   
     if (!isValidEmail(formData.email_id)) {
-      alert('Invalid email address.');
+      setErrorMsg('Invalid email address.');
+      setError1(true)
       return;
     }
   
     if (!isValidPhoneNumber(formData.phone)) {
-      alert('Invalid phone number. Please enter digits only.');
+      setErrorMsg('Invalid phone number.');
+      setError1(true)
       return;
     }
   
     if (fileUploaded === null) {
-      alert('Upload Photo');
+      setErrorMsg('Upload Photo');
+      setError1(true)
       return;
     }
   
@@ -764,12 +781,14 @@ console.log(gender)
             submitFormData(changeKeyName(updatedFormData));
           })
           .catch((error) => {
-            alert('Error getting image URL. Please try again.');
+            setErrorMsg('Error getting image URL. Please try again.');
+            setError2(true)
             console.error(error);
           });
       })
       .catch((error) => {
-        alert('Error uploading image. Please try again.');
+        setErrorMsg('Error uploading image. Please try again.');
+        setError2(true)
         console.error(error);
       });
   };
@@ -784,9 +803,12 @@ console.log(gender)
     sportsOptions=sportsOptionsOther
   }
 
+  console.log(error1)
   console.log(selectedState)
   console.log(createArrayOfObjects(placedata[`${selectedState["value"]}`]))
-  return (
+  return (<>
+    {error1 && <Error1 onClose={closeError} text={errormsg} />}
+    {error2 && <Error2 onClose={closeError} text={errormsg} />}
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
@@ -881,7 +903,9 @@ console.log(gender)
           </div>
         </form>
         <div className={styles["btnContainer"]}>
-          <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}><span><img src={upload}/></span>PHOTO</button>
+          <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.5 15.5V16.9C22.5 18.8602 22.5 19.8403 22.1185 20.589C21.783 21.2475 21.2475 21.783 20.589 22.1185C19.8403 22.5 18.8602 22.5 16.9 22.5H7.1C5.13982 22.5 4.15972 22.5 3.41103 22.1185C2.75247 21.783 2.21703 21.2475 1.88148 20.589C1.5 19.8403 1.5 18.8602 1.5 16.9V15.5M17.8333 7.33333L12 1.5M12 1.5L6.16667 7.33333M12 1.5V15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>PHOTO</button>
           <input type="file"
             ref={hiddenFileInput}
             style={{display:'none'}}
@@ -891,6 +915,7 @@ console.log(gender)
         </div>
       </div>
     </section>
+    </>
   );
 };
 
