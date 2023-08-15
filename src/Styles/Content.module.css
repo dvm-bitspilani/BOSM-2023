@@ -354,20 +354,27 @@ h2 {
   display: flex;
   justify-content: center;
   width: 100vw;
+  flex-wrap: wrap;
+}
+.btnContainer div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .submitBtn {
   background: transparent;
   outline: none;
   position: relative;
   z-index: 99;
-  width: 12.5rem;
-  padding: 0.5rem 1.5rem;
+  width: 9.5rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 12px;
   border: 1.415px solid #f5f5f5;
   color: #f5f5f5;
   font-family: "Montserrat";
-  font-size: 1.5rem;
-  font-weight: 401;
+  font-size: 1.2rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -388,6 +395,20 @@ h2 {
   background-color: #36788a;
   opacity: 1;
   z-index: -1;
+}
+.btnContainer p{
+  color: #FFF;
+  font-family: 'Montserrat';
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 401;
+  line-height: normal;
+  margin-top: .5rem;
+  position: relative;
+  z-index: 99;
+}
+.btnContainer p:hover{
+  border-bottom: 1px solid #fff;
 }
 .submitBtn:hover {
   color: #36788a;
@@ -434,7 +455,27 @@ input[type="radio"] {
   color: #36788a;
 }
 
-
+.errorAnimation {
+  color: red ;
+  animation: wiggle 0.5s ease 1;
+}
+@keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .socialsContainer{
   position: absolute;
   right: 0;

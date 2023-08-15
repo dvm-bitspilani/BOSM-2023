@@ -11,10 +11,12 @@ import { ref } from 'firebase/storage';
 import Error1 from './Error1';
 import Error2 from './Error2';
 import Success from "./Success";
+import Preview from "./Preview";
 import {v4} from "uuid";
 
 const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
+  const [preview , setpreview] = useState(false)
   const [error1 , setError1]=useState(false)
   const [error2 , setError2]=useState(false)
   const [success , setSuccess]=useState(false)
@@ -23,7 +25,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const closeError=()=>{
     setError1(false);
     setError2(false);
-    setSuccess(false);  }
+    setSuccess(false);  
+    setpreview(false)
+  }
 
   const customNoOptionsMessage = () => "Please select a Gender First";
   const customNoOptionsMessage2 = () => "Please select a State First";
@@ -739,16 +743,28 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       if (response.ok) {
         setSuccess(true);
       } else {
-        setErrorMsg("There was some error submitting your request. Please try again!");
+        // console.log(response);
+        response.json().then(
+          parsedResponse => {
+            const message = parsedResponse.message;
+            setErrorMsg(message)
+            // console.log(message);
+          }
+        );
         setError2(true)
       }
     } catch (error) {
-      setErrorMsg("There was some error submitting your request. Please try again!");
+      setErrorMsg("There was some error submiting your request. Please try again!");
       setError2(true)
     }
   };
-
-
+  const [paramsg , setparamsg] =useState('* Upload your passport size photo');
+  useEffect(()=>{
+    if(fileUploaded){
+      document.getElementById("previewPara").style.color="white";
+      setparamsg("Click here to Preview your photo")
+    }
+  },[fileUploaded])
 
 
   const handleRegistration = () => {
@@ -771,8 +787,13 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }
   
     if (fileUploaded === null) {
-      setErrorMsg('Upload Photo');
-      setError1(true)
+      // setErrorMsg('Upload Photo');
+      // setError1(true)
+      document.getElementById("previewPara").classList.add(`${styles["errorAnimation"]}`)
+      setTimeout(() => {
+        document.getElementById("previewPara").classList.remove(`${styles["errorAnimation"]}`)
+      }, 1000);
+      document.getElementById("previewPara").style.color="red";
       return;
     }
   
@@ -807,11 +828,18 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     sportsOptions=sportsOptionsOther
   }
 
+  const onClickPara = ()=>{
+    if(!fileUploaded)return;
+    else if(fileUploaded){
+      setpreview(true)
+    }
+  };
 
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
     {success && <Success onClose={closeError} text={errormsg} />}
+    {preview && <Preview onClose={closeError} text={errormsg} img={fileUploaded} />}
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
@@ -906,15 +934,20 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
           </div>
         </form>
         <div className={styles["btnContainer"]}>
-          <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22.5 15.5V16.9C22.5 18.8602 22.5 19.8403 22.1185 20.589C21.783 21.2475 21.2475 21.783 20.589 22.1185C19.8403 22.5 18.8602 22.5 16.9 22.5H7.1C5.13982 22.5 4.15972 22.5 3.41103 22.1185C2.75247 21.783 2.21703 21.2475 1.88148 20.589C1.5 19.8403 1.5 18.8602 1.5 16.9V15.5M17.8333 7.33333L12 1.5M12 1.5L6.16667 7.33333M12 1.5V15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>PHOTO</button>
-          <input type="file"
-            ref={hiddenFileInput}
-            style={{display:'none'}}
-            onChange={handleInputChange}
-          />
-          <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
+          <div>
+            <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.5 15.5V16.9C22.5 18.8602 22.5 19.8403 22.1185 20.589C21.783 21.2475 21.2475 21.783 20.589 22.1185C19.8403 22.5 18.8602 22.5 16.9 22.5H7.1C5.13982 22.5 4.15972 22.5 3.41103 22.1185C2.75247 21.783 2.21703 21.2475 1.88148 20.589C1.5 19.8403 1.5 18.8602 1.5 16.9V15.5M17.8333 7.33333L12 1.5M12 1.5L6.16667 7.33333M12 1.5V15.5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>PHOTO</button>
+            <input type="file"
+              ref={hiddenFileInput}
+              // style={{display:'none'}}
+              hidden
+              onChange={handleInputChange}
+            />
+            <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
+          </div>
+          <p onClick={onClickPara} id='previewPara' onClose={closeError}>{paramsg}</p>
         </div>
       </div>
     </section>
