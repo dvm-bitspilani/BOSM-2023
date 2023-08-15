@@ -30,11 +30,11 @@ const Gallery = props => {
     const y2 = useTransform(scrollY, [0, 2000], [-10,  190]);
     const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
     const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
-    const y5 = useTransform(scrollY, [0, 2000], [-50, 150]);
-    const y7 = useTransform(scrollY, [0, 2000], [-60, 140]);
-    const y8 = useTransform(scrollY, [0, 2000], [-100, 100]);
-    const y9 = useTransform(scrollY, [0, 2000], [-100, 100]);
-    const y10 = useTransform(scrollY, [0, 2000], [-100, 100]);
+    const y5 = useTransform(scrollY, [0, 2000], [-20, 180]);
+    const y7 = useTransform(scrollY, [0, 2000], [-30, 170]);
+    const y8 = useTransform(scrollY, [0, 2000], [-50, 150]);
+    const y9 = useTransform(scrollY, [0, 2000], [-50, 150]);
+    const y10 = useTransform(scrollY, [0, 2000], [0, 200]);
 
     const [error , setError] = useState(false);
 
@@ -200,7 +200,9 @@ const Gallery = props => {
                         </div>
                         <div className={styles["box6"]}>
                             <p className={styles["aboutHeading"]}>about</p>
-                            <p className={styles["aboutText"]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie posuere eros, vitae bibendum lorem. Quisque volutpat eget lacus sit amet commodo. Fusce condimentum, neque vel accumsan finibus, felis nisi suscipit </p>
+                            <p className={styles["aboutText"]}>
+                            The esteemed BITS Open Sports Meet (BOSM) returns for its 36th edition, offering college teams a prestigious platform to exhibit talent. Established in 1986 at BITS Pilani, Pilani Campus, it's a prime stage for intense national athletic competition.
+                            </p>
                         </div>
                         <div className={styles["box7"]}>
                             <motion.img src={img7} alt="not found" className={styles["image"]}
