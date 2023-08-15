@@ -69,7 +69,7 @@ const AboutUs = (props) => {
                         height: '2px',
                         background: 'white',
                         margin: 'auto',
-                        marginTop: '5rem',
+                        marginTop: '3rem',
                     }}></div>
 
             </div>
