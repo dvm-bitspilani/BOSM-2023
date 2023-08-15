@@ -22,6 +22,14 @@ import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
+import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png"
+import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png"
+import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png"
+import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png"
+import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png"
+import Syed from "../Components/ContactsData/ContactImages/Syed.png"
+import Ayush from "../Components/ContactsData/ContactImages/Ayush.png"
+
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,53 +43,53 @@ const IndexPage = () => {
 
   const ContactsData = [
     {
-      "name": "Shreyas Sesham",
+      "name": "Vidhartha Shukla",
+      "image": `${Vidhartha}`,
+      "department": "Sports Financial Commitee",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+  
+    },
+    {
+      "name": "Pradyut Sood",
+      "image": `${Pradyut}`,
+      "department": "Sports Financial Commitee",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+      
+    },
+    {
+      "name": "Vinayak Bhattacharya",
       "image": `${Boy}`,
-      "department": "Publications and Correspondence",
+      "department": "Sports Financial Commitee",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
   
     },
     {
       "name": "Anushka Patil",
-      "image": `${Girl}`,
+      "image": `${AnushkaPatil}`,
       "department": "Controls",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
-      
     },
     {
       "name": "Ayush Singh Bhandari",
-      "image": `${Boy}`,
-      "department": "Sponsorship and Marketing",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-  
-    },
-    {
-      "name": "Shirish Kumaravel",
-      "image": `${Boy}`,
-      "department": "Reception and Accomodation",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Aditya Kumar Sriram",
-      "image": `${Boy}`,
+      "image": `${Ayush}`,
       "department": "Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
     },
     {
-      "name": "Anushka Shukla",
-      "image": `${Girl}`,
+      "name": "Syed Aga Hani Riza",
+      "image": `${Syed}`,
       "department": "Joint Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
     },
     {
-      "name": "Syed Aga Hani Riza",
-      "image": `${Boy}`,
+      "name": "Anushka Shukla",
+      "image": `${AnushkaShukla}`,
       "department": "Joint Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
@@ -716,7 +724,8 @@ const IndexPage = () => {
             }
           />
         )} */}
-        {!regPage && (
+        {!regPage &&(
+          
           <Layout
             overflow={false}
             navbar={false}
@@ -725,7 +734,6 @@ const IndexPage = () => {
             sectionId="contact-section"
             content={
               <main
-
                 id="contactPage"
                 className={contact["page"]}
                 style={{ top: "30vh" }}
