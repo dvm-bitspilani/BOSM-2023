@@ -46,7 +46,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={ window ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
+            style={ typeof window !== "undefined" ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
         >
             <div className={about["topContainer"]}>
                 <div
