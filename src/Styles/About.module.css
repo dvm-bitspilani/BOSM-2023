@@ -9,6 +9,7 @@
     background-repeat:no-repeat ;
 }
 .topContainer{
+    margin: 5rem 0 0 0;
     height: auto;
     width: 100vw;
 }
@@ -23,7 +24,7 @@
 }
 .heading h1{
     color: #FFF;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 3rem;
     font-style: normal;
     font-weight: 700;
@@ -43,7 +44,7 @@
     align-items: flex-start;
     color: #FFF;
     text-align: center;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 600;
@@ -51,11 +52,11 @@
     letter-spacing: 2.1px;
 }
 .contentContainer{
-    margin: 0 auto;
+    margin: 0 auto 5rem auto;
     display: flex;
     width: 80%;
     justify-content: space-between;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
 }
 .title{
     display: flex;
@@ -68,7 +69,7 @@
 .title h1{
     color: #FFF;
     text-align: center;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 700;
@@ -87,11 +88,17 @@
     margin-top: 2.5rem;
     width: 85%;
     color: #D3D3D3;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.index{
+    padding: 1rem 0;
+}
+.whiteBar{
+    width: 80%;
 }
 @media(max-width: 1300px){
     .title h1{
@@ -99,5 +106,70 @@
     }
     .desc{
         margin-top: 2.25rem;
+    }
+}
+@media(max-width: 920px){
+    .aboutPage{
+        height: 100vh;
+    }
+    /* .contentIndex{
+        flex-direction: column;
+    } */
+    .whiteBar{
+        width: 90%;
+    }
+    .contentContainer{
+        width: 90%;
+    }
+    .topContainer{
+        margin: 3rem 0 0 0;
+    }
+    .heading h1{
+        font-size: 2.5rem;
+    }
+    .title h1, .index{
+        font-size: 1.5rem;
+    }
+    .desc{
+        font-size: .85rem;
+    }
+}
+@media(max-width: 780px){
+    .title h1, .index{
+        font-size: 1.25rem;
+    }
+    .desc{
+        font-size: .75rem;
+    }
+}
+@media(max-width: 680px){
+    .aboutPage{
+        overflow: hidden;
+        height: auto;
+    }
+    .contentContainer{
+        flex-direction: column;
+        margin: 0 auto 2rem auto;
+    }
+    .group{
+        width: 100%;
+    }
+    .index{
+        width: 50%;
+    }
+    .title{
+        width: 50%;
+        height: 50%;
+    }
+    .title h1, .index{
+        font-size: .75rem;
+        letter-spacing: 1px;
+    }
+    .flexContainer{
+        display: flex;
+    }
+    .desc{
+        margin-top: 0;
+        width: 100%;
     }
 }

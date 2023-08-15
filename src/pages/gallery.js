@@ -6,6 +6,7 @@ import "../Styles/globals.css"
 import { useState, useEffect, useRef } from "react";
 import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
+import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
 import img2 from "../images/Gallery/box2.png"
 import img3 from "../images/Gallery/box3.png"
@@ -15,7 +16,7 @@ import img7 from "../images/Gallery/box7.png"
 import img8 from "../images/Gallery/box8.png"
 import img9 from "../images/Gallery/box9.png"
 import img10 from "../images/Gallery/box10.png"
-
+import ErrorScreen from "../Components/ErrorComponent";
 import {
     useScroll,
     motion,
@@ -36,7 +37,99 @@ const Gallery = props => {
     const y10 = useTransform(scrollY, [0, 2000], [-60, 140]);
 
 
+    const { scrollY } = useScroll();
+    const y2 = useTransform(scrollY, [0, 2000], [10, 200]);
+    const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
+    const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
+    const y5 = useTransform(scrollY, [0, 2000], [-50, 150]);
+    const y7 = useTransform(scrollY, [0, 2000], [-60, 140]);
+    const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
+    const y10 = useTransform(scrollY, [0, 2000], [-60, 140]);
+
+
+    const [error , setError] = useState(false);
+
+    const [isLoading2, setIsLoading2] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+
+    const [videoLoaded , setIsVideoLoaded] = useState(false)
+
+    useEffect(() => {
+      const videos = document.querySelectorAll("video");
+  
+      let videosLoaded = 0;
+  
+      const handleVideoLoad = () => {
+        videosLoaded++;
+        if (videosLoaded === videos.length) {
+          setTimeout(() => {
+            setIsVideoLoaded(true);
+          }, 2000);
+        }
+      };
+  
+      videos.forEach((video) => {
+        if (video.readyState >= 2) {
+          handleVideoLoad();
+        } else {
+          video.addEventListener("loadeddata", handleVideoLoad);
+          video.addEventListener("error", handleVideoLoad);
+        }
+      });
+  
+      const cleanup = () => {
+        videos.forEach((video) => {
+          video.removeEventListener("loadeddata", handleVideoLoad);
+          video.removeEventListener("error", handleVideoLoad);
+        });
+      };
+  
+      return cleanup;
+    }, []);
+    useEffect(() => {
+      if(videoLoaded){
+      const assets = document.querySelectorAll(
+        "img", "font", "style"
+      );
+  
+      let assetsLoaded = 0;
+  
+      const handleAssetLoad = () => {
+        assetsLoaded++;
+        if (assetsLoaded === assets.length) {
+          setTimeout(() => {
+            setIsLoading2(false);
+          }, 2000);
+        }
+      };
+  
+      assets.forEach((asset) => {
+        if (
+          asset.complete ||
+          asset.readyState === 4 ||
+          asset.tagName === "LINK"
+        ) {
+          handleAssetLoad();
+        } else {
+          asset.addEventListener("load", handleAssetLoad);
+          asset.addEventListener("error", handleAssetLoad);
+        }
+      });
+  
+      const cleanup = () => {
+        assets.forEach((asset) => {
+          asset.removeEventListener("load", handleAssetLoad);
+          asset.removeEventListener("error", handleAssetLoad);
+        });
+      };
+  
+      return cleanup;
+    }}, [videoLoaded]);
+  
+
+
+
 
     useEffect(() => {
         const cursor = document.getElementById("cursor");
@@ -82,6 +175,12 @@ const Gallery = props => {
             <div className="cursorFollower" id="cursorFollower">
                 <img id="cursorImg" src={Cursor} alt=""></img>
             </div>
+            {isLoading2 && <div className="loader" id="loader">
+                <video autoPlay loop muted playsInline>
+                <source src={LoaderVideo} type="video/mp4" />
+                </video>
+            </div>}
+            {error && <ErrorScreen />}
             <main
                 className={styles["gallery"]}
                 isHamOpen={false}>

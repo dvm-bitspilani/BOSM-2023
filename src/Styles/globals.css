@@ -51,7 +51,7 @@ a{
   overflow-y: hidden;
 }
 #about-us-section{
-  height: 150vh;
+  height: 140vh;
 }
 .fixed-bg {
   position: fixed;
@@ -288,5 +288,20 @@ a{
   }
   .loader video{
     width: 100vw;
+  }
+}
+@media(max-width: 1300px){
+  #about-us-section{
+    height: 150vh;
+  }
+}
+@media(max-width: 920px){
+  #about-us-section{
+    height: 100vh;
+  }
+}
+@media(max-width: 680px){
+  #about-us-section{
+    height: auto;
   }
 }

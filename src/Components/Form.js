@@ -494,7 +494,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       try {
         const response = await fetch('https://bitsbosm.org/2023/registrations/get_sports/');
         const data = await response.json();
-        // console.log(data)
+        console.log(data)
         // console.log(convertApiFormat(data))
         const convertedOptions = convertApiFormat(data);
         setSportsOptions(convertedOptions);
