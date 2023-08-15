@@ -252,6 +252,15 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontWeight: 500,
       paddingLeft: '1rem',
     }),
+    clearIndicator: (provided) => ({
+      ...provided,
+      color: '#fff',
+      display:'none',
+      cursor: 'pointer',
+      '&:hover': {
+        color: '#ffd700'
+      }
+    }),
   };
   const customStyles3 = {
     control: (provided, state) => ({
@@ -349,6 +358,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontSize: '1rem',
       fontWeight: 500,
       paddingLeft: '1rem',
+    }),
+    clearIndicator: (provided) => ({
+      ...provided,
+      color: '#fff',
+      cursor: 'pointer',
+      '&:hover': {
+        color: '#ffd700'
+      }
     }),
   };
 

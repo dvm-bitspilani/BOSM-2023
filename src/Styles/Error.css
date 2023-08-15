@@ -47,3 +47,8 @@
     font-size: 1.5rem;
     font-weight: 600;
 }
+@media (max-width:1000px){
+    .error p{
+        font-size: 1rem;
+    }
+}
