@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import RightArrowImage from "../images/aboutUsCarouselRightArrow.png";
 import LeftArrowImage from "../images/aboutUsCarouselLeftArrow.png";
 import "../Styles/AboutUsCarousel.css";
@@ -71,34 +71,67 @@ const AboutUsCarousel = ({ images }) => {
     setCurrentIndex(index);
   };
 
+  // const carouselVariants = {
+  //       offscreen: {
+  //           opacity: 0
+  //       },
+  //       onscreen: {
+  //           opacity: 1,
+  //           transition: {
+  //               duration: 1
+  //           }
+  //       }
+  //   }
+
+  const contentVariants = {
+    offscreen: {
+        opacity: 0,
+        x: 200
+    },
+    onscreen: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1,
+            ease: "easeInOut",
+        }
+    }
+}
+
   return (
     <div className="about-us-carousel">
       <div className="about-us-carousel-top">
         <motion.div
           className="about-us-carousel-prev"
           onClick={handlePrevious}
-          // variants={slidersVariants}
-          // whileHover="hover"
+        // variants={slidersVariants}
+        // whileHover="hover"
         >
           <img src={LeftArrowImage} alt="" />
         </motion.div>
-        <div className="about-us-carousel-img-wrapper">
+        <motion.div
+          className="about-us-carousel-img-wrapper"
+          variants={contentVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true }}
+        >
           {/* <AnimatePresence> */}
-            <motion.img
-              key={currentIndex}
-              src={images[currentIndex]}
-              // initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
-              // animate="visible"
-              // exit="exit"
-              // variants={slideVariants}
-            />
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+          // initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
+          // animate="visible"
+          // exit="exit"
+          // variants={slideVariants}
+          />
           {/* </AnimatePresence> */}
-        </div>
+        </motion.div>
         <motion.div
           className="about-us-carousel-next"
           onClick={handleNext}
-          // variants={slidersVariants}
-          // whileHover="hover"
+        // variants={slidersVariants}
+        // whileHover="hover"
         >
           <img src={RightArrowImage} alt="" />
         </motion.div>
@@ -109,10 +142,10 @@ const AboutUsCarousel = ({ images }) => {
             key={index}
             className={`about-us-dot ${currentIndex === index ? "active" : ""}`}
             onClick={() => handleDotClick(index)}
-            // initial="initial"
-            // animate={currentIndex === index ? "animate" : ""}
-            // whileHover="hover"
-            // variants={dotsVariants}
+          // initial="initial"
+          // animate={currentIndex === index ? "animate" : ""}
+          // whileHover="hover"
+          // variants={dotsVariants}
           ></motion.div>
         ))}
       </div>
