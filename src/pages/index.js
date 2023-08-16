@@ -145,7 +145,7 @@ const IndexPage = () => {
     const rightLion = document.getElementsByClassName(styles["rightLion"]);
     const leftLion = document.getElementsByClassName(styles["leftLion"]);
     const countDown = document.getElementsByClassName(styles["countDown"]);
-    const socials = document.getElementsByClassName(styles["socialsContainer"]);
+    // const socials = document.getElementsByClassName(styles["socialsContainer"]);
     const rightSubTitle = document.getElementsByClassName(
       styles["rightSubTitle"]
     );
@@ -675,20 +675,8 @@ const IndexPage = () => {
 
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
-                  {/* {<motion.div
-                    className={styles["socials"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                    variants={countdownVariants}
-                  >
-                    <Socials />
-                  </motion.div>} */}
-
-
-
-                </div>
-
-                {/* Countdown */}
+                  
+                  {/* Countdown */}
                 {<motion.div
                   className={styles["countDown"]}
                   initial={{ opacity: [0] }}
@@ -697,6 +685,21 @@ const IndexPage = () => {
                 >
                   <Countdown />
                 </motion.div>}
+                  
+                  {<motion.div
+                    className={styles["socials"]}
+                    initial={{ opacity: [0] }}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                    variants={countdownVariants}
+                  >
+                    <Socials />
+                  </motion.div>}
+
+
+
+                </div>
+
+                
 
               </main>
             }
