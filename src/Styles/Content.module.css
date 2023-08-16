@@ -489,6 +489,9 @@ input[type="radio"] {
 .socials{
   position: absolute;
   top: 0;
+  width: 100%;
+  height: 70vh;
+  z-index: 99;
 }
 .socialsContainer{
   position: absolute;
@@ -507,11 +510,6 @@ input[type="radio"] {
 
 }
 
-.socials{
-  width: 100%;
-  height: 100vh;
-  z-index: 9999;
-}
 
 .iconContainer svg{
   height: 1.75rem;

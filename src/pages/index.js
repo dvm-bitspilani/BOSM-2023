@@ -675,7 +675,14 @@ const IndexPage = () => {
 
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
-
+                  {/* {<motion.div
+                    className={styles["socials"]}
+                    initial={{ opacity: [0] }}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                    variants={countdownVariants}
+                  >
+                    <Socials />
+                  </motion.div>} */}
 
 
 
@@ -690,14 +697,7 @@ const IndexPage = () => {
                 >
                   <Countdown />
                 </motion.div>}
-                {<motion.div
-                  className={styles["socials"]}
-                  initial={{ opacity: [0] }}
-                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                  variants={countdownVariants}
-                >
-                  <Socials />
-                </motion.div>}
+
               </main>
             }
           />
