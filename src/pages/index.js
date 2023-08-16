@@ -669,7 +669,7 @@ const IndexPage = () => {
                     variants={rightTextVariants}
                     onAnimationComplete={() => setIsLoaded(true)}
                   >
-                    <h1>of</h1>
+                    <h1>Of</h1>
                     <h2>RESILIENCE</h2>
                   </motion.div>}
 

@@ -70,10 +70,10 @@
 
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 3rem;
   z-index: 100;
   padding-top: 1.5rem;
-  right: 2%;
+  right: 4rem;
   top: 0%;
   width: fit-content;
 }

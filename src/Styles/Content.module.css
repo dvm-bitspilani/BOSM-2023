@@ -187,7 +187,7 @@ main {
 .rightSubTitle {
   position: absolute;
   width: 50%;
-  bottom: 40%;
+  top: 40%;
   height: fit-content;
   padding-inline: 1rem;
 }
@@ -200,6 +200,7 @@ main {
 .rightSubTitle {
   /* left: auto; */
   right: 0;
+  padding-top: 1.2rem;
 }
 
 .leftSubTitle h1,
@@ -213,6 +214,7 @@ h2 {
   color: #eee;
   line-height: 1;
   overflow: hidden;
+  padding-right: 0.1rem;
 }
 
 .leftSubTitle h1,
@@ -451,6 +453,7 @@ input[type="radio"] {
 .disabledYearOfStudy {
   opacity: 0.5;
   pointer-events: none;
+  transition: all 0.2s ease-in;
 }
 
 .yearOfStudy input[type="radio"]:hover + label {
@@ -497,7 +500,7 @@ input[type="radio"] {
 
 .socialsContainer{
   display: flex;
-  margin-inline: 2.7rem;
+  margin-inline: 1.5rem;
   padding-bottom: 2vh;
   gap: 1rem;
   overflow: visible;

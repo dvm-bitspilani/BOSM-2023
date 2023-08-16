@@ -57,34 +57,36 @@
 }
 
 .box1 {
-    width: 100%;
+    /* width: 100%; */
     grid-area: 1 / 1 / 2 / 3;
     background-color: #A63237;
     color: white;
     font-family: Montserrat;
-    display: grid;
-    grid-template-columns: 3vw 80vw;
+    display: flex;
     align-items: center;
-    height: 100%;
-    justify-content: space-between;
-    gap: 0.5vw;
+    gap: 2vw;
+    padding-bottom: 1.5vw;
+    overflow: hidden;
 }
 
 .box1 p {
     color: white;
     font-family: Montserrat;
-    font-size: 4vw;
+    font-size: 7vw;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    letter-spacing: 4px;
+    letter-spacing: 0.3vw;
     text-align: left;
-    padding-top: 2vw;
 }
 
-.box1 img {
-    height: 2vw;
-    /* padding-bottom: 0.5vw; */
+.arrow {
+    width: 9.5vw;
+}
+
+.arrow:hover{
+    scale: 1.2;
+    transition: all 0.5s ease-in-out;
 }
 
 .box2 {
@@ -92,9 +94,6 @@
 
 }
 
-.arrow {
-    width: 15vw;
-}
 
 .box3 {
     grid-area: 2 / 1 / 4 / 3;
@@ -157,7 +156,7 @@
     padding: 1.2vw;
     letter-spacing: 0.2vw;
     font-size: 1.5vw;
-    font-weight: 350;
+    font-weight: 500;
     font-family: Montserrat;
     width: 100%;
     text-align: center;
@@ -198,33 +197,34 @@
     }
 
     .box1 {
-        width: 100%;
+        /* width: 100%; */
         grid-area: 1 / 1 / 2 / 3;
         background-color: #A63237;
         color: white;
         font-family: Montserrat;
-        display: grid;
-        grid-template-columns: 5vw 80vw;
-        align-items: center;
-        height: 100%;
-        justify-content: space-between;
-        gap: 2vw;
+        /* display: grid; */
+        /* grid-template-columns: 5vw 80vw; */
+        /* align-items: center; */
+        /* height: 100%; */
+        /* justify-content: space-between; */
+        /* gap: 2vw; */
+        display: flex;
+        padding-bottom: 2vw;
     }
     
     .box1 p {
         color: white;
         font-family: Montserrat;
-        font-size: 8vw;
+        font-size: 7vw;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        letter-spacing: 4px;
+        letter-spacing: 0.3vw;
         text-align: left;
     }
     
-    .box1 img {
-        height: 6vw;
-        padding-top: 2vw;
+    .arrow{
+        width: 8vw;
     }
     
 .aboutHeading {
@@ -236,7 +236,7 @@
 
 .aboutText {
     font-weight: 350;
-    font-size: 1.7vw;
+    font-size: 2vw;
     letter-spacing: 0.12vw;
 }
 
@@ -244,7 +244,7 @@
     padding: 1.5vw;
     letter-spacing: 0.2vw;
     font-size: 1.5vw;
-    font-weight: 350;
+    font-weight: 500;
     font-family: Montserrat;
     width: 100%;
     text-align: center;
