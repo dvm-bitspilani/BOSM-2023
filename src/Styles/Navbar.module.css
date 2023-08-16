@@ -259,13 +259,12 @@
     position: absolute;
     top: 85vh;
     background-color: #fff;
-    opacity: 0.7 !important;
     z-index: 990;
   }
 
   .registerBtnMobile p {
     color: black;
-
+    font-weight: 600;
   }
 
   .hamburger {
