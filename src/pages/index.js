@@ -29,6 +29,8 @@ import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png"
 import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png"
 import Syed from "../Components/ContactsData/ContactImages/Syed.png"
 import Ayush from "../Components/ContactsData/ContactImages/Ayush.png"
+import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg"
+import shivang from "../Components/ContactsData/ContactImages/shivang.jpg"
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,28 +45,20 @@ const IndexPage = () => {
 
   const ContactsData = [
     {
-      "name": "Vidhartha Shukla",
-      "image": `${Vidhartha}`,
-      "department": "Sports Financial Commitee",
+      "name": "Shreyas Sesham",
+      "image": `${Shreyas}`,
+      "department": "Publications and Correspondence",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
   
     },
     {
-      "name": "Pradyut Sood",
-      "image": `${Pradyut}`,
-      "department": "Sports Financial Commitee",
+      "name": "Shirish Kumaravel",
+      "image": `${Shirish}`,
+      "department": "Reception and Accommodation",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
       
-    },
-    {
-      "name": "Vinayak Bhattacharya",
-      "image": `${Boy}`,
-      "department": "Sports Financial Commitee",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-  
     },
     {
       "name": "Anushka Patil",
@@ -76,9 +70,17 @@ const IndexPage = () => {
     {
       "name": "Ayush Singh Bhandari",
       "image": `${Ayush}`,
+      "department": "Sponsorship and Marketing",
+      "phone": "+91-9999999999",
+      "email": "abcd@pilani.bits-pilani.ac.in"
+    },
+    {
+      "name": "Aditya Kumar Sriram",
+      "image": `${Boy}`,
       "department": "Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
+  
     },
     {
       "name": "Syed Aga Hani Riza",
@@ -103,7 +105,7 @@ const IndexPage = () => {
     },
     {
       "name": "Shivang Rai",
-      "image": `${Boy}`,
+      "image": `${shivang}`,
       "department": "Online Registrations",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"

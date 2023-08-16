@@ -5,9 +5,7 @@ export default function Error(props) {
     const [imageSrc, setImageSrc] = useState("");
 
     useEffect(() => {
-            setImageSrc(URL.createObjectURL(props.img));
-            console.log(imageSrc)
-        
+        setImageSrc(URL.createObjectURL(props.img));        
     }, [props.img]);
 
     return (
