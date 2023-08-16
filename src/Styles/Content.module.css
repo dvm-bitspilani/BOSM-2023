@@ -502,6 +502,7 @@ input[type="radio"] {
   padding-bottom: 2vh;
   gap: 1rem;
   overflow: visible;
+  z-index: 100;
 }
 .iconContainer{
   overflow: visible;
