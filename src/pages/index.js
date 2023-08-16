@@ -247,7 +247,7 @@ const IndexPage = () => {
               rightSubTitle[0].style.filter = `blur(${blur}px)`;
               leftSubtitle[0].style.filter = `blur(${blur}px)`;
               heading[0].style.filter = `blur(${blur}px)`;
-              socials[0].style.filter = `blur(${blur}px)`;
+              // socials[0].style.filter = `blur(${blur}px)`;
               statueMobile.style.filter = `blur(${blur}px)`;
               // statue.style.filter = `blur(${blur}px)`;
               registerBtnMobile.style.filter = `blur(${blur}px)`;
@@ -263,7 +263,7 @@ const IndexPage = () => {
               heading[0].style.filter = "blur(0)";
               statueMobile.style.filter = "blur(0)";
               statue.style.filter = "blur(0)";
-              socials[0].style.filter = "blur(0)";
+              // socials[0].style.filter = "blur(0)";
               registerBtnMobile.style.filter = `blur(${blur}px)`
             }
           }
