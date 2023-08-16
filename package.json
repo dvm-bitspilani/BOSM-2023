@@ -19,7 +19,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@popmotion/popcorn": "^0.4.4",
+    "@rehooks/window-size": "^1.0.2",
     "autoprefixer": "^10.4.14",
+    "classnames": "^2.3.2",
     "firebase": "^10.1.0",
     "framer-motion": "^10.15.0",
     "gatsby": "^5.11.0",
@@ -43,6 +45,9 @@
     "react-select": "^5.7.4",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.0.7",
+    "styled-reset": "^4.5.1",
+    "styled-reset-advanced": "^1.0.3",
     "swiper": "^10.1.0",
     "uuid": "^9.0.0"
   }
