@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as about from "../Styles/About.module.css";
-import AboutUsCarousel from "../Components/AboutUsCarousel.js"
 import thumbnailImage1 from "../images/aboutUsCarouselThumbnail.png"
 import thumbnailImage2 from "../images/bgmi.png"
 import thumbnailImage3 from "../images/fifa.png"
@@ -46,7 +45,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={ typeof window !== "undefined" ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
+            // style={ typeof window !== "undefined" ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
         >
             <div className={about["topContainer"]}>
                 <div
@@ -99,7 +98,7 @@ const AboutUs = (props) => {
                                 <h1>THEME</h1>
                             </div>
                             <div className={about["desc"]}>
-                                The theme for BOSM 2022 is "Roar of Resilience." It signifies the stage being set for the sporting event and glory tells us about the success stories and efforts that one puts into achieving their feats.
+                                The theme for BOSM 2023 is "Roar of Resilience." It signifies the stage being set for the sporting event and glory tells us about the success stories and efforts that one puts into achieving their feats.
                             </div>
                         </div>
                     </div>

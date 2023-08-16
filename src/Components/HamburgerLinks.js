@@ -38,7 +38,8 @@ export default function HamburgerLinks({ img, text, color }) {
     <Link
       to={toText}
       style={{ textDecoration: "none" }}
-      onMouseDown={() => (document.documentElement.style.overflow = "scroll")}
+      onMouseUp={() => (document.documentElement.style.overflow = "scroll")}
+      draggable={false}
     >
     <div
       style={{ backgroundImage: `url(${img})` }}

@@ -5,7 +5,7 @@ main {
   /* overflow: hidden; */
 }
 .container {
-  height: 100%;
+  height: 80vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -107,12 +107,20 @@ main {
   position: absolute;
   left: 0;
 }
+
+
 .countDown {
   position: absolute;
   padding-inline: 2rem;
-  left: 0;
-  bottom: 0rem;
+  bottom: 0;
+  display: flex;
+  justify-content: bottom;
 }
+
+/* .countdown{
+  margin-top: 0;
+  position: absolute;
+} */
 .statueContainer {
   position: absolute;
   top: 0;
@@ -477,22 +485,37 @@ input[type="radio"] {
     transform: translateX(0);
   }
 }
+/* .socials{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99; */
+/* } */
+
 .socialsContainer{
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 2rem;
   display: flex;
-  margin: 2.7rem;
-  padding-bottom: 1vh;
+  margin-inline: 2.7rem;
+  padding-bottom: 2vh;
   gap: 1rem;
   overflow: visible;
+  z-index: 100;
 }
 .iconContainer{
   overflow: visible;
+  z-index: 999999;
+  position: relative;
+
 }
+
 
 .iconContainer svg{
   height: 1.75rem;
+  position: relative;
+  z-index: 99999;
 }
 
 .socialIcon{
@@ -720,8 +743,15 @@ input[type="radio"] {
   .heading span {
     font-size: 18vw;
   }
-  .socials{
-    display: none;
+  .socialsContainer{
+    margin-top: auto;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0.5rem;
+    flex-direction: column;
+    scale: 0.8;
+    margin-right: 1rem;
   }
 }
 
