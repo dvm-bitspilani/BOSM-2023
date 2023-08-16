@@ -477,22 +477,37 @@ input[type="radio"] {
     transform: translateX(0);
   }
 }
+.socials{
+  position: absolute;
+  top: 0;
+}
 .socialsContainer{
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 1rem;
   display: flex;
-  margin: 2.7rem;
-  padding-bottom: 1vh;
+  margin-inline: 2.7rem;
+  padding-bottom: 2vh;
   gap: 1rem;
   overflow: visible;
 }
 .iconContainer{
   overflow: visible;
+  z-index: 999999;
+  position: relative;
+
+}
+
+.socials{
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
 }
 
 .iconContainer svg{
   height: 1.75rem;
+  position: relative;
+  z-index: 99999;
 }
 
 .socialIcon{
@@ -720,9 +735,16 @@ input[type="radio"] {
   .heading span {
     font-size: 18vw;
   }
-  .socials{
-    display: none;
+  .socialsContainer{
+    margin-top: auto;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    flex-direction: column;
   }
+
+  
 }
 
 @media (max-width: 580px) {

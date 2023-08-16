@@ -685,7 +685,10 @@ const IndexPage = () => {
                     <Countdown />
                   </motion.div>}
 
-                  {<motion.div
+                  
+                </div>
+
+                {<motion.div
                     className={styles["socials"]}
                     initial={{ opacity: [0] }}
                     animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
@@ -693,7 +696,6 @@ const IndexPage = () => {
                   >
                     <Socials />
                   </motion.div>}
-                </div>
               </main>
             }
           />
