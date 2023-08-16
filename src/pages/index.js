@@ -35,12 +35,12 @@ import shivang from "../Components/ContactsData/ContactImages/shivang.jpg"
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(()=>{
-    if(isLoading){
-      document.documentElement.style.overflow="hidden";
-    }else
-    document.documentElement.style.overflow="scroll";
-  },[isLoading])
+  useEffect(() => {
+    if (isLoading) {
+      document.documentElement.style.overflow = "hidden";
+    } else
+      document.documentElement.style.overflow = "scroll";
+  }, [isLoading])
 
 
   const ContactsData = [
@@ -50,7 +50,7 @@ const IndexPage = () => {
       "department": "Publications and Correspondence",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
-  
+
     },
     {
       "name": "Shirish Kumaravel",
@@ -58,7 +58,7 @@ const IndexPage = () => {
       "department": "Reception and Accommodation",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
-      
+
     },
     {
       "name": "Anushka Patil",
@@ -80,7 +80,7 @@ const IndexPage = () => {
       "department": "Sports Secretary",
       "phone": "+91-9999999999",
       "email": "abcd@pilani.bits-pilani.ac.in"
-  
+
     },
     {
       "name": "Syed Aga Hani Riza",
@@ -301,7 +301,7 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen,showBlackScreen2 ,]);
+  }, [regPage, showBlackScreen, showBlackScreen2,]);
 
 
   const [isHamOpen, setIsHamOpen] = useState(false);
@@ -478,7 +478,7 @@ const IndexPage = () => {
   //   video.defaultPlaybackRate = 0.7
   //   video.load()
   // }, []);
-  const [videoLoaded , setIsVideoLoaded] = useState(false)
+  const [videoLoaded, setIsVideoLoaded] = useState(false)
 
   useEffect(() => {
     const videos = document.querySelectorAll("video");
@@ -513,44 +513,45 @@ const IndexPage = () => {
     return cleanup;
   }, []);
   useEffect(() => {
-    if(videoLoaded){
-    const assets = document.querySelectorAll(
-      "img", "font", "style"
-    );
+    if (videoLoaded) {
+      const assets = document.querySelectorAll(
+        "img", "font", "style"
+      );
 
-    let assetsLoaded = 0;
+      let assetsLoaded = 0;
 
-    const handleAssetLoad = () => {
-      assetsLoaded++;
-      if (assetsLoaded === assets.length) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
-      }
-    };
+      const handleAssetLoad = () => {
+        assetsLoaded++;
+        if (assetsLoaded === assets.length) {
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+        }
+      };
 
-    assets.forEach((asset) => {
-      if (
-        asset.complete ||
-        asset.readyState === 4 ||
-        asset.tagName === "LINK"
-      ) {
-        handleAssetLoad();
-      } else {
-        asset.addEventListener("load", handleAssetLoad);
-        asset.addEventListener("error", handleAssetLoad);
-      }
-    });
-
-    const cleanup = () => {
       assets.forEach((asset) => {
-        asset.removeEventListener("load", handleAssetLoad);
-        asset.removeEventListener("error", handleAssetLoad);
+        if (
+          asset.complete ||
+          asset.readyState === 4 ||
+          asset.tagName === "LINK"
+        ) {
+          handleAssetLoad();
+        } else {
+          asset.addEventListener("load", handleAssetLoad);
+          asset.addEventListener("error", handleAssetLoad);
+        }
       });
-    };
 
-    return cleanup;
-  }}, [videoLoaded]);
+      const cleanup = () => {
+        assets.forEach((asset) => {
+          asset.removeEventListener("load", handleAssetLoad);
+          asset.removeEventListener("error", handleAssetLoad);
+        });
+      };
+
+      return cleanup;
+    }
+  }, [videoLoaded]);
 
   const handleStatueImageDrag = (event) => {
     event.preventDefault()
@@ -567,7 +568,7 @@ const IndexPage = () => {
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
-      
+
       <>
         {showBlackScreen && (
           <div className="blackScreen">
@@ -615,7 +616,7 @@ const IndexPage = () => {
                 {<motion.div
                   className={styles["leftLion"]}
                   initial={{ opacity: [0], x: [100] }}
-                  animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                   variants={leftLionVariants}
                 >
                   <img src={LeftLion} alt="" />
@@ -623,7 +624,7 @@ const IndexPage = () => {
                 {<motion.div
                   className={styles["rightLion"]}
                   initial={{ opacity: [0], x: [-100] }}
-                  animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                   variants={rightLionVariants}
                 >
                   <img src={RightLion} alt="" />
@@ -635,14 +636,14 @@ const IndexPage = () => {
                     <>
                       {<motion.span
                         initial={{ opacity: [0] }}
-                        animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                        animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                         variants={leftHeadingVariants}
                       >
                         BO
                       </motion.span>}
                       {<motion.span
                         initial={{ opacity: [0] }}
-                        animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                        animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                         variants={rightHeadingVariants}
                       >
                         SM
@@ -653,7 +654,7 @@ const IndexPage = () => {
 
                     className={styles["leftSubTitle"]}
                     initial={{ opacity: [0] }}
-                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                     variants={leftTextVariants}
                   >
                     <h1>The</h1>
@@ -664,7 +665,7 @@ const IndexPage = () => {
 
                     className={styles["rightSubTitle"]}
                     initial={{ opacity: [0] }}
-                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
                     variants={rightTextVariants}
                     onAnimationComplete={() => setIsLoaded(true)}
                   >
@@ -675,27 +676,28 @@ const IndexPage = () => {
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
 
-                  {/* Countdown */}
-                  {<motion.div
-                    className={styles["countDown"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
-                    variants={countdownVariants}
-                  >
-                    <Countdown />
-                  </motion.div>}
 
-                  
+
+
                 </div>
 
+                {/* Countdown */}
                 {<motion.div
-                    className={styles["socials"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ?"": isHamOpen ? "hidden" : "visible"}
-                    variants={countdownVariants}
-                  >
-                    <Socials />
-                  </motion.div>}
+                  className={styles["countDown"]}
+                  initial={{ opacity: [0] }}
+                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                  variants={countdownVariants}
+                >
+                  <Countdown />
+                </motion.div>}
+                {<motion.div
+                  className={styles["socials"]}
+                  initial={{ opacity: [0] }}
+                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                  variants={countdownVariants}
+                >
+                  <Socials />
+                </motion.div>}
               </main>
             }
           />
@@ -713,7 +715,7 @@ const IndexPage = () => {
               </>
             }
           />
-          )}
+        )}
         {/* {!regPage && (
           <Layout
             overflow={false}
@@ -728,8 +730,8 @@ const IndexPage = () => {
             }
           />
         )} */}
-        {!regPage &&(
-          
+        {!regPage && (
+
           <Layout
             overflow={false}
             navbar={false}

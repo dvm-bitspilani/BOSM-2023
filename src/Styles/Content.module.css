@@ -107,11 +107,20 @@ main {
   position: absolute;
   left: 0;
 }
+
+
 .countDown {
   position: absolute;
   padding-inline: 2rem;
-  left: 0;
-  bottom: 0rem;
+  top: 0;
+  height: 190vh;
+  display: flex;
+  justify-content: bottom;
+}
+
+.countdown{
+  margin-top: 0;
+  position: absolute;
 }
 .statueContainer {
   position: absolute;
@@ -743,8 +752,6 @@ input[type="radio"] {
     bottom: 1rem;
     flex-direction: column;
   }
-
-  
 }
 
 @media (max-width: 580px) {
