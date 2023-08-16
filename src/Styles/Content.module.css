@@ -407,8 +407,9 @@ h2 {
   position: relative;
   z-index: 99;
 }
-.btnContainer p:hover{
-  border-bottom: 1px solid #fff;
+.btnContainer .preview:hover{
+  /* border-bottom: 1px solid #fff; */
+  color: rgba(25, 25, 25, 0.8) !important;
 }
 .submitBtn:hover {
   color: #36788a;
