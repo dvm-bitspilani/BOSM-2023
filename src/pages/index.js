@@ -145,7 +145,7 @@ const IndexPage = () => {
     const rightLion = document.getElementsByClassName(styles["rightLion"]);
     const leftLion = document.getElementsByClassName(styles["leftLion"]);
     const countDown = document.getElementsByClassName(styles["countDown"]);
-    const socials = document.getElementsByClassName(styles["socialsContainer"]);
+    // const socials = document.getElementsByClassName(styles["socialsContainer"]);
     const rightSubTitle = document.getElementsByClassName(
       styles["rightSubTitle"]
     );
@@ -247,7 +247,7 @@ const IndexPage = () => {
               rightSubTitle[0].style.filter = `blur(${blur}px)`;
               leftSubtitle[0].style.filter = `blur(${blur}px)`;
               heading[0].style.filter = `blur(${blur}px)`;
-              socials[0].style.filter = `blur(${blur}px)`;
+              // socials[0].style.filter = `blur(${blur}px)`;
               statueMobile.style.filter = `blur(${blur}px)`;
               // statue.style.filter = `blur(${blur}px)`;
               registerBtnMobile.style.filter = `blur(${blur}px)`;
@@ -263,7 +263,7 @@ const IndexPage = () => {
               heading[0].style.filter = "blur(0)";
               statueMobile.style.filter = "blur(0)";
               statue.style.filter = "blur(0)";
-              socials[0].style.filter = "blur(0)";
+              // socials[0].style.filter = "blur(0)";
               registerBtnMobile.style.filter = `blur(${blur}px)`
             }
           }
@@ -675,20 +675,8 @@ const IndexPage = () => {
 
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
-                  {/* {<motion.div
-                    className={styles["socials"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                    variants={countdownVariants}
-                  >
-                    <Socials />
-                  </motion.div>} */}
-
-
-
-                </div>
-
-                {/* Countdown */}
+                  
+                  {/* Countdown */}
                 {<motion.div
                   className={styles["countDown"]}
                   initial={{ opacity: [0] }}
@@ -697,6 +685,21 @@ const IndexPage = () => {
                 >
                   <Countdown />
                 </motion.div>}
+                  
+                  {<motion.div
+                    className={styles["socials"]}
+                    initial={{ opacity: [0] }}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                    variants={countdownVariants}
+                  >
+                    <Socials />
+                  </motion.div>}
+
+
+
+                </div>
+
+                
 
               </main>
             }
