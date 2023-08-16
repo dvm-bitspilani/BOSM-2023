@@ -34,6 +34,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const [fileUploaded , setFileUploaded] = useState(null);
   const [selectedState , setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState(null);
 
 
   const hiddenFileInput = useRef(null);
@@ -414,7 +415,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }),
     valueContainer: (provided) => ({
       ...provided,
-      padding: '2px 8px',
+      padding: '2px 2px',
       alignItems: '',
       webkitAlignItems: ''
     }),
@@ -577,6 +578,10 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     fetchSportsOptions();
   }, []);
 
+  useEffect(()=>{
+
+  },[selectedState])
+
   function createArrayOfObjects(inputArray) {
     if(!inputArray)return;
     const outputArray = [];
@@ -631,6 +636,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     is_coach: false,
     img_url:'',
   });
+
   const changeKeyName = (formData) => {
     const updatedFormData = { ...formData };
 
@@ -639,6 +645,20 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
     return updatedFormData;
   };
+  const handleStateChange = (selectedOption) => {
+    setSelectedCity(null); 
+    setSelectedState(selectedOption); 
+    const updatedFormData = { ...formData };
+    updatedFormData["state"] = selectedOption;
+    setFormData(updatedFormData)
+  };
+  const handleCityChange = (selectedOption) => {
+    setSelectedCity(selectedOption); 
+    const updatedFormData = {...formData};
+    updatedFormData["city"] = selectedOption.value;
+    setFormData(updatedFormData)
+  };
+    
   const handleChange = (selectedOption, { id, name, type }) => {
     const updatedFormData = { ...formData };
 
@@ -910,10 +930,10 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3} />
 
             <label htmlFor='state'>State</label>
-            <Select options={stateOptions} onChange={(selectedOption) => {setSelectedState(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
+            <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
 
             <label htmlFor='city'>City</label>
-            <Select options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
+            <Select  value={selectedCity} options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
 
             <label htmlFor='sports'>Sports</label>
             <Select noOptionsMessage={customNoOptionsMessage} options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
@@ -947,7 +967,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             />
             <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
           </div>
-          <p onClick={onClickPara} id='previewPara' onClose={closeError}>{paramsg}</p>
+          <p onClick={onClickPara} id='previewPara' className={fileUploaded ? styles.preview : ""} onClose={closeError}>{paramsg}</p>
         </div>
       </div>
     </section>
