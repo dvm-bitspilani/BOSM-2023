@@ -3,6 +3,7 @@ import cross from "../images/cross.svg";
 import logo from "../images/logo.svg"
 import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import RadioButton from './RadioBtn';
 import upload from "../images/upload.svg"
 import {storage} from "../Components/firebase";
@@ -655,8 +656,10 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const handleCityChange = (selectedOption) => {
     setSelectedCity(selectedOption); 
     const updatedFormData = {...formData};
-    updatedFormData["city"] = selectedOption.value;
+    if(selectedOption){
+    updatedFormData["city"] = selectedOption.value;}
     setFormData(updatedFormData)
+    
   };
     
   const handleChange = (selectedOption, { id, name, type }) => {
@@ -782,12 +785,13 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   useEffect(()=>{
     if(fileUploaded){
       document.getElementById("previewPara").style.color="white";
-      setparamsg("Click here to Preview your photo")
+      setparamsg("Click here to preview your photo")
     }
   },[fileUploaded])
 
 
   const handleRegistration = () => {
+    // console.log(formData)
     if (!isFormFilled(formData)) {
       setErrorMsg("Fill all the fields of the form");
       setError1(true)
@@ -933,7 +937,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
 
             <label htmlFor='city'>City</label>
-            <Select  value={selectedCity} options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
+            <CreatableSelect  value={selectedCity} options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
 
             <label htmlFor='sports'>Sports</label>
             <Select noOptionsMessage={customNoOptionsMessage} options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
