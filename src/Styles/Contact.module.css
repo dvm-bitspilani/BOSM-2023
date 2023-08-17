@@ -1,4 +1,4 @@
-.page {
+  .page {
   height: 100vw;
   width: 100vw;
   /* z-index: 0; */
@@ -279,4 +279,25 @@
   .title{
     margin-block: 5vh;
   }
+}
+.cardsSwitchButtons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  height: inherit;
+  width: 10vw;
+  z-index: 2;
+}
+.organizingBtn, .cossacBtn{
+  transform: rotate(90deg);
+  width: max-content;
+}
+.organizingBtn > span, .cossacBtn > span{
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
 }
