@@ -1,58 +1,37 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import reset from "styled-reset-advanced";
+import React from 'react'
+import EventSlide from './EventSlide';
 
-import MotionSlider from "./MotionSlider";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body { overflow-x: hidden; }
-`;
+// import './styles.css';
 
-const Space = styled.div`
-  height: ${({ height }) => height}px;
-`;
+// import required modules
+import { Pagination } from 'swiper/modules';
 
-const Wrapper = styled.div`
-  margin: auto;
-  height: 100vh;
-`;
+import { motion } from 'framer-motion';
 
-const Element = styled.div`
-  /* width: calc(100vw - 60px); */
-  width: 260px;
-  height: 400px;
-  background: blueviolet;
-`;
-
-const Text = styled.div`
-  font-family: "Montserrat", "sans-serif";
-  font-weight: 900;
-  font-size: 48px;
-`;
-
-function EventsCarousel() {
+export default function EventsCarousel() {
   return (
-    <Wrapper>
-      <GlobalStyle />
-      <Space height={60} />
-      {/* <MotionSlider allowSlideToLast padding={30}>
-        {["Today", "This Week", "This Month", "Past Month"].map((item, i) => (
-          <Text>{item}</Text>
-        ))}
-      </MotionSlider> */}
-      <Space height={60} />
-      <MotionSlider padding={30} gap={30}>
-        {[...Array(20)].map((item, i) => (
-          <Element />
-        ))}
-      </MotionSlider>
-    </Wrapper>
-  );
-}
+    <motion.div style={{width : "100%", flex:"1 1 auto", overflow:"visible"}}
+    whileTap={{scale:0.9}}>
+    <Swiper
+    style={{width: '100%',height:"100%", overflow:"visible", display:"flex", alignItems:"center"}}
+        slidesPerView={4}
+        spaceBetween={30}
+        centeredSlides={true}
+        className="mySwiper"
+      >
+        <SwiperSlide style={{overflow:"visible", display:"flex", alignItems:"center"}}><EventSlide sport="Tennis"/></SwiperSlide>
+        <SwiperSlide style={{overflow:"visible", display:"flex", alignItems:"center"}}><EventSlide sport="Basketball"/></SwiperSlide>
+        <SwiperSlide style={{overflow:"visible", display:"flex", alignItems:"center"}}><EventSlide sport="Soccer"/></SwiperSlide>
+        <SwiperSlide style={{overflow:"visible", display:"flex", alignItems:"center"}}><EventSlide sport="Volleyball"/></SwiperSlide>
+        <SwiperSlide style={{overflow:"visible", display:"flex", alignItems:"center"}}><EventSlide sport="Crciket"/></SwiperSlide>
 
-export default EventsCarousel;
+      </Swiper>
+      </motion.div>
+  )
+}

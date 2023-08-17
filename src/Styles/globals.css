@@ -223,6 +223,10 @@ a{
   z-index: 99999999;
 }
 
+.swiper-wrapper{
+  overflow: visible !important;
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);

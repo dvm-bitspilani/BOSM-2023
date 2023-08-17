@@ -6,6 +6,8 @@
   background: url(../images/event_bg.png);
   background-size: cover;
   background-position: center center;
+  display: flex;
+  flex-direction: column;
 }
 .eventsSection h3{
   color: #F5F5F5;

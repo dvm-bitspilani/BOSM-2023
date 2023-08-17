@@ -1,0 +1,25 @@
+.slide {
+  inset: 0;
+  height: 50%;
+  width: 100%;
+  background-color: gray;
+  position: relative;
+  scale: 1;
+  transition: scale 0.2s ease-in-out;
+}
+
+.slide:hover {
+    scale: 1.1;
+}
+
+.slideText {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
