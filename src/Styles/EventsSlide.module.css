@@ -10,6 +10,8 @@
     ),
  lightgray 50% / cover no-repeat;
  background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
   position: relative;
   scale: 1;
   transition: scale 0.2s ease-in-out;
