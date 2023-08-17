@@ -183,7 +183,7 @@ const Gallery = props => {
                   <path d="M75 39H3M3 39L39 75M3 39L39 3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <div>
+              <div style={{overflowX: "hidden"}}>
                 <p className={styles["gallery"]}>Gallery</p></div>
             </div>
             <div className={styles["box2"]}>
