@@ -44,6 +44,7 @@ body {
   width: calc(100vw - (100vw - 100%));
   position: relative;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 a{
   text-decoration: none;
