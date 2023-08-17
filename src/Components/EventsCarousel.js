@@ -1,6 +1,8 @@
 import React from "react";
 import EventSlide from "./EventSlide";
 
+import "../Styles/globals.css"
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -25,7 +27,7 @@ import chessImg from "../Images/Events Images/chess.jpeg";
 export default function EventsCarousel() {
   return (
     <motion.div
-      style={{ width: "100%", flex: "1 1 auto", overflow: "visible" }}
+    className="swiper-container-div"
       whileTap={{ scale: 0.9 }}
     >
       <Swiper

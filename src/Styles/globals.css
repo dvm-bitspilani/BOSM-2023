@@ -227,6 +227,12 @@ a{
   overflow: visible !important;
 }
 
+.swiper-container-div{
+  width: 100%;
+  flex: 1 1 auto;
+  overflow: visible;
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
@@ -303,5 +309,12 @@ a{
 @media(max-width: 680px){
   #about-us-section{
     height: auto;
+  }
+}
+
+@media (max-width:711px){
+  .swiper-container-div{
+    width:90%;
+    margin: auto;
   }
 }
