@@ -223,6 +223,10 @@ a{
   z-index: 99999999;
 }
 
+.swiper{
+  overflow: visible !important;
+}
+
 .swiper-wrapper{
   overflow: visible !important;
 }
