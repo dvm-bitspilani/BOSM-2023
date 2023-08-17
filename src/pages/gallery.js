@@ -178,9 +178,11 @@ const Gallery = props => {
 
           <div className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
-              <div className={styles["arrow"]} onClick={closeButtonHandler}><svg viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M75 39H3M3 39L39 75M3 39L39 3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></div>
+              <div className={styles["arrow"]} onClick={closeButtonHandler}>
+                <svg viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M75 39H3M3 39L39 75M3 39L39 3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
               <div>
                 <p className={styles["gallery"]}>Gallery</p></div>
             </div>
