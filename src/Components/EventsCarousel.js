@@ -23,6 +23,11 @@ import tennisImg from "../images/Events Images/tennis.jpeg";
 import volleyballImg from "../images/Events Images/volleyball.jpeg";
 import hockeyImg from "../images/Events Images/hockey.png";
 import chessImg from "../images/Events Images/chess.jpeg";
+import carromImg from "../images/Events Images/carrom.jpeg";
+import cricketImg from "../images/Events Images/cricket.jpeg";
+import athleticsImg from "../images/Events Images/athletics.jpeg";
+import frisbeeImg from "../images/Events Images/frisbee.jpeg";
+import tabletennisImg from "../images/Events Images/tabletennis.jpeg";
 
 export default function EventsCarousel() {
   return (
@@ -96,6 +101,32 @@ export default function EventsCarousel() {
         >
           <EventSlide sport="Chess" img={chessImg}/>
         </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="Carrom" img={carromImg}/>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+        <EventSlide sport="Cricket" img={cricketImg}/>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+        <EventSlide sport="Athletics" img={athleticsImg}/>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+        <EventSlide sport="Frisbee" img={frisbeeImg}/>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }} 
+        >
+        <EventSlide sport="Table Tennis" img={tabletennisImg}/>
+        </SwiperSlide>
+        
       </Swiper>
     </motion.div>
   );
