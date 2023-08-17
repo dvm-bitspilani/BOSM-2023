@@ -16,9 +16,9 @@ import { Pagination } from "swiper/modules";
 
 import { motion } from "framer-motion";
 
-import swimmingImg from "../Images/Events Images/swimming.jpeg";
-import badmintonImg from "../Images/Events Images/badminton.jpeg";
-import squashImg from "../Images/Events Images/squash.png";
+import swimmingImg from "../Images/Events Images/Swimming.jpeg";
+import badmintonImg from "../Images/Events Images/Badminton.jpeg";
+import squashImg from "../Images/Events Images/Squash.png";
 import tennisImg from "../Images/Events Images/tennis.jpeg";
 import volleyballImg from "../Images/Events Images/volleyball.jpeg";
 import hockeyImg from "../Images/Events Images/hockey.png";
