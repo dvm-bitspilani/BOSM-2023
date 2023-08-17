@@ -37,6 +37,9 @@ input:-webkit-autofill:active {
 ::-webkit-scrollbar {
   display: none;
 }
+html{
+  overscroll-behavior: none;
+}
 body {
   width: calc(100vw - (100vw - 100%));
   position: relative;
