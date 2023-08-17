@@ -16,7 +16,7 @@ import { Pagination } from "swiper/modules";
 
 import { motion } from "framer-motion";
 
-import swimmingImg from "../Images/Events Images/Swimming.jpeg";
+import swimmingImg from "../Images/Events\ Images/Swimming.jpeg";
 import badmintonImg from "../Images/Events Images/Badminton.jpeg";
 import squashImg from "../Images/Events Images/Squash.png";
 import tennisImg from "../Images/Events Images/tennis.jpeg";
