@@ -37,7 +37,7 @@ export default function HamburgerLinks({ img, text, color }) {
   return (
     <Link
       to={toText}
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none" , overflow: "hidden"}}
       onMouseUp={() => (document.documentElement.style.overflow = "scroll")}
       draggable={false}
     >
