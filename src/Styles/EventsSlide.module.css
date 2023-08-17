@@ -1,8 +1,9 @@
 .slide {
   inset: 0;
-  height: 80%;
+  border-radius: 7px;
+  height: 55%;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 4rem;
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,

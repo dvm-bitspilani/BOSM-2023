@@ -225,6 +225,7 @@ a{
 
 .swiper{
   overflow: visible !important;
+  transition: scale 0.55s;
 }
 
 .swiper-wrapper{
@@ -235,6 +236,10 @@ a{
   width: 100%;
   flex: 1 1 auto;
   overflow: visible;
+  /* transition: scale 0.15s; */
+}
+.swiper-button-prev, .swiper-button-next {
+color: white;
 }
 
 @keyframes slideUp {
