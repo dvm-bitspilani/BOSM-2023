@@ -38,7 +38,7 @@ export default function EventsCarousel() {
           display: "flex",
           alignItems: "center",
         }}
-        slidesPerView={5}
+        slidesPerView={1}
         spaceBetween={30}
         centeredSlides={true}
         breakpoints={{
@@ -51,7 +51,7 @@ export default function EventsCarousel() {
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
             spaceBetween: 50,
           },
         }}
