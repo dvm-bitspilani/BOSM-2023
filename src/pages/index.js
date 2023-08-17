@@ -16,103 +16,125 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-import Girl from "../Components/ContactsData/ContactImages/contact_girl.png"
-import Boy from "../Components/ContactsData/ContactImages/contact_boy.png"
+import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
+import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
-import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png"
-import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png"
-import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png"
-import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png"
-import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png"
-import Syed from "../Components/ContactsData/ContactImages/Syed.png"
-import Ayush from "../Components/ContactsData/ContactImages/Ayush.png"
-import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg"
-import shivang from "../Components/ContactsData/ContactImages/shivang.jpg"
+import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
+import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png";
+import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png";
+import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
+import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png";
+import Syed from "../Components/ContactsData/ContactImages/Syed.png";
+import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
+import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
+import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
-    } else
-      document.documentElement.style.overflow = "scroll";
-  }, [isLoading])
+    } else document.documentElement.style.overflow = "scroll";
+  }, [isLoading]);
 
+  const ContactsData1 = [
+    {
+      name: "Shreyas Sesham",
+      image: `${Shreyas}`,
+      department: "Publications and Correspondence",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Aditya Kumar Sriram",
+      image: `${Boy}`,
+      department: "Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Shivang Rai",
+      image: `${shivang}`,
+      department: "Online Registrations",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+  ];
 
-  const ContactsData = [
+  const ContactsData2 = [
     {
-      "name": "Shreyas Sesham",
-      "image": `${Shreyas}`,
-      "department": "Publications and Correspondence",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
+      name: "Shreyas Sesham",
+      image: `${Shreyas}`,
+      department: "Publications and Correspondence",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Shirish Kumaravel",
+      image: `${Shirish}`,
+      department: "Reception and Accommodation",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Anushka Patil",
+      image: `${AnushkaPatil}`,
+      department: "Controls",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Ayush Singh Bhandari",
+      image: `${Ayush}`,
+      department: "Sponsorship and Marketing",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Aditya Kumar Sriram",
+      image: `${Boy}`,
+      department: "Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Syed Aga Hani Riza",
+      image: `${Syed}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Anushka Shukla",
+      image: `${AnushkaShukla}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+  ];
 
-    },
-    {
-      "name": "Shirish Kumaravel",
-      "image": `${Shirish}`,
-      "department": "Reception and Accommodation",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-
-    },
-    {
-      "name": "Anushka Patil",
-      "image": `${AnushkaPatil}`,
-      "department": "Controls",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Ayush Singh Bhandari",
-      "image": `${Ayush}`,
-      "department": "Sponsorship and Marketing",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Aditya Kumar Sriram",
-      "image": `${Boy}`,
-      "department": "Sports Secretary",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-
-    },
-    {
-      "name": "Syed Aga Hani Riza",
-      "image": `${Syed}`,
-      "department": "Joint Sports Secretary",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Anushka Shukla",
-      "image": `${AnushkaShukla}`,
-      "department": "Joint Sports Secretary",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Yashwasin Jain",
-      "image": `${Boy}`,
-      "department": "Joint Sports Secretary",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    },
-    {
-      "name": "Shivang Rai",
-      "image": `${shivang}`,
-      "department": "Online Registrations",
-      "phone": "+91-9999999999",
-      "email": "abcd@pilani.bits-pilani.ac.in"
-    }
-  ]
-
-  const ContactsCards = ContactsData.map((contact, key) => {
+  const ContactsCards1 = ContactsData1.map((contact, key) => {
+    return (
+      <ContactProfile
+        key={key}
+        name={contact.name}
+        img={contact.image}
+        dept={contact.department}
+      />
+    );
+  });
+  const ContactsCards2 = ContactsData2.map((contact, key) => {
     return (
       <ContactProfile
         key={key}
@@ -153,7 +175,7 @@ const IndexPage = () => {
       styles["leftSubTitle"]
     );
     const heading = document.getElementsByClassName(styles["heading"]);
-    const registerBtnMobile = document.getElementById("regBtnMobile")
+    const registerBtnMobile = document.getElementById("regBtnMobile");
 
     window.scrollTo(0, 0);
 
@@ -251,7 +273,6 @@ const IndexPage = () => {
               statueMobile.style.filter = `blur(${blur}px)`;
               // statue.style.filter = `blur(${blur}px)`;
               registerBtnMobile.style.filter = `blur(${blur}px)`;
-
             } else {
               fixedBG[0].style.filter = "blur(0)";
               fixedBG[0].style.transform = "scale(1)";
@@ -264,7 +285,7 @@ const IndexPage = () => {
               statueMobile.style.filter = "blur(0)";
               statue.style.filter = "blur(0)";
               socials[0].style.filter = "blur(0)";
-              registerBtnMobile.style.filter = `blur(${blur}px)`
+              registerBtnMobile.style.filter = `blur(${blur}px)`;
             }
           }
 
@@ -301,12 +322,10 @@ const IndexPage = () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
     };
-  }, [regPage, showBlackScreen, showBlackScreen2,]);
-
+  }, [regPage, showBlackScreen, showBlackScreen2]);
 
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-
 
   const statueVariants = {
     hidden: {
@@ -478,7 +497,7 @@ const IndexPage = () => {
   //   video.defaultPlaybackRate = 0.7
   //   video.load()
   // }, []);
-  const [videoLoaded, setIsVideoLoaded] = useState(false)
+  const [videoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     const videos = document.querySelectorAll("video");
@@ -514,9 +533,7 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll(
-        "img", "font", "style"
-      );
+      const assets = document.querySelectorAll("img", "font", "style");
 
       let assetsLoaded = 0;
 
@@ -554,16 +571,26 @@ const IndexPage = () => {
   }, [videoLoaded]);
 
   const handleStatueImageDrag = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
+const handleOrganizingCardsBtnClick = () => {
+    // console.log("first");
+    setCossacSwitchBtn(true);
+  };
 
+  const handleCossacCardsButtonClick = () => {
+    // console.log("first");
+    setCossacSwitchBtn(false);
+  };
   return (
     <>
-      {isLoading && <div className="loader" id="loader">
-        <video autoPlay loop muted playsInline>
-          <source src={LoaderVideo} type="video/mp4" />
-        </video>
-      </div>}
+      {isLoading && (
+        <div className="loader" id="loader">
+          <video autoPlay loop muted playsInline>
+            <source src={LoaderVideo} type="video/mp4" />
+          </video>
+        </div>
+      )}
       <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
@@ -592,115 +619,135 @@ const IndexPage = () => {
             overflow={false}
             content={
               <main className={styles["landing"]}>
-                {<motion.div
-                  className={styles["statueContainer"]}
-                  id="statueContainer"
-                  initial={{ y: [600] }}
-                  animate={(isLoading || isHamOpen) ? "hidden" : "visible"}
-                  variants={statueVariants}
-                >
-                  <img
-                    id="statue"
-                    src={Statue}
-                    alt=""
-                    className={`${styles["statue"]} ${styles["desktopStatue"]}`}
-                    onDragStart={handleStatueImageDrag}
-                  />
-                  <img
-                    id="statueMobile"
-                    src={MobileStatue}
-                    alt=""
-                    className={`${styles["statue"]} ${styles["mobileStatue"]}`}
-                  />
-                </motion.div>}
-                {<motion.div
-                  className={styles["leftLion"]}
-                  initial={{ opacity: [0], x: [100] }}
-                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                  variants={leftLionVariants}
-                >
-                  <img src={LeftLion} alt="" />
-                </motion.div>}
-                {<motion.div
-                  className={styles["rightLion"]}
-                  initial={{ opacity: [0], x: [-100] }}
-                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                  variants={rightLionVariants}
-                >
-                  <img src={RightLion} alt="" />
-                </motion.div>}
-                <div className={styles["container"]}>
+                {
                   <motion.div
-                    className={styles["heading"]}
+                    className={styles["statueContainer"]}
+                    id="statueContainer"
+                    initial={{ y: [600] }}
+                    animate={isLoading || isHamOpen ? "hidden" : "visible"}
+                    variants={statueVariants}
                   >
+                    <img
+                      id="statue"
+                      src={Statue}
+                      alt=""
+                      className={`${styles["statue"]} ${styles["desktopStatue"]}`}
+                      onDragStart={handleStatueImageDrag}
+                    />
+                    <img
+                      id="statueMobile"
+                      src={MobileStatue}
+                      alt=""
+                      className={`${styles["statue"]} ${styles["mobileStatue"]}`}
+                    />
+                  </motion.div>
+                }
+                {
+                  <motion.div
+                    className={styles["leftLion"]}
+                    initial={{ opacity: [0], x: [100] }}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                    variants={leftLionVariants}
+                  >
+                    <img src={LeftLion} alt="" />
+                  </motion.div>
+                }
+                {
+                  <motion.div
+                    className={styles["rightLion"]}
+                    initial={{ opacity: [0], x: [-100] }}
+                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
+                    variants={rightLionVariants}
+                  >
+                    <img src={RightLion} alt="" />
+                  </motion.div>
+                }
+                <div className={styles["container"]}>
+                  <motion.div className={styles["heading"]}>
                     <>
-                      {<motion.span
-                        initial={{ opacity: [0] }}
-                        animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                        variants={leftHeadingVariants}
-                      >
-                        BO
-                      </motion.span>}
-                      {<motion.span
-                        initial={{ opacity: [0] }}
-                        animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                        variants={rightHeadingVariants}
-                      >
-                        SM
-                      </motion.span>}
+                      {
+                        <motion.span
+                          initial={{ opacity: [0] }}
+                          animate={
+                            isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                          }
+                          variants={leftHeadingVariants}
+                        >
+                          BO
+                        </motion.span>
+                      }
+                      {
+                        <motion.span
+                          initial={{ opacity: [0] }}
+                          animate={
+                            isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                          }
+                          variants={rightHeadingVariants}
+                        >
+                          SM
+                        </motion.span>
+                      }
                     </>
                   </motion.div>
-                  {<motion.div
+                  {
+                    <motion.div
+                      className={styles["leftSubTitle"]}
+                      initial={{ opacity: [0] }}
+                      animate={
+                        isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                      }
+                      variants={leftTextVariants}
+                    >
+                      <h1>The</h1>
+                      <h2>ROAR</h2>
+                    </motion.div>
+                  }
 
-                    className={styles["leftSubTitle"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                    variants={leftTextVariants}
-                  >
-                    <h1>The</h1>
-                    <h2>ROAR</h2>
-                  </motion.div>}
-
-                  {<motion.div
-
-                    className={styles["rightSubTitle"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                    variants={rightTextVariants}
-                    onAnimationComplete={() => setIsLoaded(true)}
-                  >
-                    <h1>Of</h1>
-                    <h2>RESILIENCE</h2>
-                  </motion.div>}
+                  {
+                    <motion.div
+                      className={styles["rightSubTitle"]}
+                      initial={{ opacity: [0] }}
+                      animate={
+                        isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                      }
+                      variants={rightTextVariants}
+                      onAnimationComplete={() => setIsLoaded(true)}
+                    >
+                      <h1>Of</h1>
+                      <h2>RESILIENCE</h2>
+                    </motion.div>
+                  }
 
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
-                  
+
                   {/* Countdown */}
-                {<motion.div
-                  className={styles["countDown"]}
-                  initial={{ opacity: [0] }}
-                  animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                  variants={countdownVariants}
-                >
-                  <Countdown />
-                </motion.div>}
-                  
-                  {<motion.div
-                    className={styles["socials"]}
-                    initial={{ opacity: [0] }}
-                    animate={isLoading ? "" : isHamOpen ? "hidden" : "visible"}
-                    variants={countdownVariants}
-                  >
-                    <Socials />
-                  </motion.div>}
+                  {
+                    <motion.div
+                      className={styles["countDown"]}
+                      initial={{ opacity: [0] }}
+                      animate={
+                        isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                      }
+                      variants={countdownVariants}
+                    >
+                      <Countdown />
+                    </motion.div>
+                  }
 
-
-
+                  {
+                    <motion.div
+                      className={styles["socials"]}
+                      initial={{ opacity: [0] }}
+                      animate={
+                        isLoading ? "" : isHamOpen ? "hidden" : "visible"
+                      }
+                      variants={countdownVariants}
+                    >
+                      <Socials />
+                    </motion.div>
+                  }
                 </div>
-
-                
-
               </main>
             }
           />
@@ -718,7 +765,7 @@ const IndexPage = () => {
               </>
             }
           />
-          )}
+        )}
         {!regPage && (
           <Layout
             overflow={false}
@@ -733,8 +780,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage &&(
-          
+        {!regPage && (
           <Layout
             overflow={false}
             navbar={false}
@@ -764,21 +810,52 @@ const IndexPage = () => {
                     {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                   </div>
                   <div
-
                     id="backStatueMobile"
                     className={contact["backStatueMobile"]}
                     style={{ backgroundImage: `url(${BackStatueMobile})` }}
                   ></div>
-                  <div
-
-                    id="contactContent"
-                    className={contact["content"]}
-                  >
+                  <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
                       <div className={contact["cardsContainer"]}>
-                        {ContactsCards}
+                        {cossacSwitchBtn? ContactsCards1 : ContactsCards2}
                       </div>
+                    </div>
+                  </div>
+                  <div className={contact["cardsSwitchButtons"]}>
+                    <div
+                      className={contact["organizingBtn"]}
+                      onClick={handleOrganizingCardsBtnClick}
+                    >
+                      <span
+                        style={
+                          !cossacSwitchBtn
+                            ? { textDecoration: "none" }
+                            : {
+                                textDecoration: "underline",
+                                textUnderlineOffset: "8px",
+                              }
+                        }
+                      >
+                        Organizing Committee
+                      </span>
+                    </div>
+                    <div
+                      className={contact["cossacBtn"]}
+                      onClick={handleCossacCardsButtonClick}
+                    >
+                      <span
+                        style={
+                          cossacSwitchBtn
+                            ? { textDecoration: "none" }
+                            : {
+                                textDecoration: "underline",
+                                textUnderlineOffset: "8px",
+                              }
+                        }
+                      >
+                        CoSSAC
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -793,7 +870,12 @@ const IndexPage = () => {
               navbar={false}
               regPage={regPage}
               fixedbg={false}
-              content={<Form setShowBlackScreen2={setShowBlackScreen2} setRegPage={setRegPage} />}
+              content={
+                <Form
+                  setShowBlackScreen2={setShowBlackScreen2}
+                  setRegPage={setRegPage}
+                />
+              }
             />
           </div>
         )}
