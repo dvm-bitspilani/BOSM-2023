@@ -33,7 +33,10 @@ export default function EventsCarousel() {
   return (
     <motion.div
     className="swiper-container-div"
-      whileTap={{ scale: 0.9 }}
+      whileTap={{ scale: 0.8 }}
+      transition={{
+        duration: 0.15,
+      }}
     >
       <Swiper
         style={{
@@ -43,7 +46,7 @@ export default function EventsCarousel() {
           display: "flex",
           alignItems: "center",
         }}
-        slidesPerView={1}
+        slidesPerView={1.25}
         spaceBetween={30}
         centeredSlides={true}
         breakpoints={{
@@ -126,7 +129,7 @@ export default function EventsCarousel() {
         >
         <EventSlide sport="Table Tennis" img={tabletennisImg}/>
         </SwiperSlide>
-        
+
       </Swiper>
     </motion.div>
   );
