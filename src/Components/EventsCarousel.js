@@ -16,13 +16,13 @@ import { Pagination } from "swiper/modules";
 
 import { motion } from "framer-motion";
 
-import swimmingImg from "../Images/Events\ Images/Swimming.jpeg";
-import badmintonImg from "../Images/Events Images/Badminton.jpeg";
-import squashImg from "../Images/Events Images/Squash.png";
-import tennisImg from "../Images/Events Images/tennis.jpeg";
-import volleyballImg from "../Images/Events Images/volleyball.jpeg";
-import hockeyImg from "../Images/Events Images/hockey.png";
-import chessImg from "../Images/Events Images/chess.jpeg";
+import swimmingImg from "../images/Events Images/Swimming.jpeg";
+import badmintonImg from "../images/Events Images/Badminton.jpeg";
+import squashImg from "../images/Events Images/Squash.png";
+import tennisImg from "../images/Events Images/tennis.jpeg";
+import volleyballImg from "../images/Events Images/volleyball.jpeg";
+import hockeyImg from "../images/Events Images/hockey.png";
+import chessImg from "../images/Events Images/chess.jpeg";
 
 export default function EventsCarousel() {
   return (
