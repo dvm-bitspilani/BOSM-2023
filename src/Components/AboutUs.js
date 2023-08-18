@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as about from "../Styles/About.module.css";
+import AboutBG from "../images/about-bg.png"
 import thumbnailImage1 from "../images/aboutUsCarouselThumbnail.png"
 import thumbnailImage2 from "../images/bgmi.png"
 import thumbnailImage3 from "../images/fifa.png"
@@ -45,7 +46,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            // style={ typeof window !== "undefined" ? window.innerWidth > 920 ? { borderRadius: pageRadius } : "" : ""}
+            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { background: "transparent" } : { background: `url(${AboutBG})` } : ""}
         >
             <div className={about["topContainer"]}>
                 <div

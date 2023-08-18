@@ -26,7 +26,7 @@
 }
 
 .backStatue {
-  left: -60vw;
+  left: -10vw;
   height: 100vh;
   overflow: hidden;
   bottom: -100vh;
@@ -36,7 +36,7 @@
 }
 
 .frontStatue {
-  left: -30vw;
+  left: 20vw;
   overflow: hidden;
   height: 80vh;
   bottom: -100vh;
@@ -81,7 +81,7 @@
   z-index: 2;
   overflow: auto;
   transition: all 2s ease;
-  transform: translateX(60vw);
+  /* transform: translateX(60vw); */
 }
 
 .title {
@@ -318,7 +318,7 @@
   height: 5vw;
   width: 90vh;
   z-index: 2;
-  padding-left: 15vh;
+  /* padding-left: 15vh; */
     transform: rotate(90deg);
 
 }

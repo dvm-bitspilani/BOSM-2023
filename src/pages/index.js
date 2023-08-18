@@ -4,6 +4,7 @@ import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
+import * as about from "../Styles/About.module.css";
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
@@ -36,6 +37,7 @@ const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
+
 
   console.log({ cossacSwitchBtn })
   useEffect(() => {
@@ -125,6 +127,27 @@ const IndexPage = () => {
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
   ];
 
   // const ContactsCards1 = ContactsData1.map((contact, key) => {
@@ -157,11 +180,13 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(0,2)
+    }).slice(0, 2)
 
   const Card1Row2 = ContactsData1
     .map((contact, index) => {
@@ -172,13 +197,15 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(2,3)
+    }).slice(2, 3)
 
-    const Card2Row1 = ContactsData2
+  const Card2Row1 = ContactsData2
     .map((contact, index) => {
       if (index >= 0 && index < 3) {
         return (
@@ -187,13 +214,15 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(0,3)
+    }).slice(0, 3)
 
-    const Card2Row2 = ContactsData2
+  const Card2Row2 = ContactsData2
     .map((contact, index) => {
       if (index >= 3 && index < 6) {
         return (
@@ -202,13 +231,15 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(3,6)
+    }).slice(3, 6)
 
-    const Card2Row3 = ContactsData2
+  const Card2Row3 = ContactsData2
     .map((contact, index) => {
       if (index >= 6 && index < 8) {
         return (
@@ -217,11 +248,13 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(6,8)
+    }).slice(6, 8)
 
   const ContactsCards1 = (
     <div className={contact["cardsContainer1"]}>
@@ -245,6 +278,12 @@ const IndexPage = () => {
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
+    const landingSection = document.getElementById("landing-section");
+    const aboutSection = document.getElementById("about-us-section");
+    const eventsSection = document.getElementById("events-section");
+    const contactSection = document.getElementById("contact-section");
+
+
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
     const cursorImg = document.getElementById("cursorImg");
@@ -270,11 +309,31 @@ const IndexPage = () => {
     const heading = document.getElementsByClassName(styles["heading"]);
     const registerBtnMobile = document.getElementById("regBtnMobile");
 
+    const hamMenu = document.getElementById("ham-menu");
+    const register = document.getElementById("register-btn");
+    const bosmLogo = document.getElementById("bosm-logo");
+
+    const aboutContainer = document.getElementsByClassName(about["topContainer"]);
+    const aboutHeading = document.getElementsByClassName(about["heading"]);
+    const aboutCarousel = document.getElementsByClassName(about["carouselContainer"]);
+    const aboutContent = document.getElementsByClassName(about["contentContainer"]);
+
+    if(backStatue){
+      backStatue.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }
+    if(frontStatue){
+      frontStatue.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }
+
     window.scrollTo(0, 0);
 
     // window.scroll = scroll;
 
-    if (window.innerWidth > 920) {
+    if (typeof window !== "undefined" && window.innerWidth > 920) {
       window.onpointermove = (event) => {
         const { clientX, clientY } = event;
 
@@ -297,51 +356,73 @@ const IndexPage = () => {
         );
       };
       const handleScroll = () => {
-        if (statue) {
-          const position = window.scrollY;
-          const statueHeight = 75 + position / 20;
-          const contactRadius = 150 - position / 5;
-          const contactPageTop = 30 - position / 15;
+        const position = window.scrollY;
+        cursorImg.style.transform = `rotate(${position / 5}deg)`;
+        const visibleHeight = window.innerHeight * 0.95;
 
-          cursorImg.style.transform = `rotate(${position / 5}deg)`;
-          statue.style.height = `${statueHeight}%`;
-          if (position <= window.innerHeight) {
-            statueContainer.style.position = "fixed";
-            contactPage.style.borderRadius = "50%";
-          } else {
-            statueContainer.style.position = "absolute";
+        const containerMargin = position + 100;
+
+        if(landingSection){
+          landingSection.style.position = "fixed";
+        }
+
+
+        if (rightLion[0] && statue && leftLion[0] && countDown) {
+          if (position >= 300) {
+            rightLion[0].style.opacity = 0;
+            leftLion[0].style.opacity = 0;
+            countDown[0].style.opacity = 0;
+            rightSubTitle[0].style.opacity = 0;
+            leftSubtitle[0].style.opacity = 0;
+            heading[0].style.opacity = 0;
+            socials[0].style.opacity = 0;
+            statue.style.opacity = 0;
+            register.style.opacity = 0;
+            hamMenu.style.opacity = 0;
+            bosmLogo.style.opacity = 0;
           }
-          if (position <= window.innerHeight - 20) {
-            if (contactRadius > 0) {
-              contactPage.style.borderRadius = `${contactRadius}%`;
-            } else {
-              contactPage.style.borderRadius = 0;
-            }
-          } else {
-            contactPage.style.borderRadius = 0;
+          else {
+            rightLion[0].style.opacity = 1;
+            leftLion[0].style.opacity = 1;
+            countDown[0].style.opacity = 1;
+            rightSubTitle[0].style.opacity = 1;
+            leftSubtitle[0].style.opacity = 1;
+            heading[0].style.opacity = 1;
+            socials[0].style.opacity = 1;
+            statue.style.opacity = 1;
+            register.style.opacity = 1;
+            hamMenu.style.opacity = 1;
+            bosmLogo.style.opacity = 1;
           }
-          if (position <= window.innerHeight * 0.5 - 1) {
-            contactContent.style.transform = "translateX(60vw)";
-            contactContent.style.opacity = 0;
-            frontStatue.style.left = "-40vw";
-            backStatue.style.left = "-60vw";
-            if (contactPageTop > 0) {
-              contactPage.style.top = `${contactPageTop}vh`;
-            } else {
-              contactPage.style.top = 0;
-            }
-          } else {
-            frontStatue.style.left = "14.15vw";
-            backStatue.style.left = "-10.5vw";
-            contactPage.style.top = 0;
-            contactContent.style.opacity = 1;
-            contactContent.style.transform = "translateX(0)";
+        }
+
+
+        if (aboutContainer[0] && aboutSection) {
+          if (position <= visibleHeight) {
+            aboutSection.style.opacity = 0;
+            eventsSection.style.opacity = 0;
+            contactSection.style.opacity = 0;
+            aboutSection.style.zIndex = 0;
+            aboutContainer[0].style.marginTop = `${containerMargin}px`;
+            aboutHeading[0].style.opacity = 0;
+            aboutCarousel[0].style.opacity = 0;
+            aboutContent[0].style.opacity = 0;
+          }
+          else {
+            aboutSection.style.opacity = 1;
+            eventsSection.style.opacity = 1;
+            contactSection.style.opacity = 1;
+            aboutSection.style.zIndex = 2;
+            aboutHeading[0].style.opacity = 1;
+            aboutCarousel[0].style.opacity = 1;
+            aboutContent[0].style.opacity = 1;
           }
         }
       };
       window.addEventListener("scroll", handleScroll, { passive: true });
     }
-    if (window.innerWidth <= 1920) {
+    if (window.innerWidth <= 920) {
+
       const handleScroll = () => {
         if (statue) {
           const position = window.scrollY;
@@ -384,28 +465,8 @@ const IndexPage = () => {
 
           if (position <= window.innerHeight) {
             statueContainer.style.position = "fixed";
-            contactPage.style.borderRadius = "50%";
           } else {
             statueContainer.style.position = "absolute";
-          }
-          if (position <= window.innerHeight - 20) {
-            if (contactRadius > 0) {
-              contactPage.style.borderRadius = 0;
-            } else {
-              contactPage.style.borderRadius = 0;
-            }
-          } else {
-            contactPage.style.borderRadius = 0;
-          }
-          if (position <= window.innerHeight - 50) {
-            backStatue.style.opacity = 0;
-            backStatueMobile.style.opacity = 0;
-            contactPage.style.top = 0;
-          } else {
-            backStatue.style.left = "-10.5vw";
-            backStatue.style.opacity = 1;
-            backStatueMobile.style.opacity = 1;
-            contactPage.style.top = 0;
           }
         }
       };
@@ -716,6 +777,7 @@ const IndexPage = () => {
             navbar={true}
             fixedbg={true}
             overflow={false}
+            sectionId="landing-section"
             content={
               <main className={styles["landing"]}>
                 {
@@ -820,6 +882,7 @@ const IndexPage = () => {
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
 
+
                   {/* Countdown */}
                   {
                     <motion.div
@@ -847,6 +910,7 @@ const IndexPage = () => {
                     </motion.div>
                   }
                 </div>
+
               </main>
             }
           />
@@ -857,6 +921,7 @@ const IndexPage = () => {
             navbar={false}
             regPage={regPage}
             fixedbg={false}
+            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
             sectionId="about-us-section"
             content={
               <>
@@ -872,6 +937,7 @@ const IndexPage = () => {
             regPage={regPage}
             fixedbg={false}
             sectionId="events-section"
+            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
             content={
               <>
                 <Events />
@@ -880,17 +946,19 @@ const IndexPage = () => {
           />
         )}
         {!regPage && (
+
           <Layout
             overflow={false}
             navbar={false}
             regPage={regPage}
             fixedbg={false}
             sectionId="contact-section"
+            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
             content={
               <main
                 id="contactPage"
                 className={contact["page"]}
-                style={{ top: "30vh" }}
+              // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div className={contact["pageBackground"]}>
@@ -898,7 +966,9 @@ const IndexPage = () => {
                       id="frontStatue"
                       alt=""
                       src={FrontStatue}
-                      className={contact["frontStatue"]}
+                      className={contact["frontStatue"]
+                     
+                  }
                     />
                     <img
                       id="backStatue"
