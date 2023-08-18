@@ -224,14 +224,14 @@ const IndexPage = () => {
     }).slice(6,8)
 
   const ContactsCards1 = (
-    <div>
+    <div className={contact["cardsContainer1"]}>
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
     </div>
   )
 
   const ContactsCards2 = (
-    <div>
+    <div className={contact["cardsContainer2"]}>
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
       <div className={contact["row"]}>{Card2Row3}</div>
