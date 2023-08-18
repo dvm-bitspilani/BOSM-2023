@@ -46,7 +46,7 @@ const AboutUs = (props) => {
     return (
         <motion.main
             className={about["aboutPage"]}
-            style={ typeof window !== "undefined" ? window.innerWidth > 920 ? { background: "transparent" } : {background: `url(${AboutBG})` } : ""}
+            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { background: "transparent" } : { background: `url(${AboutBG})` } : ""}
         >
             <div className={about["topContainer"]}>
                 <div

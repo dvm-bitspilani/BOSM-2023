@@ -159,12 +159,12 @@ const IndexPage = () => {
             img={contact.image}
             dept={contact.department}
             phone={contact.phone}
-            email = {contact.email}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(0,2)
+    }).slice(0, 2)
 
   const Card1Row2 = ContactsData1
     .map((contact, index) => {
@@ -176,14 +176,14 @@ const IndexPage = () => {
             img={contact.image}
             dept={contact.department}
             phone={contact.phone}
-            email = {contact.email}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(2,3)
+    }).slice(2, 3)
 
-    const Card2Row1 = ContactsData2
+  const Card2Row1 = ContactsData2
     .map((contact, index) => {
       if (index >= 0 && index < 3) {
         return (
@@ -193,14 +193,14 @@ const IndexPage = () => {
             img={contact.image}
             dept={contact.department}
             phone={contact.phone}
-            email = {contact.email}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(0,3)
+    }).slice(0, 3)
 
-    const Card2Row2 = ContactsData2
+  const Card2Row2 = ContactsData2
     .map((contact, index) => {
       if (index >= 3 && index < 6) {
         return (
@@ -210,14 +210,14 @@ const IndexPage = () => {
             img={contact.image}
             dept={contact.department}
             phone={contact.phone}
-            email = {contact.email}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(3,6)
+    }).slice(3, 6)
 
-    const Card2Row3 = ContactsData2
+  const Card2Row3 = ContactsData2
     .map((contact, index) => {
       if (index >= 6 && index < 8) {
         return (
@@ -227,12 +227,12 @@ const IndexPage = () => {
             img={contact.image}
             dept={contact.department}
             phone={contact.phone}
-            email = {contact.email}
+            email={contact.email}
           />
         )
       }
       return null;
-    }).slice(6,8)
+    }).slice(6, 8)
 
   const ContactsCards1 = (
     <div className={contact["cardsContainer1"]}>

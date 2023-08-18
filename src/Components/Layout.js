@@ -133,14 +133,14 @@ const Layout = ({
             className="fixed-bg-red"
             animate={isHamOpen ? "closed" : "open"}
             variants={isBrowser && window.innerWidth > 731 && redBgVariants}
-            
+
           ></motion.div>
           <motion.div
             className="fixed-bg-blue"
             animate={isHamOpen ? "closed" : "open"}
             variants={isBrowser && window.innerWidth > 731 && blueBgVariants}
-            style={{width: "100%"}}
-            // style={typeof window !== "undefined" ? window.innerWidth > 920 ? { width: bgWidth } : "" : ""}
+            style={{ width: "100%" }}
+          // style={typeof window !== "undefined" ? window.innerWidth > 920 ? { width: bgWidth } : "" : ""}
           // animate={{
           //   y: [500, 500, -250, 0, 0, 0, 0],
           //   x: [0, 0, 0, 0, 0, 300, 0],
