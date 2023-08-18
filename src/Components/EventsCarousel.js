@@ -41,7 +41,7 @@ import athleticsImg from "../images/Events Images/athletics.jpeg";
 import frisbeeImg from "../images/Events Images/frisbee.jpeg";
 import tabletennisImg from "../images/Events Images/tabletennis.jpeg";
 
-export default function EventsCarousel() {
+export default function EventsCarousel({setProgress}) {
   const swiperContainerDiv = React.useRef(null);
   const swiper = React.useRef(null);
 
@@ -91,7 +91,7 @@ export default function EventsCarousel() {
         // }}
         onProgress={()=>{
           const swiper = document.querySelector(".swiper").swiper
-          console.log(swiper.progress);
+          // console.log(swiper.progress);
         }}
         // onMouseUp={()=>{
         //   const swiper = document.querySelector(".swiper");
@@ -193,6 +193,10 @@ export default function EventsCarousel() {
           // perSlideRotate: 0,
         }}
         simulateTouch={true}
+        onSlideChangeTransitionStart={()=>{
+          const swiper = document.querySelector(".swiper").swiper
+          setProgress(Math.round(swiper.realIndex/swiper.slides.length*100))
+        }}
 
         modules={[
           Keyboard,

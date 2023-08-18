@@ -8,6 +8,7 @@
   background-position: center center;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 .eventsSection h3{
   color: #F5F5F5;
