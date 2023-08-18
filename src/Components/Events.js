@@ -18,6 +18,11 @@ import cricketIcon from "../images/Events Sports Icons/cricket.svg"
 import athleticsIcon from "../images/Events Sports Icons/athletics.svg"
 import frisbeeIcon from "../images/Events Sports Icons/frisbee.svg"
 import tabletennisIcon from "../images/Events Sports Icons/tabletennis.svg"
+import taekwondoIcon from "../images/Events Sports Icons/taekwondo.svg"
+import powerliftingIcon from "../images/Events Sports Icons/powerlifting.svg"
+import snookerIcon from "../images/Events Sports Icons/snooker.svg"
+import footballIcon from "../images/Events Sports Icons/football.svg"
+import basketballIcon from "../images/Events Sports Icons/basketball.svg"
 
 const Events = (props) => {
   const [progress, setProgress] = React.useState(0);
@@ -36,6 +41,12 @@ const Events = (props) => {
     athleticsIcon,
     frisbeeIcon,
     tabletennisIcon,
+    taekwondoIcon,
+    powerliftingIcon,
+    snookerIcon,
+    footballIcon,
+    basketballIcon,
+    
   ];
 
   return (
