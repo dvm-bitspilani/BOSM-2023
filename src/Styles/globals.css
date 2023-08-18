@@ -266,6 +266,24 @@ a{
 color: white;
 }
 
+.MuiCircularProgress-root{
+  left: 50%;
+  bottom: 13%;
+  position: absolute;
+  transform: translateX(-50%) rotate(-90deg) !important;
+}
+
+.MuiCircularProgress-root::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background: url("../images/CircleProgress.svg");
+  background-size: cover;
+  /* border: 2px solid green; */
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
