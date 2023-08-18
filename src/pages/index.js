@@ -37,7 +37,16 @@ const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
+  const backStatueImage = document.getElementById("backStatue");
 
+  backStatueImage.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+  });
+  const frontStatueImage = document.getElementById("frontStatue");
+
+  frontStatueImage.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+  });
   console.log({ cossacSwitchBtn })
   useEffect(() => {
     if (isLoading) {
@@ -953,7 +962,9 @@ const IndexPage = () => {
                       id="frontStatue"
                       alt=""
                       src={FrontStatue}
-                      className={contact["frontStatue"]}
+                      className={contact["frontStatue"]
+                     
+                  }
                     />
                     <img
                       id="backStatue"
