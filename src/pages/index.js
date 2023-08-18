@@ -398,7 +398,7 @@ const IndexPage = () => {
 
 
         if (aboutContainer[0] && aboutSection) {
-          if (position <= visibleHeight + 0) {
+          if (position <= visibleHeight - 1) {
             aboutSection.style.opacity = 0;
             eventsSection.style.opacity = 0;
             contactSection.style.opacity = 0;
