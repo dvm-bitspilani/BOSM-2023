@@ -46,6 +46,18 @@
   transform:translate(-50%,-50%);
 }
 
+.icon{
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  object-position: center;
+  bottom: 16%;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
 
 @media (max-width : 711px){
   .eventsSection h3{

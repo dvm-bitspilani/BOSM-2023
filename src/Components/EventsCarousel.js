@@ -41,7 +41,7 @@ import athleticsImg from "../images/Events Images/athletics.jpeg";
 import frisbeeImg from "../images/Events Images/frisbee.jpeg";
 import tabletennisImg from "../images/Events Images/tabletennis.jpeg";
 
-export default function EventsCarousel({setProgress}) {
+export default function EventsCarousel({setProgress, setIndex}) {
   const swiperContainerDiv = React.useRef(null);
   const swiper = React.useRef(null);
 
@@ -197,6 +197,7 @@ export default function EventsCarousel({setProgress}) {
         onRealIndexChange={()=>{
           const swiper = document.querySelector(".swiper").swiper
           setProgress(Math.round(swiper.realIndex/swiper.slides.length*100))
+          setIndex(swiper.realIndex)
         }}
 
         modules={[
