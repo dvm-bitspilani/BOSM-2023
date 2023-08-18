@@ -124,11 +124,11 @@ export default function EventsCarousel({setProgress}) {
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
           1124: {
             slidesPerView: 5,
-            spaceBetween: 50,
+            spaceBetween: 40,
           },
         }}
         // onResize={()=>{
@@ -194,7 +194,7 @@ export default function EventsCarousel({setProgress}) {
           // perSlideRotate: 0,
         }}
         simulateTouch={true}
-        onSlideChangeTransitionStart={()=>{
+        onRealIndexChange={()=>{
           const swiper = document.querySelector(".swiper").swiper
           setProgress(Math.round(swiper.realIndex/swiper.slides.length*100))
         }}
@@ -214,12 +214,12 @@ export default function EventsCarousel({setProgress}) {
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Swimming" img={swimmingImg} />
+          <EventSlide sport="Badminton" img={badmintonImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Badminton" img={badmintonImg} />
+          <EventSlide sport="Swimming" img={swimmingImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
