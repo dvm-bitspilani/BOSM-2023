@@ -41,7 +41,12 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const hiddenFileInput = useRef(null);
 
   const imageUpload = event => {
-    hiddenFileInput.current.click();
+    if(fileUploaded === null){
+      hiddenFileInput.current.click();
+    }
+    else{
+      setpreview(true);
+    }
   };
   const handleInputChange = event =>{
     setFileUploaded(event.target.files[0]);
@@ -785,7 +790,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   useEffect(()=>{
     if(fileUploaded){
       document.getElementById("previewPara").style.color="white";
-      setparamsg("Click here to preview your photo")
+      setparamsg("Photo uploaded successfully");
     }
   },[fileUploaded])
 
@@ -859,11 +864,16 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }
   };
 
+  const editPhoto =()=>{
+    hiddenFileInput.current.click();
+    // console.log("clicked")
+  };
+
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
     {success && <Success onClose={closeError} text={errormsg} />}
-    {preview && <Preview onClose={closeError} text={errormsg} img={fileUploaded} />}
+    {preview && <Preview onClose={closeError} onEditPhoto={editPhoto} text={errormsg} img={fileUploaded} />}
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
@@ -960,9 +970,13 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         <div className={styles["btnContainer"]}>
           <div>
             <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {!fileUploaded && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.5 15.5V16.9C22.5 18.8602 22.5 19.8403 22.1185 20.589C21.783 21.2475 21.2475 21.783 20.589 22.1185C19.8403 22.5 18.8602 22.5 16.9 22.5H7.1C5.13982 22.5 4.15972 22.5 3.41103 22.1185C2.75247 21.783 2.21703 21.2475 1.88148 20.589C1.5 19.8403 1.5 18.8602 1.5 16.9V15.5M17.8333 7.33333L12 1.5M12 1.5L6.16667 7.33333M12 1.5V15.5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>PHOTO</button>
+              </svg>}
+              {fileUploaded && <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 9.00006L13 5.00006M1.5 20.5001L4.88437 20.124C5.29786 20.0781 5.5046 20.0551 5.69785 19.9925C5.86929 19.937 6.03245 19.8586 6.18289 19.7594C6.35245 19.6476 6.49955 19.5005 6.79373 19.2063L20 6.00006C21.1046 4.89549 21.1046 3.10463 20 2.00006C18.8955 0.895489 17.1046 0.895488 16 2.00006L2.79373 15.2063C2.49955 15.5005 2.35246 15.6476 2.24064 15.8172C2.14143 15.9676 2.06301 16.1308 2.00751 16.3022C1.94496 16.4955 1.92198 16.7022 1.87604 17.1157L1.5 20.5001Z" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>}
+              PHOTO</button>
             <input type="file"
               ref={hiddenFileInput}
               // style={{display:'none'}}
@@ -971,7 +985,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             />
             <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
           </div>
-          <p onClick={onClickPara} id='previewPara' className={fileUploaded ? styles.preview : ""} onClose={closeError}>{paramsg}</p>
+          <p id='previewPara' onClose={closeError}>{paramsg}</p>
         </div>
       </div>
     </section>

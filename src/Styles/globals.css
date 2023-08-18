@@ -38,10 +38,14 @@ input:-webkit-autofill:active {
 ::-webkit-scrollbar {
   display: none;
 }
+html{
+  overscroll-behavior: none;
+}
 body {
   width: calc(100vw - (100vw - 100%));
   position: relative;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 a{
   text-decoration: none;
@@ -232,6 +236,7 @@ a{
 
 .swiper{
   overflow: visible !important;
+  transition: scale 0.55s;
 }
 
 .swiper-wrapper{
@@ -242,6 +247,10 @@ a{
   width: 100%;
   flex: 1 1 auto;
   overflow: visible;
+  /* transition: scale 0.15s; */
+}
+.swiper-button-prev, .swiper-button-next {
+color: white;
 }
 
 @keyframes slideUp {
@@ -328,9 +337,9 @@ a{
   }
 }
 
-@media (max-width:711px){
+/* @media (max-width:711px){
   .swiper-container-div{
     width:90%;
     margin: auto;
   }
-}
+} */

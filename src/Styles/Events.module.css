@@ -47,3 +47,9 @@
 .slider{
   
 }
+
+@media (max-width : 711px){
+  .eventsSection h3{
+    font-size: 3rem;
+  }
+}

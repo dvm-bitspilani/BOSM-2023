@@ -1,18 +1,30 @@
 import React from "react";
 import EventSlide from "./EventSlide";
 
-import "../Styles/globals.css"
+import "../Styles/globals.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-flip";
+import "swiper/css/effect-cards"
+import "swiper/css/effect-creative"
 
 // import './styles.css';
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import {
+  Pagination,
+  Keyboard,
+  Navigation,
+  Autoplay,
+  EffectCreative,
+  Mousewheel,
+  FreeMode,
+  EffectCards
+} from "swiper/modules";
 
 import { motion } from "framer-motion";
 
@@ -30,10 +42,25 @@ import frisbeeImg from "../images/Events Images/frisbee.jpeg";
 import tabletennisImg from "../images/Events Images/tabletennis.jpeg";
 
 export default function EventsCarousel() {
+  const swiperContainerDiv = React.useRef(null);
+  const swiper = React.useRef(null);
+
   return (
     <motion.div
-    className="swiper-container-div"
-      whileTap={{ scale: 0.9 }}
+      className="swiper-container-div"
+      ref={swiperContainerDiv}
+      // whileTap={{ scale: 0.9 }}
+      transition={{
+        duration: 0.15,
+      }}
+      // onMouseDown={() => {
+      //   const swiper = document.querySelector(".swiper").swiper;
+      //   swiper.pause()
+      // }}
+      // onMouseUp={() => {
+      //   const swiper = document.querySelector(".swiper").swiper;
+      //   swiper.resume()
+      // }}
     >
       <Swiper
         style={{
@@ -43,9 +70,52 @@ export default function EventsCarousel() {
           display: "flex",
           alignItems: "center",
         }}
-        slidesPerView={1}
+        ref={swiper}
+        slidesPerView={1.25}
+        speed={1000}
         spaceBetween={30}
+        // onSlideChangeTransitionStart={() => {
+        //   const swiper = document.querySelector(".swiper");
+        //   swiper.style.scale = 0.9;
+        // }}
+        // onSlideChangeTransitionEnd={() => {
+        //   const swiper = document.querySelector(".swiper");
+        //   swiper.style.scale = 1;
+        // }}
+        // onSlideChange={() => {
+        //   console.log(swiper.current.swiper.progress)
+        // }}
+        // onMouseDown={()=>{
+        //   const swiper = document.querySelector(".swiper")
+        //   swiper.style.scale = 0.9;
+        // }}
+        // onProgress={()=>{
+        //   const swiper = document.querySelector(".swiper")
+        //   swiper.style.scale = 0.9;
+        // }}
+        // onMouseUp={()=>{
+        //   const swiper = document.querySelector(".swiper");
+        //   swiper.style.scale = 1;
+        // }}
         centeredSlides={true}
+        // centeredSlidesBounds= {true} 
+        keyboard={{
+          enabled: true,
+        }}
+        // navigation={true}
+        // direction={"horizontal"}
+        mousewheel={
+          {
+            forceToAxis: true,
+            // invert: true,
+            sensitivity: 0.5,
+          }
+        }
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -56,77 +126,141 @@ export default function EventsCarousel() {
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 3.5,
+            slidesPerView: 5,
             spaceBetween: 50,
           },
         }}
-        pagination={{
-          clickable: false,
+       
+        // pagination={{
+        //   type: 'progressbar',
+        // }}
+        // effect="creative"
+        creativeEffect={{
+          limitProgress: 6,
+          perspective: true,
+          prev: {
+            // shadow: true,
+            translate: ["-115%", "8%", 0],
+            // scale: 0.9,
+            rotate: [0, 0, -10],
+            origin: "bottom"
+          },
+          next: {
+            // shadow: true,
+            translate: ["115%", "8%", 0],
+            // scale: 0.9,
+            rotate: [0, 0, 10],
+            origin: "bottom"
+          },
         }}
-        modules={[Pagination]}
+        // creativeEffect={{
+        //   limitProgress: 4,
+        //   prev: {
+        //     // shadow: true,
+        //     translate: ["-115%", 0, 0],
+        //     scale: 0.8,
+        //   },
+        //   next: {
+        //     // shadow: true,
+        //     translate: ["115%", 0, 0],
+        //     scale: 0.8,
+        //   },
+        // }}
+
+        // longSwipes={true}
+        // longSwipesRatio={0.5}
+        // resistanceRatio={0.5}
+        // touchRatio={0.5}
+        // parallax={true}
+        
+        freeMode={{
+          enabled: true,
+          momentumRatio: 0.1,
+          momentumVelocityRatio: 0.1,
+          sticky: true,
+        }}
+
+        effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
+        // effect={"cards"}
+        cardsEffect={{
+          slideShadows: false,
+          // perSlideOffset: 0,
+          // perSlideRotate: 0,
+        }}
+        simulateTouch={true}
+
+        modules={[
+          Keyboard,
+          Pagination,
+          Navigation,
+          Autoplay,
+          Mousewheel,
+          EffectCreative,
+          EffectCards,
+          FreeMode,
+        ]}
         className="mySwiper"
       >
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Swimming" img={swimmingImg}/>
+          <EventSlide sport="Swimming" img={swimmingImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Badminton" img={badmintonImg}/>
+          <EventSlide sport="Badminton" img={badmintonImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Squash" img={squashImg}/>
+          <EventSlide sport="Squash" img={squashImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Tennis" img={tennisImg}/>
+          <EventSlide sport="Tennis" img={tennisImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Volleyball" img={volleyballImg}/>
+          <EventSlide sport="Volleyball" img={volleyballImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Hockey" img={hockeyImg}/>
+          <EventSlide sport="Hockey" img={hockeyImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Chess" img={chessImg}/>
+          <EventSlide sport="Chess" img={chessImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Carrom" img={carromImg}/>
+          <EventSlide sport="Carrom" img={carromImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-        <EventSlide sport="Cricket" img={cricketImg}/>
+          <EventSlide sport="Cricket" img={cricketImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-        <EventSlide sport="Athletics" img={athleticsImg}/>
+          <EventSlide sport="Athletics" img={athleticsImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-        <EventSlide sport="Frisbee" img={frisbeeImg}/>
+          <EventSlide sport="Frisbee" img={frisbeeImg} />
         </SwiperSlide>
         <SwiperSlide
-          style={{ overflow: "visible", display: "flex", alignItems: "start" }} 
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-        <EventSlide sport="Table Tennis" img={tabletennisImg}/>
+          <EventSlide sport="Table Tennis" img={tabletennisImg} />
         </SwiperSlide>
-        
       </Swiper>
     </motion.div>
   );

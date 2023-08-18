@@ -15,9 +15,9 @@
     z-index: 3;
     height: 75%;
     width: 75%;
-    border-radius: 15px;
+    border-radius: 30px;
     border: 5px solid #4B6D75;
-    background: #76ABB8; 
+    background: #64919C;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -46,6 +46,25 @@
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+}
+.previewBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.previewBtnContainer div{
+    margin: 0 0.5rem;
+}
+.previewBtnContainer svg{
+    margin-right: 0.5rem;
+}
+.error section{
+    height: 60%;
+    width: 35%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 @media (max-width:1000px){
     .error p{

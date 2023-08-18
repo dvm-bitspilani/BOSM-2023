@@ -1,4 +1,4 @@
-.page {
+  .page {
   height: 100vw;
   width: 100vw;
   /* z-index: 0; */
@@ -156,19 +156,23 @@
 }
 
 .cardsContainer {
-  width: 100%;
-  display: grid;
-  /* border: solid blue; */
-  grid-template-columns: auto auto auto;
-  /* grid-column-gap: min(5rem, 27vh); */
-  padding: 4vh;
-  padding-block: 2vh;
+  position: relative;
+  width: 45vw;
+  height: 100%;
+  margin-inline: 1vh;
+  margin-block: 2vh;
   background: transparent;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .contentContainer {
-  padding-right: 5vw;
+  /* width: 50vw; */
+  margin-right: 0;
   /* border: solid black; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,7 +182,19 @@
   height: 100%;
 }
 
+.row{
+  display: flex;
+  width: 100%;
+  align-items: top;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 920px) {
+
+  /* .cardsContainer1,
+.cardsContainer2{
+  width: 70vw;
+} */
   .frontStatue {
     display: none;
   }
@@ -227,11 +243,18 @@
   .content {
     height: 100%;
   }
+
+  .cardsContainer{
+    width: 78vw;
+  }
 }
 @media (max-width: 780px) {
+  
+
   .cardsContainer {
     column-gap: 4vw;
     padding: 0;
+    width: 90vw;
   }
 
   .content {
@@ -251,6 +274,10 @@
   }
 }
 @media (max-width: 650px) {
+  .cardsContainer1,
+.cardsContainer2{
+  width: 70vw;
+}
   .page {
     height: 100%;
   }
@@ -264,7 +291,7 @@
     column-gap: 10vw;
   }
   .profileContainer:nth-child(9){
-    grid-column: span 2;
+    grid-column: span 1.5;
     align-self: center;
     margin: auto;
   }
@@ -279,4 +306,42 @@
   .title{
     margin-block: 5vh;
   }
+}
+.cardsSwitchButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  position: absolute;
+  right: -38vh;
+  top: 45vh;
+  height: 5vw;
+  width: 90vh;
+  z-index: 2;
+  /* padding-left: 15vh; */
+    transform: rotate(90deg);
+
+}
+.organizingBtn, .cossacBtn{
+  /* transform: rotate(90deg); */
+  /* height: 14vw; */
+  width: fit-content;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+  padding-block: 0.4rem;
+  transition: all 0.3s ease-out;
+}
+
+.cardsContainer1,
+.cardsContainer2{
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+}
+
+.cardsContainer1{
+  padding-top: 15vh;
 }
