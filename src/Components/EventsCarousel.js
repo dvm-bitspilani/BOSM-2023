@@ -180,7 +180,7 @@ export default function EventsCarousel() {
           sticky: true,
         }}
 
-        effect={typeof window !== undefined && window.innerWidth < 711 ? "cards" : "creative"}
+        effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
         // effect={"cards"}
         cardsEffect={{
           slideShadows: false,
