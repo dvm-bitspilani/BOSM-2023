@@ -460,28 +460,8 @@ const IndexPage = () => {
 
           if (position <= window.innerHeight) {
             statueContainer.style.position = "fixed";
-            contactPage.style.borderRadius = "50%";
           } else {
             statueContainer.style.position = "absolute";
-          }
-          if (position <= window.innerHeight - 20) {
-            if (contactRadius > 0) {
-              contactPage.style.borderRadius = 0;
-            } else {
-              contactPage.style.borderRadius = 0;
-            }
-          } else {
-            contactPage.style.borderRadius = 0;
-          }
-          if (position <= window.innerHeight - 50) {
-            backStatue.style.opacity = 0;
-            backStatueMobile.style.opacity = 0;
-            contactPage.style.top = 0;
-          } else {
-            backStatue.style.left = "-10.5vw";
-            backStatue.style.opacity = 1;
-            backStatueMobile.style.opacity = 1;
-            contactPage.style.top = 0;
           }
         }
       };
