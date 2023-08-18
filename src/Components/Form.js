@@ -158,6 +158,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontWeight: 700,
       paddingLeft: '.25rem',
       zIndex: 1002,
+      margin: '0',
+      paddingTop: '0',
+      paddngBottom: '0',
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
@@ -256,6 +259,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontWeight: 700,
       paddingLeft: '.25rem',
       zIndex: 1001,
+      margin: '0',
+      paddingTop: '0',
+      paddngBottom: '0',
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
@@ -363,6 +369,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       fontWeight: 700,
       paddingLeft: '.25rem',
       zIndex: 1003,
+      margin: '0',
+      paddingTop: '0',
+      paddngBottom: '0',
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
