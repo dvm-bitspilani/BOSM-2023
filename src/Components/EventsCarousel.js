@@ -214,12 +214,12 @@ export default function EventsCarousel({setProgress}) {
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Swimming" img={swimmingImg} />
+          <EventSlide sport="Badminton" img={badmintonImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Badminton" img={badmintonImg} />
+          <EventSlide sport="Swimming" img={swimmingImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
