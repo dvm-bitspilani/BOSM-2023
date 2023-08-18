@@ -44,9 +44,7 @@
   top:50%;
   transform:translate(-50%,-50%);
 }
-.slider{
-  
-}
+
 
 @media (max-width : 711px){
   .eventsSection h3{

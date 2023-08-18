@@ -23,7 +23,7 @@
   /* overflow-x: hidden; */
   user-select: none;
   cursor: none;
-  transition: opacity .8s;
+  transition: opacity .5s;
 }
 /* :root{
     use variable here
