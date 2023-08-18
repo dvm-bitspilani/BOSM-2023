@@ -527,10 +527,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }));
   }
   function createOptionsFromKeys(obj) {
-    const stateOptions = Object.keys(obj).map(key => {
-      return { value: key, label: key };
+    const stateOptions = obj.map(item => {
+      return { value: item.name, label: item.name };
     });
-  
     return stateOptions;
   }
   function createOptionsFromInputObject(inputObj) {
@@ -561,12 +560,13 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     };
     const fetchCityOptions = async () => {
       try {
-        const response = await fetch('https://bitsbosm.org/2023/registrations/get_cities/');
+        const response = await fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json');
         const data = await response.json();
+        // console.log(data[101]["states"])
 
-        setStateOptions(createOptionsFromKeys(data["data"]))
+        setStateOptions(createOptionsFromKeys(data[101]["states"]))
         const convertedOptions = convertApiFormat(data);
-        setPlaceData(data["data"]);
+        setPlaceData(data[101]["states"]);
       } catch (error) {
         console.error('Error fetching cities:', error);
       }
@@ -705,10 +705,10 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const [gender, setGender] = useState('');
   const handleChange2 = (event) => {
     const { id, value, name, type } = event.target;
-    console.log(id)
-    console.log(type)
-    console.log(value)
-    console.log(name)
+    // console.log(id)
+    // console.log(type)
+    // console.log(value)
+    // console.log(name)
     if(id === 'phone'){
       setPhone(value.replace(/\D/g,''));
     }
@@ -893,7 +893,18 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     hiddenFileInput.current.click();
     // console.log("clicked")
   };
-
+  // console.log(selectedState)
+  // console.log(placedata)
+  function filterObjectsByName(objectsArray, searchName) {
+    return objectsArray.filter(object => object.name === searchName);
+  }
+  // console.log(filterObjectsByName(placedata , selectedState["value"]))
+  // console.log(filterObjectsByName(placedata , selectedState["value"])[0]["cities"])
+  // console.log(createOptionsFromKeys(filterObjectsByName(placedata , selectedState["value"])[0]["cities"]))
+  let cities =[];
+  if(placedata && filterObjectsByName(placedata , selectedState["value"]) && filterObjectsByName(placedata , selectedState["value"])[0]){
+    cities = createOptionsFromKeys(filterObjectsByName(placedata , selectedState["value"])[0]["cities"]);
+  }
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
@@ -972,7 +983,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
 
             <label htmlFor='city'>City</label>
-            <CreatableSelect  value={selectedCity} options={createArrayOfObjects(placedata[`${selectedState["value"]}`])} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
+            <CreatableSelect  value={selectedCity} options={cities} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
 
             <label htmlFor='sports'>Sports</label>
             <Select noOptionsMessage={customNoOptionsMessage} options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
