@@ -28,17 +28,21 @@
     // const bgWidth = useTransform(scrollYProgress, [0.0, 0.25], ['100%', '0%']);
 
     useEffect(() => {
-      gsap.to(".fixed-bg-blue", {
-        scrollTrigger: {
-          trigger: ".fixed-bg-blue",
-          start: "10%",
-          scrub: 0.5,
-          snap: 1
-        },
-        width: "0%",
-        ease: 'none',
-        duration: 1
-      })
+      if (typeof window !== "undefined") {
+        if (window.innerWidth > 920) {
+          gsap.to(".fixed-bg-blue", {
+            scrollTrigger: {
+              trigger: ".fixed-bg-blue",
+              start: "10%",
+              scrub: 0.5,
+              snap: 1
+            },
+            width: "0%",
+            ease: 'none',
+            duration: 1
+          })
+        }
+      }
     }, [])
 
     const redBgVariants = {
