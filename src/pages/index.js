@@ -358,7 +358,7 @@ const IndexPage = () => {
       const handleScroll = () => {
         const position = window.scrollY;
         cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        const visibleHeight = window.innerHeight * 0.95;
+        const visibleHeight = window.innerHeight * 1;
 
         const containerMargin = position + 100;
 
@@ -368,7 +368,7 @@ const IndexPage = () => {
 
 
         if (rightLion[0] && statue && leftLion[0] && countDown) {
-          if (position >= 300) {
+          if (position >= visibleHeight - 50) {
             rightLion[0].style.opacity = 0;
             leftLion[0].style.opacity = 0;
             countDown[0].style.opacity = 0;
@@ -398,7 +398,7 @@ const IndexPage = () => {
 
 
         if (aboutContainer[0] && aboutSection) {
-          if (position <= visibleHeight) {
+          if (position <= visibleHeight + 0) {
             aboutSection.style.opacity = 0;
             eventsSection.style.opacity = 0;
             contactSection.style.opacity = 0;
