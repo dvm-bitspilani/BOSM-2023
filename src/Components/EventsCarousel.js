@@ -98,6 +98,7 @@ export default function EventsCarousel() {
         //   swiper.style.scale = 1;
         // }}
         centeredSlides={true}
+        // centeredSlidesBounds= {true} 
         keyboard={{
           enabled: true,
         }}
@@ -125,7 +126,7 @@ export default function EventsCarousel() {
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 3.5,
+            slidesPerView: 5,
             spaceBetween: 50,
           },
         }}
@@ -135,18 +136,21 @@ export default function EventsCarousel() {
         // }}
         // effect="creative"
         creativeEffect={{
-          limitProgress: 3,
+          limitProgress: 6,
+          perspective: true,
           prev: {
             // shadow: true,
-            translate: ["-115%", "10%", 0],
+            translate: ["-115%", "8%", 0],
             // scale: 0.9,
-            rotate: [0, 0, -8],
+            rotate: [0, 0, -10],
+            origin: "bottom"
           },
           next: {
             // shadow: true,
-            translate: ["115%", "10%", 0],
+            translate: ["115%", "8%", 0],
             // scale: 0.9,
-            rotate: [0, 0, 8],
+            rotate: [0, 0, 10],
+            origin: "bottom"
           },
         }}
         // creativeEffect={{
@@ -173,7 +177,7 @@ export default function EventsCarousel() {
           enabled: true,
           momentumRatio: 0.1,
           momentumVelocityRatio: 0.1,
-          // sticky: true,
+          sticky: true,
         }}
 
         effect={window.innerWidth < 711 ? "cards" : "creative"}
