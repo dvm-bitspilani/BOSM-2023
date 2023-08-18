@@ -4,24 +4,28 @@
   height: 55%;
   width: 100%;
   margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide img {
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.6) 100%
     ),
- lightgray 50% / cover no-repeat;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
-  position: relative;
+    lightgray 50% / cover no-repeat;
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   scale: 1;
-  transition: scale 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-.slide:hover {
-  scale: 1.05;
+.slide:hover img{
+  scale: 1.1;
 }
-
 
 .slideText {
   position: absolute;

@@ -9,6 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-flip";
+import "swiper/css/effect-cards"
+import "swiper/css/effect-creative"
 
 // import './styles.css';
 
@@ -20,7 +22,8 @@ import {
   Autoplay,
   EffectCreative,
   Mousewheel,
-  FreeMode
+  FreeMode,
+  EffectCards
 } from "swiper/modules";
 
 import { motion } from "framer-motion";
@@ -100,13 +103,13 @@ export default function EventsCarousel() {
         }}
         // navigation={true}
         // direction={"horizontal"}
-        // mousewheel={
-        //   {
-        //     forceToAxis: true,
-        //     // invert: true,
-        //     sensitivity: 0.5,
-        //   }
-        // }
+        mousewheel={
+          {
+            forceToAxis: true,
+            // invert: true,
+            sensitivity: 0.5,
+          }
+        }
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -126,25 +129,26 @@ export default function EventsCarousel() {
             spaceBetween: 50,
           },
         }}
+       
         // pagination={{
         //   type: 'progressbar',
         // }}
         // effect="creative"
-        // creativeEffect={{
-        //   limitProgress: 2,
-        //   prev: {
-        //     // shadow: true,
-        //     translate: ["-115%", "10%", 0],
-        //     // scale: 0.9,
-        //     rotate: [0, 0, -8],
-        //   },
-        //   next: {
-        //     // shadow: true,
-        //     translate: ["115%", "10%", 0],
-        //     // scale: 0.9,
-        //     rotate: [0, 0, 8],
-        //   },
-        // }}
+        creativeEffect={{
+          limitProgress: 3,
+          prev: {
+            // shadow: true,
+            translate: ["-115%", "10%", 0],
+            // scale: 0.9,
+            rotate: [0, 0, -8],
+          },
+          next: {
+            // shadow: true,
+            translate: ["115%", "10%", 0],
+            // scale: 0.9,
+            rotate: [0, 0, 8],
+          },
+        }}
         // creativeEffect={{
         //   limitProgress: 4,
         //   prev: {
@@ -158,17 +162,29 @@ export default function EventsCarousel() {
         //     scale: 0.8,
         //   },
         // }}
-        longSwipes={true}
-        longSwipesRatio={0.5}
-        resistanceRatio={0.5}
-        touchRatio={0.5}
-        parallax={true}
-        // freeMode={{
-        //   enabled: true,
-        //   momentumRatio: 0.5,
-        //   momentumVelocityRatio: 0.5,
-        //   sticky: true,
-        // }}
+
+        // longSwipes={true}
+        // longSwipesRatio={0.5}
+        // resistanceRatio={0.5}
+        // touchRatio={0.5}
+        // parallax={true}
+        
+        freeMode={{
+          enabled: true,
+          momentumRatio: 0.1,
+          momentumVelocityRatio: 0.1,
+          // sticky: true,
+        }}
+
+        effect={window.innerWidth < 711 ? "cards" : "creative"}
+        // effect={"cards"}
+        cardsEffect={{
+          slideShadows: false,
+          // perSlideOffset: 0,
+          // perSlideRotate: 0,
+        }}
+        simulateTouch={true}
+
         modules={[
           Keyboard,
           Pagination,
@@ -176,6 +192,7 @@ export default function EventsCarousel() {
           Autoplay,
           Mousewheel,
           EffectCreative,
+          EffectCards,
           FreeMode,
         ]}
         className="mySwiper"
