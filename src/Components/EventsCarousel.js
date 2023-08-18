@@ -89,10 +89,10 @@ export default function EventsCarousel() {
         //   const swiper = document.querySelector(".swiper")
         //   swiper.style.scale = 0.9;
         // }}
-        // onProgress={()=>{
-        //   const swiper = document.querySelector(".swiper")
-        //   swiper.style.scale = 0.9;
-        // }}
+        onProgress={()=>{
+          const swiper = document.querySelector(".swiper").swiper
+          console.log(swiper.progress);
+        }}
         // onMouseUp={()=>{
         //   const swiper = document.querySelector(".swiper");
         //   swiper.style.scale = 1;
@@ -117,7 +117,7 @@ export default function EventsCarousel() {
         }}
         loop={true}
         breakpoints={{
-          640: {
+          370: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
@@ -125,30 +125,34 @@ export default function EventsCarousel() {
             slidesPerView: 3,
             spaceBetween: 40,
           },
-          1024: {
+          1124: {
             slidesPerView: 5,
             spaceBetween: 50,
           },
         }}
+        // onResize={()=>{
+        //   const swiper = document.querySelector(".swiper").swiper
+        //   swiper.init()
+        // }}
        
         // pagination={{
         //   type: 'progressbar',
         // }}
         // effect="creative"
         creativeEffect={{
-          limitProgress: 6,
+          limitProgress: 3,
           perspective: true,
           prev: {
             // shadow: true,
             translate: ["-115%", "8%", 0],
-            // scale: 0.9,
+            scale: 0.9,
             rotate: [0, 0, -10],
             origin: "bottom"
           },
           next: {
             // shadow: true,
             translate: ["115%", "8%", 0],
-            // scale: 0.9,
+            scale: 0.9,
             rotate: [0, 0, 10],
             origin: "bottom"
           },
@@ -180,7 +184,8 @@ export default function EventsCarousel() {
           sticky: true,
         }}
 
-        effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
+        effect="creative"
+        // effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
         // effect={"cards"}
         cardsEffect={{
           slideShadows: false,
