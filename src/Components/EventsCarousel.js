@@ -194,7 +194,7 @@ export default function EventsCarousel({setProgress}) {
           // perSlideRotate: 0,
         }}
         simulateTouch={true}
-        onSlideChangeTransitionStart={()=>{
+        onRealIndexChange={()=>{
           const swiper = document.querySelector(".swiper").swiper
           setProgress(Math.round(swiper.realIndex/swiper.slides.length*100))
         }}
