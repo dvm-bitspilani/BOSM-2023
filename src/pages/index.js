@@ -38,6 +38,7 @@ const IndexPage = () => {
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
 
+
   console.log({ cossacSwitchBtn })
   useEffect(() => {
     if (isLoading) {
@@ -115,6 +116,27 @@ const IndexPage = () => {
     {
       name: "Anushka Shukla",
       image: `${AnushkaShukla}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
+      department: "Joint Sports Secretary",
+      phone: "+91-9999999999",
+      email: "abcd@pilani.bits-pilani.ac.in",
+    },
+    {
+      name: "Yashwasin Jain",
+      image: `${Boy}`,
       department: "Joint Sports Secretary",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
@@ -296,7 +318,13 @@ const IndexPage = () => {
     const aboutCarousel = document.getElementsByClassName(about["carouselContainer"]);
     const aboutContent = document.getElementsByClassName(about["contentContainer"]);
 
-
+    backStatue.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+  
+    frontStatue.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
 
     window.scrollTo(0, 0);
 
@@ -953,7 +981,9 @@ const IndexPage = () => {
                       id="frontStatue"
                       alt=""
                       src={FrontStatue}
-                      className={contact["frontStatue"]}
+                      className={contact["frontStatue"]
+                     
+                  }
                     />
                     <img
                       id="backStatue"
