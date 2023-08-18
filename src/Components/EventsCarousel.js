@@ -124,11 +124,11 @@ export default function EventsCarousel({setProgress}) {
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
           1124: {
             slidesPerView: 5,
-            spaceBetween: 50,
+            spaceBetween: 40,
           },
         }}
         // onResize={()=>{
