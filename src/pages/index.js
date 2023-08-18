@@ -157,6 +157,8 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email = {contact.email}
           />
         )
       }
@@ -172,6 +174,8 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email = {contact.email}
           />
         )
       }
@@ -187,6 +191,8 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email = {contact.email}
           />
         )
       }
@@ -202,6 +208,8 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email = {contact.email}
           />
         )
       }
@@ -217,6 +225,8 @@ const IndexPage = () => {
             name={contact.name}
             img={contact.image}
             dept={contact.department}
+            phone={contact.phone}
+            email = {contact.email}
           />
         )
       }

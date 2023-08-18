@@ -318,7 +318,7 @@
   height: 5vw;
   width: 90vh;
   z-index: 2;
-  padding-left: 15vh;
+  /* padding-left: 15vh; */
     transform: rotate(90deg);
 
 }
