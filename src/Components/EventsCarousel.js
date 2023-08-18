@@ -48,6 +48,7 @@ export default function EventsCarousel() {
   return (
     <motion.div
       className="swiper-container-div"
+      id="eventCarousel"
       ref={swiperContainerDiv}
       // whileTap={{ scale: 0.9 }}
       transition={{

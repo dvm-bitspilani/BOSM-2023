@@ -11,6 +11,7 @@ import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
+import CursorDrag from "../images/cursordrag.png"
 import FrontStatue from "../images/statue2bright.png";
 import BackStatue from "../images/statue2bg.png";
 import ContactProfile from "../Components/Profile";
@@ -150,26 +151,6 @@ const IndexPage = () => {
     },
   ];
 
-  // const ContactsCards1 = ContactsData1.map((contact, key) => {
-  //   return (
-  //     <ContactProfile
-  //       key={contact.name}
-  //       name={contact.name}
-  //       img={contact.image}
-  //       dept={contact.department}
-  //     />
-  //   );
-  // });
-  // const ContactsCards2 = ContactsData2.map((contact, key) => {
-  //   return (
-  //     <ContactProfile
-  //       key={key}
-  //       name={contact.name}
-  //       img={contact.image}
-  //       dept={contact.department}
-  //     />
-  //   );
-  // });
 
   const Card1Row1 = ContactsData1
     .map((contact, index) => {
@@ -286,6 +267,7 @@ const IndexPage = () => {
 
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
+    const cursorCircleDrag = document.getElementById("cursorFollowerDrag");
     const cursorImg = document.getElementById("cursorImg");
     const statueContainer = document.getElementById("statueContainer");
     const statue = document.getElementById("statue");
@@ -343,6 +325,8 @@ const IndexPage = () => {
         cursorCircle.style.opacity = "1";
         cursor.style.left = `${clientX}px`;
         cursor.style.top = `${clientY}px`;
+        cursorCircleDrag.style.left = `${clientX}px`;
+        cursorCircleDrag.style.top = `${clientY}px`;
 
         let _clientX = clientX - 52;
         let _clientY = clientY - 52;
@@ -478,6 +462,32 @@ const IndexPage = () => {
     };
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
+  useEffect(() => {
+    const handleMouseOver = () => {
+      console.log("hi");
+      document.getElementById("cursorFollowerDrag").style.opacity = '1';
+      document.getElementById("cursorFollowerDrag").style.display = 'block';
+      document.getElementById("cursorFollower").style.visibility = 'hidden';
+    };
+    
+    const handleMouseOut = () => {
+      document.getElementById("cursorFollower").style.visibility = 'visible';
+      document.getElementById("cursorFollowerDrag").style.opacity = '0';
+      document.getElementById("cursorFollowerDrag").style.display = 'none';
+    };
+  
+    const eventCarousel = document.getElementById("eventCarousel");
+    const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
+  
+    eventCarousel.addEventListener("mouseover", handleMouseOver);
+    eventCarousel.addEventListener("mouseout", handleMouseOut);
+  
+    return () => {
+      eventCarousel.removeEventListener("mouseover", handleMouseOver);
+      eventCarousel.removeEventListener("mouseout", handleMouseOut);
+    };
+  }, []);
+  
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -754,6 +764,9 @@ const IndexPage = () => {
       <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
+      </div>
+      <div className="cursorFollowerDrag" id="cursorFollowerDrag">
+        <img id="cursorImg" src={CursorDrag} alt=""></img>
       </div>
 
       <>

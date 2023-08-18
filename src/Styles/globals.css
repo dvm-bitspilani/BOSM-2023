@@ -123,6 +123,19 @@ a{
   transition: 0.7s transform cubic-bezier(0.62, 0.02, 0.34, 1);
   /* mix-blend-mode: hard-light; */
 }
+.cursorFollowerDrag{
+  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000001;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.cursorFollowerDrag img{
+  transform: translate(-50% , -50%) scale(0.75);
+}
 .cursorFollower img {
   height: 120px;
   width: 120px;
