@@ -318,19 +318,22 @@ const IndexPage = () => {
     const aboutCarousel = document.getElementsByClassName(about["carouselContainer"]);
     const aboutContent = document.getElementsByClassName(about["contentContainer"]);
 
-    backStatue.addEventListener("dragstart", (event) => {
-      event.preventDefault();
-    });
-  
-    frontStatue.addEventListener("dragstart", (event) => {
-      event.preventDefault();
-    });
+    if(backStatue){
+      backStatue.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }
+    if(frontStatue){
+      frontStatue.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }
 
     window.scrollTo(0, 0);
 
     // window.scroll = scroll;
 
-    if (window.innerWidth > 920) {
+    if (typeof window !== "undefined" && window.innerWidth > 920) {
       window.onpointermove = (event) => {
         const { clientX, clientY } = event;
 
@@ -359,10 +362,12 @@ const IndexPage = () => {
 
         const containerMargin = position + 100;
 
-        landingSection.style.position = "fixed";
+        if(landingSection){
+          landingSection.style.position = "fixed";
+        }
 
 
-        if (rightLion[0]) {
+        if (rightLion[0] && statue && leftLion[0] && countDown) {
           if (position >= 300) {
             rightLion[0].style.opacity = 0;
             leftLion[0].style.opacity = 0;
@@ -392,7 +397,7 @@ const IndexPage = () => {
         }
 
 
-        if (aboutContainer[0]) {
+        if (aboutContainer[0] && aboutSection) {
           if (position <= visibleHeight) {
             aboutSection.style.opacity = 0;
             eventsSection.style.opacity = 0;

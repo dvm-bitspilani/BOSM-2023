@@ -43,7 +43,7 @@
           })
         }
       }
-    }, [])
+    }, [regPage])
 
     const redBgVariants = {
       open: {
