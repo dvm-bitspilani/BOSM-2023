@@ -630,10 +630,11 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     return phonePattern.test(phone);
   };
 
+  const [phone , setPhone] = useState("");
   const [formData, setFormData] = useState({
     name: '',
     email_id: '',
-    phone: '',
+    phone: phone,
     gender: '',
     college_id: '',
     city: '',
@@ -695,6 +696,13 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const [gender, setGender] = useState('');
   const handleChange2 = (event) => {
     const { id, value, name, type } = event.target;
+    console.log(id)
+    console.log(type)
+    console.log(value)
+    console.log(name)
+    if(id === 'phone'){
+      setPhone(value.replace(/\D/g,''));
+    }
     const updatedFormData = { ...formData };
     updatedFormData["is_coach"] = isCoach;
     if (name === 'is_coach') {
@@ -745,6 +753,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     setFormData(updatedFormData);
   };
 
+
+  // const digitsOnly=(e)=>{
+  //   const phonePattern = /^\d+$/;
+  //   const result = e.target.value.replace(/\D/g,'')
+  //   console.log(e.target.value);
+  //   console.log(result)
+  //   setPhone(e.target.value)
+  // };
 
   const handleChangeMulti = (selectedOptions, { name }) => {
     const updatedFormData = { ...formData };
@@ -891,7 +907,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <input className={styles["regInput"]} id='email_id' onChange={handleChange2} />
 
             <label htmlFor='phone'>Phone</label>
-            <input className={styles["regInput"]} id='phone' onChange={handleChange2} maxLength="10" />
+            <input className={styles["regInput"]} id='phone' value={phone} onChange={handleChange2} maxLength="10" />
 
             <label htmlFor='gender' className={styles.genderLabel}>Gender</label>
             <div className={styles["radioBtns"]}>

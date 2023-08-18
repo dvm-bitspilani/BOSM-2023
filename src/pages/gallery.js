@@ -225,7 +225,7 @@ const Gallery = props => {
                 style={{ y: y10 }} draggable={false} />
             </div>
           </div>
-          <div className={styles["tagline"]}>roar of resilience</div>
+          {/* <div className={styles["tagline"]}>roar of resilience</div> */}
         </div>
       </main>
     </>
