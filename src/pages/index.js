@@ -8,7 +8,7 @@ import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
-import { motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
 import FrontStatue from "../images/statue2bright.png";
 import BackStatue from "../images/statue2bg.png";
@@ -35,6 +35,9 @@ import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
+  const [cossacCards, setCossacCards] = useState(true);
+
+  console.log({ cossacSwitchBtn })
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
@@ -124,26 +127,116 @@ const IndexPage = () => {
     },
   ];
 
-  const ContactsCards1 = ContactsData1.map((contact, key) => {
-    return (
-      <ContactProfile
-        key={key}
-        name={contact.name}
-        img={contact.image}
-        dept={contact.department}
-      />
-    );
-  });
-  const ContactsCards2 = ContactsData2.map((contact, key) => {
-    return (
-      <ContactProfile
-        key={key}
-        name={contact.name}
-        img={contact.image}
-        dept={contact.department}
-      />
-    );
-  });
+  // const ContactsCards1 = ContactsData1.map((contact, key) => {
+  //   return (
+  //     <ContactProfile
+  //       key={contact.name}
+  //       name={contact.name}
+  //       img={contact.image}
+  //       dept={contact.department}
+  //     />
+  //   );
+  // });
+  // const ContactsCards2 = ContactsData2.map((contact, key) => {
+  //   return (
+  //     <ContactProfile
+  //       key={key}
+  //       name={contact.name}
+  //       img={contact.image}
+  //       dept={contact.department}
+  //     />
+  //   );
+  // });
+
+  const Card1Row1 = ContactsData1
+    .map((contact, index) => {
+      if (index >= 0 && index < 2) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(0,2)
+
+  const Card1Row2 = ContactsData1
+    .map((contact, index) => {
+      if (index >= 2 && index < 3) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(2,3)
+
+    const Card2Row1 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 0 && index < 3) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(0,3)
+
+    const Card2Row2 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 3 && index < 6) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(3,6)
+
+    const Card2Row3 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 6 && index < 8) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(6,8)
+
+  const ContactsCards1 = (
+    <div className={contact["cardsContainer1"]}>
+      <div className={contact["row"]}>{Card1Row1}</div>
+      <div className={contact["row"]}>{Card1Row2}</div>
+    </div>
+  )
+
+  const ContactsCards2 = (
+    <div className={contact["cardsContainer2"]}>
+      <div className={contact["row"]}>{Card2Row1}</div>
+      <div className={contact["row"]}>{Card2Row2}</div>
+      <div className={contact["row"]}>{Card2Row3}</div>
+    </div>
+  )
 
   const [regPage, setRegPage] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
@@ -573,14 +666,20 @@ const IndexPage = () => {
   const handleStatueImageDrag = (event) => {
     event.preventDefault();
   };
-const handleOrganizingCardsBtnClick = () => {
-    // console.log("first");
+  const handleOrganizingCardsBtnClick = () => {
+    setCossacCards(true);
     setCossacSwitchBtn(true);
+    // setTimeout(() => {
+    //   setCossacSwitchBtn(true);
+    // }, 500);
   };
 
   const handleCossacCardsButtonClick = () => {
-    // console.log("first");
+    setCossacCards(false);
     setCossacSwitchBtn(false);
+    // setTimeout(() => {
+    //   setCossacSwitchBtn(false);
+    // }, 500);
   };
   return (
     <>
@@ -817,45 +916,45 @@ const handleOrganizingCardsBtnClick = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <div className={contact["cardsContainer"]}>
-                        {cossacSwitchBtn? ContactsCards1 : ContactsCards2}
-                      </div>
+                      <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, delay: 1 }}
+                        exit={{ opacity: 0, delay: 1 }}
+                        transition={{ duration: 0.5, ease: easeInOut }}
+                      >
+                        {cossacCards ? ContactsCards1 : ContactsCards2}
+                      </motion.div>
+
                     </div>
                   </div>
                   <div className={contact["cardsSwitchButtons"]}>
                     <div
                       className={contact["organizingBtn"]}
                       onClick={handleOrganizingCardsBtnClick}
+
+                      style={
+                        !cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white"
+                          }
+                      }
                     >
-                      <span
-                        style={
-                          !cossacSwitchBtn
-                            ? { textDecoration: "none" }
-                            : {
-                                textDecoration: "underline",
-                                textUnderlineOffset: "8px",
-                              }
-                        }
-                      >
-                        Organizing Committee
-                      </span>
+                      Organizing Committee
                     </div>
                     <div
                       className={contact["cossacBtn"]}
                       onClick={handleCossacCardsButtonClick}
+
+                      style={
+                        cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white"
+                          }
+                      }
                     >
-                      <span
-                        style={
-                          cossacSwitchBtn
-                            ? { textDecoration: "none" }
-                            : {
-                                textDecoration: "underline",
-                                textUnderlineOffset: "8px",
-                              }
-                        }
-                      >
-                        CoSSAC
-                      </span>
+                      CoSSAC
                     </div>
                   </div>
                 </div>
