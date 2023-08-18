@@ -8,7 +8,7 @@ import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
-import { motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
 import FrontStatue from "../images/statue2bright.png";
 import BackStatue from "../images/statue2bg.png";
@@ -35,6 +35,9 @@ import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
+  const [cossacCards, setCossacCards] = useState(true);
+
+  console.log({ cossacSwitchBtn })
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
@@ -127,7 +130,7 @@ const IndexPage = () => {
   const ContactsCards1 = ContactsData1.map((contact, key) => {
     return (
       <ContactProfile
-        key={key}
+        key={contact.name}
         name={contact.name}
         img={contact.image}
         dept={contact.department}
@@ -573,14 +576,20 @@ const IndexPage = () => {
   const handleStatueImageDrag = (event) => {
     event.preventDefault();
   };
-const handleOrganizingCardsBtnClick = () => {
-    // console.log("first");
+  const handleOrganizingCardsBtnClick = () => {    
+    setCossacCards(true);
     setCossacSwitchBtn(true);
+    // setTimeout(() => {
+    //   setCossacSwitchBtn(true);
+    // }, 500);
   };
 
   const handleCossacCardsButtonClick = () => {
-    // console.log("first");
+    setCossacCards(false);
     setCossacSwitchBtn(false);
+    // setTimeout(() => {
+    //   setCossacSwitchBtn(false);
+    // }, 500);
   };
   return (
     <>
@@ -817,45 +826,45 @@ const handleOrganizingCardsBtnClick = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <div className={contact["cardsContainer"]}>
-                        {cossacSwitchBtn? ContactsCards1 : ContactsCards2}
-                      </div>
+                      <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
+                        initial= {{opacity: 0}}
+                        animate= {{opacity: 1, delay: 1}}
+                        exit={{opacity: 0, delay: 1}} 
+                        transition={{ duration: 0.5, ease: easeInOut}}
+                      >
+                        {cossacCards ? ContactsCards1 : ContactsCards2}
+                      </motion.div>
+                      
                     </div>
                   </div>
                   <div className={contact["cardsSwitchButtons"]}>
                     <div
                       className={contact["organizingBtn"]}
                       onClick={handleOrganizingCardsBtnClick}
-                    >
-                      <span
+                    
                         style={
                           !cossacSwitchBtn
-                            ? { textDecoration: "none" }
+                            ? { borderBottom: "3px solid rgba(255, 255, 255, 0)"}
                             : {
-                                textDecoration: "underline",
-                                textUnderlineOffset: "8px",
-                              }
+                              borderBottom: "3px solid white"
+                            }
                         }
                       >
                         Organizing Committee
-                      </span>
                     </div>
                     <div
                       className={contact["cossacBtn"]}
                       onClick={handleCossacCardsButtonClick}
-                    >
-                      <span
+                    
                         style={
                           cossacSwitchBtn
-                            ? { textDecoration: "none" }
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)"}
                             : {
-                                textDecoration: "underline",
-                                textUnderlineOffset: "8px",
-                              }
+                              borderBottom: "3px solid white"
+                            }
                         }
                       >
                         CoSSAC
-                      </span>
                     </div>
                   </div>
                 </div>
