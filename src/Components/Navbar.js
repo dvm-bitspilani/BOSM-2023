@@ -146,7 +146,7 @@ const Navbar = ({
           animate={isHamOpen ? "closed" : "open"}
           variants={navbarUpVariants}
         >
-          <img src={Logo} alt="logo" draggable={false}/>
+          <img id="bosm-logo" src={Logo} alt="logo" draggable={false}/>
         </motion.div>}
         <nav className={styles["navbarLeft"]}>
           <ul>
@@ -164,6 +164,7 @@ const Navbar = ({
         <div className={styles["navbarRightCorner"]}>
           {!isLoading && <motion.div
             className={styles["registerBtn"]}
+            id="register-btn"
             onClick={goToNextPage}
             initial={{ y: [-150] }}
             animate={isHamOpen ? "closed" : "open"}
@@ -174,7 +175,7 @@ const Navbar = ({
           {!isLoading && <div>
             {/* <img src={hamIcon} alt="hamIcon" />open
              */}
-             <div className={styles.hamIcon} onClick={openHam}>
+             <div id="ham-menu" className={styles.hamIcon} onClick={openHam}>
                 <span id="hamIcon1" className={styles.hamIcon1}></span>
                 <span id="hamIcon2" className={styles.hamIcon2}></span>
                 <span id="hamIcon3" className={styles.hamIcon3}></span>

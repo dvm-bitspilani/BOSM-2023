@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import "../Styles/globals.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Hamburger from "./Hamburger";
 import MobileHamburger from "./MobileHamburger";
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Layout = ({
   content,
@@ -18,6 +23,24 @@ const Layout = ({
   regPage,
   closeHam
 }) => {
+
+  // const { scrollYProgress } = useScroll();
+  // const bgWidth = useTransform(scrollYProgress, [0.0, 0.25], ['100%', '0%']);
+
+  useEffect(() => {
+    gsap.to(".fixed-bg-blue", {
+      scrollTrigger: {
+        trigger: ".fixed-bg-blue",
+        start: "10%",
+        scrub: 0.5,
+        snap: 1
+      },
+      width: "0%",
+      ease: 'none',
+      duration: 1
+    })
+  }, [])
+
   const redBgVariants = {
     open: {
       x: 0,
@@ -110,11 +133,14 @@ const Layout = ({
             className="fixed-bg-red"
             animate={isHamOpen ? "closed" : "open"}
             variants={isBrowser && window.innerWidth > 731 && redBgVariants}
+            
           ></motion.div>
           <motion.div
             className="fixed-bg-blue"
             animate={isHamOpen ? "closed" : "open"}
             variants={isBrowser && window.innerWidth > 731 && blueBgVariants}
+            style={{width: "100%"}}
+            // style={typeof window !== "undefined" ? window.innerWidth > 920 ? { width: bgWidth } : "" : ""}
           // animate={{
           //   y: [500, 500, -250, 0, 0, 0, 0],
           //   x: [0, 0, 0, 0, 0, 300, 0],
