@@ -157,16 +157,14 @@
 
 .cardsContainer {
   width: 40vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: row wrap;
-  /* border: solid blue; */
-  grid-template-columns: auto auto auto;
-  /* grid-column-gap: min(5rem, 27vh); */
+  height: 100%;
   margin-inline: 1vh;
   margin-block: 2vh;
   background: transparent;
   transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contentContainer {
@@ -179,6 +177,13 @@
 
 .content {
   height: 100%;
+}
+
+.row{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 @media (max-width: 920px) {

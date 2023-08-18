@@ -127,26 +127,116 @@ const IndexPage = () => {
     },
   ];
 
-  const ContactsCards1 = ContactsData1.map((contact, key) => {
-    return (
-      <ContactProfile
-        key={contact.name}
-        name={contact.name}
-        img={contact.image}
-        dept={contact.department}
-      />
-    );
-  });
-  const ContactsCards2 = ContactsData2.map((contact, key) => {
-    return (
-      <ContactProfile
-        key={key}
-        name={contact.name}
-        img={contact.image}
-        dept={contact.department}
-      />
-    );
-  });
+  // const ContactsCards1 = ContactsData1.map((contact, key) => {
+  //   return (
+  //     <ContactProfile
+  //       key={contact.name}
+  //       name={contact.name}
+  //       img={contact.image}
+  //       dept={contact.department}
+  //     />
+  //   );
+  // });
+  // const ContactsCards2 = ContactsData2.map((contact, key) => {
+  //   return (
+  //     <ContactProfile
+  //       key={key}
+  //       name={contact.name}
+  //       img={contact.image}
+  //       dept={contact.department}
+  //     />
+  //   );
+  // });
+
+  const Card1Row1 = ContactsData1
+    .map((contact, index) => {
+      if (index >= 0 && index < 2) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(0,2)
+
+  const Card1Row2 = ContactsData1
+    .map((contact, index) => {
+      if (index >= 2 && index < 3) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(2,3)
+
+    const Card2Row1 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 0 && index < 3) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(0,3)
+
+    const Card2Row2 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 3 && index < 6) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(3,6)
+
+    const Card2Row3 = ContactsData2
+    .map((contact, index) => {
+      if (index >= 6 && index < 8) {
+        return (
+          <ContactProfile
+            key={index}
+            name={contact.name}
+            img={contact.image}
+            dept={contact.department}
+          />
+        )
+      }
+      return null;
+    }).slice(6,8)
+
+  const ContactsCards1 = (
+    <div>
+      <div className={contact["row"]}>{Card1Row1}</div>
+      <div className={contact["row"]}>{Card1Row2}</div>
+    </div>
+  )
+
+  const ContactsCards2 = (
+    <div>
+      <div className={contact["row"]}>{Card2Row1}</div>
+      <div className={contact["row"]}>{Card2Row2}</div>
+      <div className={contact["row"]}>{Card2Row3}</div>
+    </div>
+  )
 
   const [regPage, setRegPage] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
@@ -576,7 +666,7 @@ const IndexPage = () => {
   const handleStatueImageDrag = (event) => {
     event.preventDefault();
   };
-  const handleOrganizingCardsBtnClick = () => {    
+  const handleOrganizingCardsBtnClick = () => {
     setCossacCards(true);
     setCossacSwitchBtn(true);
     // setTimeout(() => {
@@ -827,44 +917,44 @@ const IndexPage = () => {
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
                       <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
-                        initial= {{opacity: 0}}
-                        animate= {{opacity: 1, delay: 1}}
-                        exit={{opacity: 0, delay: 1}} 
-                        transition={{ duration: 0.5, ease: easeInOut}}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, delay: 1 }}
+                        exit={{ opacity: 0, delay: 1 }}
+                        transition={{ duration: 0.5, ease: easeInOut }}
                       >
                         {cossacCards ? ContactsCards1 : ContactsCards2}
                       </motion.div>
-                      
+
                     </div>
                   </div>
                   <div className={contact["cardsSwitchButtons"]}>
                     <div
                       className={contact["organizingBtn"]}
                       onClick={handleOrganizingCardsBtnClick}
-                    
-                        style={
-                          !cossacSwitchBtn
-                            ? { borderBottom: "3px solid rgba(255, 255, 255, 0)"}
-                            : {
-                              borderBottom: "3px solid white"
-                            }
-                        }
-                      >
-                        Organizing Committee
+
+                      style={
+                        !cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white"
+                          }
+                      }
+                    >
+                      Organizing Committee
                     </div>
                     <div
                       className={contact["cossacBtn"]}
                       onClick={handleCossacCardsButtonClick}
-                    
-                        style={
-                          cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)"}
-                            : {
-                              borderBottom: "3px solid white"
-                            }
-                        }
-                      >
-                        CoSSAC
+
+                      style={
+                        cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white"
+                          }
+                      }
+                    >
+                      CoSSAC
                     </div>
                   </div>
                 </div>
