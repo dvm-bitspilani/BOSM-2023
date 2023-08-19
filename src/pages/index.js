@@ -275,22 +275,28 @@ const IndexPage = () => {
         onEnter: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            aboutUsSection.style.zIndex = 2;
+            if(aboutUsSection){
+              aboutUsSection.style.zIndex = 2;
+            }
           }
         },
         onLeaveBack: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            aboutUsSection.style.zIndex = 0;
-            aboutUsSection.style.position = "fixed";
-            aboutUsSection.style.top = "0";
+            if(aboutUsSection){
+              aboutUsSection.style.zIndex = 0;
+              aboutUsSection.style.position = "fixed";
+              aboutUsSection.style.top = "0";
+            }
           }
         },
         onLeave: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            aboutUsSection.style.position = "absolute";
-            aboutUsSection.style.top = "100vh";
+            if (aboutUsSection) {
+              aboutUsSection.style.position = "absolute";
+              aboutUsSection.style.top = "100vh";
+            }
           }
         },
         // markers: {
