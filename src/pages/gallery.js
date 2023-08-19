@@ -73,6 +73,8 @@ const Gallery = props => {
       });
     };
 
+    document.body.height = "fit-content";
+
     return cleanup;
   }, []);
   useEffect(() => {

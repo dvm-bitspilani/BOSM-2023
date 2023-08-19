@@ -34,6 +34,12 @@ import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
 import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
 import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
@@ -259,6 +265,82 @@ const IndexPage = () => {
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".fixed-bg",
+        start: "top top",
+        // endTrigger: ".fixed-bg-blue",
+        end: `+=${window.innerHeight}`,
+        toggleActions: "play none none reverse",
+        onEnter: ({progress, direction, isActive}) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            aboutUsSection.style.zIndex = 2;
+          }
+        },
+        onLeaveBack: ({progress, direction, isActive}) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            aboutUsSection.style.zIndex = 0;
+            aboutUsSection.style.position = "fixed";
+            aboutUsSection.style.top = "0";
+          }
+        },
+        onLeave: ({progress, direction, isActive}) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            aboutUsSection.style.position = "absolute";
+            aboutUsSection.style.top = "100vh";
+          }
+        },
+        // markers: {
+        //   startColor: "white",
+        //   endColor: "white",
+        //   fontSize: "12px",
+        //   indent: 20,
+        // },
+        scrub: true,
+        snap: 1
+      },
+    });
+    if (typeof window !== "undefined") {
+      // if (window.innerWidth > 920) {
+      tl.to(".fixed-bg-red", {
+        scaleX: 2,
+        ease: "none",
+      })
+        .to(".Content-module--landing--465bf", {
+          opacity: 0,
+          ease: "none",
+        })
+        .to(
+          ".Navbar-module--navbarContainer--4b50b",
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          ".Navbar-module--registerBtnMobile--70f37",
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to("#about-us-section", {
+          opacity: 1,
+          ease: "none",
+          // position: "absolute",
+          // top: "100vh",
+        });
+
+      // }
+    }
+  }, []);
+
+  useEffect(() => {
     const landingSection = document.getElementById("landing-section");
     const aboutSection = document.getElementById("about-us-section");
     const eventsSection = document.getElementById("events-section");
@@ -346,125 +428,126 @@ const IndexPage = () => {
 
         const containerMargin = position + 100;
 
-        if(landingSection){
-          landingSection.style.position = "fixed";
-        }
+    //     if(landingSection){
+    //       landingSection.style.position = "fixed";
+    //     }
 
 
-        if (rightLion[0] && statue && leftLion[0] && countDown) {
-          if (position >= visibleHeight - 50) {
-            rightLion[0].style.opacity = 0;
-            leftLion[0].style.opacity = 0;
-            countDown[0].style.opacity = 0;
-            rightSubTitle[0].style.opacity = 0;
-            leftSubtitle[0].style.opacity = 0;
-            heading[0].style.opacity = 0;
-            socials[0].style.opacity = 0;
-            statue.style.opacity = 0;
-            register.style.opacity = 0;
-            hamMenu.style.opacity = 0;
-            bosmLogo.style.opacity = 0;
-          }
-          else {
-            rightLion[0].style.opacity = 1;
-            leftLion[0].style.opacity = 1;
-            countDown[0].style.opacity = 1;
-            rightSubTitle[0].style.opacity = 1;
-            leftSubtitle[0].style.opacity = 1;
-            heading[0].style.opacity = 1;
-            socials[0].style.opacity = 1;
-            statue.style.opacity = 1;
-            register.style.opacity = 1;
-            hamMenu.style.opacity = 1;
-            bosmLogo.style.opacity = 1;
-          }
-        }
+    //     if (rightLion[0] && statue && leftLion[0] && countDown) {
+    //       if (position >= visibleHeight - 50) {
+    //         rightLion[0].style.opacity = 0;
+    //         leftLion[0].style.opacity = 0;
+    //         countDown[0].style.opacity = 0;
+    //         rightSubTitle[0].style.opacity = 0;
+    //         leftSubtitle[0].style.opacity = 0;
+    //         heading[0].style.opacity = 0;
+    //         socials[0].style.opacity = 0;
+    //         statue.style.opacity = 0;
+    //         register.style.opacity = 0;
+    //         hamMenu.style.opacity = 0;
+    //         bosmLogo.style.opacity = 0;
+    //       }
+    //       else {
+    //         rightLion[0].style.opacity = 1;
+    //         leftLion[0].style.opacity = 1;
+    //         countDown[0].style.opacity = 1;
+    //         rightSubTitle[0].style.opacity = 1;
+    //         leftSubtitle[0].style.opacity = 1;
+    //         heading[0].style.opacity = 1;
+    //         socials[0].style.opacity = 1;
+    //         statue.style.opacity = 1;
+    //         register.style.opacity = 1;
+    //         hamMenu.style.opacity = 1;
+    //         bosmLogo.style.opacity = 1;
+    //       }
+    //     }
 
 
-        if (aboutContainer[0] && aboutSection) {
-          if (position <= visibleHeight - 1) {
-            aboutSection.style.opacity = 0;
-            eventsSection.style.opacity = 0;
-            contactSection.style.opacity = 0;
-            aboutSection.style.zIndex = 0;
-            aboutContainer[0].style.marginTop = `${containerMargin}px`;
-            aboutHeading[0].style.opacity = 0;
-            aboutCarousel[0].style.opacity = 0;
-            aboutContent[0].style.opacity = 0;
-          }
-          else {
-            aboutSection.style.opacity = 1;
-            eventsSection.style.opacity = 1;
-            contactSection.style.opacity = 1;
-            aboutSection.style.zIndex = 2;
-            aboutHeading[0].style.opacity = 1;
-            aboutCarousel[0].style.opacity = 1;
-            aboutContent[0].style.opacity = 1;
-          }
-        }
-      };
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    }
-    if (window.innerWidth <= 920) {
+    //     if (aboutContainer[0] && aboutSection) {
+    //       if (position <= visibleHeight - 1) {
+    //         aboutSection.style.opacity = 0;
+    //         eventsSection.style.opacity = 0;
+    //         contactSection.style.opacity = 0;
+    //         aboutSection.style.zIndex = 0;
+    //         aboutContainer[0].style.marginTop = `${containerMargin}px`;
+    //         aboutHeading[0].style.opacity = 0;
+    //         aboutCarousel[0].style.opacity = 0;
+    //         aboutContent[0].style.opacity = 0;
+    //       }
+    //       else {
+    //         aboutSection.style.opacity = 1;
+    //         eventsSection.style.opacity = 1;
+    //         contactSection.style.opacity = 1;
+    //         aboutSection.style.zIndex = 2;
+    //         aboutHeading[0].style.opacity = 1;
+    //         aboutCarousel[0].style.opacity = 1;
+    //         aboutContent[0].style.opacity = 1;
+    //       }
+    //     }
+    //   };
+    //   window.addEventListener("scroll", handleScroll, { passive: true });
+    // }
+    // if (window.innerWidth <= 920) {
 
-      const handleScroll = () => {
-        if (statue) {
-          const position = window.scrollY;
-          const statueHeight = 60 + position / 20;
-          const contactRadius = 150 - position / 5;
-          const blur = position / 50;
+    //   const handleScroll = () => {
+    //     if (statue) {
+    //       const position = window.scrollY;
+    //       const statueHeight = 60 + position / 20;
+    //       const contactRadius = 150 - position / 5;
+    //       const blur = position / 50;
 
-          cursorImg.style.transform = `rotate(${position / 5}deg)`;
-          statueMobile.style.height = `${statueHeight}%`;
+    //       cursorImg.style.transform = `rotate(${position / 5}deg)`;
+    //       statueMobile.style.height = `${statueHeight}%`;
 
-          if (fixedBG[0]) {
-            if (position > 100) {
-              fixedBG[0].style.filter = `blur(${blur}px)`;
-              fixedBG[0].style.transform = "scale(1.1)";
-              rightLion[0].style.filter = `blur(${blur}px)`;
-              leftLion[0].style.filter = `blur(${blur}px)`;
-              countDown[0].style.filter = `blur(${blur}px)`;
-              rightSubTitle[0].style.filter = `blur(${blur}px)`;
-              leftSubtitle[0].style.filter = `blur(${blur}px)`;
-              heading[0].style.filter = `blur(${blur}px)`;
-              socials[0].style.filter = `blur(${blur}px)`;
-              statueMobile.style.filter = `blur(${blur}px)`;
-              // statue.style.filter = `blur(${blur}px)`;
-              registerBtnMobile.style.filter = `blur(${blur}px)`;
-            } else {
-              fixedBG[0].style.filter = "blur(0)";
-              fixedBG[0].style.transform = "scale(1)";
-              rightLion[0].style.filter = "blur(0)";
-              leftLion[0].style.filter = "blur(0)";
-              countDown[0].style.filter = "blur(0)";
-              leftSubtitle[0].style.filter = "blur(0)";
-              rightSubTitle[0].style.filter = "blur(0)";
-              heading[0].style.filter = "blur(0)";
-              statueMobile.style.filter = "blur(0)";
-              statue.style.filter = "blur(0)";
-              socials[0].style.filter = "blur(0)";
-              registerBtnMobile.style.filter = `blur(${blur}px)`;
-            }
-          }
+    //       if (fixedBG[0]) {
+    //         if (position > 100) {
+    //           fixedBG[0].style.filter = `blur(${blur}px)`;
+    //           fixedBG[0].style.transform = "scale(1.1)";
+    //           rightLion[0].style.filter = `blur(${blur}px)`;
+    //           leftLion[0].style.filter = `blur(${blur}px)`;
+    //           countDown[0].style.filter = `blur(${blur}px)`;
+    //           rightSubTitle[0].style.filter = `blur(${blur}px)`;
+    //           leftSubtitle[0].style.filter = `blur(${blur}px)`;
+    //           heading[0].style.filter = `blur(${blur}px)`;
+    //           socials[0].style.filter = `blur(${blur}px)`;
+    //           statueMobile.style.filter = `blur(${blur}px)`;
+    //           // statue.style.filter = `blur(${blur}px)`;
+    //           registerBtnMobile.style.filter = `blur(${blur}px)`;
+    //         } else {
+    //           fixedBG[0].style.filter = "blur(0)";
+    //           fixedBG[0].style.transform = "scale(1)";
+    //           rightLion[0].style.filter = "blur(0)";
+    //           leftLion[0].style.filter = "blur(0)";
+    //           countDown[0].style.filter = "blur(0)";
+    //           leftSubtitle[0].style.filter = "blur(0)";
+    //           rightSubTitle[0].style.filter = "blur(0)";
+    //           heading[0].style.filter = "blur(0)";
+    //           statueMobile.style.filter = "blur(0)";
+    //           statue.style.filter = "blur(0)";
+    //           socials[0].style.filter = "blur(0)";
+    //           registerBtnMobile.style.filter = `blur(${blur}px)`;
+    //         }
+    //       }
 
-          if (position <= window.innerHeight) {
-            statueContainer.style.position = "fixed";
-          } else {
-            statueContainer.style.position = "absolute";
-          }
-        }
-      };
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    }
-    return () => {
-      window.onpointermove = null;
-      window.scrollTo(0, 0);
-    };
-  }, [regPage, showBlackScreen, showBlackScreen2]);
+    //       if (position <= window.innerHeight) {
+    //         statueContainer.style.position = "fixed";
+    //       } else {
+    //         statueContainer.style.position = "absolute";
+    //       }
+    //     }
+    //   };
+    //   window.addEventListener("scroll", handleScroll, { passive: true });
+    // }
+    // return () => {
+    //   window.onpointermove = null;
+    //   window.scrollTo(0, 0);
+    // };
+      }
+  }}, [regPage, showBlackScreen, showBlackScreen2]);
 
   useEffect(() => {
     const handleMouseOver = () => {
-      console.log("hi");
+      // console.log("hi");
       document.getElementById("cursorFollowerDrag").style.opacity = '1';
       document.getElementById("cursorFollowerDrag").style.display = 'block';
       document.getElementById("cursorFollower").style.visibility = 'hidden';
