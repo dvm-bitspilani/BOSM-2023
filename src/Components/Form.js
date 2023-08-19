@@ -5,7 +5,6 @@ import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import RadioButton from './RadioBtn';
-import upload from "../images/upload.svg"
 import {storage} from "../Components/firebase";
 import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
@@ -32,6 +31,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const customNoOptionsMessage = () => "Please select a Gender First";
   const customNoOptionsMessage2 = () => "Please select a State First";
+  const customNoOptionsMessage3 = () => "Wait for states to load";
 
   const [fileUploaded , setFileUploaded] = useState(null);
   const [selectedState , setSelectedState] = useState("");
@@ -982,7 +982,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3} />
 
             <label htmlFor='state'>State</label>
-            <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} />
+            <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} noOptionsMessage={customNoOptionsMessage2} />
 
             <label htmlFor='city'>City</label>
             <CreatableSelect  value={selectedCity} options={cities} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
