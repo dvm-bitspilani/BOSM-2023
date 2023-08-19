@@ -275,28 +275,22 @@ const IndexPage = () => {
         onEnter: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            if(aboutUsSection){
-              aboutUsSection.style.zIndex = 2;
-            }
+            aboutUsSection.style.zIndex = 2;
           }
         },
         onLeaveBack: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            if(aboutUsSection){
-              aboutUsSection.style.zIndex = 0;
-              aboutUsSection.style.position = "fixed";
-              aboutUsSection.style.top = "0";
-            }
+            aboutUsSection.style.zIndex = 0;
+            aboutUsSection.style.position = "fixed";
+            aboutUsSection.style.top = "0";
           }
         },
         onLeave: ({progress, direction, isActive}) => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              aboutUsSection.style.position = "absolute";
-              aboutUsSection.style.top = "100vh";
-            }
+            aboutUsSection.style.position = "absolute";
+            aboutUsSection.style.top = "100vh";
           }
         },
         // markers: {
@@ -311,8 +305,8 @@ const IndexPage = () => {
     });
     if (typeof window !== "undefined") {
       // if (window.innerWidth > 920) {
-      tl.to(".fixed-bg-red", {
-        scaleX: 2,
+      tl.to(".fixed-bg-blue", {
+        width: "0%",
         ease: "none",
       })
         .to(".Content-module--landing--465bf", {
