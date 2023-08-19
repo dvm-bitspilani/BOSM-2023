@@ -1,10 +1,10 @@
 import React from "react";
 import * as styles from "../Styles/Gallery.module.css";
-import Layout from "../Components/Layout";
+// import Layout from "../Components/Layout";
 import Cursor from "../images/cursor.png";
 import "../Styles/globals.css"
 import { useState, useEffect, useRef } from "react";
-import arrow2 from "../images/arrow.svg";
+// import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
@@ -21,7 +21,6 @@ import {
   useScroll,
   motion,
   useTransform,
-  useMotionValue
 } from 'framer-motion';
 
 const Gallery = props => {

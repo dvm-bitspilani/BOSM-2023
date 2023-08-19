@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import cross from "../images/cross.svg";
 import arrow2 from "../images/arrow.svg";
 import Cursor from "../images/cursor.png";
 import { navigate } from "gatsby";
@@ -11,7 +10,6 @@ import LoaderVideo from "../images/loader.mp4";
 const Ignition = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoading2 , setIsLoading2] = useState(true);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const closeButtonHandler = () => {
     navigate("/");
@@ -22,7 +20,6 @@ const Ignition = (props) => {
   useEffect(() => {
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
-    const cursorImg = document.getElementById("cursorImg");
 
     if (window.innerWidth > 1000) {
       window.onpointermove = (event) => {
@@ -260,28 +257,29 @@ const Ignition = (props) => {
       </div>}
        <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
-        <img id="cursorImg" src={Cursor}></img>
+        <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
       <section className={classes.section}>
         <div className={classes.header}>
           <img
+           alt=""
             src={arrow2} onClick={closeButtonHandler}
           />
           <h2>
             IGNITION <span>2023</span>
           </h2>
-          <img src={arrow2} style={{ visibility: "hidden", pointerEvents: "none" }}  />
+          <img alt="" src={arrow2} style={{ visibility: "hidden", pointerEvents: "none" }}  />
         </div>
         <div className={classes.gameWrapper}>
           <div className={classes.backBtn} id="backBtn">
-            <img src={arrow}></img>
+            <img alt="" src={arrow}></img>
           </div>
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
               <div className={classes.gameGroup}>
                 <div className={`${classes.game} ${classes.cr}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>Clash Royale</p>
@@ -291,7 +289,7 @@ const Ignition = (props) => {
               >
                 <div className={`${classes.game} ${classes.fifa}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>
@@ -303,7 +301,7 @@ const Ignition = (props) => {
               <div className={classes.gameGroup}>
                 <div className={`${classes.game} ${classes.bgmi}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>
@@ -323,7 +321,7 @@ const Ignition = (props) => {
               >
                 <div className={`${classes.game} ${classes.valo}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>
@@ -335,7 +333,7 @@ const Ignition = (props) => {
               <div className={`${classes.gameGroup}`}>
                 <div className={`${classes.game} ${classes.tekken}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>
@@ -348,7 +346,7 @@ const Ignition = (props) => {
               >
                 <div className={`${classes.game} ${classes.cod}`}>
                   <div className={classes.arrowContainer}>
-                    <img src={arrow} />
+                    <img alt="" src={arrow} />
                   </div>
                 </div>
                 <p>
@@ -359,7 +357,7 @@ const Ignition = (props) => {
             </div>
           </div>
           <div className={classes.nextBtn} id="nextBtn">
-            <img src={arrow}></img>
+            <img alt="" src={arrow}></img>
           </div>
         </div>
       </section>

@@ -9,7 +9,7 @@ import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
-import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
 import CursorDrag from "../images/cursordrag.png"
 import FrontStatue from "../images/statue2bright.png";
@@ -18,16 +18,16 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
+// import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
 import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
-import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
+// import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
 import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png";
 import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png";
-import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
+// import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
 import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png";
 import Syed from "../Components/ContactsData/ContactImages/Syed.png";
 import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
@@ -272,11 +272,11 @@ const IndexPage = () => {
     const statueContainer = document.getElementById("statueContainer");
     const statue = document.getElementById("statue");
     const statueMobile = document.getElementById("statueMobile");
-    const contactPage = document.getElementById("contactPage");
+    // const contactPage = document.getElementById("contactPage");
     const frontStatue = document.getElementById("frontStatue");
     const backStatue = document.getElementById("backStatue");
-    const backStatueMobile = document.getElementById("backStatueMobile");
-    const contactContent = document.getElementById("contactContent");
+    // const backStatueMobile = document.getElementById("backStatueMobile");
+    // const contactContent = document.getElementById("contactContent");
     const fixedBG = document.getElementsByClassName("fixed-bg");
     const rightLion = document.getElementsByClassName(styles["rightLion"]);
     const leftLion = document.getElementsByClassName(styles["leftLion"]);
@@ -411,7 +411,7 @@ const IndexPage = () => {
         if (statue) {
           const position = window.scrollY;
           const statueHeight = 60 + position / 20;
-          const contactRadius = 150 - position / 5;
+          // const contactRadius = 150 - position / 5;
           const blur = position / 50;
 
           cursorImg.style.transform = `rotate(${position / 5}deg)`;
@@ -477,7 +477,7 @@ const IndexPage = () => {
     };
   
     const eventCarousel = document.getElementById("eventCarousel");
-    const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
+    // const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
   
     eventCarousel.addEventListener("mouseover", handleMouseOver);
     eventCarousel.addEventListener("mouseout", handleMouseOut);
