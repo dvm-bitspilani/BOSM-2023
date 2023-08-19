@@ -905,6 +905,8 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   if(placedata && filterObjectsByName(placedata , selectedState["value"]) && filterObjectsByName(placedata , selectedState["value"])[0]){
     cities = createOptionsFromKeys(filterObjectsByName(placedata , selectedState["value"])[0]["cities"]);
   }
+
+  console.log(formData)
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
