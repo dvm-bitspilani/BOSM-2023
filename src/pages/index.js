@@ -335,6 +335,22 @@ const IndexPage = () => {
         // position: "absolute",
         // top: "100vh",
       });
+
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about-us-section",
+          start: "top top",
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          // }
+        }
+        });
+
+        tl2.to
   }, [regPage]);
 
   useEffect(() => {
