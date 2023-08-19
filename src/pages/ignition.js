@@ -15,6 +15,7 @@ const Ignition = (props) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const closeButtonHandler = () => {
     navigate("/");
+    document.body.style.height = "400vh";
   };
 
   const isBrowser = typeof window !== "undefined";
@@ -245,11 +246,9 @@ const Ignition = (props) => {
     return cleanup;
   }}, [videoLoaded]);
 
-
-
-
-
-
+  useEffect(() => {
+    document.body.style.height = "fit-content";
+  }, []);
 
   return (
     <React.Fragment>
@@ -274,7 +273,7 @@ const Ignition = (props) => {
         </div>
         <div className={classes.gameWrapper}>
           <div className={classes.backBtn} id="backBtn">
-            <img src={arrow}></img>
+            <img src={arrow} ></img>
           </div>
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
