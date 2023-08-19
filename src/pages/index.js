@@ -338,7 +338,7 @@ const IndexPage = () => {
 
       // }
     }
-  }, []);
+  }, [regPage]);
 
   useEffect(() => {
     const landingSection = document.getElementById("landing-section");
