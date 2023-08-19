@@ -13,6 +13,8 @@ main {
 }
 .regInput span{
   font-size: 1rem;
+  font-weight: 501;
+  vertical-align: middle;
 }
 .messLabel span{
   font-weight: 399;

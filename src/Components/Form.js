@@ -5,6 +5,7 @@ import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import RadioButton from './RadioBtn';
+import RadioButton2 from './RadioBtn';
 import {storage} from "../Components/firebase";
 import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
@@ -392,7 +393,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       }
     }),
   };
-
   const customStylesMulti = {
     control: (provided, state) => ({
       ...provided,
@@ -706,6 +706,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const [gender, setGender] = useState('');
   const handleChange2 = (event) => {
+    console.log(event.target)
     const { id, value, name, type } = event.target;
     // console.log(id)
     // console.log(type)
@@ -735,6 +736,38 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       updatedFormData[id] = value.trim();
     }
     updatedFormData["is_coach"] = isCoach;
+    setFormData(updatedFormData);
+  };
+  const handleChangeMess = (event) => {
+    console.log(event.target.value)
+    let boolean = false;
+    if(event.target.value === 'true')boolean = true;
+    else boolean = false;
+    console.log(boolean)
+    const { id, value, name, type } = event.target;
+    const updatedFormData = { ...formData };
+    updatedFormData["is_coach"] = isCoach;
+    if (name === 'is_messfood') {
+      setIsMessFood(boolean);
+      updatedFormData["is_messfood"] = boolean;
+    }
+    updatedFormData["is_coach"] = isCoach;
+    setFormData(updatedFormData);
+  };
+  const handleChangeCoach = (event) => {
+    console.log(event.target.value)
+    let boolean = false;
+    if(event.target.value === 'true')boolean = true;
+    else boolean = false;
+    console.log(boolean)
+    const { id, value, name, type } = event.target;
+    const updatedFormData = { ...formData };
+    updatedFormData["is_coach"] = isCoach;
+    if (name === 'is_coach') {
+      setIsCoach(boolean);
+      updatedFormData["is_coach"] = boolean;
+    }
+    updatedFormData["is_coach"] = boolean;
     setFormData(updatedFormData);
   };
   const handleChange3 = (event) => {
@@ -967,7 +1000,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
                 id="true"
                 value={true}
                 text="Yes"
-                onChange={handleChange2}
+                onChange={handleChangeCoach}
                 checked={isCoach}
               />
               <RadioButton
@@ -975,27 +1008,27 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
                 id="false"
                 value={false}
                 text="No"
-                onChange={handleChange2}
+                onChange={handleChangeCoach}
                 checked={!isCoach}
               />
             </div>
 
             <label htmlFor='is_messfood' className={styles.messLabel}>Sign up for Mess food?<span>(*Chargeable)</span></label>
             <div className={styles["radioBtns"]}>
-              <RadioButton
+              <RadioButton2
                 name="is_messfood"
-                id="true"
+                id="true2"
                 value={true}
                 text="Yes"
-                onChange={handleChange2}
+                onChange={handleChangeMess}
                 checked={isMessFood}
               />
-              <RadioButton
-                name="is_coach"
-                id="false"
+              <RadioButton2
+                name="is_messfood"
+                id="false2"
                 value={false}
                 text="No"
-                onChange={handleChange2}
+                onChange={handleChangeMess}
                 checked={!isMessFood}
               />
             </div>
@@ -1016,8 +1049,8 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
 
-            <label htmlFor='email_id'>Photo</label>
-            <div className={styles["regInput"]} id='email_id' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
+            <label htmlFor='photo'>Photo</label>
+            <div className={styles["regInput"]} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
               <span>{photoText}</span>
             </div>
 
