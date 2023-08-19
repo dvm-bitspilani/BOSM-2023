@@ -11,7 +11,7 @@ import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
 import { easeInOut, motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
-import CursorDrag from "../images/cursordrag.png"
+import CursorDrag from "../images/cursordrag.png";
 import FrontStatue from "../images/statue2bright.png";
 import BackStatue from "../images/statue2bg.png";
 import ContactProfile from "../Components/Profile";
@@ -34,13 +34,18 @@ import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
 import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
 import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
 
-
-  console.log({ cossacSwitchBtn })
+  console.log({ cossacSwitchBtn });
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
@@ -151,98 +156,92 @@ const IndexPage = () => {
     },
   ];
 
+  const Card1Row1 = ContactsData1.map((contact, index) => {
+    if (index >= 0 && index < 2) {
+      return (
+        <ContactProfile
+          key={index}
+          name={contact.name}
+          img={contact.image}
+          dept={contact.department}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      );
+    }
+    return null;
+  }).slice(0, 2);
 
-  const Card1Row1 = ContactsData1
-    .map((contact, index) => {
-      if (index >= 0 && index < 2) {
-        return (
-          <ContactProfile
-            key={index}
-            name={contact.name}
-            img={contact.image}
-            dept={contact.department}
-            phone={contact.phone}
-            email={contact.email}
-          />
-        )
-      }
-      return null;
-    }).slice(0, 2)
+  const Card1Row2 = ContactsData1.map((contact, index) => {
+    if (index >= 2 && index < 3) {
+      return (
+        <ContactProfile
+          key={index}
+          name={contact.name}
+          img={contact.image}
+          dept={contact.department}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      );
+    }
+    return null;
+  }).slice(2, 3);
 
-  const Card1Row2 = ContactsData1
-    .map((contact, index) => {
-      if (index >= 2 && index < 3) {
-        return (
-          <ContactProfile
-            key={index}
-            name={contact.name}
-            img={contact.image}
-            dept={contact.department}
-            phone={contact.phone}
-            email={contact.email}
-          />
-        )
-      }
-      return null;
-    }).slice(2, 3)
+  const Card2Row1 = ContactsData2.map((contact, index) => {
+    if (index >= 0 && index < 3) {
+      return (
+        <ContactProfile
+          key={index}
+          name={contact.name}
+          img={contact.image}
+          dept={contact.department}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      );
+    }
+    return null;
+  }).slice(0, 3);
 
-  const Card2Row1 = ContactsData2
-    .map((contact, index) => {
-      if (index >= 0 && index < 3) {
-        return (
-          <ContactProfile
-            key={index}
-            name={contact.name}
-            img={contact.image}
-            dept={contact.department}
-            phone={contact.phone}
-            email={contact.email}
-          />
-        )
-      }
-      return null;
-    }).slice(0, 3)
+  const Card2Row2 = ContactsData2.map((contact, index) => {
+    if (index >= 3 && index < 6) {
+      return (
+        <ContactProfile
+          key={index}
+          name={contact.name}
+          img={contact.image}
+          dept={contact.department}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      );
+    }
+    return null;
+  }).slice(3, 6);
 
-  const Card2Row2 = ContactsData2
-    .map((contact, index) => {
-      if (index >= 3 && index < 6) {
-        return (
-          <ContactProfile
-            key={index}
-            name={contact.name}
-            img={contact.image}
-            dept={contact.department}
-            phone={contact.phone}
-            email={contact.email}
-          />
-        )
-      }
-      return null;
-    }).slice(3, 6)
-
-  const Card2Row3 = ContactsData2
-    .map((contact, index) => {
-      if (index >= 6 && index < 8) {
-        return (
-          <ContactProfile
-            key={index}
-            name={contact.name}
-            img={contact.image}
-            dept={contact.department}
-            phone={contact.phone}
-            email={contact.email}
-          />
-        )
-      }
-      return null;
-    }).slice(6, 8)
+  const Card2Row3 = ContactsData2.map((contact, index) => {
+    if (index >= 6 && index < 8) {
+      return (
+        <ContactProfile
+          key={index}
+          name={contact.name}
+          img={contact.image}
+          dept={contact.department}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      );
+    }
+    return null;
+  }).slice(6, 8);
 
   const ContactsCards1 = (
     <div className={contact["cardsContainer1"]}>
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
     </div>
-  )
+  );
 
   const ContactsCards2 = (
     <div className={contact["cardsContainer2"]}>
@@ -250,7 +249,7 @@ const IndexPage = () => {
       <div className={contact["row"]}>{Card2Row2}</div>
       <div className={contact["row"]}>{Card2Row3}</div>
     </div>
-  )
+  );
 
   const [regPage, setRegPage] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
@@ -259,11 +258,92 @@ const IndexPage = () => {
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".fixed-bg",
+        start: "top top",
+        // endTrigger: ".fixed-bg-blue",
+        end: `+=${window.innerHeight}`,
+        toggleActions: "play none none reverse",
+        onEnter: ({ progress, direction, isActive }) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            if (aboutUsSection) {
+              aboutUsSection.style.zIndex = 2;
+            }
+          }
+        },
+        onLeaveBack: ({ progress, direction, isActive }) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            if (aboutUsSection) {
+              aboutUsSection.style.zIndex = 0;
+              aboutUsSection.style.position = "fixed";
+              aboutUsSection.style.top = "0";
+            }
+          }
+        },
+        onLeave: ({ progress, direction, isActive }) => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            if (aboutUsSection) {
+              aboutUsSection.style.position = "absolute";
+              aboutUsSection.style.top = "100vh";
+            }
+          }
+        },
+        // markers: {
+        //   startColor: "white",
+        //   endColor: "white",
+        //   fontSize: "12px",
+        //   indent: 20,
+        // },
+        scrub: true,
+        snap: 1,
+      },
+    });
+    if (typeof window !== "undefined") {
+      // if (window.innerWidth > 920) {
+      tl.to(".fixed-bg-blue", {
+        width: "0%",
+        ease: "none",
+      })
+        .to(".Content-module--landing--465bf", {
+          opacity: 0,
+          ease: "none",
+        })
+        .to(
+          ".Navbar-module--navbarContainer--4b50b",
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          ".Navbar-module--registerBtnMobile--70f37",
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to("#about-us-section", {
+          opacity: 1,
+          ease: "none",
+          // position: "absolute",
+          // top: "100vh",
+        });
+
+      // }
+    }
+  }, [regPage]);
+
+  useEffect(() => {
     const landingSection = document.getElementById("landing-section");
     const aboutSection = document.getElementById("about-us-section");
     const eventsSection = document.getElementById("events-section");
     const contactSection = document.getElementById("contact-section");
-
 
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
@@ -295,17 +375,23 @@ const IndexPage = () => {
     const register = document.getElementById("register-btn");
     const bosmLogo = document.getElementById("bosm-logo");
 
-    const aboutContainer = document.getElementsByClassName(about["topContainer"]);
+    const aboutContainer = document.getElementsByClassName(
+      about["topContainer"]
+    );
     const aboutHeading = document.getElementsByClassName(about["heading"]);
-    const aboutCarousel = document.getElementsByClassName(about["carouselContainer"]);
-    const aboutContent = document.getElementsByClassName(about["contentContainer"]);
+    const aboutCarousel = document.getElementsByClassName(
+      about["carouselContainer"]
+    );
+    const aboutContent = document.getElementsByClassName(
+      about["contentContainer"]
+    );
 
-    if(backStatue){
+    if (backStatue) {
       backStatue.addEventListener("dragstart", (event) => {
         event.preventDefault();
       });
     }
-    if(frontStatue){
+    if (frontStatue) {
       frontStatue.addEventListener("dragstart", (event) => {
         event.preventDefault();
       });
@@ -346,148 +432,150 @@ const IndexPage = () => {
 
         const containerMargin = position + 100;
 
-        if(landingSection){
-          landingSection.style.position = "fixed";
-        }
+        //     if(landingSection){
+        //       landingSection.style.position = "fixed";
+        //     }
 
+        //     if (rightLion[0] && statue && leftLion[0] && countDown) {
+        //       if (position >= visibleHeight - 50) {
+        //         rightLion[0].style.opacity = 0;
+        //         leftLion[0].style.opacity = 0;
+        //         countDown[0].style.opacity = 0;
+        //         rightSubTitle[0].style.opacity = 0;
+        //         leftSubtitle[0].style.opacity = 0;
+        //         heading[0].style.opacity = 0;
+        //         socials[0].style.opacity = 0;
+        //         statue.style.opacity = 0;
+        //         register.style.opacity = 0;
+        //         hamMenu.style.opacity = 0;
+        //         bosmLogo.style.opacity = 0;
+        //       }
+        //       else {
+        //         rightLion[0].style.opacity = 1;
+        //         leftLion[0].style.opacity = 1;
+        //         countDown[0].style.opacity = 1;
+        //         rightSubTitle[0].style.opacity = 1;
+        //         leftSubtitle[0].style.opacity = 1;
+        //         heading[0].style.opacity = 1;
+        //         socials[0].style.opacity = 1;
+        //         statue.style.opacity = 1;
+        //         register.style.opacity = 1;
+        //         hamMenu.style.opacity = 1;
+        //         bosmLogo.style.opacity = 1;
+        //       }
+        //     }
 
-        if (rightLion[0] && statue && leftLion[0] && countDown) {
-          if (position >= visibleHeight - 50) {
-            rightLion[0].style.opacity = 0;
-            leftLion[0].style.opacity = 0;
-            countDown[0].style.opacity = 0;
-            rightSubTitle[0].style.opacity = 0;
-            leftSubtitle[0].style.opacity = 0;
-            heading[0].style.opacity = 0;
-            socials[0].style.opacity = 0;
-            statue.style.opacity = 0;
-            register.style.opacity = 0;
-            hamMenu.style.opacity = 0;
-            bosmLogo.style.opacity = 0;
-          }
-          else {
-            rightLion[0].style.opacity = 1;
-            leftLion[0].style.opacity = 1;
-            countDown[0].style.opacity = 1;
-            rightSubTitle[0].style.opacity = 1;
-            leftSubtitle[0].style.opacity = 1;
-            heading[0].style.opacity = 1;
-            socials[0].style.opacity = 1;
-            statue.style.opacity = 1;
-            register.style.opacity = 1;
-            hamMenu.style.opacity = 1;
-            bosmLogo.style.opacity = 1;
-          }
-        }
+        //     if (aboutContainer[0] && aboutSection) {
+        //       if (position <= visibleHeight - 1) {
+        //         aboutSection.style.opacity = 0;
+        //         eventsSection.style.opacity = 0;
+        //         contactSection.style.opacity = 0;
+        //         aboutSection.style.zIndex = 0;
+        //         aboutContainer[0].style.marginTop = `${containerMargin}px`;
+        //         aboutHeading[0].style.opacity = 0;
+        //         aboutCarousel[0].style.opacity = 0;
+        //         aboutContent[0].style.opacity = 0;
+        //       }
+        //       else {
+        //         aboutSection.style.opacity = 1;
+        //         eventsSection.style.opacity = 1;
+        //         contactSection.style.opacity = 1;
+        //         aboutSection.style.zIndex = 2;
+        //         aboutHeading[0].style.opacity = 1;
+        //         aboutCarousel[0].style.opacity = 1;
+        //         aboutContent[0].style.opacity = 1;
+        //       }
+        //     }
+        //   };
+        //   window.addEventListener("scroll", handleScroll, { passive: true });
+        // }
+        // if (window.innerWidth <= 920) {
 
+        //   const handleScroll = () => {
+        //     if (statue) {
+        //       const position = window.scrollY;
+        //       const statueHeight = 60 + position / 20;
+        //       const contactRadius = 150 - position / 5;
+        //       const blur = position / 50;
 
-        if (aboutContainer[0] && aboutSection) {
-          if (position <= visibleHeight - 1) {
-            aboutSection.style.opacity = 0;
-            eventsSection.style.opacity = 0;
-            contactSection.style.opacity = 0;
-            aboutSection.style.zIndex = 0;
-            aboutContainer[0].style.marginTop = `${containerMargin}px`;
-            aboutHeading[0].style.opacity = 0;
-            aboutCarousel[0].style.opacity = 0;
-            aboutContent[0].style.opacity = 0;
-          }
-          else {
-            aboutSection.style.opacity = 1;
-            eventsSection.style.opacity = 1;
-            contactSection.style.opacity = 1;
-            aboutSection.style.zIndex = 2;
-            aboutHeading[0].style.opacity = 1;
-            aboutCarousel[0].style.opacity = 1;
-            aboutContent[0].style.opacity = 1;
-          }
-        }
+        //       cursorImg.style.transform = `rotate(${position / 5}deg)`;
+        //       statueMobile.style.height = `${statueHeight}%`;
+
+        //       if (fixedBG[0]) {
+        //         if (position > 100) {
+        //           fixedBG[0].style.filter = `blur(${blur}px)`;
+        //           fixedBG[0].style.transform = "scale(1.1)";
+        //           rightLion[0].style.filter = `blur(${blur}px)`;
+        //           leftLion[0].style.filter = `blur(${blur}px)`;
+        //           countDown[0].style.filter = `blur(${blur}px)`;
+        //           rightSubTitle[0].style.filter = `blur(${blur}px)`;
+        //           leftSubtitle[0].style.filter = `blur(${blur}px)`;
+        //           heading[0].style.filter = `blur(${blur}px)`;
+        //           socials[0].style.filter = `blur(${blur}px)`;
+        //           statueMobile.style.filter = `blur(${blur}px)`;
+        //           // statue.style.filter = `blur(${blur}px)`;
+        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
+        //         } else {
+        //           fixedBG[0].style.filter = "blur(0)";
+        //           fixedBG[0].style.transform = "scale(1)";
+        //           rightLion[0].style.filter = "blur(0)";
+        //           leftLion[0].style.filter = "blur(0)";
+        //           countDown[0].style.filter = "blur(0)";
+        //           leftSubtitle[0].style.filter = "blur(0)";
+        //           rightSubTitle[0].style.filter = "blur(0)";
+        //           heading[0].style.filter = "blur(0)";
+        //           statueMobile.style.filter = "blur(0)";
+        //           statue.style.filter = "blur(0)";
+        //           socials[0].style.filter = "blur(0)";
+        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
+        //         }
+        //       }
+
+        //       if (position <= window.innerHeight) {
+        //         statueContainer.style.position = "fixed";
+        //       } else {
+        //         statueContainer.style.position = "absolute";
+        //       }
+        //     }
+        //   };
+        //   window.addEventListener("scroll", handleScroll, { passive: true });
+        // }
+        // return () => {
+        //   window.onpointermove = null;
+        //   window.scrollTo(0, 0);
+        // };
+
       };
-      window.addEventListener("scroll", handleScroll, { passive: true });
     }
-    if (window.innerWidth <= 920) {
-
-      const handleScroll = () => {
-        if (statue) {
-          const position = window.scrollY;
-          const statueHeight = 60 + position / 20;
-          // const contactRadius = 150 - position / 5;
-          const blur = position / 50;
-
-          cursorImg.style.transform = `rotate(${position / 5}deg)`;
-          statueMobile.style.height = `${statueHeight}%`;
-
-          if (fixedBG[0]) {
-            if (position > 100) {
-              fixedBG[0].style.filter = `blur(${blur}px)`;
-              fixedBG[0].style.transform = "scale(1.1)";
-              rightLion[0].style.filter = `blur(${blur}px)`;
-              leftLion[0].style.filter = `blur(${blur}px)`;
-              countDown[0].style.filter = `blur(${blur}px)`;
-              rightSubTitle[0].style.filter = `blur(${blur}px)`;
-              leftSubtitle[0].style.filter = `blur(${blur}px)`;
-              heading[0].style.filter = `blur(${blur}px)`;
-              socials[0].style.filter = `blur(${blur}px)`;
-              statueMobile.style.filter = `blur(${blur}px)`;
-              // statue.style.filter = `blur(${blur}px)`;
-              registerBtnMobile.style.filter = `blur(${blur}px)`;
-            } else {
-              fixedBG[0].style.filter = "blur(0)";
-              fixedBG[0].style.transform = "scale(1)";
-              rightLion[0].style.filter = "blur(0)";
-              leftLion[0].style.filter = "blur(0)";
-              countDown[0].style.filter = "blur(0)";
-              leftSubtitle[0].style.filter = "blur(0)";
-              rightSubTitle[0].style.filter = "blur(0)";
-              heading[0].style.filter = "blur(0)";
-              statueMobile.style.filter = "blur(0)";
-              statue.style.filter = "blur(0)";
-              socials[0].style.filter = "blur(0)";
-              registerBtnMobile.style.filter = `blur(${blur}px)`;
-            }
-          }
-
-          if (position <= window.innerHeight) {
-            statueContainer.style.position = "fixed";
-          } else {
-            statueContainer.style.position = "absolute";
-          }
-        }
-      };
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    }
-    return () => {
-      window.onpointermove = null;
-      window.scrollTo(0, 0);
-    };
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
   useEffect(() => {
     const handleMouseOver = () => {
-      console.log("hi");
-      document.getElementById("cursorFollowerDrag").style.opacity = '1';
-      document.getElementById("cursorFollowerDrag").style.display = 'block';
-      document.getElementById("cursorFollower").style.visibility = 'hidden';
+      // console.log("hi");
+      document.getElementById("cursorFollowerDrag").style.opacity = "1";
+      document.getElementById("cursorFollowerDrag").style.display = "block";
+      document.getElementById("cursorFollower").style.visibility = "hidden";
     };
-    
+
     const handleMouseOut = () => {
-      document.getElementById("cursorFollower").style.visibility = 'visible';
-      document.getElementById("cursorFollowerDrag").style.opacity = '0';
-      document.getElementById("cursorFollowerDrag").style.display = 'none';
+      document.getElementById("cursorFollower").style.visibility = "visible";
+      document.getElementById("cursorFollowerDrag").style.opacity = "0";
+      document.getElementById("cursorFollowerDrag").style.display = "none";
     };
-  
+
     const eventCarousel = document.getElementById("eventCarousel");
-    // const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
-  
+    const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
+
+
     eventCarousel.addEventListener("mouseover", handleMouseOver);
     eventCarousel.addEventListener("mouseout", handleMouseOut);
-  
+
     return () => {
       eventCarousel.removeEventListener("mouseover", handleMouseOver);
       eventCarousel.removeEventListener("mouseout", handleMouseOut);
     };
   }, []);
-  
+
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -752,6 +840,15 @@ const IndexPage = () => {
     //   setCossacSwitchBtn(false);
     // }, 500);
   };
+
+  useEffect(() => {
+    if (!regPage) {
+      document.body.style.height = "400vh";
+    } else {
+      document.body.style.height = "fit-content";
+    }
+  }, [regPage]);
+
   return (
     <>
       {isLoading && (
@@ -895,7 +992,6 @@ const IndexPage = () => {
                   {/* Hero Wrapper */}
                   <motion.div className={styles["heroWrapper"]}></motion.div>
 
-
                   {/* Countdown */}
                   {
                     <motion.div
@@ -923,7 +1019,6 @@ const IndexPage = () => {
                     </motion.div>
                   }
                 </div>
-
               </main>
             }
           />
@@ -934,7 +1029,13 @@ const IndexPage = () => {
             navbar={false}
             regPage={regPage}
             fixedbg={false}
-            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
             sectionId="about-us-section"
             content={
               <>
@@ -950,7 +1051,13 @@ const IndexPage = () => {
             regPage={regPage}
             fixedbg={false}
             sectionId="events-section"
-            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
             content={
               <>
                 <Events />
@@ -959,19 +1066,24 @@ const IndexPage = () => {
           />
         )}
         {!regPage && (
-
           <Layout
             overflow={false}
             navbar={false}
             regPage={regPage}
             fixedbg={false}
             sectionId="contact-section"
-            style={typeof window !== "undefined" ? window.innerWidth > 920 ? { opacity: 0 } : { opacity: 1 } : ""}
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
             content={
               <main
                 id="contactPage"
                 className={contact["page"]}
-              // style={{ top: "30vh" }}
+                // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div className={contact["pageBackground"]}>
@@ -979,9 +1091,7 @@ const IndexPage = () => {
                       id="frontStatue"
                       alt=""
                       src={FrontStatue}
-                      className={contact["frontStatue"]
-                     
-                  }
+                      className={contact["frontStatue"]}
                     />
                     <img
                       id="backStatue"
@@ -999,7 +1109,9 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
+                      <motion.div
+                        className={contact["cardsContainer"]}
+                        key={cossacSwitchBtn}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1, delay: 1 }}
                         exit={{ opacity: 0, delay: 1 }}
@@ -1007,20 +1119,18 @@ const IndexPage = () => {
                       >
                         {cossacCards ? ContactsCards1 : ContactsCards2}
                       </motion.div>
-
                     </div>
                   </div>
                   <div className={contact["cardsSwitchButtons"]}>
                     <div
                       className={contact["organizingBtn"]}
                       onClick={handleOrganizingCardsBtnClick}
-
                       style={
                         !cossacSwitchBtn
                           ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
                           : {
-                            borderBottom: "3px solid white"
-                          }
+                              borderBottom: "3px solid white",
+                            }
                       }
                     >
                       Organizing Committee
@@ -1028,13 +1138,12 @@ const IndexPage = () => {
                     <div
                       className={contact["cossacBtn"]}
                       onClick={handleCossacCardsButtonClick}
-
                       style={
                         cossacSwitchBtn
                           ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
                           : {
-                            borderBottom: "3px solid white"
-                          }
+                              borderBottom: "3px solid white",
+                            }
                       }
                     >
                       CoSSAC

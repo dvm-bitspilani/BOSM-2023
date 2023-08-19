@@ -10,8 +10,8 @@
 }
 .slider {
     position: relative;
-    height: 40vh;
-    width: 40vw;
+    height: 35vh;
+    width: 38vw;
     overflow: hidden;
 }
 .sliderContainer .slider .image {

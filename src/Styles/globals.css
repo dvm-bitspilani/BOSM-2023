@@ -23,7 +23,7 @@
   /* overflow-x: hidden; */
   user-select: none;
   cursor: none;
-  transition: opacity .5s;
+  /* transition: opacity .5s; */
 }
 /* :root{
     use variable here
@@ -45,7 +45,8 @@ body {
   width: calc(100vw - (100vw - 100%));
   position: relative;
   overflow-x: hidden;
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
+  height: 400vh;
 }
 a{
   text-decoration: none;
@@ -58,11 +59,27 @@ a{
 #about-us-section{
   height: auto;
   z-index: 0;
-  transition: opacity .1s;
+  opacity: 0;
+  /* transition: opacity .1s; */
+  position: fixed;
 }
 #landing-section{
   z-index: 1;
+  position: fixed;
 }
+
+#events-section{
+  z-index: 2;
+  position: absolute;
+  top: 200vh;
+}
+
+#contact-section{
+  z-index: 3;
+  position: absolute;
+  top: 300vh;
+}
+
 .fixed-bg {
   position: fixed;
   top: 0;
@@ -86,6 +103,7 @@ a{
   background: url(../images/red-bg.png);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform-origin: left;
 }
 .cursor {
   position: fixed;
@@ -364,7 +382,7 @@ color: white;
 }
 @media(max-width: 680px){
   #about-us-section{
-    height: auto;
+    height: 100vh;
   }
 }
 

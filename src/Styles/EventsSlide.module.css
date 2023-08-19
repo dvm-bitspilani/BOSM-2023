@@ -42,3 +42,9 @@
   line-height: normal;
   z-index: 100;
 }
+
+@media (max-height : 650px) {
+  .slide {
+    margin-top: 1rem;
+  } 
+}
