@@ -370,13 +370,15 @@ const IndexPage = () => {
         ease: "none",
       })
       .from("#events-section", {
-        x: "250%",
+        x: "200%",
         y: "50%",
         ease: "none",
+        // duration : 1,
       })
       .from("#eventCarousel", {
         transform: "rotate(80deg)",
         ease: "none",
+        // duration : 1,
       }, "<");
   }, [regPage]);
 

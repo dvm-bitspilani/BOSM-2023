@@ -121,7 +121,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
           delay: 4000,
           disableOnInteraction: false,
         }}
-        // loop={true}
+        loop={true}
         breakpoints={{
           370: {
             slidesPerView: 2,
