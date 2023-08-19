@@ -835,6 +835,17 @@ const IndexPage = () => {
     //   setCossacSwitchBtn(false);
     // }, 500);
   };
+
+
+  useEffect(()=>{
+    if(!regPage){
+      document.body.style.height = "400vh";
+    }else{
+    document.body.style.height = "fit-content";
+    }
+
+  },[regPage])
+
   return (
     <>
       {isLoading && (
