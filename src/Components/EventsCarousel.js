@@ -203,6 +203,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
           );
           setIndex(swiper.realIndex);
         }}
+        slideToClickedSlide={true}
         modules={[
           Keyboard,
           Pagination,
