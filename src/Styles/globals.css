@@ -70,8 +70,8 @@ a{
 
 #events-section{
   z-index: 2;
-  position: absolute;
-  top: 200vh;
+  position: fixed;
+  overflow: visible;
 }
 
 #contact-section{
@@ -267,7 +267,8 @@ a{
 
 .swiper{
   overflow: visible !important;
-  transition: scale 0.55s;
+  /* transition: scale 0.55s; */
+  /* transform: rotate(90deg); */
 }
 
 .swiper-wrapper{

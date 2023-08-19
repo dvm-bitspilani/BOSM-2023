@@ -105,9 +105,11 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         // }}
         centeredSlides={true}
         // centeredSlidesBounds= {true}
-        keyboard={{
-          enabled: true,
-        }}
+        // keyboard={{
+        //   enabled: true,
+        //   onlyInViewport: true,
+          
+        // }}
         // navigation={true}
         // direction={"horizontal"}
         mousewheel={{
@@ -119,7 +121,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
           delay: 4000,
           disableOnInteraction: false,
         }}
-        loop={true}
+        // loop={true}
         breakpoints={{
           370: {
             slidesPerView: 2,
@@ -144,7 +146,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         // }}
         // effect="creative"
         creativeEffect={{
-          limitProgress: 3,
+          limitProgress: typeof window !== "undefined" && window.innerWidth < 711 ? 2 : 3,
           perspective: true,
           prev: {
             // shadow: true,

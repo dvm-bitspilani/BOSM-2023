@@ -279,7 +279,7 @@ const IndexPage = () => {
             const aboutUsSection = document.getElementById("about-us-section");
             if (aboutUsSection) {
               aboutUsSection.style.zIndex = 0;
-              aboutUsSection.style.position = "fixed";
+              // aboutUsSection.style.position = "fixed";
               aboutUsSection.style.top = "0";
             }
           }
@@ -288,8 +288,8 @@ const IndexPage = () => {
           if (regPage === false) {
             const aboutUsSection = document.getElementById("about-us-section");
             if (aboutUsSection) {
-              aboutUsSection.style.position = "absolute";
-              aboutUsSection.style.top = "100vh";
+              // aboutUsSection.style.position = "absolute";
+              // aboutUsSection.style.top = "100vh";
             }
           }
         },
@@ -336,21 +336,48 @@ const IndexPage = () => {
         // top: "100vh",
       });
 
-      let tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#about-us-section",
-          start: "top top",
-          // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
-          toggleActions: "play none none reverse",
-          // markers: {
-          //   startColor: "white",
-          //   endColor: "white",
-          // }
-        }
-        });
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about-us-section",
+        start: `${window.innerHeight} top`,
+        // endTrigger: ".fixed-bg-blue",
+        end: `+=${window.innerHeight}`,
+        toggleActions: "play none none reverse",
+        // markers: {
+        //   startColor: "white",
+        //   endColor: "white",
+        // },
+        scrub: true,
+        snap: 1,
+      },
+    });
 
-        tl2.to
+    tl2
+      .to(`.${about["topContainer"]}`, {
+        y: "100%",
+        ease: "none",
+      })
+      .to(
+        `.${about["bottomContainer"]}`,
+        {
+          y: "-100%",
+          ease: "none",
+        },
+        "<"
+      )
+      .to(`.${about["whiteBar"]}`, {
+        width: 0,
+        ease: "none",
+      })
+      .from("#events-section", {
+        x: "250%",
+        y: "50%",
+        ease: "none",
+      })
+      .from("#eventCarousel", {
+        transform: "rotate(80deg)",
+        ease: "none",
+      }, "<");
   }, [regPage]);
 
   useEffect(() => {
@@ -1058,7 +1085,7 @@ const IndexPage = () => {
         )}
         {!regPage && (
           <Layout
-            overflow={false}
+            overflow={true}
             navbar={false}
             regPage={regPage}
             fixedbg={false}

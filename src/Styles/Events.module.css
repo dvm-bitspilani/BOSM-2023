@@ -3,7 +3,8 @@
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background: url(../images/event_bg.png);
+  /* background: url(../images/event_bg.png); */
+  background: transparent;
   background-size: cover;
   background-position: center center;
   display: flex;
