@@ -5,6 +5,7 @@ import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
 import * as about from "../Styles/About.module.css";
+import * as navbar from "../Styles/Navbar.module.css";
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
@@ -258,7 +259,7 @@ const IndexPage = () => {
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
-    let tl = gsap.timeline({
+    let tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: ".fixed-bg",
         start: "top top",
@@ -302,41 +303,38 @@ const IndexPage = () => {
         snap: 1,
       },
     });
-    if (typeof window !== "undefined") {
-      // if (window.innerWidth > 920) {
-      tl.to(".fixed-bg-blue", {
+
+    tl1
+      .to(".fixed-bg-blue", {
         width: "0%",
         ease: "none",
       })
-        .to(".Content-module--landing--465bf", {
+      .to(`.${styles["landing"]}`, {
+        opacity: 0,
+        ease: "none",
+      })
+      .to(
+        `.${navbar["navbarContainer"]}`,
+        {
           opacity: 0,
           ease: "none",
-        })
-        .to(
-          ".Navbar-module--navbarContainer--4b50b",
-          {
-            opacity: 0,
-            ease: "none",
-          },
-          "<"
-        )
-        .to(
-          ".Navbar-module--registerBtnMobile--70f37",
-          {
-            opacity: 0,
-            ease: "none",
-          },
-          "<"
-        )
-        .to("#about-us-section", {
-          opacity: 1,
+        },
+        "<"
+      )
+      .to(
+        `.${navbar["registerBtnMobile"]}`,
+        {
+          opacity: 0,
           ease: "none",
-          // position: "absolute",
-          // top: "100vh",
-        });
-
-      // }
-    }
+        },
+        "<"
+      )
+      .to("#about-us-section", {
+        opacity: 1,
+        ease: "none",
+        // position: "absolute",
+        // top: "100vh",
+      });
   }, [regPage]);
 
   useEffect(() => {
@@ -544,7 +542,6 @@ const IndexPage = () => {
         //   window.onpointermove = null;
         //   window.scrollTo(0, 0);
         // };
-
       };
     }
   }, [regPage, showBlackScreen, showBlackScreen2]);
@@ -565,7 +562,6 @@ const IndexPage = () => {
 
     const eventCarousel = document.getElementById("eventCarousel");
     const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
-
 
     eventCarousel.addEventListener("mouseover", handleMouseOver);
     eventCarousel.addEventListener("mouseout", handleMouseOut);

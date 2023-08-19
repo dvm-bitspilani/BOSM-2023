@@ -8,11 +8,35 @@
     background-position: center center;
     background-repeat:no-repeat ;
 }
+
+.topWrapper{
+    height: fit-content;
+    width: 100%;
+    overflow: hidden;
+}
+
 .topContainer{
     /* margin: 5rem 0 0 0; */
     height: auto;
     width: 100vw;
+    transition: all 0.5s ease-in-out;
+    /* transform: translateY(100%); */
 }
+.bottomWrapper{
+    height: fit-content;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bottomContainer{
+    /* margin: 5rem 0 0 0; */
+    height: auto;
+    /* width: 100vw; */
+    transition: all 0.5s ease-in-out;
+    /* transform: translateY(-100%); */
+}
+
+
 .carouselContainer{
     display: flex;
 	flex-direction: column;
