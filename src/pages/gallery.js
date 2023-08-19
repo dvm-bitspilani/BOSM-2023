@@ -72,6 +72,8 @@ const Gallery = props => {
       });
     };
 
+    document.body.style.height = "fit-content";
+
     return cleanup;
   }, []);
   useEffect(() => {
@@ -156,6 +158,7 @@ const Gallery = props => {
 
   const closeButtonHandler = () => {
     navigate("/");
+    document.body.style.height = "400vh";
   };
 
   return (

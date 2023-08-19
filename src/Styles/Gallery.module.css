@@ -5,6 +5,7 @@
     z-index: 9999;
     background-color: #A63237;
     font-family: 'Montserrat';
+    overflow: hidden;
 }
 
 .wrapper {
