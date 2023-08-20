@@ -8,7 +8,7 @@ export default function Error( props){
         <div className="backdrop" onClick={props.onClose}>
             <div className="error">
                 <img src={register} />
-                <p>Registration Successful. Please chech your Mail Inbox.</p>
+                <p>Registration Successful! Please checks your Mail Inbox.</p>
                 <div onClick={props.onClose}>Back</div>
             </div>
         </div>
