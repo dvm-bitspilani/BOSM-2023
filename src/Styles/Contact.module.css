@@ -32,7 +32,7 @@
   bottom: -100vh;
   z-index: 1;
   bottom: 0;
-  transition: all 2s ease;
+  /* transition: all 2s ease; */
 }
 
 .frontStatue {
@@ -43,7 +43,7 @@
   z-index: 2;
   bottom: 0;
   scale: 1;
-  transition: all 2s ease;
+  /* transition: all 2s ease; */
 }
 
 .container {
@@ -57,17 +57,17 @@
 
 .backStatueMobile {
   width: 100%;
-  height: 74vh;
+  height: 100%;
   display: none;
   position: absolute;
   /* left: 25%; */
   background-repeat: no-repeat;
   object-fit: cover;
-  background-position: center;
+  background-position: bottom;
   overflow: hidden;
   z-index: 1;
   bottom: 0;
-  transition: all 2s ease;
+  /* transition: all 2s ease; */
 }
 
 .content {
@@ -89,7 +89,7 @@
   letter-spacing: 0.23vh;
   color: white;
   /* margin-bottom: 3vh; */
-  padding-top: 3vh;
+  padding-top: 1vh;
   overflow: hidden;
 }
 
@@ -158,9 +158,9 @@
   width: 45vw;
   height: 100%;
   margin-inline: 1vh;
-  margin-block: 2vh;
+  /* margin-block: 2vh; */
   background: transparent;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -205,7 +205,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    transform: translateX(0);
+    /* transform: translateX(0); */
   }
   .contentContainer {
     padding-right: 0;
@@ -271,6 +271,46 @@
     height: 100%;
   }
 }
+.cardsSwitchButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  position: absolute;
+  right: -38vh;
+  top: 45vh;
+  height: 5vw;
+  width: 90vh;
+  right: -41vh;
+  z-index: 2;
+  /* padding-left: 15vh; */
+  transform: rotate(90deg);
+  
+}
+.organizingBtn, .cossacBtn{
+  /* transform: rotate(90deg); */
+  /* height: 14vw; */
+  width: fit-content;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+  padding-block: 0.4rem;
+  transition: all 0.3s ease-out;
+}
+
+.cardsContainer1,
+.cardsContainer2{
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+}
+
+.cardsContainer1{
+  padding-top: 15vh;
+}
+
 @media (max-width: 650px) {
   .cardsContainer1,
 .cardsContainer2{
@@ -304,42 +344,34 @@
   .title{
     margin-block: 5vh;
   }
+  .cardsSwitchButtons{
+    display: flex;
+    
+  }
+  .cardsSwitchButtons{
+    display: flex;
+justify-content: space-evenly;
+align-items: center;
+/* gap: 5vh; */
+position: absolute;
+height: 5vw;
+width: 100vw;
+z-index: 2;
+/* padding-left: 15vh; */
+/* transform: rotate(90deg); */
+top: 16vh;
+transform: unset;
+right: unset;
+  }
+  .organizingBtn, .cossacBtn{
+    font-size: 1rem;
+  }
 }
-.cardsSwitchButtons{
+.cardsSwitchButtons2{
+  width: 100%;
   display: flex;
   justify-content: center;
+  gap: 3rem;
   align-items: center;
-  gap: 5vh;
-  position: absolute;
-  right: -38vh;
-  top: 45vh;
-  height: 5vw;
-  width: 90vh;
-  z-index: 2;
-  /* padding-left: 15vh; */
-    transform: rotate(90deg);
-
-}
-.organizingBtn, .cossacBtn{
-  /* transform: rotate(90deg); */
-  /* height: 14vw; */
-  width: fit-content;
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: rgb(255, 255, 255);
-  padding-block: 0.4rem;
-  transition: all 0.3s ease-out;
-}
-
-.cardsContainer1,
-.cardsContainer2{
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
-  width: 100%;
-}
-
-.cardsContainer1{
-  padding-top: 15vh;
+  padding-top: 1rem;
 }
