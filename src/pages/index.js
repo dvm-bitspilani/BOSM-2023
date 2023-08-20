@@ -256,6 +256,9 @@ const IndexPage = () => {
   const [showBlackScreen, setShowBlackScreen] = useState(false);
   const [showBlackScreen2, setShowBlackScreen2] = useState(false);
 
+  const [isHamOpen, setIsHamOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
@@ -302,28 +305,24 @@ const IndexPage = () => {
         scrub: true,
         snap: {
           snapTo: 1,
-          duration: 2,
+          duration: 1.75,
           ease: "power1.out",
         },
       },
     });
 
     tl1
-      .to(".fixed-bg-blue", {
-        width: "0%",
-        ease: "none",
-      })
-      .to(`.${styles["landing"]}`, {
+    .to(`.${styles["landing"]}`, {
+      opacity: 0,
+      ease: "none",
+    })
+    .to(
+      `.${navbar["navbarContainer"]}`,
+      {
         opacity: 0,
         ease: "none",
-      })
-      .to(
-        `.${navbar["navbarContainer"]}`,
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        "<"
+      },
+      "<"
       )
       .to(
         `.${navbar["registerBtnMobile"]}`,
@@ -332,7 +331,11 @@ const IndexPage = () => {
           ease: "none",
         },
         "<"
-      )
+        )
+        .to(".fixed-bg-blue", {
+          width: "0%",
+          ease: "none",
+        })
       .to("#about-us-section", {
         opacity: 1,
         ease: "none",
@@ -355,7 +358,7 @@ const IndexPage = () => {
         // yoyo: true,
         snap: {
           snapTo: 1,
-          duration: 2.5,
+          duration: 2,
           ease: "power1.out",
         },
       },
@@ -412,7 +415,7 @@ const IndexPage = () => {
         // yoyo: true,
         snap: {
           snapTo: 1,
-          duration: 2,
+          duration: 1.5,
           ease: "power1.out",
         },
       },
@@ -694,9 +697,6 @@ const IndexPage = () => {
       }
     };
   }, [regPage]);
-
-  const [isHamOpen, setIsHamOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const statueVariants = {
     hidden: {

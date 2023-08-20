@@ -78,7 +78,7 @@ const AboutUs = (props) => {
         style={{
           height: "2px",
           background: "white",
-          margin: "auto",
+          marginInline: "auto",
           // marginTop: '3rem',
         }}
       ></div>
