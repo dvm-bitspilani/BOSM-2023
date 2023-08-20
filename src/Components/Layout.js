@@ -22,6 +22,7 @@ const Layout = ({
   sectionId,
   regPage,
   closeHam,
+  isLoading,
 }) => {
   // const { scrollYProgress } = useScroll();
   // const bgWidth = useTransform(scrollYProgress, [0.0, 0.25], ['100%', '0%']);
@@ -157,6 +158,7 @@ const Layout = ({
           isHamOpen={isHamOpen}
           isAnimationComplete={isAnimationComplete}
           setIsHamOpen={setIsHamOpen}
+          isLoading={isLoading}
         />
       )}
       {sectionId === "landing-section" && (

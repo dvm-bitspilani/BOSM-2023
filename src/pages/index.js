@@ -940,6 +940,7 @@ const IndexPage = () => {
             navbar={true}
             fixedbg={true}
             overflow={false}
+            isLoading={isLoading}
             sectionId="landing-section"
             content={
               <main className={styles["landing"]}>
