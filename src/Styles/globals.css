@@ -76,8 +76,8 @@ a{
 
 #contact-section{
   z-index: 3;
-  position: absolute;
-  top: 300vh;
+  position: fixed;
+  top: 100vh;
 }
 
 .fixed-bg {
