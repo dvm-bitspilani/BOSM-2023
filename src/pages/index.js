@@ -238,14 +238,14 @@ const IndexPage = () => {
   }).slice(6, 8);
 
   const ContactsCards1 = (
-    <div className={contact["cardsContainer1"]}>
+    <div className={contact["cardsContainer1"]} style={{display: cossacCards? 'block': 'none'}}>
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
     </div>
   );
 
   const ContactsCards2 = (
-    <div className={contact["cardsContainer2"]}>
+    <div className={contact["cardsContainer2"]} style={{display: cossacCards? 'none': 'block'}}>
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
       <div className={contact["row"]}>{Card2Row3}</div>
@@ -666,16 +666,15 @@ const IndexPage = () => {
   useEffect(() => {
     const handleMouseOver = () => {
       // console.log("hi");
-      document.getElementById("cursor").style.transform = "scale(5.5)";
-      // document.getElementById("cursorFollowerDrag").style.display = "block";
+      document.getElementById("cursorFollowerDrag").style.opacity = "1";
+      document.getElementById("cursorFollowerDrag").style.display = "block";
       document.getElementById("cursorFollower").style.visibility = "hidden";
-      document.querySelector(".cursorContent").style.opacity = "1";
     };
 
     const handleMouseOut = () => {
-      document.getElementById("cursor").style.transform = "scale(1)";
       document.getElementById("cursorFollower").style.visibility = "visible";
-      document.querySelector(".cursorContent").style.opacity = "0";
+      document.getElementById("cursorFollowerDrag").style.opacity = "0";
+      document.getElementById("cursorFollowerDrag").style.display = "none";
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
@@ -1246,7 +1245,10 @@ const IndexPage = () => {
                         exit={{ opacity: 0, delay: 1 }}
                         transition={{ duration: 0.5, ease: easeInOut }}
                       >
-                        {cossacCards ? ContactsCards1 : ContactsCards2}
+                        {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
+                        {ContactsCards1}
+                        {ContactsCards2}
+
                       </motion.div>
                     </div>
                   </div>
