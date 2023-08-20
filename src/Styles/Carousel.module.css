@@ -23,12 +23,7 @@
     background-position: center;
     will-change: transform, opacity;
 }
-.sliderContainer .slider .image:hover {
-    cursor: grab;   
-}
-.sliderContainer .slider .image:active {
-    cursor: grabbing;
-}
+
 .sliderContainer .buttons {
     margin-top: 12px;
 }

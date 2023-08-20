@@ -119,6 +119,17 @@ a{
   transition: opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
   /* mix-blend-mode: difference; */
   pointer-events: none;
+  transition: transform .5s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+}
+.cursorContent{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  margin-top: .1rem;
+}
+.cursorContent svg, .cursorText{
+  transform: scale(0.18181818181818181818181818181818);
 }
 .cursorFollower {
   opacity: 0;
@@ -133,7 +144,8 @@ a{
   border-radius: 100%;
   /* border: 1px solid #eee; */
   transition: transform 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+    opacity 0.5s cubic-bezier(0.75, -0.27, 0.3, 1.33)
+    ;
   pointer-events: none;
   transform: scale(1);
   overflow: hidden;

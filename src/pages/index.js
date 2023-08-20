@@ -666,28 +666,33 @@ const IndexPage = () => {
   useEffect(() => {
     const handleMouseOver = () => {
       // console.log("hi");
-      document.getElementById("cursorFollowerDrag").style.opacity = "1";
-      document.getElementById("cursorFollowerDrag").style.display = "block";
+      document.getElementById("cursor").style.transform = "scale(5.5)";
+      // document.getElementById("cursorFollowerDrag").style.display = "block";
       document.getElementById("cursorFollower").style.visibility = "hidden";
+      document.querySelector(".cursorContent").style.opacity = "1";
     };
 
     const handleMouseOut = () => {
+      document.getElementById("cursor").style.transform = "scale(1)";
       document.getElementById("cursorFollower").style.visibility = "visible";
-      document.getElementById("cursorFollowerDrag").style.opacity = "0";
-      document.getElementById("cursorFollowerDrag").style.display = "none";
+      document.querySelector(".cursorContent").style.opacity = "0";
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
     const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
 
-    eventCarousel.addEventListener("mouseover", handleMouseOver);
-    eventCarousel.addEventListener("mouseout", handleMouseOut);
+    if (eventCarousel) {
+      eventCarousel.addEventListener("mouseover", handleMouseOver);
+      eventCarousel.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
-      eventCarousel.removeEventListener("mouseover", handleMouseOver);
-      eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      if (eventCarousel) {
+        eventCarousel.removeEventListener("mouseover", handleMouseOver);
+        eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      }
     };
-  }, []);
+  }, [regPage]);
 
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -971,7 +976,17 @@ const IndexPage = () => {
           </video>
         </div>
       )}
-      <div className="cursor" id="cursor"></div>
+      <div className="cursor" id="cursor">
+        <div className="cursorContent">
+          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
@@ -1197,7 +1212,7 @@ const IndexPage = () => {
               <main
                 id="contactPage"
                 className={contact["page"]}
-                // style={{ top: "30vh" }}
+              // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div className={contact["pageBackground"]}>
@@ -1243,8 +1258,8 @@ const IndexPage = () => {
                         !cossacSwitchBtn
                           ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
                           : {
-                              borderBottom: "3px solid white",
-                            }
+                            borderBottom: "3px solid white",
+                          }
                       }
                     >
                       Organizing Committee
@@ -1256,8 +1271,8 @@ const IndexPage = () => {
                         cossacSwitchBtn
                           ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
                           : {
-                              borderBottom: "3px solid white",
-                            }
+                            borderBottom: "3px solid white",
+                          }
                       }
                     >
                       CoSSAC
