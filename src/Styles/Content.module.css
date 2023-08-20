@@ -11,7 +11,15 @@ main {
   display: flex;
   /* overflow: hidden; */
 }
-
+.regInput span{
+  font-size: 1rem;
+  font-weight: 501;
+  vertical-align: middle;
+}
+.messLabel span{
+  font-weight: 399;
+  font-size: 1rem;
+}
 .landing{
   width: 100vw;
   overflow: hidden;
@@ -512,7 +520,10 @@ input[type="radio"] {
   position: relative;
 
 }
-
+.messLabel{
+  margin-top: 1rem !important;
+  margin-bottom:1rem !important;
+}
 
 .iconContainer svg{
   height: 1.75rem;

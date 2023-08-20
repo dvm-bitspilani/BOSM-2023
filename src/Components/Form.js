@@ -5,6 +5,7 @@ import * as styles from "../Styles/Content.module.css";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import RadioButton from './RadioBtn';
+import RadioButton2 from './RadioBtn';
 import {storage} from "../Components/firebase";
 import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
@@ -21,6 +22,8 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const [error2 , setError2]=useState(false)
   const [success , setSuccess]=useState(false)
   const [errormsg , setErrorMsg] = useState("")
+  const [isMessFood , setIsMessFood] = useState(false);
+  const [photoText , setPhotoText] = useState("*Please upload your passport size photo")
 
   const closeError=()=>{
     setError1(false);
@@ -390,7 +393,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       }
     }),
   };
-
   const customStylesMulti = {
     control: (provided, state) => ({
       ...provided,
@@ -704,6 +706,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
   const [gender, setGender] = useState('');
   const handleChange2 = (event) => {
+    console.log(event.target)
     const { id, value, name, type } = event.target;
     // console.log(id)
     // console.log(type)
@@ -733,6 +736,38 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       updatedFormData[id] = value.trim();
     }
     updatedFormData["is_coach"] = isCoach;
+    setFormData(updatedFormData);
+  };
+  const handleChangeMess = (event) => {
+    console.log(event.target.value)
+    let boolean = false;
+    if(event.target.value === 'true')boolean = true;
+    else boolean = false;
+    console.log(boolean)
+    const { id, value, name, type } = event.target;
+    const updatedFormData = { ...formData };
+    updatedFormData["is_coach"] = isCoach;
+    if (name === 'is_messfood') {
+      setIsMessFood(boolean);
+      updatedFormData["is_messfood"] = boolean;
+    }
+    updatedFormData["is_coach"] = isCoach;
+    setFormData(updatedFormData);
+  };
+  const handleChangeCoach = (event) => {
+    console.log(event.target.value)
+    let boolean = false;
+    if(event.target.value === 'true')boolean = true;
+    else boolean = false;
+    console.log(boolean)
+    const { id, value, name, type } = event.target;
+    const updatedFormData = { ...formData };
+    updatedFormData["is_coach"] = isCoach;
+    if (name === 'is_coach') {
+      setIsCoach(boolean);
+      updatedFormData["is_coach"] = boolean;
+    }
+    updatedFormData["is_coach"] = boolean;
     setFormData(updatedFormData);
   };
   const handleChange3 = (event) => {
@@ -814,8 +849,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   const [paramsg , setparamsg] =useState('* Upload your passport size photo');
   useEffect(()=>{
     if(fileUploaded){
-      document.getElementById("previewPara").style.color="white";
-      setparamsg("Photo uploaded successfully");
+      // document.getElementById("previewPara").style.color="white";
+      // setparamsg("Photo uploaded successfully");
+      setPhotoText("Click to edit Photo")
     }
   },[fileUploaded])
 
@@ -964,7 +1000,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
                 id="true"
                 value={true}
                 text="Yes"
-                onChange={handleChange2}
+                onChange={handleChangeCoach}
                 checked={isCoach}
               />
               <RadioButton
@@ -972,10 +1008,31 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
                 id="false"
                 value={false}
                 text="No"
-                onChange={handleChange2}
+                onChange={handleChangeCoach}
                 checked={!isCoach}
               />
             </div>
+
+            <label htmlFor='is_messfood' className={styles.messLabel}>Sign up for Mess food?<span>(*Chargeable)</span></label>
+            <div className={styles["radioBtns"]}>
+              <RadioButton2
+                name="is_messfood"
+                id="true2"
+                value={true}
+                text="Yes"
+                onChange={handleChangeMess}
+                checked={isMessFood}
+              />
+              <RadioButton2
+                name="is_messfood"
+                id="false2"
+                value={false}
+                text="No"
+                onChange={handleChangeMess}
+                checked={!isMessFood}
+              />
+            </div>
+
           </div>
           <div className={styles["formMultiInput"]}>
             <label htmlFor='college_id' className={styles["collegeLabel"]}>College</label>
@@ -989,6 +1046,16 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
             <label htmlFor='sports'>Sports</label>
             <Select noOptionsMessage={customNoOptionsMessage} options={sportsOptions} onChange={(selectedOptions) => handleChangeMulti(selectedOptions, { name: 'sports' })} styles={customStylesMulti} isMulti />
+
+
+
+            <label htmlFor='photo'>Photo</label>
+            <div className={styles["regInput"]} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
+              <span>{photoText}</span>
+            </div>
+
+
+
 
             <label htmlFor='year_of_study'>Year Of Study</label>
             <div className={`${styles["yearOfStudy"]} ${isCoach ? styles["disabledYearOfStudy"] : ""}`}>
@@ -1007,7 +1074,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         </form>
         <div className={styles["btnContainer"]}>
           <div>
-            <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload}>
+            <button className={`${styles["submitBtn"]} ${styles["submitBtnMargin"]}`} onClick={imageUpload} style={{display: 'none'}}>
               {!fileUploaded && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.5 15.5V16.9C22.5 18.8602 22.5 19.8403 22.1185 20.589C21.783 21.2475 21.2475 21.783 20.589 22.1185C19.8403 22.5 18.8602 22.5 16.9 22.5H7.1C5.13982 22.5 4.15972 22.5 3.41103 22.1185C2.75247 21.783 2.21703 21.2475 1.88148 20.589C1.5 19.8403 1.5 18.8602 1.5 16.9V15.5M17.8333 7.33333L12 1.5M12 1.5L6.16667 7.33333M12 1.5V15.5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>}
@@ -1023,7 +1090,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             />
             <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
           </div>
-          <p id='previewPara' onClose={closeError}>{paramsg}</p>
+          {/* <p id='previewPara' onClose={closeError}>{paramsg}</p> */}
         </div>
       </div>
     </section>
