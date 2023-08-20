@@ -88,7 +88,7 @@ const Navbar = ({
       x: "-50%",
       opacity: 1,
       transition: {
-        delay: 0,
+        delay: 1,
         duration: 1,
         ease: "easeInOut",
       },
