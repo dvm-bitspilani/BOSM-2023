@@ -1237,19 +1237,15 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <motion.div
+                      <div
                         className={contact["cardsContainer"]}
                         key={cossacSwitchBtn}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, delay: 1 }}
-                        exit={{ opacity: 0, delay: 1 }}
-                        transition={{ duration: 0.5, ease: easeInOut }}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
                         {ContactsCards1}
                         {ContactsCards2}
 
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                   <div className={contact["cardsSwitchButtons"]}>
