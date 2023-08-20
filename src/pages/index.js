@@ -127,27 +127,6 @@ const IndexPage = () => {
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
-    {
-      name: "Yashwasin Jain",
-      image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
-    },
-    {
-      name: "Yashwasin Jain",
-      image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
-    },
-    {
-      name: "Yashwasin Jain",
-      image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
-    },
   ];
 
   // const ContactsCards1 = ContactsData1.map((contact, key) => {
@@ -318,13 +297,7 @@ const IndexPage = () => {
     const aboutCarousel = document.getElementsByClassName(about["carouselContainer"]);
     const aboutContent = document.getElementsByClassName(about["contentContainer"]);
 
-    backStatue.addEventListener("dragstart", (event) => {
-      event.preventDefault();
-    });
-  
-    frontStatue.addEventListener("dragstart", (event) => {
-      event.preventDefault();
-    });
+
 
     window.scrollTo(0, 0);
 
@@ -976,20 +949,24 @@ const IndexPage = () => {
               // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
-                  <div className={contact["pageBackground"]}>
+                  <div className={contact["pageBackground"]} >
                     <img
                       id="frontStatue"
                       alt=""
                       src={FrontStatue}
-                      className={contact["frontStatue"]
-                     
-                  }
+                      className={contact["frontStatue"]}
+                      onDragStart = {(e)=>{
+                        e.preventDefault()
+                      }}
                     />
                     <img
                       id="backStatue"
                       alt=""
                       src={BackStatue}
                       className={contact["backStatue"]}
+                      onDragStart = {(e)=>{
+                        e.preventDefault()
+                      }}
                     />
                     {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                   </div>
@@ -1001,17 +978,6 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, delay: 1 }}
-                        exit={{ opacity: 0, delay: 1 }}
-                        transition={{ duration: 0.5, ease: easeInOut }}
-                      >
-                        {cossacCards ? ContactsCards1 : ContactsCards2}
-                      </motion.div>
-
-                    </div>
-                  </div>
                   <div className={contact["cardsSwitchButtons"]}>
                     <div
                       className={contact["organizingBtn"]}
@@ -1040,6 +1006,17 @@ const IndexPage = () => {
                       }
                     >
                       CoSSAC
+                    </div>
+                  </div>
+                      <motion.div className={contact["cardsContainer"]} key={cossacSwitchBtn}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, delay: 1 }}
+                        exit={{ opacity: 0, delay: 1 }}
+                        transition={{ duration: 0.5, ease: easeInOut }}
+                      >
+                        {cossacCards ? ContactsCards1 : ContactsCards2}
+                      </motion.div>
+
                     </div>
                   </div>
                 </div>
