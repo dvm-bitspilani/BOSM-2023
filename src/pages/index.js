@@ -387,11 +387,71 @@ const IndexPage = () => {
         ease: "none",
         // duration : 2,
       })
-      .from("#eventCarousel", {
-        rotation: 70,
+      .from(
+        "#eventCarousel",
+        {
+          rotation: 70,
+          ease: "none",
+          // duration : 2,
+        },
+        "<"
+      );
+
+    let tl3 = gsap.timeline({
+      scrollTrigger: {
+        // trigger: "#events-section",
+        start: `${window.innerHeight * 2} top`,
+        // endTrigger: ".fixed-bg-blue",
+        end: `+=${window.innerHeight}`,
+        toggleActions: "play none none reverse",
+        markers: {
+          startColor: "white",
+          endColor: "white",
+        },
+        scrub: true,
+        // yoyo: true,
+        snap: {
+          snapTo: 1,
+          duration: 2,
+          ease: "power1.out",
+        },
+      },
+    });
+
+    tl3
+      .to(`#events-section`, {
+        y: "-100%",
         ease: "none",
-        // duration : 2,
-      }, "<");
+        // duration: 1,
+      })
+      .to("#contact-section", {
+        y: "-100%",
+        ease: "none",
+        // duration: 1,
+      })
+      .from(`.${contact["pageBackground"]}`, {
+        x: "-100%",
+        ease: "none",
+        // duration: 1,
+      })
+      .from(
+        "#contactContent",
+        {
+          x: "100%",
+          ease: "none",
+          // duration: 1,
+        },
+        "<"
+      )
+      .from(
+        `.${contact["cardsSwitchButtons"]}`,
+        {
+          x: "100%",
+          ease: "none",
+          // duration: 1,
+        },
+        "<"
+      );
   }, [regPage]);
 
   useEffect(() => {
