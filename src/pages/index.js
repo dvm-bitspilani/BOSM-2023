@@ -300,7 +300,11 @@ const IndexPage = () => {
         //   indent: 20,
         // },
         scrub: true,
-        snap: 1,
+        snap: {
+          snapTo: 1,
+          duration: 2,
+          ease: "power1.out",
+        },
       },
     });
 
@@ -349,7 +353,11 @@ const IndexPage = () => {
         // },
         scrub: true,
         // yoyo: true,
-        snap: 1,
+        snap: {
+          snapTo: 1,
+          duration: 2.5,
+          ease: "power1.out",
+        },
       },
     });
 
