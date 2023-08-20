@@ -90,7 +90,7 @@
   color: white;
   /* margin-bottom: 3vh; */
   padding-top: 1vh;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .profileContainer {
@@ -185,6 +185,7 @@
   width: 100%;
   align-items: top;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 920px) {
@@ -314,7 +315,7 @@
 @media (max-width: 650px) {
   .cardsContainer1,
 .cardsContainer2{
-  width: 70vw;
+  width: 95vw;
 }
   .page {
     height: 100%;
