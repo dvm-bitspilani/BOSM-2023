@@ -3,11 +3,13 @@
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background: url(../images/event_bg.png);
+  /* background: url(../images/event_bg.png); */
+  background: transparent;
   background-size: cover;
   background-position: center center;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 .eventsSection h3{
   color: #F5F5F5;
@@ -44,9 +46,19 @@
   top:50%;
   transform:translate(-50%,-50%);
 }
-.slider{
-  
+
+.icon{
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  object-position: center;
+  bottom: 16%;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
 }
+
 
 @media (max-width : 711px){
   .eventsSection h3{

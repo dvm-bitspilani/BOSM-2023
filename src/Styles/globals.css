@@ -23,7 +23,7 @@
   /* overflow-x: hidden; */
   user-select: none;
   cursor: none;
-  transition: opacity .8s;
+  /* transition: opacity .5s; */
 }
 /* :root{
     use variable here
@@ -45,7 +45,8 @@ body {
   width: calc(100vw - (100vw - 100%));
   position: relative;
   overflow-x: hidden;
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
+  height: 400vh;
 }
 a{
   text-decoration: none;
@@ -58,11 +59,27 @@ a{
 #about-us-section{
   height: auto;
   z-index: 0;
-  transition: opacity .1s;
+  opacity: 0;
+  /* transition: opacity .1s; */
+  position: fixed;
 }
 #landing-section{
   z-index: 1;
+  position: fixed;
 }
+
+#events-section{
+  z-index: 2;
+  position: fixed;
+  overflow: visible;
+}
+
+#contact-section{
+  z-index: 3;
+  position: absolute;
+  top: 300vh;
+}
+
 .fixed-bg {
   position: fixed;
   top: 0;
@@ -86,6 +103,7 @@ a{
   background: url(../images/red-bg.png);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform-origin: left;
 }
 .cursor {
   position: fixed;
@@ -101,6 +119,17 @@ a{
   transition: opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
   /* mix-blend-mode: difference; */
   pointer-events: none;
+  transition: transform .5s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+}
+.cursorContent{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  margin-top: .1rem;
+}
+.cursorContent svg, .cursorText{
+  transform: scale(0.18181818181818181818181818181818);
 }
 .cursorFollower {
   opacity: 0;
@@ -115,13 +144,27 @@ a{
   border-radius: 100%;
   /* border: 1px solid #eee; */
   transition: transform 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+    opacity 0.5s cubic-bezier(0.75, -0.27, 0.3, 1.33)
+    ;
   pointer-events: none;
   transform: scale(1);
   overflow: hidden;
   animation: rotation 17.5s infinite forwards linear;
   transition: 0.7s transform cubic-bezier(0.62, 0.02, 0.34, 1);
   /* mix-blend-mode: hard-light; */
+}
+.cursorFollowerDrag{
+  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000001;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.cursorFollowerDrag img{
+  transform: translate(-50% , -50%) scale(0.75);
 }
 .cursorFollower img {
   height: 120px;
@@ -236,7 +279,8 @@ a{
 
 .swiper{
   overflow: visible !important;
-  transition: scale 0.55s;
+  /* transition: scale 0.55s; */
+  /* transform: rotate(90deg); */
 }
 
 .swiper-wrapper{
@@ -251,6 +295,24 @@ a{
 }
 .swiper-button-prev, .swiper-button-next {
 color: white;
+}
+
+.MuiCircularProgress-root{
+  left: 50%;
+  bottom: 13%;
+  position: absolute;
+  transform: translateX(-50%) rotate(-90deg) !important;
+}
+
+.MuiCircularProgress-root::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background: url("../images/CircleProgress.svg");
+  background-size: cover;
+  /* border: 2px solid green; */
 }
 
 @keyframes slideUp {
@@ -333,7 +395,7 @@ color: white;
 }
 @media(max-width: 680px){
   #about-us-section{
-    height: auto;
+    height: 100vh;
   }
 }
 

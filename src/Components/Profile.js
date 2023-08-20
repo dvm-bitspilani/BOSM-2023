@@ -1,7 +1,7 @@
 import React from "react";
 import * as contact from "../Styles/Contact.module.css"
-import ProfilePicBoy from "../Components/ContactsData/ContactImages/contact_boy.png"
-import ProfilePicGirl from "../Components/ContactsData/ContactImages/contact_girl.png"
+// import ProfilePicBoy from "../Components/ContactsData/ContactImages/contact_boy.png"
+// import ProfilePicGirl from "../Components/ContactsData/ContactImages/contact_girl.png"
 import { motion } from "framer-motion";
 import MailIcon from "../images/mailIcon.png"
 import PhoneIcon from "../images/phoneIcon.png"

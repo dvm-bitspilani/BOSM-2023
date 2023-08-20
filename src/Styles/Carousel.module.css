@@ -10,8 +10,8 @@
 }
 .slider {
     position: relative;
-    height: 40vh;
-    width: 40vw;
+    height: 35vh;
+    width: 38vw;
     overflow: hidden;
 }
 .sliderContainer .slider .image {
@@ -23,12 +23,7 @@
     background-position: center;
     will-change: transform, opacity;
 }
-.sliderContainer .slider .image:hover {
-    cursor: grab;   
-}
-.sliderContainer .slider .image:active {
-    cursor: grabbing;
-}
+
 .sliderContainer .buttons {
     margin-top: 12px;
 }

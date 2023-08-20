@@ -9,8 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-flip";
-import "swiper/css/effect-cards"
-import "swiper/css/effect-creative"
+import "swiper/css/effect-cards";
+import "swiper/css/effect-creative";
 
 // import './styles.css';
 
@@ -23,7 +23,7 @@ import {
   EffectCreative,
   Mousewheel,
   FreeMode,
-  EffectCards
+  EffectCards,
 } from "swiper/modules";
 
 import { motion } from "framer-motion";
@@ -40,14 +40,20 @@ import cricketImg from "../images/Events Images/cricket.jpeg";
 import athleticsImg from "../images/Events Images/athletics.jpeg";
 import frisbeeImg from "../images/Events Images/frisbee.jpeg";
 import tabletennisImg from "../images/Events Images/tabletennis.jpeg";
+import taekwondoImg from "../images/Events Images/taekwondo.jpeg";
+import powerliftingImg from "../images/Events Images/powerlifting.jpeg";
+import snookerImg from "../images/Events Images/snooker.jpeg";
+import footballImg from "../images/Events Images/football.jpeg";
+import basketballImg from "../images/Events Images/basketball.jpeg";
 
-export default function EventsCarousel() {
+export default function EventsCarousel({ setProgress, setIndex }) {
   const swiperContainerDiv = React.useRef(null);
   const swiper = React.useRef(null);
 
   return (
     <motion.div
       className="swiper-container-div"
+      id="eventCarousel"
       ref={swiperContainerDiv}
       // whileTap={{ scale: 0.9 }}
       transition={{
@@ -89,68 +95,72 @@ export default function EventsCarousel() {
         //   const swiper = document.querySelector(".swiper")
         //   swiper.style.scale = 0.9;
         // }}
-        // onProgress={()=>{
-        //   const swiper = document.querySelector(".swiper")
-        //   swiper.style.scale = 0.9;
-        // }}
+        onProgress={() => {
+          const swiper = document.querySelector(".swiper").swiper;
+          // console.log(swiper.progress);
+        }}
         // onMouseUp={()=>{
         //   const swiper = document.querySelector(".swiper");
         //   swiper.style.scale = 1;
         // }}
         centeredSlides={true}
-        // centeredSlidesBounds= {true} 
-        keyboard={{
-          enabled: true,
-        }}
+        // centeredSlidesBounds= {true}
+        // keyboard={{
+        //   enabled: true,
+        //   onlyInViewport: true,
+          
+        // }}
         // navigation={true}
         // direction={"horizontal"}
-        mousewheel={
-          {
-            forceToAxis: true,
-            // invert: true,
-            sensitivity: 0.5,
-          }
-        }
+        mousewheel={{
+          forceToAxis: true,
+          // invert: true,
+          sensitivity: 0.5,
+        }}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
         }}
         loop={true}
         breakpoints={{
-          640: {
+          370: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 20,
           },
-          1024: {
+          1124: {
             slidesPerView: 5,
-            spaceBetween: 50,
+            spaceBetween: 30,
           },
         }}
-       
+        // onResize={()=>{
+        //   const swiper = document.querySelector(".swiper").swiper
+        //   swiper.init()
+        // }}
+
         // pagination={{
         //   type: 'progressbar',
         // }}
         // effect="creative"
         creativeEffect={{
-          limitProgress: 6,
+          limitProgress: typeof window !== "undefined" && window.innerWidth < 711 ? 2 : 3,
           perspective: true,
           prev: {
             // shadow: true,
             translate: ["-115%", "8%", 0],
-            // scale: 0.9,
+            scale: 0.9,
             rotate: [0, 0, -10],
-            origin: "bottom"
+            origin: "bottom",
           },
           next: {
             // shadow: true,
             translate: ["115%", "8%", 0],
-            // scale: 0.9,
+            scale: 0.9,
             rotate: [0, 0, 10],
-            origin: "bottom"
+            origin: "bottom",
           },
         }}
         // creativeEffect={{
@@ -172,15 +182,15 @@ export default function EventsCarousel() {
         // resistanceRatio={0.5}
         // touchRatio={0.5}
         // parallax={true}
-        
+
         freeMode={{
           enabled: true,
           momentumRatio: 0.1,
           momentumVelocityRatio: 0.1,
           sticky: true,
         }}
-
-        effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
+        effect="creative"
+        // effect={typeof window !== "undefined" && window.innerWidth < 711 ? "cards" : "creative"}
         // effect={"cards"}
         cardsEffect={{
           slideShadows: false,
@@ -188,7 +198,15 @@ export default function EventsCarousel() {
           // perSlideRotate: 0,
         }}
         simulateTouch={true}
-
+        onRealIndexChange={() => {
+          const swiper = document.querySelector(".swiper").swiper;
+          setProgress(
+            Math.round((swiper.realIndex / swiper.slides.length) * 100)
+          );
+          setIndex(swiper.realIndex);
+        }}
+        slideToClickedSlide={true}
+        // noSwiping={true}
         modules={[
           Keyboard,
           Pagination,
@@ -204,12 +222,12 @@ export default function EventsCarousel() {
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Swimming" img={swimmingImg} />
+          <EventSlide sport="Badminton" img={badmintonImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Badminton" img={badmintonImg} />
+          <EventSlide sport="Swimming" img={swimmingImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
@@ -254,12 +272,37 @@ export default function EventsCarousel() {
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
-          <EventSlide sport="Frisbee" img={frisbeeImg} />
+          <EventSlide sport="Ultimate Frisbee" img={frisbeeImg} />
         </SwiperSlide>
         <SwiperSlide
           style={{ overflow: "visible", display: "flex", alignItems: "start" }}
         >
           <EventSlide sport="Table Tennis" img={tabletennisImg} />
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="Taekwondo" img={taekwondoImg} />
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="Powerlifting" img={powerliftingImg} />
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="8 Ball Pool & Snookers" img={snookerImg} />
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="Football" img={footballImg} />
+        </SwiperSlide>
+        <SwiperSlide
+          style={{ overflow: "visible", display: "flex", alignItems: "start" }}
+        >
+          <EventSlide sport="Basketball" img={basketballImg} />
         </SwiperSlide>
       </Swiper>
     </motion.div>
