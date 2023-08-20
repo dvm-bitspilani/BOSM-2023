@@ -621,14 +621,18 @@ const IndexPage = () => {
     const eventCarousel = document.getElementById("eventCarousel");
     const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
 
-    eventCarousel.addEventListener("mouseover", handleMouseOver);
-    eventCarousel.addEventListener("mouseout", handleMouseOut);
+    if (eventCarousel) {
+      eventCarousel.addEventListener("mouseover", handleMouseOver);
+      eventCarousel.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
-      eventCarousel.removeEventListener("mouseover", handleMouseOver);
-      eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      if (eventCarousel) {
+        eventCarousel.removeEventListener("mouseover", handleMouseOver);
+        eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      }
     };
-  }, []);
+  }, [regPage]);
 
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -917,7 +921,7 @@ const IndexPage = () => {
           <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          
+
           <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
