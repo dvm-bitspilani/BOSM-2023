@@ -125,15 +125,15 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         breakpoints={{
           370: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 20,
           },
           1124: {
             slidesPerView: 5,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
         }}
         // onResize={()=>{

@@ -348,6 +348,7 @@ const IndexPage = () => {
         //   endColor: "white",
         // },
         scrub: true,
+        // yoyo: true,
         snap: 1,
       },
     });
@@ -356,29 +357,32 @@ const IndexPage = () => {
       .to(`.${about["topContainer"]}`, {
         y: "100%",
         ease: "none",
+        // duration: 1,
       })
       .to(
         `.${about["bottomContainer"]}`,
         {
           y: "-100%",
           ease: "none",
+          // duration: 1,
         },
         "<"
       )
       .to(`.${about["whiteBar"]}`, {
         width: 0,
         ease: "none",
+        // duration : 1,
       })
       .from("#events-section", {
-        x: "200%",
-        y: "50%",
+        x: "210%",
+        y: "60%",
         ease: "none",
-        // duration : 1,
+        // duration : 2,
       })
       .from("#eventCarousel", {
-        transform: "rotate(80deg)",
+        rotation: 70,
         ease: "none",
-        // duration : 1,
+        // duration : 2,
       }, "<");
   }, [regPage]);
 
