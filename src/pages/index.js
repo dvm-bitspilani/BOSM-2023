@@ -93,16 +93,16 @@ const IndexPage = () => {
       email: "abcd@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Anushka Patil",
-      image: `${AnushkaPatil}`,
-      department: "Controls",
+      name: "Ayush Singh Bhandari",
+      image: `${Ayush}`,
+      department: "Sponsorship and Marketing",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Ayush Singh Bhandari",
-      image: `${Ayush}`,
-      department: "Sponsorship and Marketing",
+      name: `Anushka Patil`,
+      image: `${AnushkaPatil}`,
+      department: "Controls",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
@@ -135,23 +135,23 @@ const IndexPage = () => {
       email: "abcd@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
+      name: "Pradyut Sood",
       image: `${Boy}`,
-      department: "Joint Sports Secretary",
+      department: "Sports Financial Committee",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
+      name: "Vinayak Bhattacharya",
       image: `${Boy}`,
-      department: "Joint Sports Secretary",
+      department: "Sports Financial Committee",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
+      name: "Vidhatra Shukla",
       image: `${Boy}`,
-      department: "Joint Sports Secretary",
+      department: "Sports Financial Committee",
       phone: "+91-9999999999",
       email: "abcd@pilani.bits-pilani.ac.in",
     },
@@ -190,7 +190,7 @@ const IndexPage = () => {
   }).slice(2, 3);
 
   const Card2Row1 = ContactsData2.map((contact, index) => {
-    if (index >= 0 && index < 3) {
+    if (index >= 0 && index < 4) {
       return (
         <ContactProfile
           key={index}
@@ -203,10 +203,10 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(0, 3);
+  }).slice(0, 4);
 
   const Card2Row2 = ContactsData2.map((contact, index) => {
-    if (index >= 3 && index < 6) {
+    if (index >= 4 && index < 8) {
       return (
         <ContactProfile
           key={index}
@@ -219,10 +219,10 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(3, 6);
+  }).slice(4, 8);
 
   const Card2Row3 = ContactsData2.map((contact, index) => {
-    if (index >= 6 && index < 8) {
+    if (index >= 8 && index < 11) {
       return (
         <ContactProfile
           key={index}
@@ -235,7 +235,7 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(6, 8);
+  }).slice(8, 11);
 
   const ContactsCards1 = (
     <div className={contact["cardsContainer1"]} style={{display: cossacCards? 'block': 'none'}}>
@@ -1237,19 +1237,9 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <div
-                        className={contact["cardsContainer"]}
-                        key={cossacSwitchBtn}
-                      >
-                        {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
-                        {ContactsCards1}
-                        {ContactsCards2}
-
-                      </div>
-                    </div>
-                  </div>
-                  <div className={contact["cardsSwitchButtons"]}>
-                    <div
+                      {typeof window !== "undefined" && window.innerWidth < 920 && 
+                        <div className={contact["cardsSwitchButtons2"]}>
+                          <div
                       className={contact["organizingBtn"]}
                       onClick={handleOrganizingCardsBtnClick}
                       style={
@@ -1260,7 +1250,7 @@ const IndexPage = () => {
                           }
                       }
                     >
-                      Organizing Committee
+                      CoSSAC
                     </div>
                     <div
                       className={contact["cossacBtn"]}
@@ -1273,9 +1263,51 @@ const IndexPage = () => {
                           }
                       }
                     >
-                      CoSSAC
+                      Organizing Committee
+                    </div>
+                        </div>
+                      }
+                      <div
+                        className={contact["cardsContainer"]}
+                        key={cossacSwitchBtn}
+                      >
+                        {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
+                        {ContactsCards1}
+                        {ContactsCards2}
+
+                      </div>
                     </div>
                   </div>
+                  {typeof window !== "undefined" && window.innerWidth > 920 && 
+                  <div className={contact["cardsSwitchButtons"]}>
+                    <div
+                      className={contact["organizingBtn"]}
+                      onClick={handleOrganizingCardsBtnClick}
+                      style={
+                        !cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white",
+                          }
+                      }
+                    >
+                      CoSSAC
+                    </div>
+                    <div
+                      className={contact["cossacBtn"]}
+                      onClick={handleCossacCardsButtonClick}
+                      style={
+                        cossacSwitchBtn
+                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
+                          : {
+                            borderBottom: "3px solid white",
+                          }
+                      }
+                    >
+                      Organizing Committee
+                    </div>
+                  </div>
+                  }
                 </div>
               </main>
             }

@@ -89,7 +89,7 @@
   letter-spacing: 0.23vh;
   color: white;
   /* margin-bottom: 3vh; */
-  padding-top: 3vh;
+  padding-top: 1vh;
   overflow: hidden;
 }
 
@@ -158,7 +158,7 @@
   width: 45vw;
   height: 100%;
   margin-inline: 1vh;
-  margin-block: 2vh;
+  /* margin-block: 2vh; */
   background: transparent;
   /* transition: all 0.5s ease-in-out; */
   display: flex;
@@ -366,4 +366,12 @@ right: unset;
   .organizingBtn, .cossacBtn{
     font-size: 1rem;
   }
+}
+.cardsSwitchButtons2{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  padding-top: 1rem;
 }
