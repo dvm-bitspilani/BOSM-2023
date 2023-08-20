@@ -452,6 +452,8 @@ const IndexPage = () => {
         },
         "<"
       );
+
+      document.addEventListener('contextmenu', event => event.preventDefault());
   }, [regPage]);
 
   useEffect(() => {

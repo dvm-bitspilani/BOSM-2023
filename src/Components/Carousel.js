@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { wrap } from "@popmotion/popcorn"
+import Video from "./Video"
 import Thumbnail from "../images/aboutUsCarouselThumbnail.png"
 import * as carousel from "../Styles/Carousel.module.css"
 import RightArrowImage from "../images/aboutUsCarouselRightArrow.png";
@@ -77,7 +78,10 @@ const App = () => {
               dragElastic={1}
               onDragEnd={(_, dragInfo) => dragEndHandler(dragInfo)}
               className={carousel["image"]}
-            />
+            ><Video
+            videoSrcURL={IMAGES[activeImageIndex].videoSrc}
+            videoTitle={IMAGES[activeImageIndex].videoTitle} 
+            ></Video></motion.div>
           </AnimatePresence>
         </div>
 

@@ -56,5 +56,11 @@ module.exports = {
         icon: 'src/images/icon.png', // Fix the icon path
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
+    },
   ],
 };
