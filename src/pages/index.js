@@ -382,7 +382,7 @@ const IndexPage = () => {
         // duration : 1,
       })
       .from("#events-section", {
-        x: "210%",
+        x: "220%",
         y: "60%",
         ease: "none",
         // duration : 2,
