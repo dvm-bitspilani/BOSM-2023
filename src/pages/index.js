@@ -404,10 +404,10 @@ const IndexPage = () => {
         // endTrigger: ".fixed-bg-blue",
         end: `+=${window.innerHeight}`,
         toggleActions: "play none none reverse",
-        markers: {
-          startColor: "white",
-          endColor: "white",
-        },
+        // markers: {
+        //   startColor: "white",
+        //   endColor: "white",
+        // },
         scrub: true,
         // yoyo: true,
         snap: {
