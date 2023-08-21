@@ -167,7 +167,6 @@
 
 .contentContainer {
   /* width: 50vw; */
-  overflow: hidden;
   margin-right: 0;
   /* border: solid black; */
   width: 100%;
@@ -187,6 +186,7 @@
   align-items: top;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 6vw;
 }
 
 @media (max-width: 920px) {
@@ -314,7 +314,7 @@
 }
 
 .cardsContainer1 {
-  padding-top: 5vh;
+  padding-top: vh;
 }
 
 @media (max-width: 650px) {
