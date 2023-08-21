@@ -14,6 +14,7 @@
 .pageBackground {
   max-height: 100vh;
   position: relative;
+  top: 36px;
   z-index: 1;
   width: 100vh;
 }
@@ -47,7 +48,7 @@
 }
 
 .container {
-  height: 100%;
+  height: auto;
   width: 100%;
   display: grid;
   grid-template-columns: calc(50% - 10vw) calc(50% + 10vw);
