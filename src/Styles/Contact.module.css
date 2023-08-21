@@ -186,7 +186,6 @@
   align-items: top;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0 10vw;
 }
 
 @media (max-width: 920px) {
@@ -194,6 +193,10 @@
 .cardsContainer2{
   width: 70vw;
 } */
+
+  .row{
+    gap: 0 10vw;
+  }
   .profileContainer{
      width: calc(10vh + 5vw);
   }
