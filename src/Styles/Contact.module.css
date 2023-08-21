@@ -1,4 +1,4 @@
-  .page {
+.page {
   height: 100vw;
   width: 100vw;
   /* z-index: 0; */
@@ -130,7 +130,6 @@
   font-weight: 600;
   margin-top: 0.8vh;
   margin-bottom: 0.2vh;
-
 }
 .profileDept {
   color: #e0e0e0;
@@ -180,7 +179,7 @@
   height: 100%;
 }
 
-.row{
+.row {
   display: flex;
   width: 100%;
   align-items: top;
@@ -189,7 +188,6 @@
 }
 
 @media (max-width: 920px) {
-
   /* .cardsContainer1,
 .cardsContainer2{
   width: 70vw;
@@ -216,7 +214,7 @@
     width: 100vw;
   }
 
-  .content{
+  .content {
     height: auto;
   }
   .backStatue {
@@ -232,24 +230,22 @@
   .cardsContainer {
     column-gap: 5vw;
   }
-  .profileName{
+  .profileName {
     font-size: 1rem;
   }
-  .profileDept{
-    font-size: .85rem;
+  .profileDept {
+    font-size: 0.85rem;
   }
 
   .content {
     height: 100%;
   }
 
-  .cardsContainer{
+  .cardsContainer {
     width: 78vw;
   }
 }
 @media (max-width: 780px) {
-  
-
   .cardsContainer {
     column-gap: 4vw;
     padding: 0;
@@ -272,7 +268,7 @@
     height: 100%;
   }
 }
-.cardsSwitchButtons{
+.cardsSwitchButtons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,13 +282,13 @@
   z-index: 2;
   /* padding-left: 15vh; */
   transform: rotate(90deg);
-  
 }
-.organizingBtn, .cossacBtn{
+.organizingBtn,
+.cossacBtn {
   /* transform: rotate(90deg); */
   /* height: 14vw; */
   width: fit-content;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 500;
   font-size: 1.3rem;
   color: rgb(255, 255, 255);
@@ -301,74 +297,74 @@
 }
 
 .cardsContainer1,
-.cardsContainer2{
+.cardsContainer2 {
   display: flex;
   flex-direction: column;
   height: 90vh;
   width: 100%;
 }
 
-.cardsContainer1{
+.cardsContainer1 {
   padding-top: 15vh;
 }
 
 @media (max-width: 650px) {
   .cardsContainer1,
-.cardsContainer2{
-  width: 95vw;
-}
+  .cardsContainer2 {
+    width: 95vw;
+  }
   .page {
     height: 100%;
   }
   .content {
     height: 100%;
   }
-  
+
   .cardsContainer {
     margin-top: 0;
     grid-template-columns: auto auto;
     column-gap: 10vw;
   }
-  .profileContainer:nth-child(9){
+  .profileContainer:nth-child(9) {
     grid-column: span 1.5;
     align-self: center;
     margin: auto;
   }
 
   .profileName {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
-  .profileDept{
-    font-size: .65rem;
+  .profileDept {
+    font-size: 0.65rem;
   }
 
-  .title{
+  .title {
     margin-block: 5vh;
   }
-  .cardsSwitchButtons{
+  .cardsSwitchButtons {
     display: flex;
-    
   }
-  .cardsSwitchButtons{
+  .cardsSwitchButtons {
     display: flex;
-justify-content: space-evenly;
-align-items: center;
-/* gap: 5vh; */
-position: absolute;
-height: 5vw;
-width: 100vw;
-z-index: 2;
-/* padding-left: 15vh; */
-/* transform: rotate(90deg); */
-top: 16vh;
-transform: unset;
-right: unset;
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 5vh; */
+    position: absolute;
+    height: 5vw;
+    width: 100vw;
+    z-index: 2;
+    /* padding-left: 15vh; */
+    /* transform: rotate(90deg); */
+    top: 16vh;
+    transform: unset;
+    right: unset;
   }
-  .organizingBtn, .cossacBtn{
+  .organizingBtn,
+  .cossacBtn {
     font-size: 1rem;
   }
 }
-.cardsSwitchButtons2{
+.cardsSwitchButtons2 {
   width: 100%;
   display: flex;
   justify-content: center;
