@@ -186,7 +186,7 @@
   align-items: top;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6vw;
+  gap: 10vw;
 }
 
 @media (max-width: 920px) {
