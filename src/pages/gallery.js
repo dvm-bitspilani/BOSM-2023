@@ -2,29 +2,24 @@ import React from "react";
 import * as styles from "../Styles/Gallery.module.css";
 // import Layout from "../Components/Layout";
 import Cursor from "../images/cursor.png";
-import "../Styles/globals.css"
+import "../Styles/globals.css";
 import { useState, useEffect, useRef } from "react";
 // import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
-import img2 from "../images/Gallery/box2.jpg"
-import img3 from "../images/Gallery/box3.jpg"
-import img4 from "../images/Gallery/box4.jpg"
-import img5 from "../images/Gallery/box5.jpg"
-import img7 from "../images/Gallery/box7.jpg"
-import img8 from "../images/Gallery/box8.jpg"
-import img9 from "../images/Gallery/box9.jpg"
-import img10 from "../images/Gallery/box10.jpg"
+import img2 from "../images/Gallery/box2.jpg";
+import img3 from "../images/Gallery/box3.jpg";
+import img4 from "../images/Gallery/box4.jpg";
+import img5 from "../images/Gallery/box5.jpg";
+import img7 from "../images/Gallery/box7.jpg";
+import img8 from "../images/Gallery/box8.jpg";
+import img9 from "../images/Gallery/box9.jpg";
+import img10 from "../images/Gallery/box10.jpg";
 import ErrorScreen from "../Components/ErrorComponent";
-import {
-  useScroll,
-  motion,
-  useTransform,
-} from 'framer-motion';
+import { useScroll, motion, useTransform } from "framer-motion";
 
-const Gallery = props => {
-
+const Gallery = (props) => {
   const { scrollY } = useScroll();
   const y2 = useTransform(scrollY, [0, 2000], [-10, 190]);
   const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
@@ -40,7 +35,7 @@ const Gallery = props => {
   const [isLoading2, setIsLoading2] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [videoLoaded, setIsVideoLoaded] = useState(false)
+  const [videoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     const videos = document.querySelectorAll("video");
@@ -78,9 +73,7 @@ const Gallery = props => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll(
-        "img", "font", "style"
-      );
+      const assets = document.querySelectorAll("img", "font", "style");
 
       let assetsLoaded = 0;
 
@@ -116,10 +109,6 @@ const Gallery = props => {
       return cleanup;
     }
   }, [videoLoaded]);
-
-
-
-
 
   useEffect(() => {
     const cursor = document.getElementById("cursor");
@@ -162,69 +151,124 @@ const Gallery = props => {
   };
 
   return (
-    <>  <div className="cursor" id="cursor"></div>
+    <>
+      {" "}
+      <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
-      {isLoading2 && <div className="loader" id="loader">
-        <video autoPlay loop muted playsInline>
-          <source src={LoaderVideo} type="video/mp4" />
-        </video>
-      </div>}
+      {isLoading2 && (
+        <div className="loader" id="loader">
+          <video autoPlay loop muted playsInline>
+            <source src={LoaderVideo} type="video/mp4" />
+          </video>
+        </div>
+      )}
       {error && <ErrorScreen />}
-      <main
-        className={styles["gallery"]}
-        isHamOpen={false}>
-
+      <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
-
           <div className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <div className={styles["arrow"]} onClick={closeButtonHandler}>
-                <svg viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M75 39H3M3 39L39 75M3 39L39 3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                <svg
+                  viewBox="0 0 78 78"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M75 39H3M3 39L39 75M3 39L39 3"
+                    stroke="white"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
-              <div style={{overflowX: "hidden"}}>
-                <p className={styles["gallery"]}>Gallery</p></div>
+              <div style={{ overflowX: "hidden" }}>
+                <p className={styles["gallery"]}>Gallery</p>
+              </div>
             </div>
             <div className={styles["box2"]}>
-              <motion.img src={img2} alt="not found" className={styles["image"]}
-                style={{ y: y2 }} draggable={false} />
+              <motion.img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y2 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box3"]}>
-              <motion.img src={img3} alt="not found" className={styles["image"]}
-                style={{ y: y3 }} draggable={false} />
+              <motion.img
+                src={img3}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y3 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box4"]}>
-              <motion.img src={img4} alt="not found" className={styles["image"]}
-                style={{ y: y4 }} draggable={false} />
+              <motion.img
+                src={img4}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y4 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box5"]}>
-              <motion.img src={img5} alt="not found" className={styles["image"]}
-                style={{ y: y5 }} draggable={false} />
+              <motion.img
+                src={img5}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y5 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box6"]}>
               <p className={styles["aboutHeading"]}>about</p>
               <p className={styles["aboutText"]}>
-                The esteemed BITS Open Sports Meet (BOSM) returns for its 36th edition, offering college teams a prestigious platform to exhibit talent. Established in 1986 at BITS Pilani, Pilani Campus, it's a prime stage for intense national athletic competition.
+                The esteemed BITS Open Sports Meet (BOSM) returns for its 36th
+                edition, offering college teams a prestigious platform to
+                exhibit talent. Established in 1986 at BITS Pilani, Pilani
+                Campus, it's a prime stage for intense national athletic
+                competition.
               </p>
             </div>
             <div className={styles["box7"]}>
-              <motion.img src={img7} alt="not found" className={styles["image"]}
-                style={{ y: y7 }} draggable={false} />
+              <motion.img
+                src={img7}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y7 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box8"]}>
-              <motion.img src={img8} alt="not found" className={styles["image"]}
-                style={{ y: y8 }} draggable={false} />
+              <motion.img
+                src={img8}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y8 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box9"]}>
-              <motion.img src={img9} alt="not found" className={styles["image"]}
-                style={{ y: y9 }} draggable={false} />
+              <motion.img
+                src={img9}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y9 }}
+                draggable={false}
+              />
             </div>
             <div className={styles["box10"]}>
-              <motion.img src={img10} alt="not found" className={styles["image"]}
-                style={{ y: y10 }} draggable={false} />
+              <motion.img
+                src={img10}
+                alt="not found"
+                className={styles["image"]}
+                style={{ y: y10 }}
+                draggable={false}
+              />
             </div>
           </div>
           {/* <div className={styles["tagline"]}>roar of resilience</div> */}
