@@ -4,7 +4,10 @@
 module.exports = {
   siteMetadata: {
     title: `BOSM '23 | The Roar of Resilience`,
-    siteUrl: `https://bosm-2023.netlify.app`
+    siteUrl: `https://bitsbosm.org`,
+    description: `Get ready for the ultimate showdown of collegiate sports excellence at the 36th edition of BITS Open Sports Meet (BOSM '23)! Join us from September 22nd to 26th as top college teams from across the nation go head-to-head, showcasing their skills and determination on the grandest stage.`,
+    keywords: `bits sports fest, bosm, bosm 2023, bits fest, bits pilani fest, bits, bits pilani, bits pilani pilani campus, bppc, 2023`,
+    image: `src/images/icon.png`
   },
   plugins: [
     "swiper",

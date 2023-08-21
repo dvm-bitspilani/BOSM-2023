@@ -358,7 +358,7 @@ color: white;
 }
 @media (max-width: 650px) {
   #contact-section {
-    min-height: 175vh;
+    /* min-height: 175vh; */
   }
   .blackScreen img{
     scale: 0.75;
@@ -373,7 +373,7 @@ color: white;
 }
 @media (max-width: 650px) and (min-height: 770px) {
   #contact-section {
-    min-height: 165vh;
+    /* min-height: 165vh; */
   }
   .loader video{
     width: 50vw;
@@ -381,7 +381,7 @@ color: white;
 }
 @media (max-width: 650px) and (min-height: 890px) {
   #contact-section {
-    min-height: 160vh;
+    /* min-height: 160vh; */
   }
   .loader video{
     width:  50vw;

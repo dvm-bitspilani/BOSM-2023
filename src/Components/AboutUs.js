@@ -78,7 +78,7 @@ const AboutUs = (props) => {
         style={{
           height: "2px",
           background: "white",
-          margin: "auto",
+          marginInline: "auto",
           // marginTop: '3rem',
         }}
       ></div>
@@ -99,7 +99,7 @@ const AboutUs = (props) => {
                 </div>
                 <div className={about["desc"]}>
                   One of the biggest sports extravaganzas in the Country, BITS
-                  Open Sports Meet (BOSM), is back with its 37th edition this
+                  Open Sports Meet (BOSM), is back with its 36th edition this
                   winter. The annual sports fest of BITS Pilani, Pilani Campus,
                   since its inception in 1986, has been a stage for college
                   teams to showcase their supremacy by competing amongst the

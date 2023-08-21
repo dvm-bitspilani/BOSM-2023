@@ -10,8 +10,8 @@
 }
 .slider {
     position: relative;
-    height: 35vh;
-    width: 38vw;
+    height: 30vh;
+    width: clamp(230px, 38vw, 450px);
     overflow: hidden;
 }
 .sliderContainer .slider .image {
@@ -38,7 +38,7 @@
 .buttons{
     position: absolute;
     top: 40%;
-    width: 50%;
+    width: max(48%, 300px);
     display: flex;
     justify-content: space-between;
 }
@@ -97,29 +97,29 @@
 @media (min-height: 1000px){
     .slider{
         height: 300px;
-        width: 450px;
+        /* width: 450px; */
     }
     .buttons{
-        width: 65%;
+        /* width: 65%; */
     }
 }
 @media(max-width: 500px){
     .slider{
         height: 200px;
-        width: 300px;
+        /* width: 300px; */
     }
     .buttons{
-        width: 95%;
+        /* width: 95%; */
     }
 }
 @media(max-width: 450px){
     .buttons{
-        width: 90%;
+        /* width: 90%; */
     }
 }
 @media(max-width: 400px){
     .slider{
-        width: 275px;
+        /* width: 275px; */
         height: 190px;
     }
 }

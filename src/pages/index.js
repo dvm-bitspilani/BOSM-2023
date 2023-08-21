@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
@@ -238,14 +238,20 @@ const IndexPage = () => {
   }).slice(8, 11);
 
   const ContactsCards1 = (
-    <div className={contact["cardsContainer1"]} style={{display: cossacCards? 'block': 'none'}}>
+    <div
+      className={contact["cardsContainer1"]}
+      style={{ display: cossacCards ? "block" : "none" }}
+    >
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
     </div>
   );
 
   const ContactsCards2 = (
-    <div className={contact["cardsContainer2"]} style={{display: cossacCards? 'none': 'block'}}>
+    <div
+      className={contact["cardsContainer2"]}
+      style={{ display: cossacCards ? "none" : "block" }}
+    >
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
       <div className={contact["row"]}>{Card2Row3}</div>
@@ -256,9 +262,12 @@ const IndexPage = () => {
   const [showBlackScreen, setShowBlackScreen] = useState(false);
   const [showBlackScreen2, setShowBlackScreen2] = useState(false);
 
+  const [isHamOpen, setIsHamOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const isBrowser = typeof window !== "undefined";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: ".fixed-bg",
@@ -302,17 +311,13 @@ const IndexPage = () => {
         scrub: true,
         snap: {
           snapTo: 1,
-          duration: 2,
+          duration: 1.75,
           ease: "power1.out",
         },
       },
     });
 
     tl1
-      .to(".fixed-bg-blue", {
-        width: "0%",
-        ease: "none",
-      })
       .to(`.${styles["landing"]}`, {
         opacity: 0,
         ease: "none",
@@ -333,6 +338,10 @@ const IndexPage = () => {
         },
         "<"
       )
+      .to(".fixed-bg-blue", {
+        width: "0%",
+        ease: "none",
+      })
       .to("#about-us-section", {
         opacity: 1,
         ease: "none",
@@ -355,7 +364,7 @@ const IndexPage = () => {
         // yoyo: true,
         snap: {
           snapTo: 1,
-          duration: 2.5,
+          duration: 2,
           ease: "power1.out",
         },
       },
@@ -412,7 +421,7 @@ const IndexPage = () => {
         // yoyo: true,
         snap: {
           snapTo: 1,
-          duration: 2,
+          duration: 1.5,
           ease: "power1.out",
         },
       },
@@ -453,8 +462,8 @@ const IndexPage = () => {
         "<"
       );
 
-      document.addEventListener('contextmenu', event => event.preventDefault());
-  }, [regPage]);
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+  }, [regPage, isLoading]);
 
   useEffect(() => {
     const landingSection = document.getElementById("landing-section");
@@ -668,15 +677,16 @@ const IndexPage = () => {
   useEffect(() => {
     const handleMouseOver = () => {
       // console.log("hi");
-      document.getElementById("cursorFollowerDrag").style.opacity = "1";
-      document.getElementById("cursorFollowerDrag").style.display = "block";
       document.getElementById("cursorFollower").style.visibility = "hidden";
+      document.getElementById("cursor").style.transform = "scale(5.5)";
+      document.querySelector(".cursorContent").style.opacity = "1";
     };
 
+
     const handleMouseOut = () => {
+      document.getElementById("cursor").style.transform = "scale(1)";
       document.getElementById("cursorFollower").style.visibility = "visible";
-      document.getElementById("cursorFollowerDrag").style.opacity = "0";
-      document.getElementById("cursorFollowerDrag").style.display = "none";
+      document.querySelector(".cursorContent").style.opacity = "0";
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
@@ -694,9 +704,6 @@ const IndexPage = () => {
       }
     };
   }, [regPage]);
-
-  const [isHamOpen, setIsHamOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const statueVariants = {
     hidden: {
@@ -979,12 +986,36 @@ const IndexPage = () => {
       )}
       <div className="cursor" id="cursor">
         <div className="cursorContent">
-          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
 
-          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </div>
       </div>
@@ -1153,7 +1184,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading && (
           <Layout
             overflow={false}
             navbar={false}
@@ -1174,7 +1205,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading &&  (
           <Layout
             overflow={true}
             navbar={false}
@@ -1195,7 +1226,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading && (
           <Layout
             overflow={false}
             navbar={false}
@@ -1213,7 +1244,7 @@ const IndexPage = () => {
               <main
                 id="contactPage"
                 className={contact["page"]}
-              // style={{ top: "30vh" }}
+                // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div className={contact["pageBackground"]}>
@@ -1239,36 +1270,43 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      {typeof window !== "undefined" && window.innerWidth < 920 && 
-                        <div className={contact["cardsSwitchButtons2"]}>
-                          <div
-                      className={contact["organizingBtn"]}
-                      onClick={handleOrganizingCardsBtnClick}
-                      style={
-                        !cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      CoSSAC
-                    </div>
-                    <div
-                      className={contact["cossacBtn"]}
-                      onClick={handleCossacCardsButtonClick}
-                      style={
-                        cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      Organizing Committee
-                    </div>
-                        </div>
-                      }
+                      {typeof window !== "undefined" &&
+                        window.innerWidth < 920 && (
+                          <div className={contact["cardsSwitchButtons2"]}>
+                            <div
+                              className={contact["organizingBtn"]}
+                              onClick={handleOrganizingCardsBtnClick}
+                              style={
+                                !cossacSwitchBtn
+                                  ? {
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
+                                  : {
+                                      borderBottom: "3px solid white",
+                                    }
+                              }
+                            >
+                              CoSSAC
+                            </div>
+                            <div
+                              className={contact["cossacBtn"]}
+                              onClick={handleCossacCardsButtonClick}
+                              style={
+                                cossacSwitchBtn
+                                  ? {
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
+                                  : {
+                                      borderBottom: "3px solid white",
+                                    }
+                              }
+                            >
+                              Organizing Committee
+                            </div>
+                          </div>
+                        )}
                       <div
                         className={contact["cardsContainer"]}
                         key={cossacSwitchBtn}
@@ -1276,40 +1314,45 @@ const IndexPage = () => {
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
                         {ContactsCards1}
                         {ContactsCards2}
-
                       </div>
                     </div>
                   </div>
-                  {typeof window !== "undefined" && window.innerWidth > 920 && 
-                  <div className={contact["cardsSwitchButtons"]}>
-                    <div
-                      className={contact["organizingBtn"]}
-                      onClick={handleOrganizingCardsBtnClick}
-                      style={
-                        !cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      CoSSAC
+                  {typeof window !== "undefined" && window.innerWidth > 920 && (
+                    <div className={contact["cardsSwitchButtons"]}>
+                      <div
+                        className={contact["organizingBtn"]}
+                        onClick={handleOrganizingCardsBtnClick}
+                        style={
+                          !cossacSwitchBtn
+                            ? {
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
+                            : {
+                                borderBottom: "3px solid white",
+                              }
+                        }
+                      >
+                        CoSSAC
+                      </div>
+                      <div
+                        className={contact["cossacBtn"]}
+                        onClick={handleCossacCardsButtonClick}
+                        style={
+                          cossacSwitchBtn
+                            ? {
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
+                            : {
+                                borderBottom: "3px solid white",
+                              }
+                        }
+                      >
+                        Organizing Committee
+                      </div>
                     </div>
-                    <div
-                      className={contact["cossacBtn"]}
-                      onClick={handleCossacCardsButtonClick}
-                      style={
-                        cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      Organizing Committee
-                    </div>
-                  </div>
-                  }
+                  )}
                 </div>
               </main>
             }

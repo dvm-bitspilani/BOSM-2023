@@ -38,6 +38,7 @@
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-remark-responsive-iframe": "^6.11.1",
     "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "gsap": "^3.12.2",
     "locomotive-scroll": "^4.1.4",
