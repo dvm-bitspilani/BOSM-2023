@@ -14,7 +14,6 @@
 .pageBackground {
   max-height: 100vh;
   position: relative;
-  top: 36px;
   z-index: 1;
   width: 100vh;
 }
@@ -48,7 +47,7 @@
 }
 
 .container {
-  height: auto;
+  height: 100vh;
   width: 100%;
   display: grid;
   grid-template-columns: calc(50% - 10vw) calc(50% + 10vw);
@@ -98,7 +97,7 @@
   display: flex;
   flex-direction: column;
   /* border: solid red; */
-  width: calc(15vh + 5vw);
+  width: calc(15vh + 7vw);
   align-items: center;
   margin-block: 0.5vh;
 }
@@ -168,12 +167,14 @@
 
 .contentContainer {
   /* width: 50vw; */
+  overflow: hidden;
   margin-right: 0;
   /* border: solid black; */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .content {
@@ -184,7 +185,7 @@
   display: flex;
   width: 100%;
   align-items: top;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -193,6 +194,13 @@
 .cardsContainer2{
   width: 70vw;
 } */
+  .profileContainer{
+     width: calc(10vh + 5vw);
+  }
+  .profileImg{
+    width: 12vh;
+    height: 15vh;
+  }
   .frontStatue {
     display: none;
   }
@@ -306,7 +314,7 @@
 }
 
 .cardsContainer1 {
-  padding-top: 15vh;
+  padding-top: 5vh;
 }
 
 @media (max-width: 650px) {
@@ -339,9 +347,6 @@
     font-size: 0.65rem;
   }
 
-  .title {
-    margin-block: 5vh;
-  }
   .cardsSwitchButtons {
     display: flex;
   }

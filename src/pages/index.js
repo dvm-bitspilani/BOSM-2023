@@ -58,22 +58,22 @@ const IndexPage = () => {
       name: "Shreyas Sesham",
       image: `${Shreyas}`,
       department: "Publications and Correspondence",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7411283012",
+      email: "pcr@bitsbosm.org",
     },
     {
       name: "Aditya Kumar Sriram",
       image: `${Boy}`,
       department: "Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sportssecretary@bitsbosm.org",
     },
     {
       name: "Shivang Rai",
       image: `${shivang}`,
       department: "Online Registrations",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9718863691",
+      email: "f20212292@pilani.bits-pilani.ac.in",
     },
   ];
 
@@ -82,78 +82,78 @@ const IndexPage = () => {
       name: "Shreyas Sesham",
       image: `${Shreyas}`,
       department: "Publications and Correspondence",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7411283012",
+      email: "pcr@bitsbosm.org",
     },
     {
       name: "Shirish Kumaravel",
       image: `${Shirish}`,
       department: "Reception and Accommodation",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-8277207380",
+      email: "recnacc@bitsbosm.org",
     },
     {
       name: "Ayush Singh Bhandari",
       image: `${Ayush}`,
       department: "Sponsorship and Marketing",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7406755757",
+      email: "sponsorship@bitsbosm.org",
     },
     {
       name: `Anushka Patil`,
       image: `${AnushkaPatil}`,
       department: "Controls",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9175916459",
+      email: "controls@bitsbosm.org",
     },
     {
       name: "Aditya Kumar Sriram",
       image: `${Boy}`,
       department: "Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sportssecretary.bitsbosm.org",
     },
     {
       name: "Syed Aga Hani Riza",
       image: `${Syed}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9086470287",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
       name: "Anushka Shukla",
       image: `${AnushkaShukla}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9810091168",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
       name: "Yashwasin Jain",
       image: `${Boy}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-8850781560",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
       name: "Pradyut Sood",
       image: `${Boy}`,
       department: "Sports Financial Committee",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
     {
       name: "Vinayak Bhattacharya",
       image: `${Boy}`,
       department: "Sports Financial Committee",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
     {
       name: "Vidhatra Shukla",
       image: `${Boy}`,
       department: "Sports Financial Committee",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
   ];
 
@@ -1247,7 +1247,7 @@ const IndexPage = () => {
                 // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
-                  <div className={contact["pageBackground"]}>
+                  <div className={contact["pageBackground"]} style={{display: cossacSwitchBtn? 'block': 'none'}}>
                     <img
                       id="frontStatue"
                       alt=""
@@ -1308,7 +1308,7 @@ const IndexPage = () => {
                           </div>
                         )}
                       <div
-                        className={contact["cardsContainer"]}
+                        className={contact["cardsContainer"]} style={{width: cossacSwitchBtn? '45vw' : '90vw'}}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
