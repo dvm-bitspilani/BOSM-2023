@@ -671,15 +671,16 @@ const IndexPage = () => {
   useEffect(() => {
     const handleMouseOver = () => {
       // console.log("hi");
-      document.getElementById("cursorFollowerDrag").style.opacity = "1";
-      document.getElementById("cursorFollowerDrag").style.display = "block";
       document.getElementById("cursorFollower").style.visibility = "hidden";
+      document.getElementById("cursor").style.transform = "scale(5.5)";
+      document.querySelector(".cursorContent").style.opacity = "1";
     };
 
+
     const handleMouseOut = () => {
+      document.getElementById("cursor").style.transform = "scale(1)";
       document.getElementById("cursorFollower").style.visibility = "visible";
-      document.getElementById("cursorFollowerDrag").style.opacity = "0";
-      document.getElementById("cursorFollowerDrag").style.display = "none";
+      document.querySelector(".cursorContent").style.opacity = "0";
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
