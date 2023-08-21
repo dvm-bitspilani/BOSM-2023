@@ -21,14 +21,14 @@ import { useScroll, motion, useTransform } from "framer-motion";
 
 const Gallery = (props) => {
   const { scrollY } = useScroll();
-  const y2 = useTransform(scrollY, [0, 2000], [-10, 190]);
-  const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
-  const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
-  const y5 = useTransform(scrollY, [0, 2000], [-20, 180]);
-  const y7 = useTransform(scrollY, [0, 2000], [-30, 170]);
-  const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
-  const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
-  const y10 = useTransform(scrollY, [0, 2000], [-30, 170]);
+  // const y2 = useTransform(scrollY, [0, 2000], [-10, 190]);
+  // const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
+  // const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
+  // const y5 = useTransform(scrollY, [0, 2000], [-20, 180]);
+  // const y7 = useTransform(scrollY, [0, 2000], [-30, 170]);
+  // const y8 = useTransform(scrollY, [0, 2000], [-70, 130]);
+  // const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
+  // const y10 = useTransform(scrollY, [0, 2000], [-30, 170]);
 
   const [error, setError] = useState(false);
 
@@ -150,6 +150,19 @@ const Gallery = (props) => {
     document.body.style.height = "400vh";
   };
 
+  const boxes = () => {
+    for (let i = 1; i <= 27; i++) {
+      <div className={styles[`box${i}`]}>
+        <img
+          src={`img${i}`}
+          alt="not found"
+          className={styles["image"]}
+          draggable={false}
+        />
+      </div>
+    }
+  }
+
   return (
     <>
       {" "}
@@ -168,7 +181,7 @@ const Gallery = (props) => {
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
           <div className={styles["gridContainer"]}>
-            <div className={styles["box1"]}>
+            {/* <div className={styles["box1"]}>
               <div className={styles["arrow"]} onClick={closeButtonHandler}>
                 <svg
                   viewBox="0 0 78 78"
@@ -187,86 +200,220 @@ const Gallery = (props) => {
               <div style={{ overflowX: "hidden" }}>
                 <p className={styles["gallery"]}>Gallery</p>
               </div>
-            </div>
-            <div className={styles["box2"]}>
-              <motion.img
+            </div> */}
+            <div className={styles["box1"]}>
+              <img
                 src={img2}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y2 }}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box2"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
                 draggable={false}
               />
             </div>
             <div className={styles["box3"]}>
-              <motion.img
+              <img
                 src={img3}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y3 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box4"]}>
-              <motion.img
+              <img
                 src={img4}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y4 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box5"]}>
-              <motion.img
+              <img
                 src={img5}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y5 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box6"]}>
-              <p className={styles["aboutHeading"]}>about</p>
-              <p className={styles["aboutText"]}>
-                The esteemed BITS Open Sports Meet (BOSM) returns for its 36th
-                edition, offering college teams a prestigious platform to
-                exhibit talent. Established in 1986 at BITS Pilani, Pilani
-                Campus, it's a prime stage for intense national athletic
-                competition.
-              </p>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
             </div>
             <div className={styles["box7"]}>
-              <motion.img
+              <img
                 src={img7}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y7 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box8"]}>
-              <motion.img
+              <img
                 src={img8}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y8 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box9"]}>
-              <motion.img
+              <img
                 src={img9}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y9 }}
                 draggable={false}
               />
             </div>
             <div className={styles["box10"]}>
-              <motion.img
+              <img
                 src={img10}
                 alt="not found"
                 className={styles["image"]}
-                style={{ y: y10 }}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box11"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box12"]}>
+              <img
+                src={img3}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box13"]}>
+              <img
+                src={img4}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box14"]}>
+              <img
+                src={img5}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box15"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box16"]}>
+              <img
+                src={img7}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box17"]}>
+              <img
+                src={img8}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box18"]}>
+              <img
+                src={img9}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box19"]}>
+              <img
+                src={img10}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box20"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box21"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box22"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box23"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box24"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box25"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box26"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
+                draggable={false}
+              />
+            </div>
+            <div className={styles["box27"]}>
+              <img
+                src={img2}
+                alt="not found"
+                className={styles["image"]}
                 draggable={false}
               />
             </div>
