@@ -139,7 +139,7 @@ const Navbar = ({
     }
   }, [isHamOpen]);
 
-  console.log(isLoading, isLoading);
+  // console.log(isLoading, isLoading);
 
   return (
     <React.Fragment>
