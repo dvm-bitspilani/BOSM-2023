@@ -5,7 +5,7 @@
     z-index: 9999;
     background-color: #A63237;
     font-family: 'Montserrat';
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .wrapper {
@@ -18,8 +18,11 @@
     min-height: 100vh;
     overflow-x: scroll;
     width: 300vw;
+    position: fixed;
 }
-
+.ghost{
+    width: 100vw;
+}
 .box1,
 .box2,
 .box3,

@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useRef, useState, useLayoutEffect, useCallback, useEffect } from "react";
 import * as styles from "../Styles/Gallery.module.css";
 // import Layout from "../Components/Layout";
 import Cursor from "../images/cursor.png";
 import "../Styles/globals.css";
-import { useState, useEffect, useRef } from "react";
 // import arrow2 from "../images/arrow.svg";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
@@ -17,7 +16,14 @@ import img8 from "../images/Gallery/box8.jpg";
 import img9 from "../images/Gallery/box9.jpg";
 import img10 from "../images/Gallery/box10.jpg";
 import ErrorScreen from "../Components/ErrorComponent";
-import { useScroll, motion, useTransform } from "framer-motion";
+import ResizeObserver from "resize-observer-polyfill"
+import {
+  motion,
+  useTransform,
+  useSpring,
+  useScroll
+} from "framer-motion"
+
 
 const Gallery = (props) => {
   const { scrollY } = useScroll();
@@ -163,6 +169,37 @@ const Gallery = (props) => {
     }
   }
 
+  const scrollRef = useRef(null)
+  const ghostRef = useRef(null)
+  const [scrollRange, setScrollRange] = useState(0)
+  const [viewportW, setViewportW] = useState(0)
+
+  useLayoutEffect(() => {
+    scrollRef && setScrollRange(scrollRef.current.scrollWidth)
+  }, [scrollRef])
+
+  const onResize = useCallback(entries => {
+    for (let entry of entries) {
+      setViewportW(entry.contentRect.width)
+    }
+  }, [])
+
+  useLayoutEffect(() => {
+    const resizeObserver = new ResizeObserver(entries => onResize(entries))
+    resizeObserver.observe(ghostRef.current)
+    return () => resizeObserver.disconnect()
+  }, [onResize])
+
+  const { scrollYProgress } = useScroll()
+  const transform = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -scrollRange + viewportW]
+  )
+  const physics = { damping: 15, mass: 0.27, stiffness: 55 }
+  const spring = useSpring(transform, physics)
+
+
   return (
     <>
       {" "}
@@ -180,8 +217,11 @@ const Gallery = (props) => {
       {error && <ErrorScreen />}
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
-          <div className={styles["gridContainer"]}>
-            {/* <div className={styles["box1"]}>
+          <motion.div 
+          ref={scrollRef}
+          style={{ x: spring }}
+          className={styles["gridContainer"]}>
+            <div className={styles["box1"]}>
               <div className={styles["arrow"]} onClick={closeButtonHandler}>
                 <svg
                   viewBox="0 0 78 78"
@@ -200,7 +240,7 @@ const Gallery = (props) => {
               <div style={{ overflowX: "hidden" }}>
                 <p className={styles["gallery"]}>Gallery</p>
               </div>
-            </div> */}
+            </div>
             <div className={styles["box1"]}>
               <img
                 src={img2}
@@ -417,9 +457,10 @@ const Gallery = (props) => {
                 draggable={false}
               />
             </div>
-          </div>
+          </motion.div>
           {/* <div className={styles["tagline"]}>roar of resilience</div> */}
         </div>
+        <div ref={ghostRef} style={{ height: scrollRange }} className={styles["ghost"]} />
       </main>
     </>
   );
