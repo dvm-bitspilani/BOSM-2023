@@ -7,14 +7,26 @@ import "../Styles/globals.css";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
-import img2 from "../images/Gallery/box2.jpg";
-import img3 from "../images/Gallery/box3.jpg";
-import img4 from "../images/Gallery/box4.jpg";
-import img5 from "../images/Gallery/box5.jpg";
-import img7 from "../images/Gallery/box7.jpg";
-import img8 from "../images/Gallery/box8.jpg";
-import img9 from "../images/Gallery/box9.jpg";
-import img10 from "../images/Gallery/box10.jpg";
+import chess from "../images/Gallery/chess.png"
+import image1 from "../images/Gallery/image1.png"
+import image2 from "../images/Gallery/image2.png"
+import image3 from "../images/Gallery/image3.png"
+import image4 from "../images/Gallery/image4.png"
+import image5 from "../images/Gallery/image5.png"
+import image6 from "../images/Gallery/image6.png"
+import image7 from "../images/Gallery/image7.png"
+import image8 from "../images/Gallery/image8.png"
+import image9 from "../images/Gallery/image9.png"
+import image10 from "../images/Gallery/image10.png"
+import image11 from "../images/Gallery/image11.png"
+import image12 from "../images/Gallery/image12.png"
+import image13 from "../images/Gallery/image13.png"
+import image14 from "../images/Gallery/image14.png"
+import image15 from "../images/Gallery/image15.png"
+import image16 from "../images/Gallery/image16.png"
+import image17 from "../images/Gallery/image17.png"
+import image18 from "../images/Gallery/image18.png"
+
 import ErrorScreen from "../Components/ErrorComponent";
 import ResizeObserver from "resize-observer-polyfill"
 import {
@@ -255,7 +267,7 @@ const Gallery = (props) => {
             className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <img
-                src={img2}
+                src={chess}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -263,7 +275,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box2"]}>
               <img
-                src={img2}
+                src={image1}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -271,7 +283,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box3"]}>
               <img
-                src={img3}
+                src={image2}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -279,7 +291,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box4"]}>
               <img
-                src={img4}
+                src={image3}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -287,7 +299,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box5"]}>
               <img
-                src={img5}
+                src={image4}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -295,7 +307,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box6"]}>
               <img
-                src={img2}
+                src={image5}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -303,7 +315,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box7"]}>
               <img
-                src={img7}
+                src={image6}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -311,7 +323,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box8"]}>
               <img
-                src={img8}
+                src={image7}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -319,7 +331,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box9"]}>
               <img
-                src={img9}
+                src={image8}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -327,7 +339,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box10"]}>
               <img
-                src={img10}
+                src={image9}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -335,7 +347,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box11"]}>
               <img
-                src={img2}
+                src={image10}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -343,7 +355,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box12"]}>
               <img
-                src={img3}
+                src={image11}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -351,7 +363,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box13"]}>
               <img
-                src={img4}
+                src={image12}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -359,7 +371,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box14"]}>
               <img
-                src={img5}
+                src={image13}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -367,7 +379,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box15"]}>
               <img
-                src={img2}
+                src={image14}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -375,7 +387,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box16"]}>
               <img
-                src={img7}
+                src={image15}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -383,7 +395,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box17"]}>
               <img
-                src={img8}
+                src={image16}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -391,15 +403,15 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box18"]}>
               <img
-                src={img9}
+                src={image17}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
               />
             </div>
-            <div className={styles["box19"]}>
+            {/* <div className={styles["box19"]}>
               <img
-                src={img10}
+                src={image18}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -468,7 +480,7 @@ const Gallery = (props) => {
                 className={styles["image"]}
                 draggable={false}
               />
-            </div>
+            </div> */}
           </motion.div>
           {/* <div className={styles["tagline"]}>roar of resilience</div> */}
           <div className={styles["progressLine"]}>
