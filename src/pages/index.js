@@ -19,16 +19,18 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-// import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
-import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
+import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
+import Boy from "../images/boy.png";
+// import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
+
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
-// import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
+import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
 import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png";
 import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png";
-// import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
+import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
 import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png";
 import Syed from "../Components/ContactsData/ContactImages/Syed.png";
 import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
@@ -137,7 +139,7 @@ const IndexPage = () => {
     },
     {
       name: "Pradyut Sood",
-      image: `${Boy}`,
+      image: `${Pradyut}`,
       department: "Sports Financial Committee",
       phone: "",
       email: "sfc@pilani.bits-pilani.ac.in",
@@ -151,7 +153,7 @@ const IndexPage = () => {
     },
     {
       name: "Vidhatra Shukla",
-      image: `${Boy}`,
+      image: `${Vidhartha}`,
       department: "Sports Financial Committee",
       phone: "",
       email: "sfc@pilani.bits-pilani.ac.in",

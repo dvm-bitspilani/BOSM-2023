@@ -88,7 +88,7 @@
   letter-spacing: 0.23vh;
   color: white;
   /* margin-bottom: 3vh; */
-  padding-top: 1vh;
+  padding-top: 3vh;
   overflow: visible;
 }
 
@@ -315,6 +315,10 @@
   width: 100%;
   justify-content:center;
 }
+.cardsContainer2{
+  padding-top: 5vh;
+}
+
 
 .cardsContainer1 {
   padding-top: vh;
