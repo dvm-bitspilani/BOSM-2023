@@ -81,7 +81,6 @@
   z-index: 2;
   overflow: auto;
 }
-
 .title {
   font-family: Montserrat;
   font-size: 4vh;
@@ -314,6 +313,7 @@
   flex-direction: column;
   height: 90vh;
   width: 100%;
+  justify-content:center;
 }
 
 .cardsContainer1 {

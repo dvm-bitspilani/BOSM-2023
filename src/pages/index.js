@@ -161,6 +161,7 @@ const IndexPage = () => {
     if (index >= 0 && index < 2) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -177,6 +178,7 @@ const IndexPage = () => {
     if (index >= 2 && index < 3) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -193,6 +195,7 @@ const IndexPage = () => {
     if (index >= 0 && index < 4) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -210,6 +213,7 @@ const IndexPage = () => {
       return (
         <ContactProfile
           key={index}
+          cossacSwitchBtn={cossacSwitchBtn}
           name={contact.name}
           img={contact.image}
           dept={contact.department}
@@ -225,6 +229,7 @@ const IndexPage = () => {
     if (index >= 8 && index < 11) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -240,7 +245,7 @@ const IndexPage = () => {
   const ContactsCards1 = (
     <div
       className={contact["cardsContainer1"]}
-      style={{ display: cossacCards ? "block" : "none" }}
+      style={{ display: cossacCards ? "flex" : "none" }}
     >
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
@@ -1333,7 +1338,7 @@ const IndexPage = () => {
                               }
                         }
                       >
-                        CoSSAC
+                        Contacts
                       </div>
                       <div
                         className={contact["cossacBtn"]}
