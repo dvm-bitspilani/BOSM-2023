@@ -144,6 +144,16 @@ const Gallery = (props) => {
         );
       };
     }
+    const handleScroll = () => {
+      const position = window.scrollY;
+      cursorImg.style.transform = `rotate(${position / 5}deg)`;
+      return () => {
+        window.onpointermove = null;
+        window.scrollTo(0, 0);
+      };
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     setIsLoading(false);
     return () => {
       window.onpointermove = null;

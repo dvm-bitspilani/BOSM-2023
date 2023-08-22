@@ -677,11 +677,12 @@ const IndexPage = () => {
         //   };
         //   window.addEventListener("scroll", handleScroll, { passive: true });
         // }
-        // return () => {
-        //   window.onpointermove = null;
-        //   window.scrollTo(0, 0);
-        // };
+        return () => {
+          window.onpointermove = null;
+          window.scrollTo(0, 0);
+        };
       };
+      window.addEventListener("scroll", handleScroll, { passive: true });
     }
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
