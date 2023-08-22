@@ -20,7 +20,7 @@
 
 .heading {
     padding-inline: 5vw;
-    padding-block: 10vh;
+    margin-block: 5vh;
     width: 100vw;
     height: 5rem;
     display: flex;
