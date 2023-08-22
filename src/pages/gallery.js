@@ -227,12 +227,8 @@ const Gallery = (props) => {
       {error && <ErrorScreen />}
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
-          <motion.div
-            ref={scrollRef}
-            style={{ x: spring }}
-            className={styles["gridContainer"]}>
-            <div className={styles["box1"]}>
-              <div className={styles["arrow"]} onClick={closeButtonHandler}>
+          <div className={styles["heading"]}>
+          <div className={styles["arrow"]} onClick={closeButtonHandler}>
                 <svg
                   viewBox="0 0 78 78"
                   fill="none"
@@ -248,9 +244,15 @@ const Gallery = (props) => {
                 </svg>
               </div>
               <div style={{ overflowX: "hidden" }}>
-                <p className={styles["gallery"]}>Gallery</p>
+                <p className={styles["title"]}>GALLERY</p>
               </div>
-            </div>
+              <div className={styles["dummy"]}></div>
+
+          </div>
+          <motion.div
+            ref={scrollRef}
+            style={{ x: spring }}
+            className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <img
                 src={img2}
