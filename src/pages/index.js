@@ -38,6 +38,7 @@ import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -46,7 +47,7 @@ const IndexPage = () => {
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
 
-  console.log({ cossacSwitchBtn });
+  // console.log({ cossacSwitchBtn });
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
@@ -73,7 +74,7 @@ const IndexPage = () => {
       image: `${shivang}`,
       department: "Online Registrations",
       phone: "+91-9718863691",
-      email: "f20212292@pilani.bits-pilani.ac.in",
+      email: "raishivang03@gmail.com",
     },
   ];
 
@@ -273,199 +274,204 @@ const IndexPage = () => {
   const isBrowser = typeof window !== "undefined";
 
   useLayoutEffect(() => {
-    let tl1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".fixed-bg",
-        start: "top top",
-        // endTrigger: ".fixed-bg-blue",
-        end: `+=${window.innerHeight}`,
-        toggleActions: "play none none reverse",
-        onEnter: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              aboutUsSection.style.zIndex = 2;
+    if (!isLoading) {
+      let tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".fixed-bg",
+          start: "top top",
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          onEnter: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                aboutUsSection.style.zIndex = 2;
+              }
             }
-          }
-        },
-        onLeaveBack: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              aboutUsSection.style.zIndex = 0;
-              // aboutUsSection.style.position = "fixed";
-              aboutUsSection.style.top = "0";
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                aboutUsSection.style.zIndex = 0;
+                // aboutUsSection.style.position = "fixed";
+                aboutUsSection.style.top = "0";
+              }
             }
-          }
-        },
-        onLeave: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              // aboutUsSection.style.position = "absolute";
-              // aboutUsSection.style.top = "100vh";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                // aboutUsSection.style.position = "absolute";
+                // aboutUsSection.style.top = "100vh";
+              }
             }
-          }
+          },
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          //   fontSize: "12px",
+          //   indent: 20,
+          // },
+          scrub: true,
+          snap: {
+            snapTo: 1,
+            duration: 1.75,
+            ease: "power1.out",
+          },
         },
-        // markers: {
-        //   startColor: "white",
-        //   endColor: "white",
-        //   fontSize: "12px",
-        //   indent: 20,
-        // },
-        scrub: true,
-        snap: {
-          snapTo: 1,
-          duration: 1.75,
-          ease: "power1.out",
-        },
-      },
-    });
-
-    tl1
-      .to(`.${styles["landing"]}`, {
-        opacity: 0,
-        ease: "none",
-      })
-      .to(
-        `.${navbar["navbarContainer"]}`,
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        "<"
-      )
-      .to(
-        `.${navbar["registerBtnMobile"]}`,
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        "<"
-      )
-      .to(".fixed-bg-blue", {
-        width: "0%",
-        ease: "none",
-      })
-      .to("#about-us-section", {
-        opacity: 1,
-        ease: "none",
-        // position: "absolute",
-        // top: "100vh",
       });
 
-    let tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about-us-section",
-        start: `${window.innerHeight} top`,
-        // endTrigger: ".fixed-bg-blue",
-        end: `+=${window.innerHeight}`,
-        toggleActions: "play none none reverse",
-        // markers: {
-        //   startColor: "white",
-        //   endColor: "white",
-        // },
-        scrub: true,
-        // yoyo: true,
-        snap: {
-          snapTo: 1,
-          duration: 2,
-          ease: "power1.out",
-        },
-      },
-    });
+      tl1
+        .to(`.${styles["landing"]}`, {
+          opacity: 0,
+          ease: "none",
+        })
+        .to(
+          `.${navbar["navbarContainer"]}`,
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          `.${navbar["registerBtnMobile"]}`,
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(".fixed-bg-blue", {
+          width: "0%",
+          ease: "none",
+        })
+        .to("#about-us-section", {
+          opacity: 1,
+          ease: "none",
+          // position: "absolute",
+          // top: "100vh",
+        });
 
-    tl2
-      .to(`.${about["topContainer"]}`, {
-        y: "100%",
-        ease: "none",
-        // duration: 1,
-      })
-      .to(
-        `.${about["bottomContainer"]}`,
-        {
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about-us-section",
+          start: `${window.innerHeight} top`,
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          // },
+          scrub: true,
+          // yoyo: true,
+          snap: {
+            snapTo: 1,
+            duration: 2,
+            ease: "none",
+          },
+        },
+      });
+
+      tl2
+        .to(`.${about["topContainer"]}`, {
+          y: "100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .to(
+          `.${about["bottomContainer"]}`,
+          {
+            y: "-100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        .to(`.${about["whiteBar"]}`, {
+          width: 0,
+          ease: "none",
+          // duration : 1,
+        })
+        .from("#events-section", {
+          x: "220%",
+          y: "60%",
+          ease: "slow(0.7, 0.7, false)",
+          // duration : 2,
+        })
+        .from(
+          "#eventCarousel",
+          {
+            rotation: 70,
+            ease: "slow(0.9, 0.7, false)",
+            // duration : 2,
+          },
+          "<"
+        );
+
+      let tl3 = gsap.timeline({
+        scrollTrigger: {
+          // trigger: "#events-section",
+          start: `${window.innerHeight * 2} top`,
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          // },
+          scrub: true,
+          // yoyo: true,
+          snap: {
+            snapTo: 1,
+            duration: 1.5,
+            ease: "power1.out",
+          },
+        },
+      });
+
+      tl3
+        .to(`#events-section`, {
           y: "-100%",
           ease: "none",
           // duration: 1,
-        },
-        "<"
-      )
-      .to(`.${about["whiteBar"]}`, {
-        width: 0,
-        ease: "none",
-        // duration : 1,
-      })
-      .from("#events-section", {
-        x: "220%",
-        y: "60%",
-        ease: "none",
-        // duration : 2,
-      })
-      .from(
-        "#eventCarousel",
-        {
-          rotation: 70,
-          ease: "none",
-          // duration : 2,
-        },
-        "<"
-      );
-
-    let tl3 = gsap.timeline({
-      scrollTrigger: {
-        // trigger: "#events-section",
-        start: `${window.innerHeight * 2} top`,
-        // endTrigger: ".fixed-bg-blue",
-        end: `+=${window.innerHeight}`,
-        toggleActions: "play none none reverse",
-        // markers: {
-        //   startColor: "white",
-        //   endColor: "white",
-        // },
-        scrub: true,
-        // yoyo: true,
-        snap: {
-          snapTo: 1,
-          duration: 1.5,
-          ease: "power1.out",
-        },
-      },
-    });
-
-    tl3
-      .to(`#events-section`, {
-        y: "-100%",
-        ease: "none",
-        // duration: 1,
-      })
-      .to("#contact-section", {
-        y: "-100%",
-        ease: "none",
-        // duration: 1,
-      })
-      .from(`.${contact["pageBackground"]}`, {
-        x: "-100%",
-        ease: "none",
-        // duration: 1,
-      })
-      .from(
-        "#contactContent",
-        {
-          x: "100%",
+        })
+        .to("#contact-section", {
+          y: "-100%",
           ease: "none",
           // duration: 1,
-        },
-        "<"
-      )
-      .from(
-        `.${contact["cardsSwitchButtons"]}`,
-        {
-          x: "100%",
+        })
+        .from(`.${contact["pageBackground"]}`, {
+          x: "-100%",
           ease: "none",
           // duration: 1,
-        },
-        "<"
-      );
+        })
+        .from(
+          "#contactContent",
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        .from(
+          `.${contact["cardsSwitchButtons"]}`,
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        );
+    }
 
     document.addEventListener("contextmenu", (event) => event.preventDefault());
   }, [regPage, isLoading]);
@@ -686,7 +692,6 @@ const IndexPage = () => {
       document.getElementById("cursor").style.transform = "scale(5.5)";
       document.querySelector(".cursorContent").style.opacity = "1";
     };
-
 
     const handleMouseOut = () => {
       document.getElementById("cursor").style.transform = "scale(1)";
@@ -1210,7 +1215,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && !isLoading &&  (
+        {!regPage && !isLoading && (
           <Layout
             overflow={true}
             navbar={false}
@@ -1252,7 +1257,10 @@ const IndexPage = () => {
                 // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
-                  <div className={contact["pageBackground"]} style={{display: cossacSwitchBtn? 'block': 'none'}}>
+                  <div
+                    className={contact["pageBackground"]}
+                    style={{ display: cossacSwitchBtn ? "block" : "none" }}
+                  >
                     <img
                       id="frontStatue"
                       alt=""
@@ -1313,7 +1321,8 @@ const IndexPage = () => {
                           </div>
                         )}
                       <div
-                        className={contact["cardsContainer"]} style={{width: cossacSwitchBtn? '45vw' : '90vw'}}
+                        className={contact["cardsContainer"]}
+                        style={{ width: cossacSwitchBtn ? "45vw" : "90vw" }}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
