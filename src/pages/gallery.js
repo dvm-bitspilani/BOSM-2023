@@ -217,10 +217,10 @@ const Gallery = (props) => {
       {error && <ErrorScreen />}
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
-          <motion.div 
-          ref={scrollRef}
-          style={{ x: spring }}
-          className={styles["gridContainer"]}>
+          <motion.div
+            ref={scrollRef}
+            style={{ x: spring }}
+            className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <div className={styles["arrow"]} onClick={closeButtonHandler}>
                 <svg
@@ -459,6 +459,11 @@ const Gallery = (props) => {
             </div>
           </motion.div>
           {/* <div className={styles["tagline"]}>roar of resilience</div> */}
+          <div className={styles["progressLine"]}>
+          <motion.div
+            className={styles["progressBar"]}
+            style={{ scaleX: scrollYProgress }}
+          /></div>
         </div>
         <div ref={ghostRef} style={{ height: scrollRange }} className={styles["ghost"]} />
       </main>

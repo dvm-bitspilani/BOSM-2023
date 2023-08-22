@@ -23,6 +23,21 @@
 .ghost{
     width: 100vw;
 }
+.progressLine{
+    position: fixed;
+    bottom: 10vh;
+    left: 5vw;
+    height: 2px;
+    background: #C8C8C8;;
+    transform-origin: 0%;
+    width: 90%;
+}
+.progressBar {
+    height: 4px;
+    margin-top: -0.1rem;
+    background: white;
+    transform-origin: 0%;
+}
 .box1,
 .box2,
 .box3,
