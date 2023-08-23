@@ -206,6 +206,9 @@
         margin-top: 0;
         width: 100%;
     }
+  .index{
+    padding: 0.5rem 0;
+  }
 }
 
 @media (max-width : 400px){
