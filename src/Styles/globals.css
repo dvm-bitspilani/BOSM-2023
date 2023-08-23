@@ -57,6 +57,7 @@ a{
   overflow-y: hidden;
 }
 #about-us-section{
+  min-height: 100vh;
   height: auto;
   z-index: 0;
   opacity: 0;

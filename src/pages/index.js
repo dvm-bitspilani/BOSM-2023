@@ -40,9 +40,12 @@ import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Observer } from "gsap/Observer";
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
+// import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 // import { CustomEase } from "gsap/CustomEase";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,11 +53,11 @@ const IndexPage = () => {
   const [cossacCards, setCossacCards] = useState(true);
 
   // console.log({ cossacSwitchBtn });
-  useEffect(() => {
-    if (isLoading) {
-      document.documentElement.style.overflow = "hidden";
-    } else document.documentElement.style.overflow = "scroll";
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     document.documentElement.style.overflow = "hidden";
+  //   } else document.documentElement.style.overflow = "scroll";
+  // }, [isLoading]);
 
   const ContactsData1 = [
     {
@@ -275,16 +278,66 @@ const IndexPage = () => {
 
   const isBrowser = typeof window !== "undefined";
 
+  useEffect(() => {
+    document.documentElement.style.overflow = isLoaded ? "scroll" : "hidden";
+  }, [isLoaded]);
+
+  const [activeSection, setActiveSection] = useState(0);
+
   useLayoutEffect(() => {
     if (!isLoading) {
+      const landingSection = document.getElementById("landing-section");
+      const aboutSection = document.getElementById("about-us-section");
+      // landingSection.addEventListener("wheel", (event) => {
+      //   // let deltaY = event.deltaY;
+      //   // let scrollY = window.scrollY;
+      //   // gsap.to(window, { scrollTo: `${scrollY + deltaY * 0.3}` , duration : 0.2});
+      //   gsap.to(window, {
+      //     scrollTo: event.deltaY > 0 ? tl1.scrollTrigger.labelToScroll("end") : tl1.scrollTrigger.labelToScroll("start"),
+      //     duration: 1,
+      //     ease: "none",
+      //   });
+      // });
+      // aboutSection.addEventListener("wheel", (event) => {
+      //   // let deltaY = event.deltaY;
+      //   // let scrollY = window.scrollY;
+      //   // gsap.to(window, { scrollTo: `${scrollY + deltaY * 0.3}` , duration : 0.2});
+      //   // console.log(event)
+      //   gsap.to(window, {
+      //     scrollTo: event.deltaY > 0 ? tl2.scrollTrigger.labelToScroll("end") : tl2.scrollTrigger.labelToScroll("start"),
+      //     duration: 1,
+      //     ease: "none",
+      //   });
+      // });
+
+      ScrollTrigger.defaults({
+        onUpdate: ({ progress, direction, isActive }) => {
+          document.documentElement.style.overflow =
+            progress < 0.3 || progress > 0.7 ? "scroll" : "hidden";
+        },
+      });
+
       let tl1 = gsap.timeline({
         scrollTrigger: {
+          id: "scroller1",
           trigger: ".fixed-bg",
           start: "top top",
           // endTrigger: ".fixed-bg-blue",
           end: `+=${window.innerHeight}`,
           toggleActions: "play none none reverse",
           onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            // scrollTo: tl.scrollTrigger.labelToScroll("myLabel")
+            // document.body.style.height = "200vh";
+            !isActive &&
+              gsap.to(window, {
+                scrollTo: `${window.innerHeight}`,
+                duration: 2,
+              });
+            // gsap.to(window, {
+            //   scrollTo: tl1.scrollTrigger.labelToScroll("end"),
+            //   duration: 2,
+            // });
             if (regPage === false) {
               const aboutUsSection =
                 document.getElementById("about-us-section");
@@ -293,7 +346,15 @@ const IndexPage = () => {
               }
             }
           },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight}`,
+            // });
+          },
           onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+            // gsap.to(window, { scrollTo: `0`});
             if (regPage === false) {
               const aboutUsSection =
                 document.getElementById("about-us-section");
@@ -304,15 +365,14 @@ const IndexPage = () => {
               }
             }
           },
-          onLeave: ({ progress, direction, isActive }) => {
-            if (regPage === false) {
-              const aboutUsSection =
-                document.getElementById("about-us-section");
-              if (aboutUsSection) {
-                // aboutUsSection.style.position = "absolute";
-                // aboutUsSection.style.top = "100vh";
-              }
-            }
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            // !isActive &&
+              gsap.to(window, {
+                // scrollTo: tl1.scrollTrigger.labelToScroll("start"),
+                scrollTo: `0`,
+                duration: 2,
+              });
           },
           // markers: {
           //   startColor: "white",
@@ -320,7 +380,13 @@ const IndexPage = () => {
           //   fontSize: "12px",
           //   indent: 20,
           // },
-          scrub: true,
+          // onToggle: () => {
+          //   document.documentElement.style.overflow =
+          //     document.documentElement.style.overflow === "scroll"
+          //       ? "hidden"
+          //       : "scroll";
+          // },
+          scrub: 0.3,
           snap: {
             snapTo: 1,
             duration: 1.75,
@@ -330,6 +396,18 @@ const IndexPage = () => {
       });
 
       tl1
+        .addLabel("start")
+        .call(() => {
+          if (regPage === false) {
+            const aboutUsSection = document.getElementById("about-us-section");
+            if (aboutUsSection && !tl1.reversed()) {
+              aboutUsSection.style.zIndex = 2;
+            } else if (aboutUsSection && tl1.reversed()) {
+              aboutUsSection.style.zIndex = 0;
+            }
+          }
+          setActiveSection(0);
+        })
         .to(`.${styles["landing"]}`, {
           opacity: 0,
           ease: "none",
@@ -359,7 +437,11 @@ const IndexPage = () => {
           ease: "none",
           // position: "absolute",
           // top: "100vh",
-        });
+        })
+        .call(() => {
+          setActiveSection(1);
+        })
+        .addLabel("end");
 
       let tl2 = gsap.timeline({
         scrollTrigger: {
@@ -372,7 +454,26 @@ const IndexPage = () => {
           //   startColor: "white",
           //   endColor: "white",
           // },
-          scrub: true,
+          onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            // !isActive &&
+              gsap.to(window, {
+                scrollTo: `${window.innerHeight * 2}`,
+                duration: 2.5,
+              });
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            !isActive &&
+            gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
+          },
+          scrub: 0.3,
           // yoyo: true,
           snap: {
             snapTo: 1,
@@ -383,6 +484,8 @@ const IndexPage = () => {
       });
 
       tl2
+        .addLabel("start")
+        .call(() => setActiveSection(1))
         .to(`.${about["topContainer"]}`, {
           y: "100%",
           ease: "none",
@@ -405,7 +508,7 @@ const IndexPage = () => {
         .from("#events-section", {
           x: "220%",
           y: "60%",
-          ease: "slow(0.7, 0.7, false)",
+          ease: "slow(0.9, 0.7, false)",
           // duration : 2,
         })
         .from(
@@ -416,7 +519,14 @@ const IndexPage = () => {
             // duration : 2,
           },
           "<"
-        );
+        )
+        .call(() => setActiveSection(2))
+        .addLabel("end");
+      // .from("#events-heading", {
+      //   opacity:0,
+      //   ease : "none",
+
+      // })
 
       let tl3 = gsap.timeline({
         scrollTrigger: {
@@ -429,8 +539,32 @@ const IndexPage = () => {
           //   startColor: "white",
           //   endColor: "white",
           // },
-          scrub: true,
-          // yoyo: true,
+          onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+
+            !isActive &&
+            gsap.to(window, {
+              scrollTo: `${window.innerHeight * 3}`,
+              duration: 2,
+            });
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            !isActive &&
+            gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
+
+            // window.scrollTo({
+            //   top: `${window.innerHeight * 2}`,
+            //   behavior: "smooth",
+            // });
+          },
+          scrub: 0.3,
           snap: {
             snapTo: 1,
             duration: 1.5,
@@ -440,6 +574,8 @@ const IndexPage = () => {
       });
 
       tl3
+        .addLabel("start")
+        .call(() => setActiveSection(2))
         .to(`#events-section`, {
           y: "-100%",
           ease: "none",
@@ -472,7 +608,67 @@ const IndexPage = () => {
             // duration: 1,
           },
           "<"
-        );
+        )
+        .call(() => setActiveSection(3))
+        .addLabel("end");
+
+      // const tlSections = [tl1, tl2, tl3];
+      // tl1.pause();
+      // tl2.pause();
+      // tl3.pause();
+
+      ScrollTrigger.observe({
+        target: window, // can be any element (selector text is fine)
+        type: "wheel,touch",
+        scrollSpeed: 0.2,
+        wheelSpeed: 0.2,
+        onUp: (self) => {
+          // if (activeSection === 0) {
+          //   return;
+          // } else if (activeSection === 1) {
+          //   if (!tl1.isActive() && !tl2.isActive()) {
+          //       tl1.progress(1)
+          //       tl1.reverse()
+          //   }
+          // } else if (activeSection === 2) {
+          //   if (!tl2.isActive() && !tl3.isActive()) {
+          //     tl2.progress(1)
+          //       tl2.reverse()
+          //   }
+          // } else if (activeSection === 3) {
+          //   if (!tl3.isActive()) {
+          //     tl3.progress(1)
+          //     tl3.reverse();
+          //   }
+          // }
+          // setActiveSection((prev) => --prev);
+        },
+        onDown: (self) => {
+          // console.log(tl1.isActive(), tl2.isActive(), tl3.isActive());
+          // console.log(self);
+          // console.log(activeSection);
+          //     if (activeSection === 0) {
+          //       if (!tl1.isActive()) {
+          //         tl1.play();
+          //         // setActiveSection(1);
+          //       }
+          //     } else if (activeSection === 1) {
+          //       if (!tl1.isActive() && !tl2.isActive()) {
+          //         // console.log("play")
+          //         tl2.play();
+          //         // setActiveSection(2);
+          //       }
+          //     } else if (activeSection === 2) {
+          //       if (!tl2.isActive() && !tl3.isActive()) {
+          //         tl3.play();
+          //         // setActiveSection(3);
+          //       }
+          //     } else if (activeSection === 3) {
+          //       return;
+          //     }
+          //   },
+        },
+      });
     }
 
     document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -685,6 +881,7 @@ const IndexPage = () => {
         };
       };
       window.addEventListener("scroll", handleScroll, { passive: true });
+      window.scrollTo(0, 0);
     }
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
