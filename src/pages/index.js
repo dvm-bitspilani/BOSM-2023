@@ -251,7 +251,10 @@ const IndexPage = () => {
   const ContactsCards1 = (
     <div
       className={contact["cardsContainer1"]}
-      style={{ display: cossacCards ? "flex" : "none" }}
+      style={{
+        display: cossacCards ? "flex" : "none",
+        opacity: 0,
+      }}
     >
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
@@ -261,7 +264,10 @@ const IndexPage = () => {
   const ContactsCards2 = (
     <div
       className={contact["cardsContainer2"]}
-      style={{ display: cossacCards ? "none" : "block" }}
+      style={{
+        display: cossacCards ? "none" : "block",
+        opacity: 0,
+      }}
     >
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
@@ -310,12 +316,12 @@ const IndexPage = () => {
       //   });
       // });
 
-      ScrollTrigger.defaults({
-        onUpdate: ({ progress, direction, isActive }) => {
-          document.documentElement.style.overflow =
-            progress < 0.3 || progress > 0.7 ? "scroll" : "hidden";
-        },
-      });
+      // ScrollTrigger.defaults({
+      //   onUpdate: ({ progress, direction, isActive }) => {
+      //     document.documentElement.style.overflow =
+      //       progress < 0.3 || progress > 0.7 ? "scroll" : "hidden";
+      //   },
+      // });
 
       let tl1 = gsap.timeline({
         scrollTrigger: {
@@ -329,11 +335,11 @@ const IndexPage = () => {
             // document.documentElement.style.overflow = "hidden";
             // scrollTo: tl.scrollTrigger.labelToScroll("myLabel")
             // document.body.style.height = "200vh";
-            !isActive &&
-              gsap.to(window, {
-                scrollTo: `${window.innerHeight}`,
-                duration: 2,
-              });
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight}`,
+            //   duration: 2,
+            // });
             // gsap.to(window, {
             //   scrollTo: tl1.scrollTrigger.labelToScroll("end"),
             //   duration: 2,
@@ -368,11 +374,11 @@ const IndexPage = () => {
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
             // !isActive &&
-              gsap.to(window, {
-                // scrollTo: tl1.scrollTrigger.labelToScroll("start"),
-                scrollTo: `0`,
-                duration: 2,
-              });
+            // gsap.to(window, {
+            //   // scrollTo: tl1.scrollTrigger.labelToScroll("start"),
+            //   scrollTo: `0`,
+            //   duration: 2,
+            // });
           },
           // markers: {
           //   startColor: "white",
@@ -457,10 +463,10 @@ const IndexPage = () => {
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
             // !isActive &&
-              gsap.to(window, {
-                scrollTo: `${window.innerHeight * 2}`,
-                duration: 2.5,
-              });
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight * 2}`,
+            //   duration: 2.5,
+            // });
           },
           onLeaveBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
@@ -470,8 +476,8 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-            !isActive &&
-            gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
+            // !isActive &&
+            // gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
           },
           scrub: 0.3,
           // yoyo: true,
@@ -541,12 +547,11 @@ const IndexPage = () => {
           // },
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
-            !isActive &&
-            gsap.to(window, {
-              scrollTo: `${window.innerHeight * 3}`,
-              duration: 2,
-            });
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight * 3}`,
+            //   duration: 2,
+            // });
           },
           onLeaveBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
@@ -556,9 +561,8 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-            !isActive &&
-            gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
-
+            // !isActive &&
+            // gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
             // window.scrollTo({
             //   top: `${window.innerHeight * 2}`,
             //   behavior: "smooth",
@@ -1161,6 +1165,37 @@ const IndexPage = () => {
   const handleStatueImageDrag = (event) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    if (cossacCards) {
+      gsap.to(`.${contact["cardsContainer1"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["pageBackground"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["cardsContainer2"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+    } else {
+      gsap.to(`.${contact["cardsContainer2"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["pageBackground"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+      gsap.to(`.${contact["cardsContainer1"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+    }
+  }, [cossacCards, isLoading]);
+
   const handleOrganizingCardsBtnClick = () => {
     setCossacCards(true);
     setCossacSwitchBtn(true);
