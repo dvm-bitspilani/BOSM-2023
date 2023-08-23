@@ -25,7 +25,6 @@ import image14 from "../images/Gallery/image14.png"
 import image15 from "../images/Gallery/image15.png"
 import image16 from "../images/Gallery/image16.png"
 import image17 from "../images/Gallery/image17.png"
-import image18 from "../images/Gallery/image18.png"
 
 import ErrorScreen from "../Components/ErrorComponent";
 import ResizeObserver from "resize-observer-polyfill"

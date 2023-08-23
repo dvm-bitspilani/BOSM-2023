@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import * as styles from '../Styles/Content.module.css'
-import { Link } from "gatsby";
-import { motion } from "framer-motion";
 
 export default function Socials() {
     return (

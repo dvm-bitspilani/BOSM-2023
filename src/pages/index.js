@@ -924,7 +924,7 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll("img", "font", "style");
+      const assets = document.querySelectorAll("img", "font", "style" , "iframe");
 
       let assetsLoaded = 0;
 
