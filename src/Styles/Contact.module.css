@@ -327,7 +327,7 @@
 @media (max-width: 650px) {
   .cardsContainer1,
   .cardsContainer2 {
-    width: 95vw;
+    width: 75vw;
   }
   .page {
     height: 100%;
