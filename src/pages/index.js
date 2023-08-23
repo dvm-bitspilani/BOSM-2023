@@ -1325,7 +1325,7 @@ const IndexPage = () => {
                         )}
                       <div
                         className={contact["cardsContainer"]}
-                        style={{ width: cossacSwitchBtn ? "45vw" : "90vw" }}
+                        style={{ width: cossacSwitchBtn ? typeof window !==undefined && window.innerWidth>900 ?  "45vw" : "90vw" : "90vw" }}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
