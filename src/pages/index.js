@@ -36,6 +36,9 @@ import Syed from "../Components/ContactsData/ContactImages/Syed.png";
 import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
 import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
 import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
+import yashwasin from "../Components/ContactsData/ContactImages/yashwasin.jpg";
+import sriram from "../Components/ContactsData/ContactImages/sriram.jpg";
+
 
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -66,7 +69,7 @@ const IndexPage = () => {
     },
     {
       name: "Aditya Kumar Sriram",
-      image: `${Boy}`,
+      image: `${sriram}`,
       department: "Sports Secretary",
       phone: "",
       email: "sportssecretary@bitsbosm.org",
@@ -111,7 +114,7 @@ const IndexPage = () => {
     },
     {
       name: "Aditya Kumar Sriram",
-      image: `${Boy}`,
+      image: `${sriram}`,
       department: "Sports Secretary",
       phone: "",
       email: "sportssecretary.bitsbosm.org",
@@ -132,7 +135,7 @@ const IndexPage = () => {
     },
     {
       name: "Yashwasin Jain",
-      image: `${Boy}`,
+      image: `${yashwasin}`,
       department: "Joint Sports Secretary",
       phone: "+91-8850781560",
       email: "sports-union@pilani.bits-pilani.ac.in",
