@@ -820,16 +820,17 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         data.year_of_study = "0";
       }
 
-      const response = await fetch('https://bitsbosm.org/2023/registrations/register/', {
+      const response = await fetch('https://test.bitsbosm.org/2023/registrations/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
+      document.getElementById("registerbtn").style.pointerEvents="all";
 
       if (response.ok) {
-        setSuccess(true);
+         setSuccess(true);
       } else {
         // console.log(response);
         response.json().then(
@@ -877,16 +878,14 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     }
   
     if (fileUploaded === null) {
-      // setErrorMsg('Upload Photo');
-      // setError1(true)
-      document.getElementById("previewPara").classList.add(`${styles["errorAnimation"]}`)
+       setErrorMsg('Upload Photo');
+       setError1(true)
       setTimeout(() => {
-        document.getElementById("previewPara").classList.remove(`${styles["errorAnimation"]}`)
       }, 1000);
-      document.getElementById("previewPara").style.color="red";
       return;
     }
-  
+    
+    document.getElementById("registerbtn").style.pointerEvents='none';
     const imageref = ref(storage, `images/${fileUploaded.name + v4()}`);
   
     uploadBytes(imageref, fileUploaded)
@@ -1088,7 +1087,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
               hidden
               onChange={handleInputChange}
             />
-            <button className={styles["submitBtn"]} onClick={handleRegistration}>REGISTER</button>
+            <button className={styles["submitBtn"]} id="registerbtn" onClick={handleRegistration}>REGISTER</button>
           </div>
           {/* <p id='previewPara' onClose={closeError}>{paramsg}</p> */}
         </div>
