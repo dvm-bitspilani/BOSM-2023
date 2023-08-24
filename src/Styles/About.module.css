@@ -7,6 +7,9 @@
     background-size: cover;
     background-position: center center;
     background-repeat:no-repeat ;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
 }
 
 .topWrapper{
@@ -136,6 +139,7 @@
     }
     .desc{
         margin-top: 1.25rem;
+        font-size: .85rem;
     }
 }
 @media(max-width: 920px){
@@ -202,6 +206,9 @@
         margin-top: 0;
         width: 100%;
     }
+  .index{
+    padding: 0.5rem 0;
+  }
 }
 
 @media (max-width : 400px){

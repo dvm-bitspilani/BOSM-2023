@@ -13,7 +13,9 @@
   align-items: center;
   overflow: hidden;
 }
-
+.hamburger a{
+  width: 100%;
+}
 .hamContainer{
   width: 100vw;
   overflow-x: hidden;

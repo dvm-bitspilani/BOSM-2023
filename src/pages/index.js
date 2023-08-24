@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import * as styles from "../Styles/Content.module.css";
@@ -19,25 +19,31 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-// import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
-import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
+import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
+import Boy from "../images/boy.png";
+// import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
+
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
 import Events from "../Components/Events";
-// import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
+import Vidhartha from "../Components/ContactsData/ContactImages/Vidhartha.png";
 import AnushkaPatil from "../Components/ContactsData/ContactImages/AnushkaPatil.png";
 import AnushkaShukla from "../Components/ContactsData/ContactImages/AnushkaShukla.png";
-// import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
+import Pradyut from "../Components/ContactsData/ContactImages/Pradyut.png";
 import Shreyas from "../Components/ContactsData/ContactImages/Shreyas.png";
 import Syed from "../Components/ContactsData/ContactImages/Syed.png";
 import Ayush from "../Components/ContactsData/ContactImages/Ayush.png";
 import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
 import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
+import yashwasin from "../Components/ContactsData/ContactImages/yashwasin.jpg";
+import sriram from "../Components/ContactsData/ContactImages/sriram.jpg";
+
 
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -46,7 +52,7 @@ const IndexPage = () => {
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
   const [cossacCards, setCossacCards] = useState(true);
 
-  console.log({ cossacSwitchBtn });
+  // console.log({ cossacSwitchBtn });
   useEffect(() => {
     if (isLoading) {
       document.documentElement.style.overflow = "hidden";
@@ -58,22 +64,22 @@ const IndexPage = () => {
       name: "Shreyas Sesham",
       image: `${Shreyas}`,
       department: "Publications and Correspondence",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7411283012",
+      email: "pcr@bitsbosm.org",
     },
     {
       name: "Aditya Kumar Sriram",
-      image: `${Boy}`,
+      image: `${sriram}`,
       department: "Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sportssecretary@bitsbosm.org",
     },
     {
       name: "Shivang Rai",
       image: `${shivang}`,
       department: "Online Registrations",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9718863691",
+      email: "raishivang03@gmail.com",
     },
   ];
 
@@ -82,78 +88,78 @@ const IndexPage = () => {
       name: "Shreyas Sesham",
       image: `${Shreyas}`,
       department: "Publications and Correspondence",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7411283012",
+      email: "pcr@bitsbosm.org",
     },
     {
       name: "Shirish Kumaravel",
       image: `${Shirish}`,
       department: "Reception and Accommodation",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
-    },
-    {
-      name: "Anushka Patil",
-      image: `${AnushkaPatil}`,
-      department: "Controls",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-8277207380",
+      email: "recnacc@bitsbosm.org",
     },
     {
       name: "Ayush Singh Bhandari",
       image: `${Ayush}`,
       department: "Sponsorship and Marketing",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-7406755757",
+      email: "sponsorship@bitsbosm.org",
+    },
+    {
+      name: `Anushka Patil`,
+      image: `${AnushkaPatil}`,
+      department: "Controls",
+      phone: "+91-9175916459",
+      email: "controls@bitsbosm.org",
     },
     {
       name: "Aditya Kumar Sriram",
-      image: `${Boy}`,
+      image: `${sriram}`,
       department: "Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "",
+      email: "sportssecretary.bitsbosm.org",
     },
     {
       name: "Syed Aga Hani Riza",
       image: `${Syed}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9086470287",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
       name: "Anushka Shukla",
       image: `${AnushkaShukla}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-9810091168",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
       name: "Yashwasin Jain",
-      image: `${Boy}`,
+      image: `${yashwasin}`,
       department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      phone: "+91-8850781560",
+      email: "sports-union@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
-      image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      name: "Pradyut Sood",
+      image: `${Pradyut}`,
+      department: "Sports Financial Committee",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
+      name: "Vinayak Bhattacharya",
       image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      department: "Sports Financial Committee",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
     {
-      name: "Yashwasin Jain",
-      image: `${Boy}`,
-      department: "Joint Sports Secretary",
-      phone: "+91-9999999999",
-      email: "abcd@pilani.bits-pilani.ac.in",
+      name: "Vidhatra Shukla",
+      image: `${Vidhartha}`,
+      department: "Sports Financial Committee",
+      phone: "",
+      email: "sfc@pilani.bits-pilani.ac.in",
     },
   ];
 
@@ -161,6 +167,7 @@ const IndexPage = () => {
     if (index >= 0 && index < 2) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -177,6 +184,7 @@ const IndexPage = () => {
     if (index >= 2 && index < 3) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -190,9 +198,10 @@ const IndexPage = () => {
   }).slice(2, 3);
 
   const Card2Row1 = ContactsData2.map((contact, index) => {
-    if (index >= 0 && index < 3) {
+    if (index >= 0 && index < 4) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -203,13 +212,14 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(0, 3);
+  }).slice(0, 4);
 
   const Card2Row2 = ContactsData2.map((contact, index) => {
-    if (index >= 3 && index < 6) {
+    if (index >= 4 && index < 8) {
       return (
         <ContactProfile
           key={index}
+          cossacSwitchBtn={cossacSwitchBtn}
           name={contact.name}
           img={contact.image}
           dept={contact.department}
@@ -219,12 +229,13 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(3, 6);
+  }).slice(4, 8);
 
   const Card2Row3 = ContactsData2.map((contact, index) => {
-    if (index >= 6 && index < 8) {
+    if (index >= 8 && index < 11) {
       return (
         <ContactProfile
+          cossacSwitchBtn={cossacSwitchBtn}
           key={index}
           name={contact.name}
           img={contact.image}
@@ -235,17 +246,23 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(6, 8);
+  }).slice(8, 11);
 
   const ContactsCards1 = (
-    <div className={contact["cardsContainer1"]}>
+    <div
+      className={contact["cardsContainer1"]}
+      style={{ display: cossacCards ? "flex" : "none" }}
+    >
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
     </div>
   );
 
   const ContactsCards2 = (
-    <div className={contact["cardsContainer2"]}>
+    <div
+      className={contact["cardsContainer2"]}
+      style={{ display: cossacCards ? "none" : "block" }}
+    >
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
       <div className={contact["row"]}>{Card2Row3}</div>
@@ -256,143 +273,213 @@ const IndexPage = () => {
   const [showBlackScreen, setShowBlackScreen] = useState(false);
   const [showBlackScreen2, setShowBlackScreen2] = useState(false);
 
+  const [isHamOpen, setIsHamOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const isBrowser = typeof window !== "undefined";
 
-  useEffect(() => {
-    let tl1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".fixed-bg",
-        start: "top top",
-        // endTrigger: ".fixed-bg-blue",
-        end: `+=${window.innerHeight}`,
-        toggleActions: "play none none reverse",
-        onEnter: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              aboutUsSection.style.zIndex = 2;
+  useLayoutEffect(() => {
+    if (!isLoading) {
+      let tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".fixed-bg",
+          start: "top top",
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          onEnter: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                aboutUsSection.style.zIndex = 2;
+              }
             }
-          }
-        },
-        onLeaveBack: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              aboutUsSection.style.zIndex = 0;
-              // aboutUsSection.style.position = "fixed";
-              aboutUsSection.style.top = "0";
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                aboutUsSection.style.zIndex = 0;
+                // aboutUsSection.style.position = "fixed";
+                aboutUsSection.style.top = "0";
+              }
             }
-          }
-        },
-        onLeave: ({ progress, direction, isActive }) => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection) {
-              // aboutUsSection.style.position = "absolute";
-              // aboutUsSection.style.top = "100vh";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const aboutUsSection =
+                document.getElementById("about-us-section");
+              if (aboutUsSection) {
+                // aboutUsSection.style.position = "absolute";
+                // aboutUsSection.style.top = "100vh";
+              }
             }
-          }
+          },
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          //   fontSize: "12px",
+          //   indent: 20,
+          // },
+          scrub: true,
+          snap: {
+            snapTo: 1,
+            duration: 1.75,
+            ease: "power1.out",
+          },
         },
-        // markers: {
-        //   startColor: "white",
-        //   endColor: "white",
-        //   fontSize: "12px",
-        //   indent: 20,
-        // },
-        scrub: true,
-        snap: {
-          snapTo: 1,
-          duration: 2,
-          ease: "power1.out",
-        },
-      },
-    });
-
-    tl1
-      .to(".fixed-bg-blue", {
-        width: "0%",
-        ease: "none",
-      })
-      .to(`.${styles["landing"]}`, {
-        opacity: 0,
-        ease: "none",
-      })
-      .to(
-        `.${navbar["navbarContainer"]}`,
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        "<"
-      )
-      .to(
-        `.${navbar["registerBtnMobile"]}`,
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        "<"
-      )
-      .to("#about-us-section", {
-        opacity: 1,
-        ease: "none",
-        // position: "absolute",
-        // top: "100vh",
       });
 
-    let tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about-us-section",
-        start: `${window.innerHeight} top`,
-        // endTrigger: ".fixed-bg-blue",
-        end: `+=${window.innerHeight}`,
-        toggleActions: "play none none reverse",
-        // markers: {
-        //   startColor: "white",
-        //   endColor: "white",
-        // },
-        scrub: true,
-        // yoyo: true,
-        snap: {
-          snapTo: 1,
-          duration: 2.5,
-          ease: "power1.out",
-        },
-      },
-    });
+      tl1
+        .to(`.${styles["landing"]}`, {
+          opacity: 0,
+          ease: "none",
+        })
+        .to(
+          `.${navbar["navbarContainer"]}`,
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          `.${navbar["registerBtnMobile"]}`,
+          {
+            opacity: 0,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(".fixed-bg-blue", {
+          width: "0%",
+          ease: "none",
+        })
+        .to("#about-us-section", {
+          opacity: 1,
+          ease: "none",
+          // position: "absolute",
+          // top: "100vh",
+        });
 
-    tl2
-      .to(`.${about["topContainer"]}`, {
-        y: "100%",
-        ease: "none",
-        // duration: 1,
-      })
-      .to(
-        `.${about["bottomContainer"]}`,
-        {
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about-us-section",
+          start: `${window.innerHeight} top`,
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          // },
+          scrub: true,
+          // yoyo: true,
+          snap: {
+            snapTo: 1,
+            duration: 2,
+            ease: "none",
+          },
+        },
+      });
+
+      tl2
+        .to(`.${about["topContainer"]}`, {
+          y: "100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .to(
+          `.${about["bottomContainer"]}`,
+          {
+            y: "-100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        .to(`.${about["whiteBar"]}`, {
+          width: 0,
+          ease: "none",
+          // duration : 1,
+        })
+        .from("#events-section", {
+          x: "220%",
+          y: "60%",
+          ease: "slow(0.7, 0.7, false)",
+          // duration : 2,
+        })
+        .from(
+          "#eventCarousel",
+          {
+            rotation: 70,
+            ease: "slow(0.9, 0.7, false)",
+            // duration : 2,
+          },
+          "<"
+        );
+
+      let tl3 = gsap.timeline({
+        scrollTrigger: {
+          // trigger: "#events-section",
+          start: `${window.innerHeight * 2} top`,
+          // endTrigger: ".fixed-bg-blue",
+          end: `+=${window.innerHeight}`,
+          toggleActions: "play none none reverse",
+          // markers: {
+          //   startColor: "white",
+          //   endColor: "white",
+          // },
+          scrub: true,
+          // yoyo: true,
+          snap: {
+            snapTo: 1,
+            duration: 1.5,
+            ease: "power1.out",
+          },
+        },
+      });
+
+      tl3
+        .to(`#events-section`, {
           y: "-100%",
           ease: "none",
           // duration: 1,
-        },
-        "<"
-      )
-      .to(`.${about["whiteBar"]}`, {
-        width: 0,
-        ease: "none",
-        // duration : 1,
-      })
-      .from("#events-section", {
-        x: "210%",
-        y: "60%",
-        ease: "none",
-        // duration : 2,
-      })
-      .from("#eventCarousel", {
-        rotation: 70,
-        ease: "none",
-        // duration : 2,
-      }, "<");
-  }, [regPage]);
+        })
+        .to("#contact-section", {
+          y: "-100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .from(`.${contact["pageBackground"]}`, {
+          x: "-100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .from(
+          "#contactContent",
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        .from(
+          `.${contact["cardsSwitchButtons"]}`,
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        );
+    }
+
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+  }, [regPage, isLoading]);
 
   useEffect(() => {
     const landingSection = document.getElementById("landing-section");
@@ -595,20 +682,20 @@ const IndexPage = () => {
         //   };
         //   window.addEventListener("scroll", handleScroll, { passive: true });
         // }
-        // return () => {
-        //   window.onpointermove = null;
-        //   window.scrollTo(0, 0);
-        // };
+        return () => {
+          window.onpointermove = null;
+          window.scrollTo(0, 0);
+        };
       };
+      window.addEventListener("scroll", handleScroll, { passive: true });
     }
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
   useEffect(() => {
     const handleMouseOver = () => {
       // console.log("hi");
-      document.getElementById("cursor").style.transform = "scale(5.5)";
-      // document.getElementById("cursorFollowerDrag").style.display = "block";
       document.getElementById("cursorFollower").style.visibility = "hidden";
+      document.getElementById("cursor").style.transform = "scale(5.5)";
       document.querySelector(".cursorContent").style.opacity = "1";
     };
 
@@ -621,17 +708,18 @@ const IndexPage = () => {
     const eventCarousel = document.getElementById("eventCarousel");
     const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
 
-    eventCarousel.addEventListener("mouseover", handleMouseOver);
-    eventCarousel.addEventListener("mouseout", handleMouseOut);
+    if (eventCarousel) {
+      eventCarousel.addEventListener("mouseover", handleMouseOver);
+      eventCarousel.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
-      eventCarousel.removeEventListener("mouseover", handleMouseOver);
-      eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      if (eventCarousel) {
+        eventCarousel.removeEventListener("mouseover", handleMouseOver);
+        eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      }
     };
-  }, []);
-
-  const [isHamOpen, setIsHamOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  }, [regPage]);
 
   const statueVariants = {
     hidden: {
@@ -839,7 +927,7 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll("img", "font", "style");
+      const assets = document.querySelectorAll("img", "font", "style" , "iframe");
 
       let assetsLoaded = 0;
 
@@ -914,12 +1002,36 @@ const IndexPage = () => {
       )}
       <div className="cursor" id="cursor">
         <div className="cursorContent">
-          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
-          
-          <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </div>
       </div>
@@ -1088,7 +1200,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading && (
           <Layout
             overflow={false}
             navbar={false}
@@ -1109,7 +1221,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading && (
           <Layout
             overflow={true}
             navbar={false}
@@ -1130,7 +1242,7 @@ const IndexPage = () => {
             }
           />
         )}
-        {!regPage && (
+        {!regPage && !isLoading && (
           <Layout
             overflow={false}
             navbar={false}
@@ -1148,10 +1260,13 @@ const IndexPage = () => {
               <main
                 id="contactPage"
                 className={contact["page"]}
-              // style={{ top: "30vh" }}
+                // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
-                  <div className={contact["pageBackground"]}>
+                  <div
+                    className={contact["pageBackground"]}
+                    style={{ display: cossacSwitchBtn ? "block" : "none" }}
+                  >
                     <img
                       id="frontStatue"
                       alt=""
@@ -1174,46 +1289,90 @@ const IndexPage = () => {
                   <div id="contactContent" className={contact["content"]}>
                     <div className={contact["contentContainer"]}>
                       <div className={contact["title"]}>CONTACT US</div>
-                      <motion.div
+                      {typeof window !== "undefined" &&
+                        window.innerWidth < 920 && (
+                          <div className={contact["cardsSwitchButtons2"]}>
+                            <div
+                              className={contact["organizingBtn"]}
+                              onClick={handleOrganizingCardsBtnClick}
+                              style={
+                                !cossacSwitchBtn
+                                  ? {
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
+                                  : {
+                                      borderBottom: "3px solid white",
+                                    }
+                              }
+                            >
+                              CoSSAC
+                            </div>
+                            <div
+                              className={contact["cossacBtn"]}
+                              onClick={handleCossacCardsButtonClick}
+                              style={
+                                cossacSwitchBtn
+                                  ? {
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
+                                  : {
+                                      borderBottom: "3px solid white",
+                                    }
+                              }
+                            >
+                              Organizing Committee
+                            </div>
+                          </div>
+                        )}
+                      <div
                         className={contact["cardsContainer"]}
+                        style={{ width: cossacSwitchBtn ? typeof window !==undefined && window.innerWidth>900 ?  "45vw" : "90vw" : "90vw" }}
                         key={cossacSwitchBtn}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, delay: 1 }}
-                        exit={{ opacity: 0, delay: 1 }}
-                        transition={{ duration: 0.5, ease: easeInOut }}
                       >
-                        {cossacCards ? ContactsCards1 : ContactsCards2}
-                      </motion.div>
+                        {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
+                        {ContactsCards1}
+                        {ContactsCards2}
+                      </div>
                     </div>
                   </div>
-                  <div className={contact["cardsSwitchButtons"]}>
-                    <div
-                      className={contact["organizingBtn"]}
-                      onClick={handleOrganizingCardsBtnClick}
-                      style={
-                        !cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      Organizing Committee
+                  {typeof window !== "undefined" && window.innerWidth > 920 && (
+                    <div className={contact["cardsSwitchButtons"]}>
+                      <div
+                        className={contact["organizingBtn"]}
+                        onClick={handleOrganizingCardsBtnClick}
+                        style={
+                          !cossacSwitchBtn
+                            ? {
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
+                            : {
+                                borderBottom: "3px solid white",
+                              }
+                        }
+                      >
+                        Contacts
+                      </div>
+                      <div
+                        className={contact["cossacBtn"]}
+                        onClick={handleCossacCardsButtonClick}
+                        style={
+                          cossacSwitchBtn
+                            ? {
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
+                            : {
+                                borderBottom: "3px solid white",
+                              }
+                        }
+                      >
+                        Organizing Committee
+                      </div>
                     </div>
-                    <div
-                      className={contact["cossacBtn"]}
-                      onClick={handleCossacCardsButtonClick}
-                      style={
-                        cossacSwitchBtn
-                          ? { borderBottom: "3px solid rgba(255, 255, 255, 0)" }
-                          : {
-                            borderBottom: "3px solid white",
-                          }
-                      }
-                    >
-                      CoSSAC
-                    </div>
-                  </div>
+                  )}
                 </div>
               </main>
             }

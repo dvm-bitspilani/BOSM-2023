@@ -21,7 +21,7 @@ export default function Profile(props) {
             <div className={contact["profileDept"]}>
                 <div>{props.dept}</div>
             </div>
-            <div className={contact["icons"]}>
+            <div className={contact["icons"]} style={{display: props.cossacSwitchBtn ? 'flex':'none'}}>
                 <motion.div whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 1 }}>
                     <a href={`tel:${props.phone}`}>

@@ -1013,7 +1013,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
               />
             </div>
 
-            <label htmlFor='is_messfood' className={styles.messLabel}>Sign up for Mess food?<span>(*Chargeable)</span></label>
+            <label htmlFor='is_messfood' className={styles.messLabel}>Sign up for Mess food? <span>(*Chargeable)</span></label>
             <div className={styles["radioBtns"]}>
               <RadioButton2
                 name="is_messfood"
@@ -1050,7 +1050,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
             <label htmlFor='photo'>Photo</label>
-            <div className={styles["regInput"]} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
+            <div className={`${styles["regInput"]} ${styles["photoInputHover"]}`} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
               <span>{photoText}</span>
             </div>
 
