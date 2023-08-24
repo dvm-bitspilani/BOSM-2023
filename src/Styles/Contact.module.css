@@ -16,6 +16,7 @@
   position: relative;
   z-index: 1;
   width: 100vh;
+  opacity: 0;
 }
 
 .backStatue,
