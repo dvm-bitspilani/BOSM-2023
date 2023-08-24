@@ -295,8 +295,8 @@ const IndexPage = () => {
 
   useLayoutEffect(() => {
     if (!isLoading) {
-      const landingSection = document.getElementById("landing-section");
-      const aboutSection = document.getElementById("about-us-section");
+      // const landingSection = document.getElementById("landing-section");
+      // const aboutSection = document.getElementById("about-us-section");
       // landingSection.addEventListener("wheel", (event) => {
       //   // let deltaY = event.deltaY;
       //   // let scrollY = window.scrollY;
@@ -332,7 +332,7 @@ const IndexPage = () => {
           trigger: ".fixed-bg",
           start: "top top",
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
@@ -401,7 +401,7 @@ const IndexPage = () => {
           scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1.75,
+            duration: 1,
             ease: "power1.out",
           },
         },
@@ -458,9 +458,9 @@ const IndexPage = () => {
       let tl2 = gsap.timeline({
         scrollTrigger: {
           trigger: "#about-us-section",
-          start: `${window.innerHeight} top`,
+          start: `${window.innerHeight * 3} top`,
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           // markers: {
           //   startColor: "white",
@@ -491,7 +491,7 @@ const IndexPage = () => {
           // yoyo: true,
           snap: {
             snapTo: 1,
-            duration: 2,
+            duration: 1.2,
             ease: "none",
           },
         },
@@ -545,9 +545,9 @@ const IndexPage = () => {
       let tl3 = gsap.timeline({
         scrollTrigger: {
           // trigger: "#events-section",
-          start: `${window.innerHeight * 2} top`,
+          start: `${window.innerHeight * 6} top`,
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           // markers: {
           //   startColor: "white",
@@ -582,7 +582,7 @@ const IndexPage = () => {
           scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1.5,
+            duration: 1,
             ease: "power1.out",
           },
         },
@@ -593,6 +593,7 @@ const IndexPage = () => {
         // .call(() => setActiveSection(2))
         .to(`#events-section`, {
           y: "-100%",
+          opacity: 0,
           ease: "none",
           // duration: 1,
         })
@@ -1225,7 +1226,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (!regPage) {
-      document.body.style.height = "400vh";
+      document.body.style.height = "1000vh";
     } else {
       document.body.style.height = "fit-content";
     }
