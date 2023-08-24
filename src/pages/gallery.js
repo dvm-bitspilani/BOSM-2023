@@ -7,24 +7,34 @@ import "../Styles/globals.css";
 import { navigate } from "gatsby";
 import LoaderVideo from "../images/loader.mp4";
 import logo from "../images/logo.svg";
-import chess from "../images/Gallery/chess.png"
-import image1 from "../images/Gallery/image1.png"
-import image2 from "../images/Gallery/image2.png"
-import image3 from "../images/Gallery/image3.png"
-import image4 from "../images/Gallery/image4.png"
-import image5 from "../images/Gallery/image5.png"
-import image6 from "../images/Gallery/image6.png"
-import image7 from "../images/Gallery/image7.png"
-import image8 from "../images/Gallery/image8.png"
-import image9 from "../images/Gallery/image9.png"
-import image10 from "../images/Gallery/image10.png"
-import image11 from "../images/Gallery/image11.png"
-import image12 from "../images/Gallery/image12.png"
-import image13 from "../images/Gallery/image13.png"
-import image14 from "../images/Gallery/image14.png"
-import image15 from "../images/Gallery/image15.png"
-import image16 from "../images/Gallery/image16.png"
-import image17 from "../images/Gallery/image17.png"
+import box1 from "../images/Gallery/box1.png";
+import box2 from "../images/Gallery/box2.png";
+import box3 from "../images/Gallery/box3.png";
+import box4 from "../images/Gallery/box4.png";
+import box5 from "../images/Gallery/box5.png";
+import box6 from "../images/Gallery/box6.png";
+import box7 from "../images/Gallery/box7.png";
+import box8 from "../images/Gallery/box8.png";
+import box9 from "../images/Gallery/box9.png";
+import box10 from "../images/Gallery/box10.png";
+import box11 from "../images/Gallery/box11.png";
+import box12 from "../images/Gallery/box12.png";
+import box13 from "../images/Gallery/box13.png";
+import box14 from "../images/Gallery/box14.png";
+import box15 from "../images/Gallery/box15.png";
+import box16 from "../images/Gallery/box16.png";
+import box17 from "../images/Gallery/box17.png";
+import box18 from "../images/Gallery/box18.png";
+import box19 from "../images/Gallery/box19.png";
+import box20 from "../images/Gallery/box20.png";
+import box21 from "../images/Gallery/box21.png";
+import box22 from "../images/Gallery/box22.png";
+import box23 from "../images/Gallery/box23.png";
+import box24 from "../images/Gallery/box24.png";
+import box25 from "../images/Gallery/box25.png";
+import box26 from "../images/Gallery/box26.png";
+import box27 from "../images/Gallery/box27.png";
+
 
 import ErrorScreen from "../Components/ErrorComponent";
 import ResizeObserver from "resize-observer-polyfill"
@@ -190,13 +200,19 @@ const Gallery = (props) => {
     }
   }
 
+  /// for horizontal scroll
+
   const scrollRef = useRef(null)
   const ghostRef = useRef(null)
   const [scrollRange, setScrollRange] = useState(0)
   const [viewportW, setViewportW] = useState(0)
 
   useLayoutEffect(() => {
-    scrollRef && setScrollRange(scrollRef.current.scrollWidth)
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 800) {
+        scrollRef && setScrollRange(scrollRef.current.scrollWidth)
+      }
+    }
   }, [scrollRef])
 
   const onResize = useCallback(entries => {
@@ -220,6 +236,40 @@ const Gallery = (props) => {
   const physics = { damping: 15, mass: 0.27, stiffness: 55 }
   const spring = useSpring(transform, physics)
 
+  /// for vertical scroll
+
+  const scrollXRef = useRef(null);
+  const [scrollXRange, setScrollXRange] = useState(0);
+  const [viewportH, setViewportH] = useState(0);
+
+  useLayoutEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 800) {
+        scrollXRef && setScrollXRange(scrollRef.current.scrollWidth)
+      }
+    }
+  }, [scrollXRef]);
+
+  const onResizeX = useCallback(entries => {
+    for (let entry of entries) {
+      setViewportH(entry.contentRect.height);
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    const resizeObserver = new ResizeObserver(entries => onResizeX(entries));
+    resizeObserver.observe(ghostRef.current);
+    return () => resizeObserver.disconnect();
+  }, [onResizeX]);
+
+  const transformX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -scrollXRange + viewportH]
+  );
+  const physicsX = { damping: 15, mass: 0.27, stiffness: 55 };
+  const springX = useSpring(transformX, physicsX);
+
 
   return (
     <>
@@ -239,34 +289,34 @@ const Gallery = (props) => {
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
           <div className={styles["heading"]}>
-          <div className={styles["arrow"]} onClick={closeButtonHandler}>
-                <svg
-                  viewBox="0 0 78 78"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M75 39H3M3 39L39 75M3 39L39 3"
-                    stroke="white"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <div style={{ overflowX: "hidden" }}>
-                <p className={styles["title"]}>GALLERY</p>
-              </div>
-              <div className={styles["dummy"]}></div>
+            <div className={styles["arrow"]} onClick={closeButtonHandler}>
+              <svg
+                viewBox="0 0 78 78"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M75 39H3M3 39L39 75M3 39L39 3"
+                  stroke="white"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div style={{ overflowX: "hidden" }}>
+              <p className={styles["title"]}>GALLERY</p>
+            </div>
+            <div className={styles["dummy"]}></div>
 
           </div>
           <motion.div
-            ref={scrollRef}
-            style={{ x: spring }}
+            ref={ typeof window !== 'undefined' ? window.innerWidth > 800 ? scrollRef : scrollXRef : scrollRef}
+            style={typeof window !== 'undefined' ? window.innerWidth > 800 ? { x: spring } : {y: springX} : { x: spring }}
             className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <img
-                src={chess}
+                src={box1}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -274,7 +324,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box2"]}>
               <img
-                src={image1}
+                src={box2}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -282,7 +332,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box3"]}>
               <img
-                src={image2}
+                src={box3}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -290,7 +340,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box4"]}>
               <img
-                src={image3}
+                src={box4}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -298,7 +348,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box5"]}>
               <img
-                src={image4}
+                src={box5}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -306,7 +356,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box6"]}>
               <img
-                src={image5}
+                src={box6}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -314,7 +364,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box7"]}>
               <img
-                src={image6}
+                src={box7}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -322,7 +372,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box8"]}>
               <img
-                src={image7}
+                src={box8}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -330,7 +380,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box9"]}>
               <img
-                src={image8}
+                src={box9}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -338,7 +388,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box10"]}>
               <img
-                src={image9}
+                src={box10}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -346,7 +396,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box11"]}>
               <img
-                src={image10}
+                src={box11}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -354,7 +404,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box12"]}>
               <img
-                src={image11}
+                src={box12}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -362,7 +412,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box13"]}>
               <img
-                src={image12}
+                src={box13}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -370,7 +420,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box14"]}>
               <img
-                src={image13}
+                src={box14}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -378,7 +428,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box15"]}>
               <img
-                src={image14}
+                src={box15}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -386,7 +436,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box16"]}>
               <img
-                src={image15}
+                src={box16}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -394,7 +444,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box17"]}>
               <img
-                src={image16}
+                src={box17}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -402,15 +452,15 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box18"]}>
               <img
-                src={image17}
+                src={box18}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
               />
             </div>
-            {/* <div className={styles["box19"]}>
+            <div className={styles["box19"]}>
               <img
-                src={image18}
+                src={box20}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -418,7 +468,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box20"]}>
               <img
-                src={img2}
+                src={box19}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -426,7 +476,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box21"]}>
               <img
-                src={img2}
+                src={box21}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -434,7 +484,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box22"]}>
               <img
-                src={img2}
+                src={box22}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -442,7 +492,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box23"]}>
               <img
-                src={img2}
+                src={box23}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -450,7 +500,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box24"]}>
               <img
-                src={img2}
+                src={box24}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -458,7 +508,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box25"]}>
               <img
-                src={img2}
+                src={box25}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -466,7 +516,7 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box26"]}>
               <img
-                src={img2}
+                src={box26}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
@@ -474,21 +524,23 @@ const Gallery = (props) => {
             </div>
             <div className={styles["box27"]}>
               <img
-                src={img2}
+                src={box27}
                 alt="not found"
                 className={styles["image"]}
                 draggable={false}
               />
-            </div> */}
+            </div>
           </motion.div>
           {/* <div className={styles["tagline"]}>roar of resilience</div> */}
-          <div className={styles["progressLine"]}>
-          <motion.div
-            className={styles["progressBar"]}
-            style={{ scaleX: scrollYProgress }}
-          /></div>
+          <div className={styles["progressLine"]}
+            style={typeof window !== 'undefined' ? window.innerWidth > 800 ? { display: 'block' } : { display: 'none' } : { display: 'none' }}
+          >
+            <motion.div
+              className={styles["progressBar"]}
+              style={{ scaleX: scrollYProgress }}
+            /></div>
         </div>
-        <div ref={ghostRef} style={{ height: scrollRange }} className={styles["ghost"]} />
+        <div ref={ghostRef} style={typeof window !== 'undefined' ? window.innerWidth > 800 ? { height: scrollRange } : { height: 0 } : { height: 0 }} className={styles["ghost"]} />
       </main>
     </>
   );

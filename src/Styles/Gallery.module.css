@@ -278,6 +278,9 @@
 
 
 @media only screen and (max-width: 800px) {
+    .gallery{
+        min-height: 300vh;
+    }
     .title{
         font-size: 1.5rem;
     }
@@ -286,7 +289,10 @@
         width: 1.5rem;
         height: 1.5rem;
     }
-
+    .wrapper{
+        width: 100vw;
+        align-items: center;
+    }
     .heading{
         margin-block: 1rem;
         padding-inline-start: 7vw;
@@ -298,8 +304,8 @@
         display: grid;
         grid-template-columns: 1fr 0.5fr 1fr;
         grid-template-rows: repeat(18, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
         }
         
         .box1 { grid-area: 1 / 1 / 2 / 4; }
