@@ -820,7 +820,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         data.year_of_study = "0";
       }
 
-      const response = await fetch('https://test.bitsbosm.org/2023/registrations/register/', {
+      const response = await fetch('https://bitsbosm.org/2023/registrations/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
