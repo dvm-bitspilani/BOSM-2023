@@ -48,7 +48,29 @@ import basketballImg from "../images/Events Images/basketball.jpeg";
 
 export default function EventsCarousel({ setProgress, setIndex }) {
   const swiperContainerDiv = React.useRef(null);
-  const swiper = React.useRef(null);
+  const swiperRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.swiper.autoplay.start();
+          } else {
+            entry.target.swiper.autoplay.stop();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(document.querySelector(".swiper"));
+
+    // const swiper = swiperRef.current.swiper;
+    // swiper.autoplay.stop()
+  }, []);
+
+  // console.log(swiperRef.current.swiper.paused)
 
   return (
     <motion.div
@@ -56,9 +78,9 @@ export default function EventsCarousel({ setProgress, setIndex }) {
       id="eventCarousel"
       ref={swiperContainerDiv}
       // whileTap={{ scale: 0.9 }}
-      transition={{
-        duration: 0.15,
-      }}
+      // transition={{
+      //   duration: 0.15,
+      // }}
       // onMouseDown={() => {
       //   const swiper = document.querySelector(".swiper").swiper;
       //   swiper.pause()
@@ -76,7 +98,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
           display: "flex",
           alignItems: "center",
         }}
-        ref={swiper}
+        ref={swiperRef}
         slidesPerView={1.25}
         speed={1000}
         spaceBetween={30}
@@ -108,7 +130,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         // keyboard={{
         //   enabled: true,
         //   onlyInViewport: true,
-          
+
         // }}
         // navigation={true}
         // direction={"horizontal"}
@@ -146,7 +168,8 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         // }}
         // effect="creative"
         creativeEffect={{
-          limitProgress: typeof window !== "undefined" && window.innerWidth < 711 ? 2 : 3,
+          limitProgress:
+            typeof window !== "undefined" && window.innerWidth < 711 ? 2 : 3,
           perspective: true,
           prev: {
             // shadow: true,
