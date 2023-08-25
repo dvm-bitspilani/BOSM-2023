@@ -409,17 +409,17 @@ const IndexPage = () => {
 
       tl1
         .addLabel("start")
-        .call(() => {
-          if (regPage === false) {
-            const aboutUsSection = document.getElementById("about-us-section");
-            if (aboutUsSection && !tl1.reversed()) {
-              aboutUsSection.style.zIndex = 2;
-            } else if (aboutUsSection && tl1.reversed()) {
-              aboutUsSection.style.zIndex = 0;
-            }
-          }
-          // setActiveSection(0);
-        })
+        // .call(() => {
+        //   if (regPage === false) {
+        //     const aboutUsSection = document.getElementById("about-us-section");
+        //     if (aboutUsSection && !tl1.reversed()) {
+        //       aboutUsSection.style.zIndex = 2;
+        //     } else if (aboutUsSection && tl1.reversed()) {
+        //       aboutUsSection.style.zIndex = 0;
+        //     }
+        //   }
+        //   // setActiveSection(0);
+        // })
         .to(`.${styles["landing"]}`, {
           opacity: 0,
           ease: "none",

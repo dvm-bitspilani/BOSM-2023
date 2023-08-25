@@ -184,7 +184,7 @@ const Gallery = (props) => {
 
   const closeButtonHandler = () => {
     navigate("/");
-    document.body.style.height = "400vh";
+    document.body.style.height = "1000vh";
   };
 
   const boxes = () => {
