@@ -779,118 +779,7 @@ const IndexPage = () => {
       const handleScroll = () => {
         const position = window.scrollY;
         cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        const visibleHeight = window.innerHeight * 1;
 
-        const containerMargin = position + 100;
-
-        //     if(landingSection){
-        //       landingSection.style.position = "fixed";
-        //     }
-
-        //     if (rightLion[0] && statue && leftLion[0] && countDown) {
-        //       if (position >= visibleHeight - 50) {
-        //         rightLion[0].style.opacity = 0;
-        //         leftLion[0].style.opacity = 0;
-        //         countDown[0].style.opacity = 0;
-        //         rightSubTitle[0].style.opacity = 0;
-        //         leftSubtitle[0].style.opacity = 0;
-        //         heading[0].style.opacity = 0;
-        //         socials[0].style.opacity = 0;
-        //         statue.style.opacity = 0;
-        //         register.style.opacity = 0;
-        //         hamMenu.style.opacity = 0;
-        //         bosmLogo.style.opacity = 0;
-        //       }
-        //       else {
-        //         rightLion[0].style.opacity = 1;
-        //         leftLion[0].style.opacity = 1;
-        //         countDown[0].style.opacity = 1;
-        //         rightSubTitle[0].style.opacity = 1;
-        //         leftSubtitle[0].style.opacity = 1;
-        //         heading[0].style.opacity = 1;
-        //         socials[0].style.opacity = 1;
-        //         statue.style.opacity = 1;
-        //         register.style.opacity = 1;
-        //         hamMenu.style.opacity = 1;
-        //         bosmLogo.style.opacity = 1;
-        //       }
-        //     }
-
-        //     if (aboutContainer[0] && aboutSection) {
-        //       if (position <= visibleHeight - 1) {
-        //         aboutSection.style.opacity = 0;
-        //         eventsSection.style.opacity = 0;
-        //         contactSection.style.opacity = 0;
-        //         aboutSection.style.zIndex = 0;
-        //         aboutContainer[0].style.marginTop = `${containerMargin}px`;
-        //         aboutHeading[0].style.opacity = 0;
-        //         aboutCarousel[0].style.opacity = 0;
-        //         aboutContent[0].style.opacity = 0;
-        //       }
-        //       else {
-        //         aboutSection.style.opacity = 1;
-        //         eventsSection.style.opacity = 1;
-        //         contactSection.style.opacity = 1;
-        //         aboutSection.style.zIndex = 2;
-        //         aboutHeading[0].style.opacity = 1;
-        //         aboutCarousel[0].style.opacity = 1;
-        //         aboutContent[0].style.opacity = 1;
-        //       }
-        //     }
-        //   };
-        //   window.addEventListener("scroll", handleScroll, { passive: true });
-        // }
-        // if (window.innerWidth <= 920) {
-
-        //   const handleScroll = () => {
-        //     if (statue) {
-        //       const position = window.scrollY;
-        //       const statueHeight = 60 + position / 20;
-        //       const contactRadius = 150 - position / 5;
-        //       const blur = position / 50;
-
-        //       cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        //       statueMobile.style.height = `${statueHeight}%`;
-
-        //       if (fixedBG[0]) {
-        //         if (position > 100) {
-        //           fixedBG[0].style.filter = `blur(${blur}px)`;
-        //           fixedBG[0].style.transform = "scale(1.1)";
-        //           rightLion[0].style.filter = `blur(${blur}px)`;
-        //           leftLion[0].style.filter = `blur(${blur}px)`;
-        //           countDown[0].style.filter = `blur(${blur}px)`;
-        //           rightSubTitle[0].style.filter = `blur(${blur}px)`;
-        //           leftSubtitle[0].style.filter = `blur(${blur}px)`;
-        //           heading[0].style.filter = `blur(${blur}px)`;
-        //           socials[0].style.filter = `blur(${blur}px)`;
-        //           statueMobile.style.filter = `blur(${blur}px)`;
-        //           // statue.style.filter = `blur(${blur}px)`;
-        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
-        //         } else {
-        //           fixedBG[0].style.filter = "blur(0)";
-        //           fixedBG[0].style.transform = "scale(1)";
-        //           rightLion[0].style.filter = "blur(0)";
-        //           leftLion[0].style.filter = "blur(0)";
-        //           countDown[0].style.filter = "blur(0)";
-        //           leftSubtitle[0].style.filter = "blur(0)";
-        //           rightSubTitle[0].style.filter = "blur(0)";
-        //           heading[0].style.filter = "blur(0)";
-        //           statueMobile.style.filter = "blur(0)";
-        //           statue.style.filter = "blur(0)";
-        //           socials[0].style.filter = "blur(0)";
-        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
-        //         }
-        //       }
-
-        //       if (position <= window.innerHeight) {
-        //         statueContainer.style.position = "fixed";
-        //       } else {
-        //         statueContainer.style.position = "absolute";
-        //       }
-        //     }
-        //   };
-        //   window.addEventListener("scroll", handleScroll, { passive: true });
-        // }
         return () => {
           window.onpointermove = null;
           window.scrollTo(0, 0);
@@ -916,20 +805,19 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
-    const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
       eventCarousel.addEventListener("mouseout", handleMouseOut);
     }
 
-    return () => {
-      if (eventCarousel) {
-        eventCarousel.removeEventListener("mouseover", handleMouseOver);
-        eventCarousel.removeEventListener("mouseout", handleMouseOut);
-      }
-    };
-  }, [regPage]);
+    // return () => {
+    //   if (eventCarousel) {
+    //     eventCarousel.removeEventListener("mouseover", handleMouseOver);
+    //     eventCarousel.removeEventListener("mouseout", handleMouseOut);
+    //   }
+    // };
+  }, [regPage, showBlackScreen, showBlackScreen2]);
 
   const statueVariants = {
     hidden: {
