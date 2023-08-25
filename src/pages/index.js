@@ -491,8 +491,9 @@ const IndexPage = () => {
           // yoyo: true,
           snap: {
             snapTo: 1,
-            duration: 1.2,
-            ease: "none",
+            duration: {min: 0.2, max: 2},
+            ease: "slow(0.7, 0.7, true)",
+            delay: 0,
           },
         },
       });
