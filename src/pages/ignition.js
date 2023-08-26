@@ -13,7 +13,7 @@ const Ignition = (props) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const closeButtonHandler = () => {
     navigate("/");
-    document.body.style.height = "400vh";
+    document.body.style.height = "1000vh";
   };
 
   const isBrowser = typeof window !== "undefined";

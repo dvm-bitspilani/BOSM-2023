@@ -182,9 +182,31 @@ const Gallery = (props) => {
     };
   }, [isLoading]);
 
+  useEffect(() => {
+    const handleMouseOver = () => {
+      // console.log("hi");
+      document.getElementById("cursorFollower").style.visibility = "hidden";
+      document.getElementById("cursor").style.transform = "scale(5.5)";
+      document.querySelector(".cursorContent").style.opacity = "1";
+    };
+
+    const handleMouseOut = () => {
+      document.getElementById("cursor").style.transform = "scale(1)";
+      document.getElementById("cursorFollower").style.visibility = "visible";
+      document.querySelector(".cursorContent").style.opacity = "0";
+    };
+
+    const gridContainer = document.getElementById("gridContainer");
+
+    if (gridContainer) {
+      gridContainer.addEventListener("mouseover", handleMouseOver);
+      gridContainer.addEventListener("mouseout", handleMouseOut);
+    }
+  }, [isLoading])
+
   const closeButtonHandler = () => {
     navigate("/");
-    document.body.style.height = "400vh";
+    document.body.style.height = "1000vh";
   };
 
   const boxes = () => {
@@ -274,7 +296,41 @@ const Gallery = (props) => {
   return (
     <>
       {" "}
-      <div className="cursor" id="cursor"></div>
+      <div className="cursor" id="cursor">
+        <div className="cursorContent" style={{transform: 'rotate(90deg)'}}>
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.49512 12.0679L1.52424 6.6941L7.49512 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <svg
+            width="9"
+            height="13"
+            viewBox="0 0 9 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.50488 12.0679L7.47576 6.6941L1.50488 1.32031"
+              stroke="black"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
@@ -311,8 +367,9 @@ const Gallery = (props) => {
 
           </div>
           <motion.div
-            ref={ typeof window !== 'undefined' ? window.innerWidth > 800 ? scrollRef : scrollXRef : scrollRef}
-            style={typeof window !== 'undefined' ? window.innerWidth > 800 ? { x: spring } : {y: springX} : { x: spring }}
+            ref={typeof window !== 'undefined' ? window.innerWidth > 800 ? scrollRef : scrollXRef : scrollRef}
+            style={typeof window !== 'undefined' ? window.innerWidth > 800 ? { x: spring } : { y: springX } : { x: spring }}
+            id="gridContainer"
             className={styles["gridContainer"]}>
             <div className={styles["box1"]}>
               <img

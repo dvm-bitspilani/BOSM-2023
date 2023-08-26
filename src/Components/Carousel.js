@@ -6,6 +6,7 @@ import Thumbnail from "../images/aboutUsCarouselThumbnail.png"
 import * as carousel from "../Styles/Carousel.module.css"
 import RightArrowImage from "../images/aboutUsCarouselRightArrow.png";
 import LeftArrowImage from "../images/aboutUsCarouselLeftArrow.png";
+import thumbnail from "../images/thumbnail.png"
 
 import { IMAGES } from "./Images"
 
@@ -65,7 +66,7 @@ const App = () => {
             <motion.div
               key={imageCount}
               style={{
-                backgroundImage: `url(${IMAGES[activeImageIndex].imageSrc})`
+                background: `url(${thumbnail})`
               }}
               custom={direction}
               variants={sliderVariants}

@@ -291,6 +291,7 @@
     }
     .wrapper{
         width: 100vw;
+        position: relative;
         align-items: center;
     }
     .heading{

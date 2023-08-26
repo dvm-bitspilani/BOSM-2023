@@ -43,9 +43,12 @@ import sriram from "../Components/ContactsData/ContactImages/sriram.jpg";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Observer } from "gsap/Observer";
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
+// import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 // import { CustomEase } from "gsap/CustomEase";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,11 +56,11 @@ const IndexPage = () => {
   const [cossacCards, setCossacCards] = useState(true);
 
   // console.log({ cossacSwitchBtn });
-  useEffect(() => {
-    if (isLoading) {
-      document.documentElement.style.overflow = "hidden";
-    } else document.documentElement.style.overflow = "scroll";
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     document.documentElement.style.overflow = "hidden";
+  //   } else document.documentElement.style.overflow = "scroll";
+  // }, [isLoading]);
 
   const ContactsData1 = [
     {
@@ -251,7 +254,10 @@ const IndexPage = () => {
   const ContactsCards1 = (
     <div
       className={contact["cardsContainer1"]}
-      style={{ display: cossacCards ? "flex" : "none" }}
+      style={{
+        display: cossacCards ? "flex" : "none",
+        opacity: 0,
+      }}
     >
       <div className={contact["row"]}>{Card1Row1}</div>
       <div className={contact["row"]}>{Card1Row2}</div>
@@ -261,7 +267,10 @@ const IndexPage = () => {
   const ContactsCards2 = (
     <div
       className={contact["cardsContainer2"]}
-      style={{ display: cossacCards ? "none" : "block" }}
+      style={{
+        display: cossacCards ? "none" : "block",
+        opacity: 0,
+      }}
     >
       <div className={contact["row"]}>{Card2Row1}</div>
       <div className={contact["row"]}>{Card2Row2}</div>
@@ -278,16 +287,68 @@ const IndexPage = () => {
 
   const isBrowser = typeof window !== "undefined";
 
+  useEffect(() => {
+    document.documentElement.style.overflow = isLoaded ? "scroll" : "hidden";
+  }, [isLoaded]);
+
+  const [activeSection, setActiveSection] = useState(0);
+
   useLayoutEffect(() => {
     if (!isLoading) {
+      // const landingSection = document.getElementById("landing-section");
+      // const aboutSection = document.getElementById("about-us-section");
+      // landingSection.addEventListener("wheel", (event) => {
+      //   // let deltaY = event.deltaY;
+      //   // let scrollY = window.scrollY;
+      //   // gsap.to(window, { scrollTo: `${scrollY + deltaY * 0.3}` , duration : 0.2});
+      //   gsap.to(window, {
+      //     scrollTo: event.deltaY > 0 ? tl1.scrollTrigger.labelToScroll("end") : tl1.scrollTrigger.labelToScroll("start"),
+      //     duration: 1,
+      //     ease: "none",
+      //   });
+      // });
+      // aboutSection.addEventListener("wheel", (event) => {
+      //   // let deltaY = event.deltaY;
+      //   // let scrollY = window.scrollY;
+      //   // gsap.to(window, { scrollTo: `${scrollY + deltaY * 0.3}` , duration : 0.2});
+      //   // console.log(event)
+      //   gsap.to(window, {
+      //     scrollTo: event.deltaY > 0 ? tl2.scrollTrigger.labelToScroll("end") : tl2.scrollTrigger.labelToScroll("start"),
+      //     duration: 1,
+      //     ease: "none",
+      //   });
+      // });
+
+      // ScrollTrigger.defaults({
+      //   onUpdate: ({ progress, direction, isActive }) => {
+      //     document.documentElement.style.overflow =
+      //       progress < 0.3 || progress > 0.7 ? "scroll" : "hidden";
+      //   },
+      // });
+
       let tl1 = gsap.timeline({
         scrollTrigger: {
+          id: "scroller1",
           trigger: ".fixed-bg",
           start: "top top",
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            // scrollTo: tl.scrollTrigger.labelToScroll("myLabel")
+            // document.body.style.height = "200vh";
+
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight}`,
+            //   duration: 2,
+            // });
+
+            // gsap.to(window, {
+            //   scrollTo: tl1.scrollTrigger.labelToScroll("end"),
+            //   duration: 2,
+            // });
             if (regPage === false) {
               const aboutUsSection =
                 document.getElementById("about-us-section");
@@ -296,7 +357,16 @@ const IndexPage = () => {
               }
             }
           },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight}`,
+            // });
+          },
           onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+            // gsap.to(window, { scrollTo: `0`});
             if (regPage === false) {
               const aboutUsSection =
                 document.getElementById("about-us-section");
@@ -307,15 +377,14 @@ const IndexPage = () => {
               }
             }
           },
-          onLeave: ({ progress, direction, isActive }) => {
-            if (regPage === false) {
-              const aboutUsSection =
-                document.getElementById("about-us-section");
-              if (aboutUsSection) {
-                // aboutUsSection.style.position = "absolute";
-                // aboutUsSection.style.top = "100vh";
-              }
-            }
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `0`,
+            //   duration: 2,
+            // });
           },
           // markers: {
           //   startColor: "white",
@@ -323,16 +392,34 @@ const IndexPage = () => {
           //   fontSize: "12px",
           //   indent: 20,
           // },
-          scrub: true,
+          // onToggle: () => {
+          //   document.documentElement.style.overflow =
+          //     document.documentElement.style.overflow === "scroll"
+          //       ? "hidden"
+          //       : "scroll";
+          // },
+          scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1.75,
+            duration: 1,
             ease: "power1.out",
           },
         },
       });
 
       tl1
+        .addLabel("start")
+        // .call(() => {
+        //   if (regPage === false) {
+        //     const aboutUsSection = document.getElementById("about-us-section");
+        //     if (aboutUsSection && !tl1.reversed()) {
+        //       aboutUsSection.style.zIndex = 2;
+        //     } else if (aboutUsSection && tl1.reversed()) {
+        //       aboutUsSection.style.zIndex = 0;
+        //     }
+        //   }
+        //   // setActiveSection(0);
+        // })
         .to(`.${styles["landing"]}`, {
           opacity: 0,
           ease: "none",
@@ -362,30 +449,58 @@ const IndexPage = () => {
           ease: "none",
           // position: "absolute",
           // top: "100vh",
-        });
+        })
+        .call(() => {
+          // setActiveSection(1);
+        })
+        .addLabel("end");
 
       let tl2 = gsap.timeline({
         scrollTrigger: {
           trigger: "#about-us-section",
-          start: `${window.innerHeight} top`,
+          start: `${window.innerHeight * 3} top`,
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           // markers: {
           //   startColor: "white",
           //   endColor: "white",
           // },
-          scrub: true,
+          onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+            
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight * 2}`,
+            //   duration: 2.5,
+            // });
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+
+            // !isActive &&
+            // gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
+          },
+          scrub: 0.3,
           // yoyo: true,
           snap: {
             snapTo: 1,
-            duration: 2,
-            ease: "none",
+            duration: {min: 0.2, max: 2},
+            ease: "slow(0.7, 0.7, true)",
+            delay: 0,
           },
         },
       });
 
       tl2
+        .addLabel("start")
+        // .call(() => setActiveSection(1))
         .to(`.${about["topContainer"]}`, {
           y: "100%",
           ease: "none",
@@ -408,7 +523,7 @@ const IndexPage = () => {
         .from("#events-section", {
           x: "220%",
           y: "60%",
-          ease: "slow(0.7, 0.7, false)",
+          ease: "slow(0.9, 0.7, false)",
           // duration : 2,
         })
         .from(
@@ -419,32 +534,67 @@ const IndexPage = () => {
             // duration : 2,
           },
           "<"
-        );
+        )
+        // .call(() => setActiveSection(2))
+        .addLabel("end");
+      // .from("#events-heading", {
+      //   opacity:0,
+      //   ease : "none",
+
+      // })
 
       let tl3 = gsap.timeline({
         scrollTrigger: {
           // trigger: "#events-section",
-          start: `${window.innerHeight * 2} top`,
+          start: `${window.innerHeight * 6} top`,
           // endTrigger: ".fixed-bg-blue",
-          end: `+=${window.innerHeight}`,
+          end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
           // markers: {
           //   startColor: "white",
           //   endColor: "white",
           // },
-          scrub: true,
-          // yoyo: true,
+          onEnter: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+
+            // !isActive &&
+            // gsap.to(window, {
+            //   scrollTo: `${window.innerHeight * 3}`,
+            //   duration: 2,
+            // });
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onLeave: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "scroll";
+          },
+          onEnterBack: ({ progress, direction, isActive }) => {
+            // document.documentElement.style.overflow = "hidden";
+
+            // !isActive &&
+            // gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
+            
+            // window.scrollTo({
+            //   top: `${window.innerHeight * 2}`,
+            //   behavior: "smooth",
+            // });
+          },
+          scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1.5,
+            duration: 1,
             ease: "power1.out",
           },
         },
       });
 
       tl3
+        .addLabel("start")
+        // .call(() => setActiveSection(2))
         .to(`#events-section`, {
           y: "-100%",
+          opacity: 0,
           ease: "none",
           // duration: 1,
         })
@@ -475,7 +625,67 @@ const IndexPage = () => {
             // duration: 1,
           },
           "<"
-        );
+        )
+        // .call(() => setActiveSection(3))
+        .addLabel("end");
+
+      // const tlSections = [tl1, tl2, tl3];
+      // tl1.pause();
+      // tl2.pause();
+      // tl3.pause();
+
+      ScrollTrigger.observe({
+        target: window, // can be any element (selector text is fine)
+        type: "wheel,touch",
+        scrollSpeed: 0.2,
+        wheelSpeed: 0.2,
+        onUp: (self) => {
+          // if (activeSection === 0) {
+          //   return;
+          // } else if (activeSection === 1) {
+          //   if (!tl1.isActive() && !tl2.isActive()) {
+          //       tl1.progress(1)
+          //       tl1.reverse()
+          //   }
+          // } else if (activeSection === 2) {
+          //   if (!tl2.isActive() && !tl3.isActive()) {
+          //     tl2.progress(1)
+          //       tl2.reverse()
+          //   }
+          // } else if (activeSection === 3) {
+          //   if (!tl3.isActive()) {
+          //     tl3.progress(1)
+          //     tl3.reverse();
+          //   }
+          // }
+          // setActiveSection((prev) => --prev);
+        },
+        onDown: (self) => {
+          // console.log(tl1.isActive(), tl2.isActive(), tl3.isActive());
+          // console.log(self);
+          // console.log(activeSection);
+          //     if (activeSection === 0) {
+          //       if (!tl1.isActive()) {
+          //         tl1.play();
+          //         // setActiveSection(1);
+          //       }
+          //     } else if (activeSection === 1) {
+          //       if (!tl1.isActive() && !tl2.isActive()) {
+          //         // console.log("play")
+          //         tl2.play();
+          //         // setActiveSection(2);
+          //       }
+          //     } else if (activeSection === 2) {
+          //       if (!tl2.isActive() && !tl3.isActive()) {
+          //         tl3.play();
+          //         // setActiveSection(3);
+          //       }
+          //     } else if (activeSection === 3) {
+          //       return;
+          //     }
+          //   },
+        },
+      });
     }
 
     document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -570,124 +780,14 @@ const IndexPage = () => {
       const handleScroll = () => {
         const position = window.scrollY;
         cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        const visibleHeight = window.innerHeight * 1;
 
-        const containerMargin = position + 100;
-
-        //     if(landingSection){
-        //       landingSection.style.position = "fixed";
-        //     }
-
-        //     if (rightLion[0] && statue && leftLion[0] && countDown) {
-        //       if (position >= visibleHeight - 50) {
-        //         rightLion[0].style.opacity = 0;
-        //         leftLion[0].style.opacity = 0;
-        //         countDown[0].style.opacity = 0;
-        //         rightSubTitle[0].style.opacity = 0;
-        //         leftSubtitle[0].style.opacity = 0;
-        //         heading[0].style.opacity = 0;
-        //         socials[0].style.opacity = 0;
-        //         statue.style.opacity = 0;
-        //         register.style.opacity = 0;
-        //         hamMenu.style.opacity = 0;
-        //         bosmLogo.style.opacity = 0;
-        //       }
-        //       else {
-        //         rightLion[0].style.opacity = 1;
-        //         leftLion[0].style.opacity = 1;
-        //         countDown[0].style.opacity = 1;
-        //         rightSubTitle[0].style.opacity = 1;
-        //         leftSubtitle[0].style.opacity = 1;
-        //         heading[0].style.opacity = 1;
-        //         socials[0].style.opacity = 1;
-        //         statue.style.opacity = 1;
-        //         register.style.opacity = 1;
-        //         hamMenu.style.opacity = 1;
-        //         bosmLogo.style.opacity = 1;
-        //       }
-        //     }
-
-        //     if (aboutContainer[0] && aboutSection) {
-        //       if (position <= visibleHeight - 1) {
-        //         aboutSection.style.opacity = 0;
-        //         eventsSection.style.opacity = 0;
-        //         contactSection.style.opacity = 0;
-        //         aboutSection.style.zIndex = 0;
-        //         aboutContainer[0].style.marginTop = `${containerMargin}px`;
-        //         aboutHeading[0].style.opacity = 0;
-        //         aboutCarousel[0].style.opacity = 0;
-        //         aboutContent[0].style.opacity = 0;
-        //       }
-        //       else {
-        //         aboutSection.style.opacity = 1;
-        //         eventsSection.style.opacity = 1;
-        //         contactSection.style.opacity = 1;
-        //         aboutSection.style.zIndex = 2;
-        //         aboutHeading[0].style.opacity = 1;
-        //         aboutCarousel[0].style.opacity = 1;
-        //         aboutContent[0].style.opacity = 1;
-        //       }
-        //     }
-        //   };
-        //   window.addEventListener("scroll", handleScroll, { passive: true });
-        // }
-        // if (window.innerWidth <= 920) {
-
-        //   const handleScroll = () => {
-        //     if (statue) {
-        //       const position = window.scrollY;
-        //       const statueHeight = 60 + position / 20;
-        //       const contactRadius = 150 - position / 5;
-        //       const blur = position / 50;
-
-        //       cursorImg.style.transform = `rotate(${position / 5}deg)`;
-        //       statueMobile.style.height = `${statueHeight}%`;
-
-        //       if (fixedBG[0]) {
-        //         if (position > 100) {
-        //           fixedBG[0].style.filter = `blur(${blur}px)`;
-        //           fixedBG[0].style.transform = "scale(1.1)";
-        //           rightLion[0].style.filter = `blur(${blur}px)`;
-        //           leftLion[0].style.filter = `blur(${blur}px)`;
-        //           countDown[0].style.filter = `blur(${blur}px)`;
-        //           rightSubTitle[0].style.filter = `blur(${blur}px)`;
-        //           leftSubtitle[0].style.filter = `blur(${blur}px)`;
-        //           heading[0].style.filter = `blur(${blur}px)`;
-        //           socials[0].style.filter = `blur(${blur}px)`;
-        //           statueMobile.style.filter = `blur(${blur}px)`;
-        //           // statue.style.filter = `blur(${blur}px)`;
-        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
-        //         } else {
-        //           fixedBG[0].style.filter = "blur(0)";
-        //           fixedBG[0].style.transform = "scale(1)";
-        //           rightLion[0].style.filter = "blur(0)";
-        //           leftLion[0].style.filter = "blur(0)";
-        //           countDown[0].style.filter = "blur(0)";
-        //           leftSubtitle[0].style.filter = "blur(0)";
-        //           rightSubTitle[0].style.filter = "blur(0)";
-        //           heading[0].style.filter = "blur(0)";
-        //           statueMobile.style.filter = "blur(0)";
-        //           statue.style.filter = "blur(0)";
-        //           socials[0].style.filter = "blur(0)";
-        //           registerBtnMobile.style.filter = `blur(${blur}px)`;
-        //         }
-        //       }
-
-        //       if (position <= window.innerHeight) {
-        //         statueContainer.style.position = "fixed";
-        //       } else {
-        //         statueContainer.style.position = "absolute";
-        //       }
-        //     }
-        //   };
-        //   window.addEventListener("scroll", handleScroll, { passive: true });
-        // }
         return () => {
           window.onpointermove = null;
           window.scrollTo(0, 0);
         };
       };
       window.addEventListener("scroll", handleScroll, { passive: true });
+      window.scrollTo(0, 0);
     }
   }, [regPage, showBlackScreen, showBlackScreen2]);
 
@@ -706,20 +806,19 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
-    const cursorFollowerDrag = document.getElementById("cursorFollowerDrag");
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
       eventCarousel.addEventListener("mouseout", handleMouseOut);
     }
 
-    return () => {
-      if (eventCarousel) {
-        eventCarousel.removeEventListener("mouseover", handleMouseOver);
-        eventCarousel.removeEventListener("mouseout", handleMouseOut);
-      }
-    };
-  }, [regPage]);
+    // return () => {
+    //   if (eventCarousel) {
+    //     eventCarousel.removeEventListener("mouseover", handleMouseOver);
+    //     eventCarousel.removeEventListener("mouseout", handleMouseOut);
+    //   }
+    // };
+  }, [regPage, showBlackScreen, showBlackScreen2]);
 
   const statueVariants = {
     hidden: {
@@ -967,6 +1066,37 @@ const IndexPage = () => {
   const handleStatueImageDrag = (event) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    if (cossacCards) {
+      gsap.to(`.${contact["cardsContainer1"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["pageBackground"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["cardsContainer2"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+    } else {
+      gsap.to(`.${contact["cardsContainer2"]}`, {
+        opacity: 1,
+        duration: 1,
+      });
+      gsap.to(`.${contact["pageBackground"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+      gsap.to(`.${contact["cardsContainer1"]}`, {
+        opacity: 0,
+        duration: 1,
+      });
+    }
+  }, [cossacCards, isLoading]);
+
   const handleOrganizingCardsBtnClick = () => {
     setCossacCards(true);
     setCossacSwitchBtn(true);
@@ -985,7 +1115,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (!regPage) {
-      document.body.style.height = "400vh";
+      document.body.style.height = "1000vh";
     } else {
       document.body.style.height = "fit-content";
     }

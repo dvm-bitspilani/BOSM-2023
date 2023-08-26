@@ -46,7 +46,7 @@ body {
   position: relative;
   overflow-x: hidden;
   /* overscroll-behavior: none; */
-  height: 400vh;
+  height: 1200vh;
 }
 a{
   text-decoration: none;
@@ -57,6 +57,7 @@ a{
   overflow-y: hidden;
 }
 #about-us-section{
+  min-height: 100vh;
   height: auto;
   z-index: 0;
   opacity: 0;
