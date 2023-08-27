@@ -23,6 +23,7 @@ import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
 import Boy from "../images/boy.png";
 // import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 
+import { SEO } from "../Components/SEO"
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
@@ -1535,5 +1536,6 @@ export const Head = () => (
   <>
     <title>BOSM '23 | The Roar of Resilience</title>
     <link rel="icon" type="image/x-icon" href={logo} />
+    <SEO />
   </>
 );
