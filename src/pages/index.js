@@ -1483,7 +1483,7 @@ const IndexPage = () => {
                               }
                         }
                       >
-                        Contacts
+                        CoSSAC
                       </div>
                       <div
                         className={contact["cossacBtn"]}
