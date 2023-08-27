@@ -71,3 +71,8 @@
         font-size: 1rem;
     }
 }
+@media (max-width:500px){
+    .error img{
+        scale: .7;
+    }
+}
