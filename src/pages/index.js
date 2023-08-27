@@ -38,7 +38,7 @@ import Shirish from "../Components/ContactsData/ContactImages/shirish.jpg";
 import shivang from "../Components/ContactsData/ContactImages/shivang.jpg";
 import yashwasin from "../Components/ContactsData/ContactImages/yashwasin.jpg";
 import sriram from "../Components/ContactsData/ContactImages/sriram.jpg";
-
+import Vinayak from "../Components/ContactsData/ContactImages/Vinayak.jpg";
 
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -152,7 +152,7 @@ const IndexPage = () => {
     },
     {
       name: "Vinayak Bhattacharya",
-      image: `${Boy}`,
+      image: `${Vinayak}`,
       department: "Sports Financial Committee",
       phone: "",
       email: "sfc@pilani.bits-pilani.ac.in",
