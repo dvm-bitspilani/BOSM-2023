@@ -1436,7 +1436,7 @@ const IndexPage = () => {
                                     }
                               }
                             >
-                              CoSSAC
+                              Contact
                             </div>
                             <div
                               className={contact["cossacBtn"]}
@@ -1483,7 +1483,7 @@ const IndexPage = () => {
                               }
                         }
                       >
-                        CoSSAC
+                        Contact
                       </div>
                       <div
                         className={contact["cossacBtn"]}
