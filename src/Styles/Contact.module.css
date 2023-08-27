@@ -105,7 +105,7 @@
 .profileImg {
   height: 17vh;
   width: 14vh;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 1vh;
@@ -183,7 +183,6 @@
 .row {
   display: flex;
   width: 100%;
-  align-items: top;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
@@ -321,9 +320,9 @@
 }
 
 
-.cardsContainer1 {
+/* .cardsContainer1 {
   padding-top: vh;
-}
+} */
 
 @media (max-width: 650px) {
   .cardsContainer1,
@@ -343,7 +342,7 @@
     column-gap: 10vw;
   }
   .profileContainer:nth-child(9) {
-    grid-column: span 1.5;
+    /* grid-column: span 1.5; */
     align-self: center;
     margin: auto;
   }

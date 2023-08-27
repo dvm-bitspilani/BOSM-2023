@@ -127,7 +127,7 @@ main {
   padding-inline: 2rem;
   bottom: 0;
   display: flex;
-  justify-content: bottom;
+  /* justify-content: bottom; */
 }
 
 /* .countdown{
