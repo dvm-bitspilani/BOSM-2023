@@ -276,6 +276,7 @@ const Ignition = (props) => {
           </div>
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
+              <a href="https://supercell.com/en/games/clashroyale/" target="_blank" rel="noopener noreferrer">
               <div className={classes.gameGroup}>
                 <div className={`${classes.game} ${classes.cr}`}>
                   <div className={classes.arrowContainer}>
@@ -284,6 +285,8 @@ const Ignition = (props) => {
                 </div>
                 <p>Clash Royale</p>
               </div>
+                </a>
+                <a href="https://play.fifa.com/" target="_blank" rel="noopener noreferrer">
               <div
                 className={`${classes.gameGroup} ${classes.secondGameGroup}`}
               >
@@ -298,6 +301,8 @@ const Ignition = (props) => {
                   {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
                 </p>
               </div>
+              </a>
+              <a href="https://www.battlegroundsmobileindia.com/" target="_blank" rel="noopener noreferrer">
               <div className={classes.gameGroup}>
                 <div className={`${classes.game} ${classes.bgmi}`}>
                   <div className={classes.arrowContainer}>
@@ -314,8 +319,10 @@ const Ignition = (props) => {
                     : ""}
                 </p>
               </div>
+            </a>
             </div>
             <div className={classes.divContainer}>
+            <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">
               <div
                 className={`${classes.gameGroup} ${classes.secondGameGroup}`}
               >
@@ -330,6 +337,8 @@ const Ignition = (props) => {
                   {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
                 </p>
               </div>
+              </a>
+              <a href="https://playkey.net/en/game/tekken7" target="_blank" rel="noopener noreferrer">
               <div className={`${classes.gameGroup}`}>
                 <div className={`${classes.game} ${classes.tekken}`}>
                   <div className={classes.arrowContainer}>
@@ -341,6 +350,8 @@ const Ignition = (props) => {
                   Tekken 7{isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
                 </p>
               </div>
+              </a>
+              <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
               <div
                 className={`${classes.gameGroup} ${classes.secondGameGroup}`}
               >
@@ -354,6 +365,7 @@ const Ignition = (props) => {
                   Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
                 </p>
               </div>
+              </a>
             </div>
           </div>
           <div className={classes.nextBtn} id="nextBtn">
