@@ -303,6 +303,10 @@ color: white;
   bottom: 13%;
   position: absolute;
   transform: translateX(-50%) rotate(-90deg) !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .MuiCircularProgress-root::after{

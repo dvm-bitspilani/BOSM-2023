@@ -813,13 +813,13 @@ const IndexPage = () => {
       eventCarousel.addEventListener("mouseout", handleMouseOut);
     }
 
-    // return () => {
-    //   if (eventCarousel) {
-    //     eventCarousel.removeEventListener("mouseover", handleMouseOver);
-    //     eventCarousel.removeEventListener("mouseout", handleMouseOut);
-    //   }
-    // };
-  }, [regPage, showBlackScreen, showBlackScreen2]);
+    return () => {
+      if (eventCarousel) {
+        eventCarousel.removeEventListener("mouseover", handleMouseOver);
+        eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      }
+    };
+  }, [regPage, showBlackScreen, showBlackScreen2, isLoaded]);
 
   const statueVariants = {
     hidden: {

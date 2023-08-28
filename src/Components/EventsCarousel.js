@@ -61,7 +61,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
 
     observer.observe(document.querySelector(".swiper"));

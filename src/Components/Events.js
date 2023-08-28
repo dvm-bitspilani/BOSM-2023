@@ -61,8 +61,10 @@ const Events = (props) => {
         thickness={2}
         value={progress}
         // sx={{ position: "absolute", bottom: "10%", left: "50%" , transform : "translateX(-50%)"}}
-      />
+      >
+      </CircularProgress>
       <img src={allImages[index]} alt="icon" className={events.icon} />
+
     </section>
   );
 };
