@@ -1038,7 +1038,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
             <Select options={collegeOptions} onChange={(selectedOption) => handleChange(selectedOption, { id: 'college_id' })} styles={customStyles3} />
 
             <label htmlFor='state'>State</label>
-            <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} noOptionsMessage={customNoOptionsMessage2} />
+            <Select  value={selectedState} options={stateOptions} onChange={(selectedOption) => {handleStateChange(selectedOption); handleChange(selectedOption, { id: 'state' })}} styles={customStyles} noOptionsMessage={customNoOptionsMessage3} />
 
             <label htmlFor='city'>City</label>
             <CreatableSelect  value={selectedCity} options={cities} onChange={(selectedOption) => handleCityChange(selectedOption, { id: 'city' })} styles={customStyles2} noOptionsMessage={customNoOptionsMessage2} isClearable isSearchable />
