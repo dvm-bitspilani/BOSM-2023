@@ -122,21 +122,25 @@
   position: absolute;
   top: 10vh;
   right: 20vw;
+  scale: .8;
 }
 .starTop {
   position: absolute;
   top: 30vh;
   right: 52vw;
+  scale: .8;
 }
 .starMiddle {
   position: absolute;
   top: 45vh;
   right: 65vw;
+  scale: .8;
 }
 .starBottom {
   position: absolute;
   top: 60vh;
   right: 52vw;
+  scale: .8;
 }
 .waves {
   position: absolute;
@@ -173,4 +177,52 @@
   to {
     transform: translateX(0);
   }
+}
+@media(min-width: 1700px){
+    .texture{
+        scale: 1.2;
+    }
+}
+@media(max-width: 1300px){
+    .benny{
+        transform: scale(.7) translateX(25%) translateY(25%);
+    }
+    .marquee1, .marquee2{
+        font-size: 17rem;
+        line-height: 17rem;
+    }
+    .headingText{
+        font-size: 4.5rem;
+    }
+    .contentTop{
+        font-size: 3.5rem;
+    }
+    .contentBottom{
+        font-size: 1.55rem;
+    }
+    .starBottom, .starMiddle, .starRight, .starTop{
+        scale: .75;
+    }
+    .cross{
+        left: 1.5rem;
+    }
+    .waves{
+        transform: scale(.8) translateY(20%);
+    }
+}
+@media(max-width: 1300px){
+    .starBottom, .starMiddle, .starRight, .starTop{
+        scale: .6;
+        transform: translateX(50%);
+    }
+}
+@media(max-height: 750px){
+    .benny{
+        transform: scale(.65) translateX(25%) translateY(30%);
+    }
+    .cross{
+        bottom: 30vh;
+    }
+}
+@media(max-height: 750px){
 }

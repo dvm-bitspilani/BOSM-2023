@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import * as prof from '../Styles/ProfShow.module.css'
+import React, { useEffect } from 'react';
+import * as prof from '../Styles/ProfShow.module.css';
 import Logo from "../images/whiteLogo.svg";
-import ArrowsRight from "../images/ArrowsRight.svg"
-import ArrowsLeft from "../images/ArrowsLeft.svg"
-import Benny from "../images/benny.png"
-import stars from "../images/stars.svg"
-import Waves from "../images/Waves.svg"
-import Cross from "../images/Cross.svg"
-import texture from "../images/profTexture.png"
+import ArrowsRight from "../images/ArrowsRight.svg";
+import ArrowsLeft from "../images/ArrowsLeft.svg";
+import Benny from "../images/benny.png";
+import stars from "../images/stars.svg";
+import Waves from "../images/Waves.svg";
+import Cross from "../images/Cross.svg";
+import texture from "../images/profTexture.png";
 
 const ProfShow = () => {
     return (
