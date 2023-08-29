@@ -6,7 +6,7 @@ import ArrowsLeft from "../images/ArrowsLeft.svg";
 import Benny from "../images/benny.png";
 import stars from "../images/stars.svg";
 import Waves from "../images/Waves.svg";
-import Cross from "../images/Cross.svg";
+import Cross from "../images/cross.svg";
 import texture from "../images/profTexture.png";
 
 const ProfShow = () => {
