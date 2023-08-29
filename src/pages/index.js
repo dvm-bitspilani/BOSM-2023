@@ -1,11 +1,15 @@
 import * as React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
+
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
+import N2O from "../Components/N2O";
+
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
 import * as about from "../Styles/About.module.css";
 import * as navbar from "../Styles/Navbar.module.css";
+
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
@@ -81,7 +85,7 @@ const IndexPage = () => {
     {
       name: "Shivang Rai",
       image: `${shivang}`,
-      department: "Online Registrations",
+      department: "Websites and Payments",
       phone: "+91-9718863691",
       email: "raishivang03@gmail.com",
     },
@@ -165,6 +169,13 @@ const IndexPage = () => {
       phone: "",
       email: "sfc@pilani.bits-pilani.ac.in",
     },
+    {
+      name: "Shivang Rai",
+      image: `${shivang}`,
+      department: "Websites and Payments",
+      phone: "+91-9718863691",
+      email: "raishivang03@gmail.com",
+    },
   ];
 
   const Card1Row1 = ContactsData1.map((contact, index) => {
@@ -236,7 +247,7 @@ const IndexPage = () => {
   }).slice(4, 8);
 
   const Card2Row3 = ContactsData2.map((contact, index) => {
-    if (index >= 8 && index < 11) {
+    if (index >= 8 && index < 12) {
       return (
         <ContactProfile
           cossacSwitchBtn={cossacSwitchBtn}
@@ -250,7 +261,7 @@ const IndexPage = () => {
       );
     }
     return null;
-  }).slice(8, 11);
+  }).slice(8, 12);
 
   const ContactsCards1 = (
     <div
@@ -813,13 +824,13 @@ const IndexPage = () => {
       eventCarousel.addEventListener("mouseout", handleMouseOut);
     }
 
-    // return () => {
-    //   if (eventCarousel) {
-    //     eventCarousel.removeEventListener("mouseover", handleMouseOver);
-    //     eventCarousel.removeEventListener("mouseout", handleMouseOut);
-    //   }
-    // };
-  }, [regPage, showBlackScreen, showBlackScreen2]);
+    return () => {
+      if (eventCarousel) {
+        eventCarousel.removeEventListener("mouseover", handleMouseOver);
+        eventCarousel.removeEventListener("mouseout", handleMouseOut);
+      }
+    };
+  }, [regPage, showBlackScreen, showBlackScreen2, isLoaded]);
 
   const statueVariants = {
     hidden: {
@@ -1331,6 +1342,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+
         {!regPage && !isLoading && (
           <Layout
             overflow={false}
@@ -1352,6 +1365,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1373,6 +1388,30 @@ const IndexPage = () => {
             }
           />
         )}
+
+        {!regPage && !isLoading && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="N2O-section"
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
+            content={
+              <>
+                <N2O />
+              </>
+            }
+          />
+        )}
+
+        {/* Contact Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={false}

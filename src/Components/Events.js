@@ -54,15 +54,22 @@ const Events = (props) => {
         EVENTS
       </h3>
       <EventsCarousel setProgress={setProgress} setIndex={setIndex} />
-      <CircularProgress
-        color="inherit"
-        variant="determinate"
-        size={"5rem"}
-        thickness={2}
-        value={progress}
-        // sx={{ position: "absolute", bottom: "10%", left: "50%" , transform : "translateX(-50%)"}}
-      />
-      <img src={allImages[index]} alt="icon" className={events.icon} />
+      <div className={events.bottom}>
+        <div className={events.progress}>
+          <CircularProgress
+            color="inherit"
+            variant="determinate"
+            size={"5rem"}
+            thickness={2}
+            value={progress}
+            // sx={{ position: "absolute", bottom: "10%", left: "50%" , transform : "translateX(-50%)"}}
+          ></CircularProgress>
+          <img src={allImages[index]} alt="icon" className={events.icon} />
+        </div>
+        <div className={events.guidelines}>
+          <span>Guidelines</span>
+        </div>
+      </div>
     </section>
   );
 };

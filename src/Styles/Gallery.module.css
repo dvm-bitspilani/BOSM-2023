@@ -85,10 +85,10 @@
     width: 300vw;
     height: 60vh;
     display: grid;
-    grid-template-columns:
+    /* grid-template-columns:
         1.7fr, 1.4fr, 1.7fr, 2.3fr, 0.9fr, 1.3fr,
         1.7fr, 1.4fr, 1.7fr, 2.3fr, 0.9fr, 1.3fr,
-        1.7fr, 1.4fr, 1.7fr, 2.3fr, 0.9fr, 1.3fr;
+        1.7fr, 1.4fr, 1.7fr, 2.3fr, 0.9fr, 1.3fr; */
     grid-template-rows: 1.4fr 0.9fr 0.6fr 1.5fr;
     gap: 1rem;
 }
@@ -253,7 +253,7 @@
 .box26,
 .box27 {
     background-color: transparent;
-    background-repeat: none;
+    /* background-repeat: none; */
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -266,7 +266,7 @@
     object-fit: cover;
     object-position: center;
     overflow: hidden;
-    transform: all 0.5s ease-out;
+    /* transition: all 0.5s ease-out; */
     object-fit: cover;
 }
 
