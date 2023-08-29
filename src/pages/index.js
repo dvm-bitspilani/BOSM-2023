@@ -1,11 +1,15 @@
 import * as React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
+
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
+import N2O from "../Components/N2O";
+
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
 import * as about from "../Styles/About.module.css";
 import * as navbar from "../Styles/Navbar.module.css";
+
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
@@ -1331,6 +1335,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+
         {!regPage && !isLoading && (
           <Layout
             overflow={false}
@@ -1352,6 +1358,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1373,6 +1381,30 @@ const IndexPage = () => {
             }
           />
         )}
+
+        {!regPage && !isLoading && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="N2O-section"
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
+            content={
+              <>
+                <N2O />
+              </>
+            }
+          />
+        )}
+
+        {/* Contact Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={false}

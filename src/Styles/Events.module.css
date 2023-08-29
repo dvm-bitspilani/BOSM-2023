@@ -59,7 +59,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .progress{
@@ -107,11 +107,13 @@
   background-color: transparent;
   border: 0.5px solid #eeeeee;
   border-radius: 2rem;
+  /* transform: none; */
   transition: transform 0.2s ease-in-out;
 }
 
 .guidelines:hover{
   transform: scaleX(1.05);
+  /* background-color: #000; */
 }
 
 .guidelines:hover::after{
@@ -131,3 +133,22 @@
     font-size: 3rem;
   }
 }
+
+@media screen and (max-height: 880px) {
+  .bottom{
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  .bottom{
+    gap: 1.5rem;
+  }
+}
+  
+@media screen and (max-height: 580px) {
+  .bottom{
+    gap: 1rem;
+  }
+}
+  
