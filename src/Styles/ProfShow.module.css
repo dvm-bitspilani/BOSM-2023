@@ -1,0 +1,176 @@
+.profShowPage {
+  height: 100%;
+  width: 100%;
+  background: #171717;
+  overflow: hidden;
+}
+.texture {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+.marqueeBG {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  z-index: 1;
+}
+.marquee1 {
+  animation: infiniteright 20s linear infinite;
+  background-color: #181716;
+  color: #ffff;
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: clamp(8rem, 22vw, 8rem);
+  color: rgba(196, 196, 196, 0.1);
+  font-family: "Druk Wide Bold";
+  font-size: 20rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20rem;
+  display: block;
+}
+.marquee2 {
+  animation: infiniteright 20s linear infinite reverse;
+  background-color: #181716;
+  color: #ffff;
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: clamp(8rem, 22vw, 8rem);
+  color: rgba(196, 196, 196, 0.1);
+  font-family: "Druk Wide Bold";
+  font-size: 20rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20rem;
+  display: block;
+}
+
+.heading {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem 0 2rem;
+}
+.headingText {
+  color: #c1bfbf;
+  font-family: "Druk Wide Bold";
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+.headingLogo {
+  scale: 0.9;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1.5rem;
+  padding: 0;
+  /* position: absolute;
+  top: 2rem; */
+}
+.contentRight img {
+  margin-bottom: 1rem;
+}
+.para {
+  color: #c1bfbf;
+  font-family: "Druk Wide Bold";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #c1bfbf;
+  font-family: "Druk Wide Bold";
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+.contentTop {
+  font-size: 4rem;
+}
+.contentBottom {
+  margin-top: -1rem;
+  display: flex;
+  font-size: 1.75rem;
+}
+.contentBottom img {
+  scale: 0.75;
+}
+.benny {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: scale(0.85) translateX(10%) translateY(12%);
+}
+.starRight {
+  position: absolute;
+  top: 10vh;
+  right: 20vw;
+}
+.starTop {
+  position: absolute;
+  top: 30vh;
+  right: 52vw;
+}
+.starMiddle {
+  position: absolute;
+  top: 45vh;
+  right: 65vw;
+}
+.starBottom {
+  position: absolute;
+  top: 60vh;
+  right: 52vw;
+}
+.waves {
+  position: absolute;
+  bottom: 0;
+}
+.cross {
+  position: absolute;
+  left: 1rem;
+  bottom: 35vh;
+}
+.cross img {
+  scale: 0.8;
+}
+.crossContent {
+  display: flex;
+  align-items: center;
+}
+.crossContent img {
+  scale: 0.8;
+}
+.bollywood {
+  color: #c1bfbf;
+  font-family: "Druk Wide Bold";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+@keyframes infiniteright {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

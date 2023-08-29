@@ -4,6 +4,7 @@ import { useState, useEffect, useLayoutEffect } from "react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import N2O from "../Components/N2O";
+import ProfShow from "../Components/ProfShow";
 
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
@@ -697,51 +698,13 @@ const IndexPage = () => {
   }, [regPage, isLoading]);
 
   useEffect(() => {
-    const landingSection = document.getElementById("landing-section");
-    const aboutSection = document.getElementById("about-us-section");
-    const eventsSection = document.getElementById("events-section");
-    const contactSection = document.getElementById("contact-section");
 
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
     const cursorCircleDrag = document.getElementById("cursorFollowerDrag");
     const cursorImg = document.getElementById("cursorImg");
-    const statueContainer = document.getElementById("statueContainer");
-    const statue = document.getElementById("statue");
-    const statueMobile = document.getElementById("statueMobile");
-    // const contactPage = document.getElementById("contactPage");
     const frontStatue = document.getElementById("frontStatue");
     const backStatue = document.getElementById("backStatue");
-    // const backStatueMobile = document.getElementById("backStatueMobile");
-    // const contactContent = document.getElementById("contactContent");
-    const fixedBG = document.getElementsByClassName("fixed-bg");
-    const rightLion = document.getElementsByClassName(styles["rightLion"]);
-    const leftLion = document.getElementsByClassName(styles["leftLion"]);
-    const countDown = document.getElementsByClassName(styles["countDown"]);
-    const socials = document.getElementsByClassName(styles["socialsContainer"]);
-    const rightSubTitle = document.getElementsByClassName(
-      styles["rightSubTitle"]
-    );
-    const leftSubtitle = document.getElementsByClassName(
-      styles["leftSubTitle"]
-    );
-    const heading = document.getElementsByClassName(styles["heading"]);
-    const registerBtnMobile = document.getElementById("regBtnMobile");
-
-    const hamMenu = document.getElementById("ham-menu");
-    const register = document.getElementById("register-btn");
-    const bosmLogo = document.getElementById("bosm-logo");
-
-    const aboutContainer = document.getElementsByClassName(
-      about["topContainer"]
-    );
-    const aboutHeading = document.getElementsByClassName(about["heading"]);
-    const aboutCarousel = document.getElementsByClassName(
-      about["carouselContainer"]
-    );
-    const aboutContent = document.getElementsByClassName(
-      about["contentContainer"]
-    );
 
     if (backStatue) {
       backStatue.addEventListener("dragstart", (event) => {
@@ -811,6 +774,7 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
+    console.log(eventCarousel)
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
@@ -1399,6 +1363,27 @@ const IndexPage = () => {
             content={
               <>
                 <N2O />
+              </>
+            }
+          />
+        )}
+        {!regPage && !isLoading && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="prof-section"
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
+            content={
+              <>
+                <ProfShow />
               </>
             }
           />
