@@ -96,7 +96,10 @@ a{
   position: fixed;
   top: 100vh;
 }
-
+#prof-section{
+  position: absolute;
+  z-index: -1;
+}
 .fixed-bg {
   position: fixed;
   top: 0;
@@ -314,12 +317,7 @@ a{
 color: white;
 }
 
-.MuiCircularProgress-root{
-  /* left: 50%; */
-  /* bottom: 13%; */
-  /* position: absolute; */
-  /* transform: translateX(-50%) rotate(-90deg) !important; */
-}
+
 
 .MuiCircularProgress-root::after{
   content: "";
