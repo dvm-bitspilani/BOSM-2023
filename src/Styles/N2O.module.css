@@ -14,7 +14,7 @@
       330px,
       2.9fr
     )
-    380px;
+    39vh;
   grid-template-rows: 1.5fr 370px 5fr;
 
   overflow: hidden;
@@ -52,7 +52,7 @@
   /* overflow: hidden; */
   width: 100%;
 }
-.bosmSmall {
+.bosmSmall , .bosmSmall2 {
   /* grid-row: 1/4;
     grid-column: auto; */
 
@@ -129,7 +129,8 @@
 
 .large {
   position: absolute;
-  font-size: 12rem;
+  /* font-size: 12rem; */
+  font-size: 20vh !important;
   transform: rotateZ(-90deg);
   /* right: 0; */
 }
@@ -186,7 +187,7 @@
   bottom: 0;
 }
 
-.n2oText {
+.n2oText, .n2oTextMobile {
   font-family: N2O;
   color: #165360;
   font-weight: 400;
@@ -195,7 +196,7 @@
 }
 
 .rahulText,
-.sorabhText {
+.sorabhText, .rahulTextMobile {
   color: #165360;
   font-weight: 400;
   line-height: 1;
@@ -244,6 +245,19 @@
   line-height: 0.8;
   font-family: N2O;
 }
+
+.bosmSmall2{
+    display: none;
+}
+
+.rahulTextMobile{
+    display: none;
+}
+
+.n2oTextMobile{
+    display: none;
+}
+
 @media(max-width: 1375px){
     .n2oText{
         font-size: 11.5rem;
@@ -264,7 +278,7 @@
         font-size: 11rem;
     }
     .rahulContainer{
-        scale: .9;
+        height: 90%;
     }
 }
 
@@ -307,4 +321,171 @@
     .large{
         font-size: 10rem;
     }
+}
+
+@media screen and (max-width : 1150px) {
+
+    .pageContainer{
+        grid-template-columns: minmax(110px, 160px) minmax(110px, 1fr) minmax(110px, 1fr) 2fr minmax(
+            300px,
+            2.9fr
+          );
+    }
+    .bosmLarge{
+        display: none;
+    }
+
+    .n2oText{
+        font-size: 19vw;
+    }
+    .rahulText{
+        font-size: 7vw;
+    }
+    .sorabhText{
+        font-size: 6.6vw;
+    }
+    .dateNumber{
+        font-size: 20vw;
+    }
+    .dateMonth{
+        font-size: 5vw;
+    }
+    .mid{
+        margin-right: 0;
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width : 977px) and (min-height:789px) {
+    .rahulText{
+        font-size: 6vw;
+    }
+    .sorabhText{
+        font-size: 6vw;
+    }
+}
+
+@media screen and (max-width : 819px) and (min-height:789px) {
+    .n2oText{
+        font-size: 14vw;
+    }
+    .rahulText{
+        font-size: 5vw;
+    }
+    .sorabhText{
+        font-size: 5vw;
+    }
+    .dateNumber{
+        font-size: 18vw;
+    }
+    .dateMonth{
+        font-size: 5.5vw;
+    }
+    .dateLater span:last-child{
+        font-size: 2.5vw;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .pageContainer{
+        grid-template-columns: 110px auto 110px;
+        grid-template-rows: 150px 230px 2.5rem 230px auto;
+    }
+    .bosmMid{
+        display: none;
+    }
+    .bosmSmall{
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+    .small{
+        font-size: 3rem;
+    }
+    .logo{
+        grid-column: 1/3;
+    }
+    .logo img{
+        scale: 0.7;
+    }
+    .rahul{
+        grid-row: 2/3;
+        grid-column: 1/3;
+    }
+    .rahulContainer{
+        height: 100%;
+        scale: 0.9;
+        margin: 0;
+    }
+    .sorabh{
+        grid-row: 4/5;
+        grid-column: 2/4;
+    }
+    .sorabhContainer{
+        height: 100%;
+        scale: 0.9;
+        margin: 0;
+    }
+    .n2o{
+        display: none;
+    }
+    .date{
+        grid-row: 5/6;
+        grid-column: 1/4;
+    }
+    .sorabhText{
+        display: block;
+        font-size: 2rem;
+        text-align: right;
+    }
+    .dateNumber{
+        /* font-size: 20vh; */
+        font-size: 8rem;
+    }
+    .dateMonth{
+        font-size: 2rem;
+    }
+    .dateLater span:last-child{
+        font-size: 1rem;
+    }
+    .bosmSmall2{
+        display: flex;
+        grid-row: 4/5;
+        grid-column: 1/2;
+    }
+    .rahulTextMobile{
+        display: block;
+        font-size: 2rem;
+        text-align: center;
+
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+    .n2oTextMobile{
+        display: block;
+        font-size: 3rem;
+        text-align: center;
+        align-self: end;
+
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+}
+
+@media screen and (max-width : 410px)  {
+    .pageContainer{
+        grid-template-columns: 110px auto 110px;
+        grid-template-rows: 100px 230px 2.5rem 230px auto;
+    }
+    .n2oText{
+        font-size: 12vw;
+    }
+    /* .dateNumber{
+        font-size: 8rem;
+    }
+    .dateMonth{
+        font-size: 1.8rem;
+    }
+    .dateLater span:last-child{
+        font-size: 1rem;
+    } */
 }

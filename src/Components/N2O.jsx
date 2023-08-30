@@ -49,6 +49,18 @@ export default function N2O() {
           </span>
         </div>
       </div>
+      <div className={styles.bosmSmall2}>
+        <div className={styles.flexTextContainer}>
+          <span className={`${styles.text} ${styles.small}`}>BOSM'23</span>
+        </div>
+        <div className={styles.flexTextContainer}>
+          <span
+            className={`${styles.text} ${styles.small} ${styles.textRotateSmall}`}
+          >
+            BOSM'23
+          </span>
+        </div>
+      </div>
       <div className={styles.n2o}>
         <span className={styles.n2oText}>N2O</span>
         <span className={styles.rahulText}>Rahul Dua</span>
@@ -61,9 +73,7 @@ export default function N2O() {
       <div className={styles.date}>
         <span className={styles.sorabhText}>Sorabh Pant</span>
         <div className={styles.dateContainer}>
-          <span className={styles.dateNumber}>
-            26
-          </span>
+          <span className={styles.dateNumber}>26</span>
           <div className={styles.dateLater}>
             <span className={styles.dateMonth}>Sep</span>
             <span className={styles.dateMonth}>TEM</span>
@@ -72,6 +82,8 @@ export default function N2O() {
           </div>
         </div>
       </div>
+      <div className={styles.rahulTextMobile}>Rahul Dua</div>
+      <div className={styles.n2oTextMobile}>N2O</div>
     </div>
   );
 }
