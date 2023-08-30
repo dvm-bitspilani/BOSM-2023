@@ -88,7 +88,7 @@ a{
 #N2O-section{
   z-index: 10;
   position: fixed;
-  left: 100vw;
+  /* left: 100vw; */
 }
 
 #contact-section{

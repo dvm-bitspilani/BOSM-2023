@@ -481,7 +481,7 @@ const IndexPage = () => {
           // },
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-            
+
             // !isActive &&
             // gsap.to(window, {
             //   scrollTo: `${window.innerHeight * 2}`,
@@ -504,7 +504,7 @@ const IndexPage = () => {
           // yoyo: true,
           snap: {
             snapTo: 1,
-            duration: {min: 0.2, max: 2},
+            duration: { min: 0.2, max: 2 },
             ease: "slow(0.7, 0.7, true)",
             delay: 0,
           },
@@ -587,7 +587,7 @@ const IndexPage = () => {
 
             // !isActive &&
             // gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
-            
+
             // window.scrollTo({
             //   top: `${window.innerHeight * 2}`,
             //   behavior: "smooth",
@@ -1002,7 +1002,7 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll("img", "font", "style" , "iframe");
+      const assets = document.querySelectorAll("img", "font", "style", "iframe");
 
       let assetsLoaded = 0;
 
@@ -1352,28 +1352,6 @@ const IndexPage = () => {
             }
           />
         )}
-
-        {!regPage && !isLoading && (
-          <Layout
-            overflow={true}
-            navbar={false}
-            regPage={regPage}
-            fixedbg={false}
-            sectionId="N2O-section"
-            style={
-              typeof window !== "undefined"
-                ? window.innerWidth > 920
-                  ? { opacity: 0 }
-                  : { opacity: 1 }
-                : ""
-            }
-            content={
-              <>
-                <N2O />
-              </>
-            }
-          />
-        )}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1396,6 +1374,29 @@ const IndexPage = () => {
           />
         )}
 
+        {!regPage && !isLoading && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="N2O-section"
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
+            content={
+              <>
+                <N2O />
+              </>
+            }
+          />
+        )}
+
+
         {/* Contact Section */}
         {!regPage && !isLoading && (
           <Layout
@@ -1415,7 +1416,7 @@ const IndexPage = () => {
               <main
                 id="contactPage"
                 className={contact["page"]}
-                // style={{ top: "30vh" }}
+              // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div
@@ -1453,12 +1454,12 @@ const IndexPage = () => {
                               style={
                                 !cossacSwitchBtn
                                   ? {
-                                      borderBottom:
-                                        "3px solid rgba(255, 255, 255, 0)",
-                                    }
+                                    borderBottom:
+                                      "3px solid rgba(255, 255, 255, 0)",
+                                  }
                                   : {
-                                      borderBottom: "3px solid white",
-                                    }
+                                    borderBottom: "3px solid white",
+                                  }
                               }
                             >
                               Contact
@@ -1469,12 +1470,12 @@ const IndexPage = () => {
                               style={
                                 cossacSwitchBtn
                                   ? {
-                                      borderBottom:
-                                        "3px solid rgba(255, 255, 255, 0)",
-                                    }
+                                    borderBottom:
+                                      "3px solid rgba(255, 255, 255, 0)",
+                                  }
                                   : {
-                                      borderBottom: "3px solid white",
-                                    }
+                                    borderBottom: "3px solid white",
+                                  }
                               }
                             >
                               Organizing Committee
@@ -1483,7 +1484,7 @@ const IndexPage = () => {
                         )}
                       <div
                         className={contact["cardsContainer"]}
-                        style={{ width: cossacSwitchBtn ? typeof window !==undefined && window.innerWidth>900 ?  "45vw" : "90vw" : "90vw" }}
+                        style={{ width: cossacSwitchBtn ? typeof window !== undefined && window.innerWidth > 900 ? "45vw" : "90vw" : "90vw" }}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
@@ -1500,12 +1501,12 @@ const IndexPage = () => {
                         style={
                           !cossacSwitchBtn
                             ? {
-                                borderBottom:
-                                  "3px solid rgba(255, 255, 255, 0)",
-                              }
+                              borderBottom:
+                                "3px solid rgba(255, 255, 255, 0)",
+                            }
                             : {
-                                borderBottom: "3px solid white",
-                              }
+                              borderBottom: "3px solid white",
+                            }
                         }
                       >
                         Contact
@@ -1516,12 +1517,12 @@ const IndexPage = () => {
                         style={
                           cossacSwitchBtn
                             ? {
-                                borderBottom:
-                                  "3px solid rgba(255, 255, 255, 0)",
-                              }
+                              borderBottom:
+                                "3px solid rgba(255, 255, 255, 0)",
+                            }
                             : {
-                                borderBottom: "3px solid white",
-                              }
+                              borderBottom: "3px solid white",
+                            }
                         }
                       >
                         Organizing Committee
