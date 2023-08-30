@@ -4,6 +4,7 @@ import Logo from "../images/whiteLogo.svg";
 import ArrowsRight from "../images/ArrowsRight.svg";
 import ArrowsLeft from "../images/ArrowsLeft.svg";
 import Benny from "../images/benny.png";
+import BennyMobile from "../images/bennydayal.png"
 import stars from "../images/stars.svg";
 import Waves from "../images/Waves.svg";
 import Cross from "../images/cross.svg";
@@ -20,7 +21,7 @@ const ProfShow = () => {
                     <span className={prof["marquee2"]}>DAYALDAYAL</span>
 
                 <div className={prof["heading"]}>
-                    <div className={prof["headingText"]}>BENNY DAYAL
+                    <div className={prof["headingText"]}><span className={prof['headingBenny']}>BENNY</span>DAYAL
                         <div className={prof["content"]}>
                             <div className={prof["contentRight"]}>
                                 <img src={ArrowsRight} alt='loading'></img>
@@ -53,6 +54,9 @@ const ProfShow = () => {
                 </div>
                 <div className={prof['benny']}>
                     <img src={Benny} alt='Benny Dayal'></img>
+                </div>
+                <div className={prof['bennyMobile']}>
+                    <img src={BennyMobile} alt='Benny Dayal'></img>
                 </div>
                 <div className={prof['starRight']}>
                     <img src={stars} alt='stars'></img>
