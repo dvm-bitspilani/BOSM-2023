@@ -8,9 +8,14 @@
 
   display: grid;
   grid-template-columns:
-    minmax(71px, 160px) 1.2fr 1.2fr 2fr minmax(330px, 2.9fr)
+    minmax(110px, 160px) minmax(110px, 1.2fr) minmax(110px, 1.2fr) 2fr minmax(
+      330px,
+      2.9fr
+    )
     380px;
   grid-template-rows: 1.5fr 370px 5fr;
+
+  overflow: hidden;
 }
 
 .logo {
