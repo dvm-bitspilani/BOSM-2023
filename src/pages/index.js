@@ -598,9 +598,10 @@ const IndexPage = () => {
           ease: "none",
         })
         .to("#profshowBall", {
-          width: "100%",
-          height : "100%",
-          borderRadius : "0%",
+          // width: "100%",
+          // height : "100%",
+          // borderRadius : "0%",
+          width: "350%",
           ease: "none",
         })
         .from(`.${profshow["profShowPage"]}`, {
@@ -647,9 +648,10 @@ const IndexPage = () => {
           ease: "none",
         })
         .to("#n2oBall", {
-          width: "100%",
-          height : "100%",
-          borderRadius : "0%",
+          // width: "100%",
+          // height : "100%",
+          // borderRadius : "0%",
+          width: "350%",
           ease: "none",
         })
         .from(`.${n2o["pageContainer"]}`, {
