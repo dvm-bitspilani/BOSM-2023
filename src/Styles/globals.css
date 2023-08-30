@@ -2,6 +2,11 @@
   font-family: "Druk Wide Bold";
   src: url("../fonts/Druk-Wide-Bold.ttf");
 }
+
+@font-face {
+  font-family: "N2O";
+  src: url("../fonts/Gazebo.otf");
+}
 @font-face {
   font-family: "Gilroy-Bold";
   font-style: normal;
@@ -15,6 +20,11 @@
 @font-face {
   font-family: "PressStart2p";
   src: local("PressStart2p"), url(../fonts/PressStart2P-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Ragata";
+  src: url(../fonts/Ragata.ttf);
 }
 * {
   padding: 0;
@@ -76,9 +86,9 @@ a{
 }
 
 #N2O-section{
-  z-index: 1;
+  z-index: 10;
   position: fixed;
-  top: 100vh;
+  /* top: 100vh; */
 }
 
 #contact-section{

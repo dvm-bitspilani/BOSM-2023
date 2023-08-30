@@ -1,0 +1,238 @@
+.pageContainer {
+  height: 100%;
+  width: 100%;
+  background: url("../images/n2o_bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: grid;
+  grid-template-columns:
+    minmax(71px, 160px) 1.2fr 1.2fr 2fr minmax(330px, 2.9fr)
+    380px;
+  grid-template-rows: 1.5fr 370px 5fr;
+}
+
+.logo {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.bosmMid {
+  grid-column: 3/5;
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.rahul {
+  grid-column: auto;
+  grid-row: 1/3;
+
+  display: flex;
+  align-items: end;
+}
+.bosmLarge {
+  grid-row: 1/4;
+  grid-column: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* overflow: hidden; */
+  width: 100%;
+}
+.bosmSmall {
+  /* grid-row: 1/4;
+    grid-column: auto; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.n2o {
+  grid-row: auto;
+  grid-column: 2/5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+}
+.sorabh {
+  grid-row: auto;
+  grid-column: 1/4;
+
+  display: flex;
+  align-items: end;
+}
+.date {
+  grid-row: auto;
+  grid-column: 4/6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.4rem;
+}
+
+.logo img {
+  width: 70px;
+  aspect-ratio: 1/1;
+  margin: 1rem;
+  object-fit: contain;
+}
+
+.text {
+  color: #fdff82;
+  font-family: N2O;
+  display: inline-block;
+}
+
+.mid {
+  font-size: 4rem;
+  line-height: 1;
+  margin-right: 2rem;
+}
+
+.textRotateMid {
+  transform-origin: center;
+  transform: rotateX(180deg);
+}
+
+.flexTextContainer {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: hidden;
+}
+
+.large {
+  position: absolute;
+  font-size: 12rem;
+  transform: rotateZ(-90deg);
+  /* right: 0; */
+}
+
+.textRotateLarge {
+  transform: rotateY(180deg) rotateZ(-90deg);
+}
+
+.small {
+  position: absolute;
+  font-size: 5rem;
+  transform: rotateZ(-90deg);
+}
+
+.textRotateSmall {
+  transform: rotateY(180deg) rotateZ(-90deg);
+}
+
+.rahulContainer,
+.sorabhContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 80%;
+
+  margin-bottom: 2rem;
+
+  position: relative;
+
+  border-radius: 17px;
+  border: 14px solid #8cebff;
+  background: #fcff82;
+  overflow: visible;
+}
+
+.sorabhContainer {
+  height: 90%;
+  margin: 2rem;
+  /* margin-bottom: 0; */
+}
+
+.rahulContainer img,
+.sorabhContainer img {
+  position: absolute;
+  height: 110%;
+  /* height: 100%; */
+  object-fit: cover;
+  object-position: end;
+  border-radius: 2rem;
+
+  bottom: 0;
+}
+
+.n2oText {
+  font-family: N2O;
+  color: #165360;
+  font-weight: 400;
+  line-height: 1;
+  font-size: min(17vw, 18rem);
+}
+
+.rahulText,
+.sorabhText {
+  color: #165360;
+  font-weight: 400;
+  line-height: 1;
+  color: #002323;
+  font-family: Ragata;
+  font-size: min(5.2vw, 10rem);
+  text-transform: uppercase;
+}
+
+.sorabhText {
+  font-size: min(4.9vw, 10rem);
+}
+
+.dateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateContainer span {
+  color: #165360;
+  font-weight: 400;
+}
+
+.dateNumber {
+  font-size: 17rem;
+  line-height: 1;
+  font-family: N2O;
+}
+
+.dateLater {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dateMonth {
+  font-size: 5rem;
+  line-height: 0.8;
+  font-family: Ragata;
+  text-transform: uppercase;
+  word-break: break-all;
+}
+
+.dateLater span:last-child {
+  font-size: 3rem;
+  line-height: 0.8;
+  font-family: N2O;
+}
