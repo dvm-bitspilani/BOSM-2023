@@ -1434,7 +1434,7 @@ const IndexPage = () => {
             navbar={false}
             regPage={regPage}
             fixedbg={false}
-            sectionId="prof-section"
+            sectionId="N2O-section"
             style={
               typeof window !== "undefined"
                 ? window.innerWidth > 920
@@ -1458,7 +1458,7 @@ const IndexPage = () => {
             navbar={false}
             regPage={regPage}
             fixedbg={false}
-            sectionId="N2O-section"
+            sectionId="prof-section"
             style={
               typeof window !== "undefined"
                 ? window.innerWidth > 920
