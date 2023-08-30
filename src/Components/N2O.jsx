@@ -9,6 +9,7 @@ import * as styles from "../Styles/N2O.module.css";
 export default function N2O() {
   return (
     <div className={styles.pageContainer}>
+      <div className={styles.texture}></div>
       <div className={styles.logo}>
         <img src={bosm_logo} alt="BOSM Logo" />
       </div>

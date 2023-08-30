@@ -15,16 +15,16 @@
 }
 @font-face {
   font-family: "Montserrat";
-  src: local("Montserrat"), url(../fonts/Montserrat900.ttf);
+  src: local("Montserrat"), url("../fonts/Montserrat900.ttf");
 }
 @font-face {
   font-family: "PressStart2p";
-  src: local("PressStart2p"), url(../fonts/PressStart2P-Regular.ttf);
+  src: local("PressStart2p"), url("../fonts/PressStart2P-Regular.ttf");
 }
 
 @font-face {
   font-family: "Ragata";
-  src: url(../fonts/Ragata.ttf);
+  src: url("../fonts/Ragata.ttf");
 }
 * {
   padding: 0;
