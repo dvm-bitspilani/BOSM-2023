@@ -124,6 +124,7 @@
   justify-content: center;
 
   overflow-x: hidden;
+  overflow: hidden;
 }
 
 .large {
@@ -242,4 +243,68 @@
   font-size: 3rem;
   line-height: 0.8;
   font-family: N2O;
+}
+@media(max-width: 1375px){
+    .n2oText{
+        font-size: 11.5rem;
+    }
+    .rahulText{
+        font-size: 3.25rem;
+    }
+    .dateMonth{
+        font-size: 4rem;
+    }
+    .sorabhText{
+        font-size: 3.5rem;
+    }
+    .dateNumber{
+        font-size: 15rem;
+    }
+    .large{
+        font-size: 11rem;
+    }
+    .rahulContainer{
+        scale: .9;
+    }
+}
+
+@media(max-width: 1275px){
+    .n2oText{
+        font-size: 9.5rem;
+    }
+    .rahulText{
+        font-size: 2.75rem;
+    }
+    .sorabhText{
+        font-size: 3.25rem;
+    }
+    .dateNumber{
+        font-size: 13rem;
+    }
+}
+@media(max-width: 1200px){
+    .n2oText{
+        font-size: 8.5rem;
+    }
+    .rahulText{
+        font-size: 2.25rem;
+    }
+    .sorabhText{
+        font-size: 2.75rem;
+    }
+    .dateNumber{
+        font-size: 11rem;
+    }
+    .dateMonth{
+        font-size: 3rem;
+    }
+    .small{
+        font-size: 4rem;
+    }
+    .rahulContainer{
+        scale: .8;
+    }
+    .large{
+        font-size: 10rem;
+    }
 }
