@@ -88,7 +88,7 @@ a{
 #N2O-section{
   z-index: 10;
   position: fixed;
-  /* left: 100vw; */
+  right: -100vw;
 }
 
 #contact-section{
@@ -97,8 +97,9 @@ a{
   top: 100vh;
 }
 #prof-section{
-  position: absolute;
-  z-index: -1;
+  z-index: 0;
+  position: fixed;
+  /* left: -100vw; */
 }
 .fixed-bg {
   position: fixed;
@@ -317,8 +318,6 @@ a{
 color: white;
 }
 
-
-
 .MuiCircularProgress-root::after{
   content: "";
   position: absolute;
@@ -328,6 +327,18 @@ color: white;
   background: url("../images/CircleProgress.svg");
   background-size: cover;
   /* border: 2px solid green; */
+}
+
+#profshowBall{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  aspect-ratio: 1/1;
+  z-index: 4;
+  background: #171717;
+  border-radius: 50%;
 }
 
 @keyframes slideUp {

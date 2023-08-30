@@ -10,6 +10,8 @@ import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
 import * as about from "../Styles/About.module.css";
 import * as navbar from "../Styles/Navbar.module.css";
+import * as profshow from "../Styles/ProfShow.module.css";
+import * as n2o from "../Styles/N2O.module.css";
 
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
@@ -28,7 +30,7 @@ import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
 import Boy from "../images/boy.png";
 // import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 
-import { SEO } from "../Components/SEO"
+import { SEO } from "../Components/SEO";
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
@@ -372,7 +374,6 @@ const IndexPage = () => {
           },
           onLeave: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
-
             // gsap.to(window, {
             //   scrollTo: `${window.innerHeight}`,
             // });
@@ -392,7 +393,6 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
             // !isActive &&
             // gsap.to(window, {
             //   scrollTo: `0`,
@@ -496,7 +496,6 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
             // !isActive &&
             // gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
           },
@@ -558,89 +557,108 @@ const IndexPage = () => {
 
       let tl3 = gsap.timeline({
         scrollTrigger: {
-          // trigger: "#events-section",
           start: `${window.innerHeight * 6} top`,
-          // endTrigger: ".fixed-bg-blue",
           end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
-          // markers: {
-          //   startColor: "white",
-          //   endColor: "white",
-          // },
           onEnter: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "hidden";
-
-            // !isActive &&
-            // gsap.to(window, {
-            //   scrollTo: `${window.innerHeight * 3}`,
-            //   duration: 2,
-            // });
+            if (regPage === false) {
+              const profsection = document.getElementById("prof-section");
+              if (profsection) {
+                profsection.style.zIndex = 4;
+              }
+            }
           },
           onLeaveBack: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "scroll";
+            if (regPage === false) {
+              const profsection = document.getElementById("prof-section");
+              if (profsection) {
+                profsection.style.zIndex = 0;
+              }
+            }
           },
           onLeave: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
           },
-          onEnterBack: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "hidden";
-
-            // !isActive &&
-            // gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
-
-            // window.scrollTo({
-            //   top: `${window.innerHeight * 2}`,
-            //   behavior: "smooth",
-            // });
-          },
+          onEnterBack: ({ progress, direction, isActive }) => {},
           scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1,
-            ease: "power1.out",
+            duration: 2,
+            ease: "none",
           },
         },
       });
 
       tl3
         .addLabel("start")
-        // .call(() => setActiveSection(2))
-        .to(`#events-section`, {
-          y: "-100%",
+        .from(`#profshowBall`, {
+          left: "-60vw",
+          top: "100vh",
+          scale: 0,
+          ease: "none",
+        })
+        .to("#profshowBall", {
+          width: "150%",
+          ease: "none",
+        })
+        .from(`.${profshow["profShowPage"]}`, {
           opacity: 0,
           ease: "none",
-          // duration: 1,
-        })
-        .to("#contact-section", {
-          y: "-100%",
-          ease: "none",
-          // duration: 1,
-        })
-        .from(`.${contact["pageBackground"]}`, {
-          x: "-100%",
-          ease: "none",
-          // duration: 1,
-        })
-        .from(
-          "#contactContent",
-          {
-            x: "100%",
-            ease: "none",
-            // duration: 1,
-          },
-          "<"
-        )
-        .from(
-          `.${contact["cardsSwitchButtons"]}`,
-          {
-            x: "100%",
-            ease: "none",
-            // duration: 1,
-          },
-          "<"
-        )
-        // .call(() => setActiveSection(3))
-        .addLabel("end");
+        });
+
+      // tl5 = gsap.timeline({
+      //   scrollTrigger: {
+      //     start: `${window.innerHeight * 12} top`,
+      //     end: `+=${window.innerHeight * 3}`,
+      //     toggleActions: "play none none reverse",
+      //     scrub: 0.3,
+      //     snap: {
+      //       snapTo: 1,
+      //       duration: 1,
+      //       ease: "power1.out",
+      //     },
+      //   },
+      // });
+
+      // tl5
+      //   .addLabel("start")
+      //   // .call(() => setActiveSection(2))
+      //   .to(`#events-section`, {
+      //     y: "-100%",
+      //     opacity: 0,
+      //     ease: "none",
+      //     // duration: 1,
+      //   })
+      //   .to("#contact-section", {
+      //     y: "-100%",
+      //     ease: "none",
+      //     // duration: 1,
+      //   })
+      //   .from(`.${contact["pageBackground"]}`, {
+      //     x: "-100%",
+      //     ease: "none",
+      //     // duration: 1,
+      //   })
+      //   .from(
+      //     "#contactContent",
+      //     {
+      //       x: "100%",
+      //       ease: "none",
+      //       // duration: 1,
+      //     },
+      //     "<"
+      //   )
+      //   .from(
+      //     `.${contact["cardsSwitchButtons"]}`,
+      //     {
+      //       x: "100%",
+      //       ease: "none",
+      //       // duration: 1,
+      //     },
+      //     "<"
+      //   )
+      //   // .call(() => setActiveSection(3))
+      //   .addLabel("end");
 
       // const tlSections = [tl1, tl2, tl3];
       // tl1.pause();
@@ -705,7 +723,6 @@ const IndexPage = () => {
   }, [regPage, isLoading]);
 
   useEffect(() => {
-
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
     const cursorCircleDrag = document.getElementById("cursorFollowerDrag");
@@ -781,7 +798,7 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
-    console.log(eventCarousel)
+    console.log(eventCarousel);
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
@@ -1002,7 +1019,12 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll("img", "font", "style", "iframe");
+      const assets = document.querySelectorAll(
+        "img",
+        "font",
+        "style",
+        "iframe"
+      );
 
       let assetsLoaded = 0;
 
@@ -1091,7 +1113,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (!regPage) {
-      document.body.style.height = "1000vh";
+      document.body.style.height = "1600vh";
     } else {
       document.body.style.height = "fit-content";
     }
@@ -1159,6 +1181,8 @@ const IndexPage = () => {
             <img alt="" src={logo} />
           </div>
         )}
+
+        {/* Landing Section */}
         {!regPage && (
           <Layout
             setRegPage={setRegPage}
@@ -1307,7 +1331,7 @@ const IndexPage = () => {
           />
         )}
 
-
+        {/* About Us Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={false}
@@ -1330,7 +1354,7 @@ const IndexPage = () => {
           />
         )}
 
-
+        {/* Events Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1352,6 +1376,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+        {/* N2O Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1374,6 +1400,7 @@ const IndexPage = () => {
           />
         )}
 
+        {/* Prof  selection */}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1390,7 +1417,8 @@ const IndexPage = () => {
             }
             content={
               <>
-                <N2O />
+                <div id="profshowBall" />
+                <ProfShow />
               </>
             }
           />
@@ -1484,7 +1512,14 @@ const IndexPage = () => {
                         )}
                       <div
                         className={contact["cardsContainer"]}
-                        style={{ width: cossacSwitchBtn ? typeof window !== undefined && window.innerWidth > 900 ? "45vw" : "90vw" : "90vw" }}
+                        style={{
+                          width: cossacSwitchBtn
+                            ? typeof window !== undefined &&
+                              window.innerWidth > 900
+                              ? "45vw"
+                              : "90vw"
+                            : "90vw",
+                        }}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
@@ -1534,6 +1569,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+        {/* Registration Page */}
         {regPage && (
           <div>
             <Layout
