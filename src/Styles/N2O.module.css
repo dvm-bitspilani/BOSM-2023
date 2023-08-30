@@ -496,3 +496,27 @@
         font-size: 1rem;
     } */
 }
+
+@media screen and (max-width:410px) and (max-height: 760px) {
+    .dateNumber{
+        font-size: 7rem;
+    }
+    .dateMonth{
+        font-size: 1.8rem;
+    }
+    .dateLater span:last-child{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:410px) and (max-height: 732px) {
+    .dateNumber{
+        font-size: 6rem;
+    }
+    .dateMonth{
+        font-size: 1.5rem;
+    }
+    .dateLater span:last-child{
+        font-size: 1rem;
+    }
+}
