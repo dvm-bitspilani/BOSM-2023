@@ -591,13 +591,15 @@ const IndexPage = () => {
       tl3
         .addLabel("start")
         .from(`#profshowBall`, {
-          left: "-60vw",
+          left: "-10%",
           top: "100vh",
           scale: 0,
           ease: "none",
         })
         .to("#profshowBall", {
-          width: "150%",
+          width: "100%",
+          height : "100%",
+          borderRadius : "0%",
           ease: "none",
         })
         .from(`.${profshow["profShowPage"]}`, {
@@ -605,59 +607,107 @@ const IndexPage = () => {
           ease: "none",
         });
 
-      // tl5 = gsap.timeline({
-      //   scrollTrigger: {
-      //     start: `${window.innerHeight * 12} top`,
-      //     end: `+=${window.innerHeight * 3}`,
-      //     toggleActions: "play none none reverse",
-      //     scrub: 0.3,
-      //     snap: {
-      //       snapTo: 1,
-      //       duration: 1,
-      //       ease: "power1.out",
-      //     },
-      //   },
-      // });
+      let tl4 = gsap.timeline({
+        scrollTrigger: {
+          start: `${window.innerHeight * 9} top`,
+          end: `+=${window.innerHeight * 3}`,
+          toggleActions: "play none none reverse",
+          onEnter: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const n2oSection = document.getElementById("N2O-section");
+              if (n2oSection) {
+                n2oSection.style.zIndex = 5;
+              }
+            }
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const n2oSection = document.getElementById("N2O-section");
+              if (n2oSection) {
+                n2oSection.style.zIndex = 0;
+              }
+            }
+          },
+          scrub: 0.3,
+          snap: {
+            snapTo: 1,
+            duration: 2,
+            ease: "none",
+          },
+        },
+      });
 
-      // tl5
-      //   .addLabel("start")
-      //   // .call(() => setActiveSection(2))
-      //   .to(`#events-section`, {
-      //     y: "-100%",
-      //     opacity: 0,
-      //     ease: "none",
-      //     // duration: 1,
-      //   })
-      //   .to("#contact-section", {
-      //     y: "-100%",
-      //     ease: "none",
-      //     // duration: 1,
-      //   })
-      //   .from(`.${contact["pageBackground"]}`, {
-      //     x: "-100%",
-      //     ease: "none",
-      //     // duration: 1,
-      //   })
-      //   .from(
-      //     "#contactContent",
-      //     {
-      //       x: "100%",
-      //       ease: "none",
-      //       // duration: 1,
-      //     },
-      //     "<"
-      //   )
-      //   .from(
-      //     `.${contact["cardsSwitchButtons"]}`,
-      //     {
-      //       x: "100%",
-      //       ease: "none",
-      //       // duration: 1,
-      //     },
-      //     "<"
-      //   )
-      //   // .call(() => setActiveSection(3))
-      //   .addLabel("end");
+      tl4
+        .addLabel("start")
+        .from("#n2oBall", {
+          left: "110%",
+          top: "100vh",
+          scale: 0,
+          ease: "none",
+        })
+        .to("#n2oBall", {
+          width: "100%",
+          height : "100%",
+          borderRadius : "0%",
+          ease: "none",
+        })
+        .from(`.${n2o["pageContainer"]}`, {
+          opacity: 0,
+          ease : "none"
+        })
+
+
+      let tl5 = gsap.timeline({
+        scrollTrigger: {
+          start: `${window.innerHeight * 12} top`,
+          end: `+=${window.innerHeight * 3}`,
+          toggleActions: "play none none reverse",
+          scrub: 0.3,
+          snap: {
+            snapTo: 1,
+            duration: 1,
+            ease: "power1.out",
+          },
+        },
+      });
+
+      tl5
+        .addLabel("start")
+        // .call(() => setActiveSection(2))
+        .to(`.${n2o["pageContainer"]}`, {
+          y: "-100%",
+          ease : "none"
+        })
+        .to("#contact-section", {
+          y: "-100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .from(`.${contact["pageBackground"]}`, {
+          x: "-100%",
+          ease: "none",
+          // duration: 1,
+        })
+        .from(
+          "#contactContent",
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        .from(
+          `.${contact["cardsSwitchButtons"]}`,
+          {
+            x: "100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
+        // .call(() => setActiveSection(3))
+        .addLabel("end");
 
       // const tlSections = [tl1, tl2, tl3];
       // tl1.pause();
@@ -1393,6 +1443,7 @@ const IndexPage = () => {
             }
             content={
               <>
+                <div id="n2oBall" />
                 <N2O />
               </>
             }
