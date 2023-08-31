@@ -9,6 +9,7 @@
 .texture {
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 3;
 }
 .marqueeBG {
@@ -54,7 +55,7 @@
 }
 
 .heading {
-  z-index: 2;
+  z-index: 4;
   position: absolute;
   top: 0;
   width: 100%;
@@ -72,6 +73,11 @@
 }
 .headingLogo {
   scale: 0.9;
+  transition: all .5s ease;
+}
+.headingLogo img{
+  position: relative;
+  z-index: 10;
 }
 .content {
   display: flex;

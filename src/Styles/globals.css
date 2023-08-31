@@ -357,7 +357,11 @@ color: white;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
 }
-
+@media(max-width: 640px){
+  #n2oBall{
+    background: url("../images/n2oMobileBG.png");
+  }
+}
 @keyframes slideUp {
   0% {
     transform: translateY(100%);

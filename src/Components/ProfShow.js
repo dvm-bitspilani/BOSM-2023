@@ -14,11 +14,11 @@ const ProfShow = () => {
     return (
         <main className={prof["profShowPage"]}>
             <div className={prof["marqueeBG"]}>
-                <img className={prof['texture']} src={texture}></img>
-                    <span className={prof["marquee1"]}>
-                        BENNYBENNY
-                    </span>
-                    <span className={prof["marquee2"]}>DAYALDAYAL</span>
+                <div className={prof['textureContainer']}><img className={prof['texture']} src={texture}></img></div>
+                <span className={prof["marquee1"]}>
+                    BENNYBENNY
+                </span>
+                <span className={prof["marquee2"]}>DAYALDAYAL</span>
 
                 <div className={prof["heading"]}>
                     <div className={prof["headingText"]}><span className={prof['headingBenny']}>BENNY</span>DAYAL
@@ -49,7 +49,12 @@ const ProfShow = () => {
                         </div>
                     </div>
                     <div className={prof["headingLogo"]}>
-                        <img src={Logo} alt='BOSM'></img>
+                        <img src={Logo} alt='BOSM' onClick={() => {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }}></img>
                     </div>
                 </div>
                 <div className={prof['benny']}>
