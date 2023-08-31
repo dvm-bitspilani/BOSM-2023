@@ -2,10 +2,10 @@
     position: relative;
   height: 100%;
   width: 100%;
-  /* background: url("../images/n2o_bg.png");
+  background: url("../images/n2o_bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   z-index: 6;
 
   display: grid;
@@ -498,6 +498,10 @@
 }
 
 @media screen and (max-width:410px) and (max-height: 760px) {
+    .pageContainer{
+        grid-template-columns: 110px auto 110px;
+        grid-template-rows: 80px 230px 2.5rem 230px auto;
+    }
     .dateNumber{
         font-size: 7rem;
     }
@@ -518,5 +522,19 @@
     }
     .dateLater span:last-child{
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:410px) and (max-height:710px) {
+    .pageContainer{
+        grid-template-columns: 75px auto 75px;
+        grid-template-rows: 80px 180px 2.5rem 180px auto;
+    }
+    .small{
+        font-size: 2rem;
+    }
+    .n2oTextMobile{
+        grid-column: 2/4;
+        text-align: right;
     }
 }

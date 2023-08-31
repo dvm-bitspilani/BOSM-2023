@@ -655,7 +655,7 @@ const IndexPage = () => {
           ease: "none",
         })
         .from(`.${n2o["pageContainer"]}`, {
-          opacity: 0,
+          // opacity: 0,
           ease : "none"
         })
 
