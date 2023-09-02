@@ -9,6 +9,7 @@ import RadioButton2 from './RadioBtn';
 import {storage} from "../Components/firebase";
 import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
+import statesData from '../Components/States.json'
 import Error1 from './Error1';
 import Error2 from './Error2';
 import Success from "./Success";
@@ -560,15 +561,26 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
         console.error('Error fetching colleges:', error);
       }
     };
+    // const fetchCityOptions = async () => {
+    //   try {
+    //     const response = await fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json');
+    //     const data = await response.json();
+    //     console.log(data[101]["states"])
+
+    //     setStateOptions(createOptionsFromKeys(data[101]["states"]))
+    //     const convertedOptions = convertApiFormat(data);
+    //     setPlaceData(data[101]["states"]);
+    //   } catch (error) {
+    //     console.error('Error fetching cities:', error);
+    //   }
+    // };
+
     const fetchCityOptions = async () => {
       try {
-        const response = await fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json');
-        const data = await response.json();
-        // console.log(data[101]["states"])
-
-        setStateOptions(createOptionsFromKeys(data[101]["states"]))
-        const convertedOptions = convertApiFormat(data);
-        setPlaceData(data[101]["states"]);
+        console.log(statesData);
+        setStateOptions(createOptionsFromKeys(statesData));
+        const convertedOptions = convertApiFormat(statesData);
+        setPlaceData(statesData);
       } catch (error) {
         console.error('Error fetching cities:', error);
       }
@@ -941,7 +953,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     cities = createOptionsFromKeys(filterObjectsByName(placedata , selectedState["value"])[0]["cities"]);
   }
 
-  console.log(formData)
+  // console.log(formData)
   return (<>
     {error1 && <Error1 onClose={closeError} text={errormsg} />}
     {error2 && <Error2 onClose={closeError} text={errormsg} />}
