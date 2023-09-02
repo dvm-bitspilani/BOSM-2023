@@ -60,9 +60,15 @@ gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [cossacSwitchBtn, setCossacSwitchBtn] = useState(true);
-  const [cossacCards, setCossacCards] = useState(true);
+  const [cossacSwitchBtn, setCossacSwitchBtn] = useState(false);
+  const [cossacCards, setCossacCards] = useState(false);
 
+  useEffect(() => {
+    if (!isLoading) {
+      setCossacSwitchBtn(true);
+      setCossacCards(true);
+    }
+  }, [isLoading])
   // console.log({ cossacSwitchBtn });
   // useEffect(() => {
   //   if (isLoading) {
