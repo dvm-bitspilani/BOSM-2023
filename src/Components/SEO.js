@@ -18,6 +18,7 @@ export const SEO = () => {
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
+      <meta name="robots" content="all" />
     </>
   )
 }

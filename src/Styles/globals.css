@@ -2,6 +2,11 @@
   font-family: "Druk Wide Bold";
   src: url("../fonts/Druk-Wide-Bold.ttf");
 }
+
+@font-face {
+  font-family: "N2O";
+  src: url("../fonts/Gazebo.otf");
+}
 @font-face {
   font-family: "Gilroy-Bold";
   font-style: normal;
@@ -10,11 +15,16 @@
 }
 @font-face {
   font-family: "Montserrat";
-  src: local("Montserrat"), url(../fonts/Montserrat900.ttf);
+  src: local("Montserrat"), url("../fonts/Montserrat900.ttf");
 }
 @font-face {
   font-family: "PressStart2p";
-  src: local("PressStart2p"), url(../fonts/PressStart2P-Regular.ttf);
+  src: local("PressStart2p"), url("../fonts/PressStart2P-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Ragata";
+  src: url("../fonts/ragata.ttf");
 }
 * {
   padding: 0;
@@ -76,17 +86,21 @@ a{
 }
 
 #N2O-section{
-  z-index: 1;
+  z-index: 0;
   position: fixed;
-  top: 100vh;
+  /* right: -100vw; */
 }
 
 #contact-section{
-  z-index: 3;
+  z-index: 7;
   position: fixed;
   top: 100vh;
 }
-
+#prof-section{
+  z-index: 0;
+  position: fixed;
+  /* left: -100vw; */
+}
 .fixed-bg {
   position: fixed;
   top: 0;
@@ -304,13 +318,6 @@ a{
 color: white;
 }
 
-.MuiCircularProgress-root{
-  /* left: 50%; */
-  /* bottom: 13%; */
-  /* position: absolute; */
-  /* transform: translateX(-50%) rotate(-90deg) !important; */
-}
-
 .MuiCircularProgress-root::after{
   content: "";
   position: absolute;
@@ -322,6 +329,39 @@ color: white;
   /* border: 2px solid green; */
 }
 
+#profshowBall{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  aspect-ratio: 1/1;
+  z-index: 4;
+  background: #171717;
+  border-radius: 50%;
+}
+
+#n2oBall{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  aspect-ratio: 1/1;
+  z-index: 5;
+
+  background: url("../images/n2o_bg.png");
+  border-radius: 50%;
+  background-size: 100vw 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+}
+@media(max-width: 640px){
+  #n2oBall{
+    background: url("../images/n2oMobileBG.png");
+  }
+}
 @keyframes slideUp {
   0% {
     transform: translateY(100%);

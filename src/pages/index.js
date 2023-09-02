@@ -4,11 +4,14 @@ import { useState, useEffect, useLayoutEffect } from "react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
 import N2O from "../Components/N2O";
+import ProfShow from "../Components/ProfShow";
 
 import * as styles from "../Styles/Content.module.css";
 import * as contact from "../Styles/Contact.module.css";
 import * as about from "../Styles/About.module.css";
 import * as navbar from "../Styles/Navbar.module.css";
+import * as profshow from "../Styles/ProfShow.module.css";
+import * as n2o from "../Styles/N2O.module.css";
 
 import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
@@ -27,7 +30,7 @@ import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
 import Boy from "../images/boy.png";
 // import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 
-import { SEO } from "../Components/SEO"
+import { SEO } from "../Components/SEO";
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
@@ -371,7 +374,6 @@ const IndexPage = () => {
           },
           onLeave: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
-
             // gsap.to(window, {
             //   scrollTo: `${window.innerHeight}`,
             // });
@@ -391,7 +393,6 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
             // !isActive &&
             // gsap.to(window, {
             //   scrollTo: `0`,
@@ -480,7 +481,7 @@ const IndexPage = () => {
           // },
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-            
+
             // !isActive &&
             // gsap.to(window, {
             //   scrollTo: `${window.innerHeight * 2}`,
@@ -495,7 +496,6 @@ const IndexPage = () => {
           },
           onEnterBack: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
             // !isActive &&
             // gsap.to(window, { scrollTo: `${window.innerHeight}`, duration: 2 });
           },
@@ -503,7 +503,7 @@ const IndexPage = () => {
           // yoyo: true,
           snap: {
             snapTo: 1,
-            duration: {min: 0.2, max: 2},
+            duration: { min: 0.2, max: 2 },
             ease: "slow(0.7, 0.7, true)",
             delay: 0,
           },
@@ -557,41 +557,114 @@ const IndexPage = () => {
 
       let tl3 = gsap.timeline({
         scrollTrigger: {
-          // trigger: "#events-section",
           start: `${window.innerHeight * 6} top`,
-          // endTrigger: ".fixed-bg-blue",
           end: `+=${window.innerHeight * 3}`,
           toggleActions: "play none none reverse",
-          // markers: {
-          //   startColor: "white",
-          //   endColor: "white",
-          // },
           onEnter: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "hidden";
-
-            // !isActive &&
-            // gsap.to(window, {
-            //   scrollTo: `${window.innerHeight * 3}`,
-            //   duration: 2,
-            // });
+            if (regPage === false) {
+              const profsection = document.getElementById("prof-section");
+              if (profsection) {
+                profsection.style.zIndex = 4;
+              }
+            }
           },
           onLeaveBack: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "scroll";
+            if (regPage === false) {
+              const profsection = document.getElementById("prof-section");
+              if (profsection) {
+                profsection.style.zIndex = 0;
+              }
+            }
           },
           onLeave: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "scroll";
           },
-          onEnterBack: ({ progress, direction, isActive }) => {
-            // document.documentElement.style.overflow = "hidden";
-
-            // !isActive &&
-            // gsap.to(window, {scrollTo: `${window.innerHeight * 2}`, duration: 2});
-            
-            // window.scrollTo({
-            //   top: `${window.innerHeight * 2}`,
-            //   behavior: "smooth",
-            // });
+          onEnterBack: ({ progress, direction, isActive }) => {},
+          scrub: 0.3,
+          snap: {
+            snapTo: 1,
+            duration: 2,
+            ease: "none",
           },
+        },
+      });
+
+      tl3
+        .addLabel("start")
+        .from(`#profshowBall`, {
+          left: "-10%",
+          top: "100vh",
+          scale: 0,
+          ease: "none",
+        })
+        .to("#profshowBall", {
+          // width: "100%",
+          // height : "100%",
+          // borderRadius : "0%",
+          width: "350%",
+          ease: "none",
+        })
+        .from(`.${profshow["profShowPage"]}`, {
+          opacity: 0,
+          ease: "none",
+        });
+
+      let tl4 = gsap.timeline({
+        scrollTrigger: {
+          start: `${window.innerHeight * 9} top`,
+          end: `+=${window.innerHeight * 3}`,
+          toggleActions: "play none none reverse",
+          onEnter: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const n2oSection = document.getElementById("N2O-section");
+              if (n2oSection) {
+                n2oSection.style.zIndex = 5;
+              }
+            }
+          },
+          onLeaveBack: ({ progress, direction, isActive }) => {
+            if (regPage === false) {
+              const n2oSection = document.getElementById("N2O-section");
+              if (n2oSection) {
+                n2oSection.style.zIndex = 0;
+              }
+            }
+          },
+          scrub: 0.3,
+          snap: {
+            snapTo: 1,
+            duration: 2,
+            ease: "none",
+          },
+        },
+      });
+
+      tl4
+        .addLabel("start")
+        .from("#n2oBall", {
+          left: "110%",
+          top: "100vh",
+          scale: 0,
+          ease: "none",
+        })
+        .to("#n2oBall", {
+          // width: "100%",
+          // height : "100%",
+          // borderRadius : "0%",
+          width: "350%",
+          ease: "none",
+        })
+        .from(`.${n2o["pageContainer"]}`, {
+          opacity: 0,
+          ease : "none"
+        })
+
+
+      let tl5 = gsap.timeline({
+        scrollTrigger: {
+          start: `${window.innerHeight * 12} top`,
+          end: `+=${window.innerHeight * 3}`,
+          toggleActions: "play none none reverse",
           scrub: 0.3,
           snap: {
             snapTo: 1,
@@ -601,14 +674,12 @@ const IndexPage = () => {
         },
       });
 
-      tl3
+      tl5
         .addLabel("start")
         // .call(() => setActiveSection(2))
-        .to(`#events-section`, {
+        .to(`.${n2o["pageContainer"]}`, {
           y: "-100%",
-          opacity: 0,
-          ease: "none",
-          // duration: 1,
+          ease : "none"
         })
         .to("#contact-section", {
           y: "-100%",
@@ -704,51 +775,12 @@ const IndexPage = () => {
   }, [regPage, isLoading]);
 
   useEffect(() => {
-    const landingSection = document.getElementById("landing-section");
-    const aboutSection = document.getElementById("about-us-section");
-    const eventsSection = document.getElementById("events-section");
-    const contactSection = document.getElementById("contact-section");
-
     const cursor = document.getElementById("cursor");
     const cursorCircle = document.getElementById("cursorFollower");
     const cursorCircleDrag = document.getElementById("cursorFollowerDrag");
     const cursorImg = document.getElementById("cursorImg");
-    const statueContainer = document.getElementById("statueContainer");
-    const statue = document.getElementById("statue");
-    const statueMobile = document.getElementById("statueMobile");
-    // const contactPage = document.getElementById("contactPage");
     const frontStatue = document.getElementById("frontStatue");
     const backStatue = document.getElementById("backStatue");
-    // const backStatueMobile = document.getElementById("backStatueMobile");
-    // const contactContent = document.getElementById("contactContent");
-    const fixedBG = document.getElementsByClassName("fixed-bg");
-    const rightLion = document.getElementsByClassName(styles["rightLion"]);
-    const leftLion = document.getElementsByClassName(styles["leftLion"]);
-    const countDown = document.getElementsByClassName(styles["countDown"]);
-    const socials = document.getElementsByClassName(styles["socialsContainer"]);
-    const rightSubTitle = document.getElementsByClassName(
-      styles["rightSubTitle"]
-    );
-    const leftSubtitle = document.getElementsByClassName(
-      styles["leftSubTitle"]
-    );
-    const heading = document.getElementsByClassName(styles["heading"]);
-    const registerBtnMobile = document.getElementById("regBtnMobile");
-
-    const hamMenu = document.getElementById("ham-menu");
-    const register = document.getElementById("register-btn");
-    const bosmLogo = document.getElementById("bosm-logo");
-
-    const aboutContainer = document.getElementsByClassName(
-      about["topContainer"]
-    );
-    const aboutHeading = document.getElementsByClassName(about["heading"]);
-    const aboutCarousel = document.getElementsByClassName(
-      about["carouselContainer"]
-    );
-    const aboutContent = document.getElementsByClassName(
-      about["contentContainer"]
-    );
 
     if (backStatue) {
       backStatue.addEventListener("dragstart", (event) => {
@@ -818,6 +850,7 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
+    console.log(eventCarousel);
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
@@ -1038,7 +1071,12 @@ const IndexPage = () => {
   }, []);
   useEffect(() => {
     if (videoLoaded) {
-      const assets = document.querySelectorAll("img", "font", "style" , "iframe");
+      const assets = document.querySelectorAll(
+        "img",
+        "font",
+        "style",
+        "iframe"
+      );
 
       let assetsLoaded = 0;
 
@@ -1127,7 +1165,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (!regPage) {
-      document.body.style.height = "1000vh";
+      document.body.style.height = "1600vh";
     } else {
       document.body.style.height = "fit-content";
     }
@@ -1195,6 +1233,8 @@ const IndexPage = () => {
             <img alt="" src={logo} />
           </div>
         )}
+
+        {/* Landing Section */}
         {!regPage && (
           <Layout
             setRegPage={setRegPage}
@@ -1343,7 +1383,7 @@ const IndexPage = () => {
           />
         )}
 
-
+        {/* About Us Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={false}
@@ -1366,7 +1406,7 @@ const IndexPage = () => {
           />
         )}
 
-
+        {/* Events Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1389,6 +1429,7 @@ const IndexPage = () => {
           />
         )}
 
+        {/* N2O Section */}
         {!regPage && !isLoading && (
           <Layout
             overflow={true}
@@ -1405,11 +1446,37 @@ const IndexPage = () => {
             }
             content={
               <>
+                <div id="n2oBall" />
                 <N2O />
               </>
             }
           />
         )}
+
+        {/* Prof  selection */}
+        {!regPage && !isLoading && (
+          <Layout
+            overflow={true}
+            navbar={false}
+            regPage={regPage}
+            fixedbg={false}
+            sectionId="prof-section"
+            style={
+              typeof window !== "undefined"
+                ? window.innerWidth > 920
+                  ? { opacity: 0 }
+                  : { opacity: 1 }
+                : ""
+            }
+            content={
+              <>
+                <div id="profshowBall" />
+                <ProfShow />
+              </>
+            }
+          />
+        )}
+
 
         {/* Contact Section */}
         {!regPage && !isLoading && (
@@ -1430,7 +1497,7 @@ const IndexPage = () => {
               <main
                 id="contactPage"
                 className={contact["page"]}
-                // style={{ top: "30vh" }}
+              // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div
@@ -1468,12 +1535,12 @@ const IndexPage = () => {
                               style={
                                 !cossacSwitchBtn
                                   ? {
-                                      borderBottom:
-                                        "3px solid rgba(255, 255, 255, 0)",
-                                    }
+                                    borderBottom:
+                                      "3px solid rgba(255, 255, 255, 0)",
+                                  }
                                   : {
-                                      borderBottom: "3px solid white",
-                                    }
+                                    borderBottom: "3px solid white",
+                                  }
                               }
                             >
                               Contact
@@ -1484,12 +1551,12 @@ const IndexPage = () => {
                               style={
                                 cossacSwitchBtn
                                   ? {
-                                      borderBottom:
-                                        "3px solid rgba(255, 255, 255, 0)",
-                                    }
+                                    borderBottom:
+                                      "3px solid rgba(255, 255, 255, 0)",
+                                  }
                                   : {
-                                      borderBottom: "3px solid white",
-                                    }
+                                    borderBottom: "3px solid white",
+                                  }
                               }
                             >
                               Organizing Committee
@@ -1498,7 +1565,14 @@ const IndexPage = () => {
                         )}
                       <div
                         className={contact["cardsContainer"]}
-                        style={{ width: cossacSwitchBtn ? typeof window !==undefined && window.innerWidth>900 ?  "45vw" : "90vw" : "90vw" }}
+                        style={{
+                          width: cossacSwitchBtn
+                            ? typeof window !== undefined &&
+                              window.innerWidth > 900
+                              ? "45vw"
+                              : "90vw"
+                            : "90vw",
+                        }}
                         key={cossacSwitchBtn}
                       >
                         {/* {cossacCards ? ContactsCards1 : ContactsCards2} */}
@@ -1515,12 +1589,12 @@ const IndexPage = () => {
                         style={
                           !cossacSwitchBtn
                             ? {
-                                borderBottom:
-                                  "3px solid rgba(255, 255, 255, 0)",
-                              }
+                              borderBottom:
+                                "3px solid rgba(255, 255, 255, 0)",
+                            }
                             : {
-                                borderBottom: "3px solid white",
-                              }
+                              borderBottom: "3px solid white",
+                            }
                         }
                       >
                         Contact
@@ -1531,12 +1605,12 @@ const IndexPage = () => {
                         style={
                           cossacSwitchBtn
                             ? {
-                                borderBottom:
-                                  "3px solid rgba(255, 255, 255, 0)",
-                              }
+                              borderBottom:
+                                "3px solid rgba(255, 255, 255, 0)",
+                            }
                             : {
-                                borderBottom: "3px solid white",
-                              }
+                              borderBottom: "3px solid white",
+                            }
                         }
                       >
                         Organizing Committee
@@ -1548,6 +1622,8 @@ const IndexPage = () => {
             }
           />
         )}
+
+        {/* Registration Page */}
         {regPage && (
           <div>
             <Layout

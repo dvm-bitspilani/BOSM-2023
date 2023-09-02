@@ -1,0 +1,587 @@
+.pageContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* background: url("../images/n2o_bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  z-index: 6;
+
+  display: grid;
+  grid-template-columns:
+    minmax(110px, 160px) minmax(110px, 1.2fr) minmax(110px, 1.2fr) 2fr minmax(
+      330px,
+      2.9fr
+    )
+    39vh;
+  grid-template-rows: 1.5fr 370px 5fr;
+
+  overflow: hidden;
+}
+.texture {
+  height: 100%;
+  width: 100%;
+  background: url(../images/n2o_texture-min.png);
+  z-index: 5;
+  position: absolute;
+  top: 0;
+}
+.logo {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.bosmMid {
+  grid-column: 3/5;
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.rahul {
+  grid-column: auto;
+  grid-row: 1/3;
+
+  display: flex;
+  align-items: end;
+}
+.bosmLarge {
+  grid-row: 1/4;
+  grid-column: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* overflow: hidden; */
+  width: 100%;
+}
+.bosmSmall,
+.bosmSmall2 {
+  /* grid-row: 1/4;
+    grid-column: auto; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.n2o {
+  grid-row: auto;
+  grid-column: 2/5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+}
+.sorabh {
+  grid-row: auto;
+  grid-column: 1/4;
+
+  display: flex;
+  align-items: end;
+}
+.date {
+  grid-row: auto;
+  grid-column: 4/6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.4rem;
+}
+
+.logo img {
+  width: 30%;
+  aspect-ratio: 1/1;
+  margin: 1rem;
+  object-fit: contain;
+}
+
+.text {
+  color: #fdff82;
+  font-family: N2O;
+  display: inline-block;
+}
+
+.mid {
+  font-size: 4rem;
+  line-height: 1;
+  margin-right: 2rem;
+}
+
+.textRotateMid {
+  transform-origin: center;
+  transform: rotateX(180deg);
+}
+
+.flexTextContainer {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.large {
+  position: absolute;
+  /* font-size: 12rem; */
+  font-size: 20vh !important;
+  transform: rotateZ(-90deg);
+  /* right: 0; */
+}
+
+.textRotateLarge {
+  transform: rotateY(180deg) rotateZ(-90deg);
+}
+
+.small {
+  position: absolute;
+  font-size: 5rem;
+  transform: rotateZ(-90deg);
+}
+
+.textRotateSmall {
+  transform: rotateY(180deg) rotateZ(-90deg);
+}
+
+.rahulContainer,
+.sorabhContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 80%;
+
+  margin-bottom: 2rem;
+
+  position: relative;
+
+  border-radius: 17px;
+  border: 14px solid #8cebff;
+  background: #fcff82;
+  overflow: visible;
+}
+
+.sorabhContainer {
+  height: 90%;
+  margin: 2rem;
+  /* margin-bottom: 0; */
+}
+
+.rahulContainer img,
+.sorabhContainer img {
+  position: absolute;
+  height: 110%;
+  /* height: 100%; */
+  object-fit: cover;
+  object-position: end;
+  border-radius: 2rem;
+
+  bottom: 0;
+}
+
+.n2oText,
+.n2oTextMobile {
+  font-family: N2O;
+  color: #165360;
+  font-weight: 400;
+  line-height: 1;
+  font-size: min(17vw, 18rem);
+}
+
+.rahulText,
+.sorabhText,
+.rahulTextMobile {
+  color: #165360;
+  font-weight: 400;
+  line-height: 1;
+  color: #002323;
+  font-family: Ragata;
+  /* font-size: min(5.2vw, 10rem); */
+  font-size: 4.4rem;
+  text-transform: uppercase;
+}
+
+.sorabhText {
+  /* font-size: min(4.9vw, 10rem); */
+    font-size: 4.2rem;
+}
+
+.dateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateContainer span {
+  color: #165360;
+  font-weight: 400;
+}
+
+.dateNumber {
+  font-size: 17rem;
+  line-height: 1;
+  font-family: N2O;
+}
+
+.dateLater {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dateMonth {
+  font-size: 5rem;
+  line-height: 0.8;
+  font-family: Ragata;
+  text-transform: uppercase;
+  word-break: break-all;
+}
+
+.dateLater span:last-child {
+  font-size: 3rem;
+  line-height: 0.8;
+  font-family: N2O;
+}
+
+.bosmSmall2 {
+  display: none;
+}
+
+.rahulTextMobile {
+  display: none;
+}
+
+.n2oTextMobile {
+  display: none;
+}
+
+@media (max-width: 1375px) {
+  .n2oText {
+    font-size: 11.5rem;
+  }
+  .rahulText {
+    font-size: 3.25rem;
+  }
+  .dateMonth {
+    font-size: 4rem;
+  }
+  .sorabhText {
+    font-size: 3.5rem;
+  }
+  .dateNumber {
+    font-size: 15rem;
+  }
+  .large {
+    font-size: 11rem;
+  }
+  .rahulContainer {
+    height: 90%;
+  }
+}
+
+@media (max-width: 1275px) {
+  .n2oText {
+    font-size: 9.5rem;
+  }
+  .rahulText {
+    font-size: 2.75rem;
+  }
+  .sorabhText {
+    font-size: 3.25rem;
+  }
+  .dateNumber {
+    font-size: 13rem;
+  }
+}
+@media (max-width: 1200px) {
+  .n2oText {
+    font-size: 8.5rem;
+  }
+  .rahulText {
+    font-size: 2.25rem;
+  }
+  .sorabhText {
+    font-size: 2.75rem;
+  }
+  .dateNumber {
+    font-size: 11rem;
+  }
+  .dateMonth {
+    font-size: 3rem;
+  }
+  .small {
+    font-size: 4rem;
+  }
+  .rahulContainer {
+    scale: 0.8;
+  }
+  .large {
+    font-size: 10rem;
+  }
+}
+
+@media screen and (max-height: 877px) {
+  .pageContainer {
+    grid-template-columns:
+      130px minmax(110px, 1.2fr) minmax(110px, 1.2fr) 2fr minmax(
+        330px,
+        2.9fr
+      )
+      39vh;
+    grid-template-rows: 1.5fr 300px 4fr;
+  }
+  .n2oText {
+    font-size: 13.5rem;
+  }
+  .small{
+    font-size: 3.8rem;
+  }
+}
+
+@media screen and (max-height: 785px) {
+  .pageContainer {
+    grid-template-columns:
+      130px minmax(110px, 1.2fr) minmax(110px, 1.2fr) 2fr minmax(
+        330px,
+        2.9fr
+      )
+      39vh;
+    grid-template-rows: 100px 260px auto;
+  }
+  .n2oText {
+    font-size: 13.5rem;
+  }
+  .small{
+    font-size: 3.6rem;
+  }
+  .logo img {
+    height: 80%;
+  }
+  .mid{
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .pageContainer {
+    grid-template-columns: minmax(110px, 160px) minmax(110px, 1fr) minmax(
+        110px,
+        1fr
+      ) 2fr minmax(300px, 2.9fr);
+  }
+  .bosmLarge {
+    display: none;
+  }
+
+  .n2oText {
+    font-size: 19vw;
+  }
+  .rahulText {
+    font-size: 7vw;
+  }
+  .sorabhText {
+    font-size: 6.6vw;
+  }
+  .dateNumber {
+    font-size: 20vw;
+  }
+  .dateMonth {
+    font-size: 5vw;
+  }
+  .mid {
+    margin-right: 0;
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 977px) and (min-height: 789px) {
+  .rahulText {
+    font-size: 6vw;
+  }
+  .sorabhText {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (max-width: 819px) and (min-height: 789px) {
+  .n2oText {
+    font-size: 14vw;
+  }
+  .rahulText {
+    font-size: 5vw;
+  }
+  .sorabhText {
+    font-size: 5vw;
+  }
+  .dateNumber {
+    font-size: 18vw;
+  }
+  .dateMonth {
+    font-size: 5.5vw;
+  }
+  .dateLater span:last-child {
+    font-size: 2.5vw;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .pageContainer {
+    grid-template-columns: 110px auto 110px;
+    grid-template-rows: 150px 230px 2.5rem 230px auto;
+  }
+  .bosmMid {
+    display: none;
+  }
+  .bosmSmall {
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+  .small {
+    font-size: 3rem;
+  }
+  .logo {
+    grid-column: 1/3;
+  }
+  .logo img {
+    scale: 0.7;
+  }
+  .rahul {
+    grid-row: 2/3;
+    grid-column: 1/3;
+  }
+  .rahulContainer {
+    height: 100%;
+    scale: 0.9;
+    margin: 0;
+  }
+  .sorabh {
+    grid-row: 4/5;
+    grid-column: 2/4;
+  }
+  .sorabhContainer {
+    height: 100%;
+    scale: 0.9;
+    margin: 0;
+  }
+  .n2o {
+    display: none;
+  }
+  .date {
+    grid-row: 5/6;
+    grid-column: 1/4;
+  }
+  .sorabhText {
+    display: block;
+    font-size: 2rem;
+    text-align: right;
+  }
+  .dateNumber {
+    /* font-size: 20vh; */
+    font-size: 8rem;
+  }
+  .dateMonth {
+    font-size: 2rem;
+  }
+  .dateLater span:last-child {
+    font-size: 1rem;
+  }
+  .bosmSmall2 {
+    display: flex;
+    grid-row: 4/5;
+    grid-column: 1/2;
+  }
+  .rahulTextMobile {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    align-self: end;
+
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+  .n2oTextMobile {
+    display: block;
+    font-size: 3rem;
+    text-align: center;
+    align-self: end;
+
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .pageContainer {
+    grid-template-columns: 110px auto 110px;
+    grid-template-rows: 100px 230px 2.5rem 230px auto;
+  }
+  .n2oText {
+    font-size: 12vw;
+  }
+  /* .dateNumber{
+        font-size: 8rem;
+    }
+    .dateMonth{
+        font-size: 1.8rem;
+    }
+    .dateLater span:last-child{
+        font-size: 1rem;
+    } */
+}
+
+@media screen and (max-width: 410px) and (max-height: 760px) {
+  .pageContainer {
+    grid-template-columns: 110px auto 110px;
+    grid-template-rows: 80px 230px 2.5rem 230px auto;
+  }
+  .dateNumber {
+    font-size: 7rem;
+  }
+  .dateMonth {
+    font-size: 1.8rem;
+  }
+  .dateLater span:last-child {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 410px) and (max-height: 732px) {
+  .dateNumber {
+    font-size: 6rem;
+  }
+  .dateMonth {
+    font-size: 1.5rem;
+  }
+  .dateLater span:last-child {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 410px) and (max-height: 710px) {
+  .pageContainer {
+    grid-template-columns: 75px auto 75px;
+    grid-template-rows: 80px 180px 2.5rem 180px auto;
+  }
+  .small {
+    font-size: 2rem;
+  }
+  .n2oTextMobile {
+    grid-column: 2/4;
+    text-align: right;
+  }
+}
