@@ -577,7 +577,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
     const fetchCityOptions = async () => {
       try {
-        console.log(statesData);
+        // console.log(statesData);
         setStateOptions(createOptionsFromKeys(statesData));
         const convertedOptions = convertApiFormat(statesData);
         setPlaceData(statesData);
