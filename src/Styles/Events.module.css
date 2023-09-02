@@ -95,6 +95,9 @@
   padding-block: 0.5rem;
   border-radius: 1rem;
   transition: transform 0.2s ease-in-out;
+
+
+  display: none;
 }
 
 .guidelines::after{
