@@ -404,7 +404,7 @@
 
 
 
-@media (max-height: 750px) {
+@media (max-height: 870px) {
   .benny {
     transform: scale(0.65) translateX(25%) translateY(30%);
   }
@@ -426,7 +426,13 @@
     transform: scale(0.4) translateX(90%) translateY(95%);
   }
 }
-@media (max-height: 780px) {
+@media (max-height: 700px) {
+  .benny{
+    transform: scale(.5) translateX(45%) translateY(55%);
+  }
+  .cross{
+    bottom: 20vh;
+  }
   .bennyMobile{
     bottom: -30vh;
     transform: scale(0.4) translateX(90%) translateY(95%);
@@ -435,6 +441,8 @@
     margin-top: 2rem;
     font-size: 3rem;
   }
+}
+@media (max-height: 700px) and (max-width: 600px){
   .contentBottom{
     font-size: 1.35rem;
   }
