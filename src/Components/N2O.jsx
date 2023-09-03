@@ -6,6 +6,8 @@ import sorabh_pant from "../images/sorabh.png";
 
 import * as styles from "../Styles/N2O.module.css";
 
+import gsap from "gsap";
+
 export default function N2O() {
   return (
     <div className={styles.pageContainer}>
@@ -15,9 +17,9 @@ export default function N2O() {
           src={bosm_logo}
           alt="BOSM Logo"
           onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
+            gsap.to(window, {
+              scrollTo: `0`,
+              duration: 3,
             });
           }}
         />

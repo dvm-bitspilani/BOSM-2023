@@ -10,6 +10,8 @@ import Waves from "../images/Waves.svg";
 import Cross from "../images/cross.svg";
 import texture from "../images/profTexture.png";
 
+import gsap from 'gsap';
+
 const ProfShow = () => {
     return (
         <main className={prof["profShowPage"]}>
@@ -50,10 +52,10 @@ const ProfShow = () => {
                     </div>
                     <div className={prof["headingLogo"]}>
                         <img src={Logo} alt='BOSM' onClick={() => {
-                            window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'
-                            });
+                            gsap.to(window, {
+                                  scrollTo: `0`,
+                                  duration: 2,
+                                });
                         }}></img>
                     </div>
                 </div>
