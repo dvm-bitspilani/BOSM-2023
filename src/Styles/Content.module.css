@@ -506,7 +506,7 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   right: 0;
-  bottom: 2rem;
+  bottom: 1rem;
   padding: 1rem;
   overflow: visible;
 }
@@ -536,17 +536,24 @@ input[type="radio"] {
   z-index: 99999;
 }
 
-.socialIcon{
+.socialIcon1, .socialIcon2, .socialIcon3{
   transition: all 1s ease-in-out;
   position: relative;
   z-index: 9998;
   transition: all 0.5s ease;
 }
-
-.socialIcon:hover{
-  transform: scale(1.2);
+.socialIcon1 path, .socialIcon2 path, .socialIcon3 path{
+  transition: all .2s ease;
 }
-
+.socialIcon1:hover path{
+  fill: #d400a5;  /* "url(#paint0_linear_3593_561) */
+}
+.socialIcon2:hover path{
+  fill: black;
+}
+.socialIcon3:hover path{
+  fill: #437EEF;
+}
 
 @media (max-width: 1480px) {
   .leftLion,
