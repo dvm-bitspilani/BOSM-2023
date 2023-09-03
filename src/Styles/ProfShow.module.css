@@ -55,7 +55,7 @@
 }
 
 .heading {
-  z-index: 4;
+  z-index: 11;
   position: absolute;
   top: 0;
   width: 100%;
@@ -73,11 +73,14 @@
 }
 .headingLogo {
   scale: 0.9;
-  transition: all .5s ease;
+}
+.headingLogo img:hover{
+  scale: 1.1;
 }
 .headingLogo img{
   position: relative;
   z-index: 10;
+  transition: all .5s ease;
 }
 .content {
   display: flex;

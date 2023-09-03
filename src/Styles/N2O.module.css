@@ -30,6 +30,13 @@
 .logo {
   grid-column: 1/3;
   grid-row: 1/2;
+  z-index: 6;
+}
+.logo img{
+  transition: all .5s ease;
+}
+.logo img:hover{
+  scale: 1.1;
 }
 
 .bosmMid {
