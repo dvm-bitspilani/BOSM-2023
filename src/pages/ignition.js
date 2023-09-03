@@ -9,7 +9,7 @@ import LoaderVideo from "../images/loader.mp4";
 
 const Ignition = (props) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoading2 , setIsLoading2] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
   const closeButtonHandler = () => {
     navigate("/");
@@ -45,7 +45,7 @@ const Ignition = (props) => {
         );
       };
     }
-    setIsLoading(false); 
+    setIsLoading(false);
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -136,7 +136,7 @@ const Ignition = (props) => {
           });
         }
       };
-      
+
       const handleBackClick = () => {
         if (!isScrolling) {
           setIsScrolling(true);
@@ -145,7 +145,7 @@ const Ignition = (props) => {
           });
         }
       };
-      
+
 
       nextBtn.addEventListener("click", handleNextClick);
       backBtn.addEventListener("click", handleBackClick);
@@ -169,7 +169,7 @@ const Ignition = (props) => {
   }
 
 
-  const [videoLoaded , setIsVideoLoaded] = useState(false)
+  const [videoLoaded, setIsVideoLoaded] = useState(false)
 
   useEffect(() => {
     const videos = document.querySelectorAll("video");
@@ -204,44 +204,45 @@ const Ignition = (props) => {
     return cleanup;
   }, []);
   useEffect(() => {
-    if(videoLoaded){
-    const assets = document.querySelectorAll(
-      "img", "font", "style"
-    );
+    if (videoLoaded) {
+      const assets = document.querySelectorAll(
+        "img", "font", "style"
+      );
 
-    let assetsLoaded = 0;
+      let assetsLoaded = 0;
 
-    const handleAssetLoad = () => {
-      assetsLoaded++;
-      if (assetsLoaded === assets.length) {
-        setTimeout(() => {
-          setIsLoading2(false);
-        }, 2000);
-      }
-    };
+      const handleAssetLoad = () => {
+        assetsLoaded++;
+        if (assetsLoaded === assets.length) {
+          setTimeout(() => {
+            setIsLoading2(false);
+          }, 2000);
+        }
+      };
 
-    assets.forEach((asset) => {
-      if (
-        asset.complete ||
-        asset.readyState === 4 ||
-        asset.tagName === "LINK"
-      ) {
-        handleAssetLoad();
-      } else {
-        asset.addEventListener("load", handleAssetLoad);
-        asset.addEventListener("error", handleAssetLoad);
-      }
-    });
-
-    const cleanup = () => {
       assets.forEach((asset) => {
-        asset.removeEventListener("load", handleAssetLoad);
-        asset.removeEventListener("error", handleAssetLoad);
+        if (
+          asset.complete ||
+          asset.readyState === 4 ||
+          asset.tagName === "LINK"
+        ) {
+          handleAssetLoad();
+        } else {
+          asset.addEventListener("load", handleAssetLoad);
+          asset.addEventListener("error", handleAssetLoad);
+        }
       });
-    };
 
-    return cleanup;
-  }}, [videoLoaded]);
+      const cleanup = () => {
+        assets.forEach((asset) => {
+          asset.removeEventListener("load", handleAssetLoad);
+          asset.removeEventListener("error", handleAssetLoad);
+        });
+      };
+
+      return cleanup;
+    }
+  }, [videoLoaded]);
 
   useEffect(() => {
     document.body.style.height = "fit-content";
@@ -249,25 +250,25 @@ const Ignition = (props) => {
 
   return (
     <React.Fragment>
-       {isLoading2 && <div className="loader" id="loader">
+      {isLoading2 && <div className="loader" id="loader">
         <video autoPlay loop muted playsInline>
           <source src={LoaderVideo} type="video/mp4" />
         </video>
       </div>}
-       <div className="cursor" id="cursor"></div>
+      <div className="cursor" id="cursor"></div>
       <div className="cursorFollower" id="cursorFollower">
         <img id="cursorImg" src={Cursor} alt=""></img>
       </div>
       <section className={classes.section}>
         <div className={classes.header}>
           <img
-           alt=""
+            alt=""
             src={arrow2} onClick={closeButtonHandler}
           />
           <h2>
             IGNITION <span>2023</span>
           </h2>
-          <img alt="" src={arrow2} style={{ visibility: "hidden", pointerEvents: "none" }}  />
+          <img alt="" src={arrow2} style={{ visibility: "hidden", pointerEvents: "none" }} />
         </div>
         <div className={classes.gameWrapper}>
           <div className={classes.backBtn} id="backBtn">
@@ -277,94 +278,94 @@ const Ignition = (props) => {
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
               <a href="https://supercell.com/en/games/clashroyale/" target="_blank" rel="noopener noreferrer">
-              <div className={classes.gameGroup}>
-                <div className={`${classes.game} ${classes.cr}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+                <div className={classes.gameGroup}>
+                  <div className={`${classes.game} ${classes.cr}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>Clash Royale</p>
                 </div>
-                <p>Clash Royale</p>
-              </div>
-                </a>
-                <a href="https://play.fifa.com/" target="_blank" rel="noopener noreferrer">
-              <div
-                className={`${classes.gameGroup} ${classes.secondGameGroup}`}
-              >
-                <div className={`${classes.game} ${classes.fifa}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXc_J3-2JaAUfnSjjTCgvue5QTCIA03n6XG0_cvUTnvJ5HAw/viewform?vc=0&c=0&w=1&flr=0" target="_blank" rel="noopener noreferrer">
+                <div
+                  className={`${classes.gameGroup} ${classes.secondGameGroup}`}
+                >
+                  <div className={`${classes.game} ${classes.fifa}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                    FIFA '23
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                  </p>
                 </div>
-                <p>
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                  FIFA '23
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                </p>
-              </div>
               </a>
               <a href="https://www.battlegroundsmobileindia.com/" target="_blank" rel="noopener noreferrer">
-              <div className={classes.gameGroup}>
-                <div className={`${classes.game} ${classes.bgmi}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+                <div className={classes.gameGroup}>
+                  <div className={`${classes.game} ${classes.bgmi}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160
+                      ? "\u00A0\u00A0\u00A0\u00A0"
+                      : ""}
+                    BGMI
+                    {isBrowser && window.innerWidth > 1160
+                      ? "\u00A0\u00A0\u00A0\u00A0"
+                      : ""}
+                  </p>
                 </div>
-                <p>
-                  {isBrowser && window.innerWidth > 1160
-                    ? "\u00A0\u00A0\u00A0\u00A0"
-                    : ""}
-                  BGMI
-                  {isBrowser && window.innerWidth > 1160
-                    ? "\u00A0\u00A0\u00A0\u00A0"
-                    : ""}
-                </p>
-              </div>
-            </a>
+              </a>
             </div>
             <div className={classes.divContainer}>
-            <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">
-              <div
-                className={`${classes.gameGroup} ${classes.secondGameGroup}`}
-              >
-                <div className={`${classes.game} ${classes.valo}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+              <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">
+                <div
+                  className={`${classes.gameGroup} ${classes.secondGameGroup}`}
+                >
+                  <div className={`${classes.game} ${classes.valo}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                    Valorant
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                  </p>
                 </div>
-                <p>
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                  Valorant
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                </p>
-              </div>
               </a>
-              <a href="https://playkey.net/en/game/tekken7" target="_blank" rel="noopener noreferrer">
-              <div className={`${classes.gameGroup}`}>
-                <div className={`${classes.game} ${classes.tekken}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScdbooyH5Sd96CrO3o70psMecp7bnhxlSizOP7cY9u1GytZeA/viewform?vc=0&c=0&w=1&flr=0" target="_blank" rel="noopener noreferrer">
+                <div className={`${classes.gameGroup}`}>
+                  <div className={`${classes.game} ${classes.tekken}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                    Tekken 7{isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
+                  </p>
                 </div>
-                <p>
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                  Tekken 7{isBrowser && window.innerWidth > 1160 ? "\u00A0\u00A0" : ""}
-                </p>
-              </div>
               </a>
               <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
-              <div
-                className={`${classes.gameGroup} ${classes.secondGameGroup}`}
-              >
-                <div className={`${classes.game} ${classes.cod}`}>
-                  <div className={classes.arrowContainer}>
-                    <img alt="" src={arrow} />
+                <div
+                  className={`${classes.gameGroup} ${classes.secondGameGroup}`}
+                >
+                  <div className={`${classes.game} ${classes.cod}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
                   </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}COD
+                    Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
+                  </p>
                 </div>
-                <p>
-                  {isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}COD
-                  Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
-                </p>
-              </div>
               </a>
             </div>
           </div>
@@ -374,8 +375,8 @@ const Ignition = (props) => {
         </div>
       </section>
 
-    
-          </React.Fragment>
+
+    </React.Fragment>
   );
 };
 
