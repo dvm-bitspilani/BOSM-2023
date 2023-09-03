@@ -11,6 +11,7 @@
   top: 0;
   left: 0;
   z-index: 10;
+  pointer-events: none;
 }
 .marqueeBG {
   height: 100%;
@@ -73,11 +74,14 @@
 }
 .headingLogo {
   scale: 0.9;
-  transition: all .5s ease;
+}
+.headingLogo img:hover{
+  scale: 1.1;
 }
 .headingLogo img{
   position: relative;
   z-index: 10;
+  transition: all .5s ease;
 }
 .content {
   display: flex;

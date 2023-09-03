@@ -11,7 +11,16 @@ export default function N2O() {
     <div className={styles.pageContainer}>
       <div className={styles.texture}></div>
       <div className={styles.logo}>
-        <img src={bosm_logo} alt="BOSM Logo" />
+        <img
+          src={bosm_logo}
+          alt="BOSM Logo"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        />
       </div>
       <div className={styles.bosmMid}>
         <span className={`${styles.text} ${styles.mid}`}>BOSM'23</span>
