@@ -695,7 +695,8 @@ const IndexPage = () => {
           y: "-100%",
           ease: "none",
           // duration: 1,
-        })
+        },
+        "<")
         .from(`.${contact["pageBackground"]}`, {
           x: "-100%",
           ease: "none",
