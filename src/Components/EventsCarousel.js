@@ -118,7 +118,7 @@ export default function EventsCarousel({ setProgress, setIndex }) {
         //   swiper.style.scale = 0.9;
         // }}
         onProgress={() => {
-          const swiper = document.querySelector(".swiper").swiper;
+          // const swiper = document.querySelector(".swiper").swiper;
           // console.log(swiper.progress);
         }}
         // onMouseUp={()=>{

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import * as prof from '../Styles/ProfShow.module.css';
+import React from 'react';
+import * as styles from '../Styles/ProfShow.module.css';
 import Logo from "../images/whiteLogo.svg";
 import ArrowsRight from "../images/ArrowsRight.svg";
 import ArrowsLeft from "../images/ArrowsLeft.svg";
@@ -14,20 +14,20 @@ import gsap from 'gsap';
 
 const ProfShow = () => {
     return (
-        <main className={prof["profShowPage"]}>
-            <div className={prof["marqueeBG"]}>
-                <div className={prof['textureContainer']}><img className={prof['texture']} src={texture}></img></div>
-                <span className={prof["marquee1"]}>
+        <main className={styles["profShowPage"]}>
+            <div className={styles["marqueeBG"]}>
+                <div className={styles['textureContainer']}><img alt='' className={styles['texture']} src={texture}></img></div>
+                <span className={styles["marquee1"]}>
                     BENNYBENNY
                 </span>
-                <span className={prof["marquee2"]}>DAYALDAYAL</span>
+                <span className={styles["marquee2"]}>DAYALDAYAL</span>
 
-                <div className={prof["heading"]}>
-                    <div className={prof["headingText"]}><span className={prof['headingBenny']}>BENNY</span>DAYAL
-                        <div className={prof["content"]}>
-                            <div className={prof["contentRight"]}>
+                <div className={styles["heading"]}>
+                    <div className={styles["headingText"]}><span className={styles['headingBenny']}>BENNY</span>DAYAL
+                        <div className={styles["content"]}>
+                            <div className={styles["contentRight"]}>
                                 <img src={ArrowsRight} alt='loading'></img>
-                                <div className={prof['para']}>
+                                <div className={styles['para']}>
                                     PAPPU CAN’T DANCE<br />
                                     AADAT SE MAJBOOR<br />
                                     THE DISCO SONG<br />
@@ -39,19 +39,19 @@ const ProfShow = () => {
                                     JAI JAI SHIVSHANKAR<br />
                                 </div>
                             </div>
-                            <div className={prof["contentLeft"]}>
-                                <div className={prof["contentTop"]}>
+                            <div className={styles["contentLeft"]}>
+                                <div className={styles["contentTop"]}>
                                     25TH
                                 </div>
-                                <div className={prof["contentBottom"]}>
+                                <div className={styles["contentBottom"]}>
                                     <img src={ArrowsLeft} alt='loading'></img>
                                     SEPTEMBER
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={prof["headingLogo"]}>
-                        <img src={Logo} alt='BOSM' onClick={() => {
+                    <div className={styles["headingLogo"]}>
+                        <img src={Logo} alt='BOSM' aria-hidden="true" onClick={() => {
                             gsap.to(window, {
                                   scrollTo: `0`,
                                   duration: 2,
@@ -59,32 +59,32 @@ const ProfShow = () => {
                         }}></img>
                     </div>
                 </div>
-                <div className={prof['benny']}>
+                <div className={styles['benny']}>
                     <img src={Benny} alt='Benny Dayal'></img>
                 </div>
-                <div className={prof['bennyMobile']}>
+                <div className={styles['bennyMobile']}>
                     <img src={BennyMobile} alt='Benny Dayal'></img>
                 </div>
-                <div className={prof['starRight']}>
+                <div className={styles['starRight']}>
                     <img src={stars} alt='stars'></img>
                 </div>
-                <div className={prof['starTop']}>
+                <div className={styles['starTop']}>
                     <img src={stars} alt='stars'></img>
                 </div>
-                <div className={prof['starMiddle']}>
+                <div className={styles['starMiddle']}>
                     <img src={stars} alt='stars'></img>
                 </div>
-                <div className={prof['starBottom']}>
+                <div className={styles['starBottom']}>
                     <img src={stars} alt='stars'></img>
                 </div>
-                <div className={prof['waves']}>
+                <div className={styles['waves']}>
                     <img src={Waves} alt='waves'></img>
                 </div>
-                <div className={prof['cross']}>
+                <div className={styles['cross']}>
                     <img src={Cross} alt='X'></img>
-                    <div className={prof['crossContent']}>
+                    <div className={styles['crossContent']}>
                         <img src={Cross} alt='X'></img>
-                        <div className={prof['bollywood']}>
+                        <div className={styles['bollywood']}>
                             BOLLYWOOD<br />
                             NIGHT
                         </div>

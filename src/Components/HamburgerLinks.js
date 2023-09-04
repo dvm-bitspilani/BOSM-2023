@@ -42,6 +42,7 @@ export default function HamburgerLinks({ img, text, color }) {
       draggable={false}
     >
     <div
+      aria-hidden="true"
       style={{ backgroundImage: `url(${img})` }}
       className={styles["container"]}
         onMouseEnter={() => setIsHovered(true)}

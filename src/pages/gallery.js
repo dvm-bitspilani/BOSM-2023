@@ -47,7 +47,6 @@ import {
 
 
 const Gallery = (props) => {
-  const { scrollY } = useScroll();
   // const y2 = useTransform(scrollY, [0, 2000], [-10, 190]);
   // const y3 = useTransform(scrollY, [0, 2000], [10, 210]);
   // const y4 = useTransform(scrollY, [0, 2000], [0, 200]);
@@ -57,7 +56,6 @@ const Gallery = (props) => {
   // const y9 = useTransform(scrollY, [0, 2000], [-70, 130]);
   // const y10 = useTransform(scrollY, [0, 2000], [-30, 170]);
 
-  const [error, setError] = useState(false);
 
   const [isLoading2, setIsLoading2] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -209,19 +207,6 @@ const Gallery = (props) => {
     document.body.style.height = "1600vh";
   };
 
-  const boxes = () => {
-    for (let i = 1; i <= 27; i++) {
-      <div className={styles[`box${i}`]}>
-        <img
-          src={`img${i}`}
-          alt="not found"
-          className={styles["image"]}
-          draggable={false}
-        />
-      </div>
-    }
-  }
-
   /// for horizontal scroll
 
   const scrollRef = useRef(null)
@@ -341,11 +326,11 @@ const Gallery = (props) => {
           </video>
         </div>
       )}
-      {error && <ErrorScreen />}
+      { <ErrorScreen />}
       <main className={styles["gallery"]} isHamOpen={false}>
         <div className={styles["wrapper"]}>
           <div className={styles["heading"]}>
-            <div className={styles["arrow"]} onClick={closeButtonHandler}>
+            <div className={styles["arrow"]} onClick={closeButtonHandler} aria-hidden="true" >
               <svg
                 viewBox="0 0 78 78"
                 fill="none"

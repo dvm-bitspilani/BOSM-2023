@@ -1,18 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion} from "framer-motion";
 import * as about from "../Styles/About.module.css";
-import AboutBG from "../images/about-bg.png";
-import thumbnailImage1 from "../images/aboutUsCarouselThumbnail.png";
-import thumbnailImage2 from "../images/bgmi.png";
-import thumbnailImage3 from "../images/fifa.png";
 import Carousel from "./Carousel";
 const AboutUs = (props) => {
-  const { scrollYProgress } = useScroll();
-  const pageRadius = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    ["75% 75% 0 0", "0%"]
-  );
+ 
+
   // useEffect(()=>{
   //     const page = document.querySelector(`.${about["aboutPage"]}`)
   //     page.style.transform = `translateY(${scrollYProgress}px)`;
@@ -44,7 +36,6 @@ const AboutUs = (props) => {
     },
   };
 
-  const images = [thumbnailImage1, thumbnailImage1, thumbnailImage1];
   return (
     <motion.main
       className={about["aboutPage"]}

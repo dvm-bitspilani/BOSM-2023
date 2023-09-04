@@ -30,7 +30,7 @@ import Form from "../Components/Form";
 // import Boy from "../images/boy.png";
 // import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 
-import { SEO } from "../Components/SEO";
+import { Seo } from "../Components/SEO";
 import LoaderVideo from "../images/loader.mp4";
 import Socials from "../Components/Socials";
 import AboutUs from "../Components/AboutUs";
@@ -1118,12 +1118,9 @@ const IndexPage = () => {
     }
   }, [videoLoaded]);
 
-  const handleStatueImageDrag = (event) => {
-    event.preventDefault();
-  };
 
   useEffect(() => {
-    if (cossacCards) {
+    if (!isLoading && cossacCards) {
       gsap.to(`.${contact["cardsContainer1"]}`, {
         opacity: 1,
         duration: 1,
@@ -1267,7 +1264,8 @@ const IndexPage = () => {
                       src={Statue}
                       alt=""
                       className={`${styles["statue"]} ${styles["desktopStatue"]}`}
-                      onDragStart={handleStatueImageDrag}
+                      style={{pointerEvents : "none"}}
+                      // onDragStart={handleStatueImageDrag}
                     />
                     <img
                       id="statueMobile"
@@ -1535,6 +1533,7 @@ const IndexPage = () => {
                         window.innerWidth < 920 && (
                           <div className={contact["cardsSwitchButtons2"]}>
                             <div
+                              aria-hidden="true" 
                               className={contact["organizingBtn"]}
                               onClick={handleOrganizingCardsBtnClick}
                               style={
@@ -1551,6 +1550,7 @@ const IndexPage = () => {
                               Contact
                             </div>
                             <div
+                              aria-hidden="true" 
                               className={contact["cossacBtn"]}
                               onClick={handleCossacCardsButtonClick}
                               style={
@@ -1589,6 +1589,7 @@ const IndexPage = () => {
                   {typeof window !== "undefined" && window.innerWidth > 920 && (
                     <div className={contact["cardsSwitchButtons"]}>
                       <div
+                        aria-hidden="true" 
                         className={contact["organizingBtn"]}
                         onClick={handleOrganizingCardsBtnClick}
                         style={
@@ -1605,6 +1606,7 @@ const IndexPage = () => {
                         Contact
                       </div>
                       <div
+                        aria-hidden="true" 
                         className={contact["cossacBtn"]}
                         onClick={handleCossacCardsButtonClick}
                         style={
@@ -1656,6 +1658,6 @@ export const Head = () => (
   <>
     <title>BOSM '23 | The Roar of Resilience</title>
     <link rel="icon" type="image/x-icon" href={logo} />
-    <SEO />
+    <Seo />
   </>
 );

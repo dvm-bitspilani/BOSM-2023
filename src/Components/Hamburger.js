@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import HamburgerLinks from "./HamburgerLinks";
 import * as styles from "../Styles/Hamburger.module.css";
 

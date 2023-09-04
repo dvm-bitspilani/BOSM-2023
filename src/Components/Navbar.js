@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import * as styles from "../Styles/Navbar.module.css";
 import Logo from "../images/logo.svg";
-// import hamIcon from "../images/Ham Icon.svg";
-import { motion, transform } from "framer-motion";
-import { navigate } from "gatsby";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import { motion} from "framer-motion";
 
 const Navbar = ({
   isLoading,
@@ -104,10 +101,6 @@ const Navbar = ({
     },
   };
 
-  const hamburgerIconVariants = {
-    open: {},
-    close: {},
-  };
 
   const openHam = () => {
     // console.log(isHamOpen, isAnimationComplete)
@@ -137,7 +130,7 @@ const Navbar = ({
       topBar3.style.width = "75%";
       topBar3.style.borderRadius = "5px";
     }
-  }, [isHamOpen]);
+  }, [isHamOpen , isLoading]);
 
   // console.log(isLoading, isLoading);
 
@@ -195,7 +188,7 @@ const Navbar = ({
               >
                 {/* <img src={hamIcon} alt="hamIcon" />open
                  */}
-                <div id="ham-menu" className={styles.hamIcon} onClick={openHam}>
+                <div id="ham-menu" className={styles.hamIcon} onClick={openHam} aria-hidden="true" >
                   <span id="hamIcon1" className={styles.hamIcon1}></span>
                   <span id="hamIcon2" className={styles.hamIcon2}></span>
                   <span id="hamIcon3" className={styles.hamIcon3}></span>

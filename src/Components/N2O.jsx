@@ -16,6 +16,7 @@ export default function N2O() {
         <img
           src={bosm_logo}
           alt="BOSM Logo"
+          aria-hidden="true"
           onClick={() => {
             gsap.to(window, {
               scrollTo: `0`,

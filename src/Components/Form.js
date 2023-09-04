@@ -7,7 +7,7 @@ import CreatableSelect from 'react-select/creatable';
 import RadioButton from './RadioBtn';
 import RadioButton2 from './RadioBtn';
 import {storage} from "../Components/firebase";
-import { uploadBytes , listAll , getDownloadURL} from "firebase/storage";
+import { uploadBytes ,  getDownloadURL} from "firebase/storage";
 import { ref } from 'firebase/storage';
 import statesData from '../Components/States.json'
 import Error1 from './Error1';
@@ -517,7 +517,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
   const [collegeOptions, setCollegeOptions] = useState([]);
-  const [cityOptions, setCityOptions] = useState([]);
   const [stateOptions, setStateOptions] = useState([]);
   const [sportsOptionsMale, setSportsOptionsMale] = useState([]);
   const [sportsOptionsFemale, setSportsOptionsFemale] = useState([]);
@@ -534,18 +533,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       return { value: item.name, label: item.name };
     });
     return stateOptions;
-  }
-  function createOptionsFromInputObject(inputObj) {
-    const cityOptions = [];
-  
-    for (const state in inputObj.data) {
-      const cities = inputObj.data[state];
-      cities.forEach(city => {
-        cityOptions.push({ value: city, label: city });
-      });
-    }
-  
-    return cityOptions;
   }
 
   const [placedata , setPlaceData] = useState([]);
@@ -579,7 +566,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       try {
         // console.log(statesData);
         setStateOptions(createOptionsFromKeys(statesData));
-        const convertedOptions = convertApiFormat(statesData);
         setPlaceData(statesData);
       } catch (error) {
         console.error('Error fetching cities:', error);
@@ -610,17 +596,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   useEffect(()=>{
 
   },[selectedState])
-
-  function createArrayOfObjects(inputArray) {
-    if(!inputArray)return;
-    const outputArray = [];
-  
-    for (const value of inputArray) {
-      outputArray.push({ value, label: value });
-    }
-  
-    return outputArray;
-  }
 
 
   const isFormFilled = () => {
@@ -756,7 +731,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     if(event.target.value === 'true')boolean = true;
     else boolean = false;
     console.log(boolean)
-    const { id, value, name, type } = event.target;
+    const { name } = event.target;
     const updatedFormData = { ...formData };
     updatedFormData["is_coach"] = isCoach;
     if (name === 'is_messfood') {
@@ -772,7 +747,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     if(event.target.value === 'true')boolean = true;
     else boolean = false;
     console.log(boolean)
-    const { id, value, name, type } = event.target;
+    const { name } = event.target;
     const updatedFormData = { ...formData };
     updatedFormData["is_coach"] = isCoach;
     if (name === 'is_coach') {
@@ -859,7 +834,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
       setError2(true)
     }
   };
-  const [paramsg , setparamsg] =useState('* Upload your passport size photo');
+ 
   useEffect(()=>{
     if(fileUploaded){
       // document.getElementById("previewPara").style.color="white";
@@ -928,14 +903,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   }else if(gender === 'O'){
     sportsOptions=sportsOptionsOther
   }
-
-  const onClickPara = ()=>{
-    if(!fileUploaded)return;
-    else if(fileUploaded){
-      setpreview(true)
-    }
-  };
-
   const editPhoto =()=>{
     hiddenFileInput.current.click();
     // console.log("clicked")
@@ -962,9 +929,9 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     <section className={styles["regPage"]} >
       <div className={styles["rpIcons"]}  ></div>
       <div className={styles["rpHeadingContainer"]}>
-        <img alt="" src={logo} onClick={goBack} id='reg-logo' />
+        <img alt="" src={logo} onClick={goBack} aria-hidden="true" id='reg-logo' />
         <h3>REGISTRATION</h3>
-        <img alt='' src={cross} onClick={goBack} className={styles["cross"]} />
+        <img alt='' src={cross} onClick={goBack} aria-hidden="true" className={styles["cross"]} />
       </div>
       <div className={styles["regBox"]}>
         <form className={styles["regForm"]}>
@@ -1061,7 +1028,7 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
 
 
             <label htmlFor='photo'>Photo</label>
-            <div className={`${styles["regInput"]} ${styles["photoInputHover"]}`} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload}>
+            <div className={`${styles["regInput"]} ${styles["photoInputHover"]}`} id='photo' onChange={handleChange2} placeholder='*Please upload your passport size photo' onClick={imageUpload} aria-hidden="true" >
               <span>{photoText}</span>
             </div>
 

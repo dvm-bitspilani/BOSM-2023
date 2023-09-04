@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { wrap } from "@popmotion/popcorn"
 import Video from "./Video"
-import Thumbnail from "../images/aboutUsCarouselThumbnail.png"
 import * as carousel from "../Styles/Carousel.module.css"
 import RightArrowImage from "../images/aboutUsCarouselRightArrow.png";
 import LeftArrowImage from "../images/aboutUsCarouselLeftArrow.png";
@@ -48,15 +47,7 @@ const App = () => {
     }
   }
 
-  const skipToImage = imageId => {
-    let changeDirection
-    if (imageId > activeImageIndex) {
-      changeDirection = 1
-    } else if (imageId < activeImageIndex) {
-      changeDirection = -1
-    }
-    setImageCount([imageId, changeDirection])
-  }
+
 
   return (
     <div className={carousel["carousel"]}>

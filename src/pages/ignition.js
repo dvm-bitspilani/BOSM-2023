@@ -10,7 +10,7 @@ import LoaderVideo from "../images/loader.mp4";
 const Ignition = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoading2, setIsLoading2] = useState(true);
-  const [isScrolling, setIsScrolling] = useState(false);
+
   const closeButtonHandler = () => {
     navigate("/");
     document.body.style.height = "1600vh";
@@ -130,18 +130,18 @@ const Ignition = (props) => {
       // };
       const handleNextClick = () => {
         if (!isScrolling) {
-          setIsScrolling(true);
+          // setIsScrolling(true);
           performScroll(scrollDistance, () => {
-            setIsScrolling(false);
+            // setIsScrolling(false);
           });
         }
       };
 
       const handleBackClick = () => {
         if (!isScrolling) {
-          setIsScrolling(true);
+          // setIsScrolling(true);
           performScroll(-scrollDistance, () => {
-            setIsScrolling(false);
+            // setIsScrolling(false);
           });
         }
       };
@@ -263,7 +263,7 @@ const Ignition = (props) => {
         <div className={classes.header}>
           <img
             alt=""
-            src={arrow2} onClick={closeButtonHandler}
+            src={arrow2} onClick={closeButtonHandler} aria-hidden="true" 
           />
           <h2>
             IGNITION <span>2023</span>

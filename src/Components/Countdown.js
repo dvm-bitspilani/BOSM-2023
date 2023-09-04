@@ -35,7 +35,9 @@ const Countdown = () => {
         setDays(Math.floor((BOSM - curr) / (1000 * 60 * 60 * 24)));
       }
     }, 1000);
-  }, []);
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [BOSM]);
 
   useEffect(() => {
     if (days > 37 || mins > 65 || hrs > 30 || mins < 0) {
@@ -43,6 +45,8 @@ const Countdown = () => {
     } else {
       count.style.display = "flex";
     }
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days, hrs, mins]);
 
   useEffect(() => {
@@ -65,7 +69,9 @@ const Countdown = () => {
     setPrevDay(days);
     setPrevHr(hrs);
     setPrevMin(mins);
-  }, [curr, mins]);
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [curr , BOSM]);
 
   return (
     <div ref={(el) => (count = el)} className={styles["countdown"]}>

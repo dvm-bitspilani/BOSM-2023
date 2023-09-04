@@ -1,6 +1,6 @@
 import React from "react"
 
-export const SEO = () => {
+export const Seo = () => {
 
   const seo = {
     title: "BOSM '23 | The Roar of Resilience",

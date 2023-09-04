@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import "../Styles/globals.css";
 import {
   AnimatePresence,
   motion,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 import Hamburger from "./Hamburger";
 import MobileHamburger from "./MobileHamburger";
@@ -21,7 +19,6 @@ const Layout = ({
   overflow,
   sectionId,
   regPage,
-  closeHam,
   isLoading,
 }) => {
   // const { scrollYProgress } = useScroll();
@@ -78,25 +75,6 @@ const Layout = ({
       opacity: 0,
       transition: {
         delay: 0.5,
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const hamClose = {
-    open: {
-      opacity: 1,
-      transiton: {
-        delay: 0,
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-    closed: {
-      opacity: 0,
-      transition: {
-        delay: 0,
         duration: 1,
         ease: "easeInOut",
       },
