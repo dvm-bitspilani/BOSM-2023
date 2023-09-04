@@ -123,3 +123,21 @@
         height: 190px;
     }
 }
+@media(max-height: 720px){
+    .sliderContainer{
+        margin: 15px 0;
+    }
+    .slider{
+        width: 250px;
+        height: 25vh;
+    }
+    .buttons{
+        width: 40%;
+    }
+}
+@media(max-height: 600px){
+    .slider{
+        width: 200px;
+        height: 20vh;
+    }
+}

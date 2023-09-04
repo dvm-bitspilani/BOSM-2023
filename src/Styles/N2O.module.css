@@ -194,7 +194,7 @@
 .rahulContainer img,
 .sorabhContainer img {
   position: absolute;
-  height: 110%;
+  height: 105%;
   /* height: 100%; */
   object-fit: cover;
   object-position: end;
@@ -381,7 +381,7 @@
     height: 80%;
   }
   .mid{
-    font-size: 3.2rem;
+    font-size: 2.7rem;
   }
 }
 
@@ -533,7 +533,7 @@
   }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 640px) {
   .pageContainer {
     grid-template-columns: 110px auto 110px;
     grid-template-rows: 100px 230px 2.5rem 230px auto;
