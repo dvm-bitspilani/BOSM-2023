@@ -1124,7 +1124,7 @@ const IndexPage = () => {
 
 
   useEffect(() => {
-    if (!isLoading && cossacCards) {
+    if (!isLoading && cossacCards && !regPage) {
       gsap.to(`.${contact["cardsContainer1"]}`, {
         opacity: 1,
         duration: 1,
@@ -1137,7 +1137,7 @@ const IndexPage = () => {
         opacity: 0,
         duration: 1,
       });
-    } else {
+    } else if(!isLoading && !regPage) {
       gsap.to(`.${contact["cardsContainer2"]}`, {
         opacity: 1,
         duration: 1,
@@ -1151,7 +1151,7 @@ const IndexPage = () => {
         duration: 1,
       });
     }
-  }, [cossacCards, isLoading]);
+  }, [cossacCards, isLoading , regPage]);
 
   const handleOrganizingCardsBtnClick = () => {
     setCossacCards(true);
