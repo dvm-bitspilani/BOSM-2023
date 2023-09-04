@@ -71,7 +71,7 @@ const IndexPage = () => {
       setCossacSwitchBtn(true);
       setCossacCards(true);
     }
-  }, [isLoading])
+  }, [isLoading]);
   // console.log({ cossacSwitchBtn });
   // useEffect(() => {
   //   if (isLoading) {
@@ -490,7 +490,6 @@ const IndexPage = () => {
           // },
           onEnter: ({ progress, direction, isActive }) => {
             // document.documentElement.style.overflow = "hidden";
-
             // !isActive &&
             // gsap.to(window, {
             //   scrollTo: `${window.innerHeight * 2}`,
@@ -656,6 +655,12 @@ const IndexPage = () => {
           scale: 0,
           ease: "none",
         })
+        .call(() => {
+          const n2oBall = document.getElementById("n2oBall");
+          if (n2oBall) {
+            n2oBall.style.transform = "translate(-50%, -50%)";
+          }
+        })
         .to("#n2oBall", {
           // width: "100%",
           // height : "100%",
@@ -665,9 +670,8 @@ const IndexPage = () => {
         })
         .from(`.${n2o["pageContainer"]}`, {
           opacity: 0,
-          ease : "none"
-        })
-
+          ease: "none",
+        });
 
       let tl5 = gsap.timeline({
         scrollTrigger: {
@@ -688,7 +692,7 @@ const IndexPage = () => {
         // .call(() => setActiveSection(2))
         .to(`.${n2o["pageContainer"]}`, {
           y: "-100%",
-          ease : "none"
+          ease: "none",
         })
         .to("#contact-section", {
           y: "-100%",
@@ -1548,7 +1552,6 @@ return (
           />
         )}
 
-
         {/* Contact Section */}
         {!regPage && !isLoading && (
           <Layout
@@ -1568,7 +1571,7 @@ return (
               <main
                 id="contactPage"
                 className={contact["page"]}
-              // style={{ top: "30vh" }}
+                // style={{ top: "30vh" }}
               >
                 <div id="contactContainer" className={contact["container"]}>
                   <div
@@ -1607,12 +1610,12 @@ return (
                               style={
                                 !cossacSwitchBtn
                                   ? {
-                                    borderBottom:
-                                      "3px solid rgba(255, 255, 255, 0)",
-                                  }
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
                                   : {
-                                    borderBottom: "3px solid white",
-                                  }
+                                      borderBottom: "3px solid white",
+                                    }
                               }
                             >
                               Contact
@@ -1624,12 +1627,12 @@ return (
                               style={
                                 cossacSwitchBtn
                                   ? {
-                                    borderBottom:
-                                      "3px solid rgba(255, 255, 255, 0)",
-                                  }
+                                      borderBottom:
+                                        "3px solid rgba(255, 255, 255, 0)",
+                                    }
                                   : {
-                                    borderBottom: "3px solid white",
-                                  }
+                                      borderBottom: "3px solid white",
+                                    }
                               }
                             >
                               Organizing Committee
@@ -1663,12 +1666,12 @@ return (
                         style={
                           !cossacSwitchBtn
                             ? {
-                              borderBottom:
-                                "3px solid rgba(255, 255, 255, 0)",
-                            }
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
                             : {
-                              borderBottom: "3px solid white",
-                            }
+                                borderBottom: "3px solid white",
+                              }
                         }
                       >
                         Contact
@@ -1679,12 +1682,12 @@ return (
                         style={
                           cossacSwitchBtn
                             ? {
-                              borderBottom:
-                                "3px solid rgba(255, 255, 255, 0)",
-                            }
+                                borderBottom:
+                                  "3px solid rgba(255, 255, 255, 0)",
+                              }
                             : {
-                              borderBottom: "3px solid white",
-                            }
+                                borderBottom: "3px solid white",
+                              }
                         }
                       >
                         Organizing Committee
