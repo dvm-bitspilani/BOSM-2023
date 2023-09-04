@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Countdown";
@@ -62,6 +62,9 @@ const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cossacSwitchBtn, setCossacSwitchBtn] = useState(false);
   const [cossacCards, setCossacCards] = useState(false);
+  const cardsContainerRef = useRef(null);
+  const contactBtnRef = useRef(null);
+  const organizingBtnRef = useRef(null);
 
   useEffect(() => {
     if (!isLoading) {
@@ -695,7 +698,8 @@ const IndexPage = () => {
           y: "-100%",
           ease: "none",
           // duration: 1,
-        })
+        },
+        "<")
         .from(`.${contact["pageBackground"]}`, {
           x: "-100%",
           ease: "none",
@@ -1176,8 +1180,71 @@ const IndexPage = () => {
       document.body.style.height = "fit-content";
     }
   }, [regPage]);
+  // useEffect(() => {
 
-  return (
+  //   const cardsContainer = document.getElementsByClassName('cardsContainer')[0]
+  //   const cardsContainer1 = document.getElementsByClassName('cardsContainer1')[0]
+  //   const cardsContainer2 = document.getElementsByClassName('cardsContainer2')[0]
+  //   let startX = 0;
+  //   let dist = 0;
+
+  //   if(cardsContainer){
+  //     cardsContainer.addEventListener("touchstart", (e) => {
+  //       startX = e.touches[0].clientX;
+  //     });
+  //     cardsContainer.addEventListener("touchmove", (e) => {
+  //       if (!startX) return;
+  //       const currentX = e.touches[0].clientX;
+  //       dist = startX - currentX;
+  //     });
+  //     cardsContainer.addEventListener("touchend", () => {
+  //       if (dist > 50) {
+  //         // Swipe left, show Organizing Committee
+  //         cardsContainer2.style.display = "block";
+  //         cardsContainer1.style.display = "none";
+  //       } else if (dist < -50) {
+  //         // Swipe right, show Contact
+  //         cardsContainer1.style.display = "block";
+  //         cardsContainer2.style.display = "none";
+  //       }
+  //       startX = 0;
+  //       dist = 0;
+  //     })
+  // }})
+  useEffect(()=>{
+//     const cardsContainer = document.querySelector(".cardsContainer");
+// const contactBtn = document.querySelector(".organizingBtn");
+// const organizingBtn = document.querySelector(".cossacBtn");
+const cardsContainer = cardsContainerRef.current;
+    const contactBtn = contactBtnRef.current;
+    const organizingBtn = organizingBtnRef.current;
+let startX = 0;
+let dist = 0;
+if(cardsContainer){
+cardsContainer.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+cardsContainer.addEventListener("touchmove", (e) => {
+  if (!startX) return;
+  const currentX = e.touches[0].clientX;
+  dist = startX - currentX;
+});
+
+cardsContainer.addEventListener("touchend", () => {
+  if (dist > 50) {
+    // Swipe left, click Organizing Committee button
+    organizingBtn.click();
+  } else if (dist < -50) {
+    // Swipe right, click Contact button
+    contactBtn.click();
+  }
+  startX = 0;
+  dist = 0;
+});
+
+}})
+return (
     <>
       {isLoading && (
         <div className="loader" id="loader">
@@ -1538,6 +1605,7 @@ const IndexPage = () => {
                             <div
                               aria-hidden="true" 
                               className={contact["organizingBtn"]}
+                              ref={contactBtnRef}
                               onClick={handleOrganizingCardsBtnClick}
                               style={
                                 !cossacSwitchBtn
@@ -1556,6 +1624,7 @@ const IndexPage = () => {
                               aria-hidden="true" 
                               className={contact["cossacBtn"]}
                               onClick={handleCossacCardsButtonClick}
+                              ref={organizingBtnRef}
                               style={
                                 cossacSwitchBtn
                                   ? {
@@ -1573,6 +1642,7 @@ const IndexPage = () => {
                         )}
                       <div
                         className={contact["cardsContainer"]}
+                        ref={cardsContainerRef}
                         style={{
                           width: cossacSwitchBtn
                             ? typeof window !== undefined &&

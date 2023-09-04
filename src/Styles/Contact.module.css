@@ -181,6 +181,9 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  /* display: flex;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out; */
 }
 
 .contentContainer {
@@ -332,6 +335,7 @@
   height: 90vh;
   width: 100%;
   justify-content:center;
+  /* width: 50% !important; */
 }
 .cardsContainer2{
   padding-top: 5vh;
