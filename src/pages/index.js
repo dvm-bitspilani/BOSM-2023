@@ -17,7 +17,7 @@ import Statue from "../images/statue.svg";
 import MobileStatue from "../images/statue-mobile.png";
 import RightLion from "../images/lion-blue.png";
 import LeftLion from "../images/lion-red.png";
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Cursor from "../images/cursor.png";
 import CursorDrag from "../images/cursordrag.png";
 import FrontStatue from "../images/statue2bright.png";
@@ -26,8 +26,8 @@ import ContactProfile from "../Components/Profile";
 import BackStatueMobile from "../images/statue2bg_mobile.png";
 import logo from "../images/logo.svg";
 import Form from "../Components/Form";
-import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
-import Boy from "../images/boy.png";
+// import Girl from "../Components/ContactsData/ContactImages/contact_girl.png";
+// import Boy from "../images/boy.png";
 // import Boy from "../Components/ContactsData/ContactImages/contact_boy.png";
 
 import { SEO } from "../Components/SEO";
@@ -312,7 +312,7 @@ const IndexPage = () => {
     document.documentElement.style.overflow = isLoaded ? "scroll" : "hidden";
   }, [isLoaded]);
 
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
   useLayoutEffect(() => {
     if (!isLoading) {
@@ -856,7 +856,6 @@ const IndexPage = () => {
     };
 
     const eventCarousel = document.getElementById("eventCarousel");
-    console.log(eventCarousel);
 
     if (eventCarousel) {
       eventCarousel.addEventListener("mouseover", handleMouseOver);
