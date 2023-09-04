@@ -84,7 +84,7 @@
 }
 .title {
   font-family: Montserrat;
-  font-size: 4vh;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 0.23vh;
   color: white;
@@ -92,7 +92,16 @@
   padding-top: 3vh;
   overflow: visible;
 }
-
+@media(max-height: 850px){
+  .title{
+    font-size: 2.5rem;
+  }
+}
+@media(max-height: 700px){
+  .title{
+    font-size: 2rem;
+  }
+}
 .profileContainer {
   display: flex;
   flex-direction: column;

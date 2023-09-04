@@ -216,3 +216,11 @@
         margin-top: -7px;
     }
 }
+@media(max-height: 700px){
+    .index{
+        padding: .5rem;
+    }
+    .heading{
+        padding-top: .5rem;
+    }
+}
