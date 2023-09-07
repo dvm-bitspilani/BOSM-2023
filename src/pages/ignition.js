@@ -277,7 +277,7 @@ const Ignition = (props) => {
           </div>
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
-              <a href="https://docs.google.com/forms/d/1WBp-lQU9QD4VJ8Krw8hNfvk-DHna4IDIf6qpLGts7LI/edit?ts=64e4d825" target="_blank" rel="noopener noreferrer">
+              <a href="https://forms.gle/xdPocjBnTKKURr1A9" target="_blank" rel="noopener noreferrer">
                 <div className={classes.gameGroup}>
                   <div className={`${classes.game} ${classes.cr}`}>
                     <div className={classes.arrowContainer}>
