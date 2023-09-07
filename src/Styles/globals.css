@@ -26,6 +26,16 @@
   font-family: "Ragata";
   src: url("../fonts/ragata.ttf");
 }
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../fonts/BebasNeue-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Digital";
+  src: url("../fonts/DS-DIGI.ttf");
+}
 * {
   padding: 0;
   margin: 0;
