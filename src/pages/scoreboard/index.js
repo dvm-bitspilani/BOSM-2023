@@ -6,8 +6,11 @@ import { navigate } from "gatsby";
 
 import logoImg from "../../images/logo.svg";
 
+import CircularProgress from "@mui/material/CircularProgress";
+
 export default function Index() {
   const [data, setData] = React.useState(null);
+  const [allScoreCards, setAllScoreCards] = React.useState(null);
 
   React.useEffect(() => {
     const socket = new WebSocket("wss://test.bitsbosm.org/2023/ws/live_score/");
@@ -40,6 +43,15 @@ export default function Index() {
   React.useEffect(() => {
     if (data) {
       console.log(data);
+      setAllScoreCards(
+        data.map((item, index) => {
+          if (item.team_scores.length < 2) {
+            return null;
+          } else {
+            return <ScoreCard key={index} data={item} />;
+          }
+        })
+      );
     }
   }, [data]);
 
@@ -51,16 +63,8 @@ export default function Index() {
         </div>
         <h1>SCOREBOARD</h1>
       </div>
-      <div className={styles.scoreboardGrid}>
-        {data
-          ? data.map((item, index) => {
-              if (item.team_scores.length < 2) {
-                return null;
-              } else {
-                return <ScoreCard key={index} data={item} />;
-              }
-            })
-          : null}
+      <div className={data ? styles.scoreboardGrid : styles.loaderGrid}>
+        {data ? allScoreCards : <CircularProgress color="inherit" sx={{justifySelf:"center"}} size={"7rem"}/>}
       </div>
     </main>
   );

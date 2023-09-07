@@ -1,5 +1,6 @@
 body {
   height: fit-content;
+  overflow-y: hidden;
 }
 
 .pageContainer {
@@ -72,6 +73,17 @@ body {
   overflow-x: hidden;
 
   padding-right: 2rem;
+}
+
+.loaderGrid{
+  height: 80%;
+  width: 85%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  place-content: center;
+
+  color: #f0f0f0;
 }
 
 .scoreCard {

@@ -11,12 +11,19 @@ export default function ScoreCard({ data = null }) {
 
   React.useEffect(() => {
     if (data && data.team_scores.length === 2) {
-      setTeam1(data.team_scores[0].team);
-      setTeam2(data.team_scores[1].team);
-      setScore1(data.team_scores[0].score);
-      setScore2(data.team_scores[1].score);
+      if (Number(data.team_scores[0].score)>Number(data.team_scores[1].score)) {
+        setTeam1(returnFirstTwoWords(data.team_scores[0].team));
+        setTeam2(returnFirstTwoWords(data.team_scores[1].team));
+        setScore1(data.team_scores[0].score);
+        setScore2(data.team_scores[1].score);
+      } else {
+        setTeam1(returnFirstTwoWords(data.team_scores[1].team));
+        setTeam2(returnFirstTwoWords(data.team_scores[0].team));
+        setScore1(data.team_scores[1].score);
+        setScore2(data.team_scores[0].score);
+      }
     } else if (data && data.team_scores.length > 2) {
-      setTeam1(data.team_scores[0].team);
+      setTeam1(returnFirstTwoWords(data.team_scores[0].team));
       setScore1(data.team_scores[0].score);
     }
     if (data) {
@@ -24,7 +31,6 @@ export default function ScoreCard({ data = null }) {
       setVenue(data.venue);
       console.log(data.team_scores[1]);
     }
-
   }, [data]);
 
   return (
@@ -63,4 +69,9 @@ export default function ScoreCard({ data = null }) {
       </div>
     </div>
   );
+}
+
+export function returnFirstTwoWords(string) {
+  const words = string.split(" ");
+  return words[0] + " " + words[1];
 }
