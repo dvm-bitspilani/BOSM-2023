@@ -74,7 +74,7 @@ body {
   justify-content: center;
   align-content: flex-start;
 
-  gap:3rem;
+  gap: 3rem;
 
   overflow-y: scroll;
   overflow-x: hidden;
@@ -82,7 +82,7 @@ body {
   padding-right: 2rem;
 }
 
-.loaderGrid{
+.loaderGrid {
   height: 80%;
   width: 85%;
 
@@ -116,7 +116,8 @@ body {
 .score {
   height: fit-content;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 7fr 1fr 7fr;
   justify-content: center;
   align-items: flex-end;
   gap: 1rem;
@@ -125,26 +126,32 @@ body {
 }
 
 .teamNames {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   position: relative;
+
+  width: 80%;
 }
 
-.teamNames::before{
-    content: "";
-    /* position: absolute; */
-    /* top: 0; */
+.score {
+  width: 50%;
+}
 
-    left: 0;
-    background-image: url("../images/medal.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
+.teamNames::before {
+  content: "";
+  position: absolute;
+  /* top: 0; */
 
-    height: 30px;
-    aspect-ratio: 1/1;
+  left: -12%;
+  /* background-image: url("../images/medal.svg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 
-    align-self: center;
-}   
+  height: 30px;
+  aspect-ratio: 1/1;
+
+  align-self: center;
+}
 
 .teamName {
   text-align: center;
@@ -164,6 +171,8 @@ body {
 .vsText {
   color: white;
   font-size: 2rem;
+  align-self: center;
+  justify-self: center;
 }
 
 .score {
@@ -176,7 +185,7 @@ body {
   font-size: 2.3rem;
 }
 
-.event{
+.event {
   text-align: center;
 }
 
@@ -224,8 +233,7 @@ body {
   width: 0.4rem;
 }
 
-@media  screen and (max-width:1100px) {
-
+@media screen and (max-width: 1100px) {
   .header {
     justify-content: space-around;
     gap: 1rem;
@@ -234,11 +242,11 @@ body {
   .header h1 {
     font-size: 6vw;
   }
-  .header img{
+  .header img {
     height: 70%;
     align-self: center;
   }
-  .logoDiv{
+  .logoDiv {
     display: flex;
   }
 }

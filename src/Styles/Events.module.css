@@ -96,8 +96,7 @@
   border-radius: 1rem;
   transition: transform 0.2s ease-in-out;
 
-
-  display: none;
+  /* display: none; */
 }
 
 .guidelines::after{
@@ -123,7 +122,7 @@
   transform: scaleX(0.9);
 }
 
-.guidelines span {
+.guidelines a {
   color: #af464b;
   font-family: Montserrat;
   font-style: normal;

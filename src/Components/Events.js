@@ -24,6 +24,8 @@ import snookerIcon from "../images/Events Sports Icons/snooker.svg";
 import footballIcon from "../images/Events Sports Icons/football.svg";
 import basketballIcon from "../images/Events Sports Icons/basketball.svg";
 
+import pdfFile from "../images/BOSMRulebooks.pdf";
+
 const Events = (props) => {
   const [progress, setProgress] = React.useState(0);
   const [index, setIndex] = React.useState(0);
@@ -66,8 +68,20 @@ const Events = (props) => {
           ></CircularProgress>
           <img src={allImages[index]} alt="icon" className={events.icon} />
         </div>
-        <div className={events.guidelines}>
-          <span>Guidelines</span>
+        <div
+          className={events.guidelines}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            // console.log("clicked");
+            window.open(pdfFile, "_blank");
+          }}
+        >
+          <a
+            // href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+            target="_blank"
+          >
+            Guidelines
+          </a>
         </div>
       </div>
     </section>

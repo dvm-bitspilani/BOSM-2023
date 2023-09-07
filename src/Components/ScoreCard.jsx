@@ -11,7 +11,9 @@ export default function ScoreCard({ data = null }) {
 
   React.useEffect(() => {
     if (data && data.team_scores.length === 2) {
-      if (Number(data.team_scores[0].score)>Number(data.team_scores[1].score)) {
+      if (
+        Number(data.team_scores[0].score) > Number(data.team_scores[1].score)
+      ) {
         setTeam1(returnFirstTwoWords(data.team_scores[0].team));
         setTeam2(returnFirstTwoWords(data.team_scores[1].team));
         setScore1(data.team_scores[0].score);
@@ -35,6 +37,13 @@ export default function ScoreCard({ data = null }) {
 
   return (
     <div className={styles.scoreCard}>
+      <div className={styles.event}>
+        {data === null ? (
+          <span className={styles.eventName}>Football Round 2</span>
+        ) : (
+          <span className={styles.eventName}>{event}</span>
+        )}
+      </div>
       <div className={styles.teamNames}>
         <span className={`${styles.teamName} ${styles.winningTeam}`}>
           {data === null ? "BITS P" : team1}
@@ -55,13 +64,6 @@ export default function ScoreCard({ data = null }) {
           </>
         )}
       </div>
-      <div className={styles.event}>
-        {data === null ? (
-          <span className={styles.eventName}>Football Round 2</span>
-        ) : (
-          <span className={styles.eventName}>{event}</span>
-        )}
-      </div>
       <div className={styles.venue}>
         <span className={styles.venueName}>
           Venue : {data === null ? "GymG" : venue}
@@ -72,6 +74,6 @@ export default function ScoreCard({ data = null }) {
 }
 
 export function returnFirstTwoWords(string) {
-  const words = string.split(" ");
+  const words = string.replace(":", "").split(" ");
   return words[0] + " " + words[1];
 }

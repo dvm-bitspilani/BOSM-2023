@@ -89,7 +89,7 @@ const Layout = ({
       data-scroll-section
       id={sectionId}
       className="layout-section"
-      style={{ overflow: overflow ? "scroll" : "hidden" }}
+      style={{ overflow: overflow ? (regPage ? "scroll" : "visible") : "hidden" }}
     >
       {fixedbg && (
         <div className="fixed-bg">
