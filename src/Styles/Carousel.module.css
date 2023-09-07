@@ -99,23 +99,17 @@
         height: 300px;
         /* width: 450px; */
     }
-    .buttons{
-        /* width: 65%; */
-    }
+    
 }
 @media(max-width: 500px){
     .slider{
         height: 200px;
         /* width: 300px; */
     }
-    .buttons{
-        /* width: 95%; */
-    }
+    
 }
 @media(max-width: 450px){
-    .buttons{
-        /* width: 90%; */
-    }
+    
 }
 @media(max-width: 400px){
     .slider{
