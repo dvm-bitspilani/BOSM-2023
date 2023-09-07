@@ -1,7 +1,7 @@
 import React from "react";
 import ScoreCard from "../../Components/ScoreCard";
 // import Layout from '../../Components/Layout';
-import * as styles from "../../styles/Scoreboard.module.css";
+import * as styles from "../../styles/scoreboard.module.css";
 import { navigate } from "gatsby";
 
 import logoImg from "../../images/logo.svg";

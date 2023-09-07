@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../styles/Scoreboard.module.css";
+import * as styles from "../styles/scoreboard.module.css";
 
 export default function ScoreCard({ data = null }) {
   const [team1, setTeam1] = React.useState(null);
