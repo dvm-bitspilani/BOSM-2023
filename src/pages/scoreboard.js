@@ -15,7 +15,7 @@ export default function Index() {
   React.useEffect(() => {
     const socket = new WebSocket("wss://test.bitsbosm.org/2023/ws/live_score/");
     socket.onopen = (e) => {
-      console.log("connected");
+      // console.log("connected");
       //   console.log(e.data)
       fetch("https://test.bitsbosm.org/2023/live-score/send-data")
         .then((res) => res.json())
@@ -32,7 +32,7 @@ export default function Index() {
       }
     };
     socket.onclose = () => {
-      console.log("disconnected");
+      // console.log("disconnected");
     };
 
     return () => {
@@ -42,7 +42,7 @@ export default function Index() {
 
   React.useEffect(() => {
     if (data) {
-      console.log(data);
+      // console.log(data);
 
       setAllScoreCards(
         data.map((item, index) => {
