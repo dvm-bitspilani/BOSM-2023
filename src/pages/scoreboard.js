@@ -43,6 +43,7 @@ export default function Index() {
   React.useEffect(() => {
     if (data) {
       console.log(data);
+
       setAllScoreCards(
         data.map((item, index) => {
           if (item.team_scores.length < 2) {
@@ -53,6 +54,14 @@ export default function Index() {
         })
       );
     }
+
+    // temp for testing
+    // setAllScoreCards(
+    //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+    //     return <ScoreCard key={index} />;
+    //   })
+    // );
+
   }, [data]);
 
   return (
@@ -64,7 +73,15 @@ export default function Index() {
         <h1>SCOREBOARD</h1>
       </div>
       <div className={data ? styles.scoreboardGrid : styles.loaderGrid}>
-        {data ? allScoreCards : <CircularProgress color="inherit" sx={{justifySelf:"center"}} size={"7rem"}/>}
+        {data ? (
+          allScoreCards
+        ) : (
+          <CircularProgress
+            color="inherit"
+            sx={{ justifySelf: "center" }}
+            size={"7rem"}
+          />
+        )}
       </div>
     </main>
   );
