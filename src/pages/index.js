@@ -136,7 +136,7 @@ const IndexPage = () => {
       name: "Aditya Kumar Sriram",
       image: `${sriram}`,
       department: "Sports Secretary",
-      phone: "",
+      phone: "+91-9923300643", 
       email: "sportssecretary.bitsbosm.org",
     },
     {
