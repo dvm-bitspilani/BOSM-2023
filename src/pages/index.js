@@ -136,7 +136,7 @@ const IndexPage = () => {
       name: "Aditya Kumar Sriram",
       image: `${sriram}`,
       department: "Sports Secretary",
-      phone: "+91-9923300643", 
+      phone: "+91-9923300643",
       email: "sportssecretary.bitsbosm.org",
     },
     {
@@ -681,7 +681,7 @@ const IndexPage = () => {
           scrub: 0.3,
           snap: {
             snapTo: 1,
-            duration: 1,
+            duration: 1.5,
             ease: "power1.out",
           },
         },
@@ -694,12 +694,15 @@ const IndexPage = () => {
           y: "-100%",
           ease: "none",
         })
-        .to("#contact-section", {
-          y: "-100%",
-          ease: "none",
-          // duration: 1,
-        },
-        "<")
+        .to(
+          "#contact-section",
+          {
+            y: "-100%",
+            ease: "none",
+            // duration: 1,
+          },
+          "<"
+        )
         .from(`.${contact["pageBackground"]}`, {
           x: "-100%",
           ease: "none",
@@ -722,6 +725,13 @@ const IndexPage = () => {
             // duration: 1,
           },
           "<"
+        )
+        .from(
+          ".footer-dvm",
+          {
+            opacity: 0,
+            ease: "none",
+          }
         )
         // .call(() => setActiveSection(3))
         .addLabel("end");
@@ -1126,7 +1136,6 @@ const IndexPage = () => {
     }
   }, [videoLoaded]);
 
-
   useEffect(() => {
     if (!isLoading && cossacCards && !regPage) {
       gsap.to(`.${contact["cardsContainer1"]}`, {
@@ -1141,7 +1150,7 @@ const IndexPage = () => {
         opacity: 0,
         duration: 1,
       });
-    } else if(!isLoading && !regPage) {
+    } else if (!isLoading && !regPage) {
       gsap.to(`.${contact["cardsContainer2"]}`, {
         opacity: 1,
         duration: 1,
@@ -1155,7 +1164,7 @@ const IndexPage = () => {
         duration: 1,
       });
     }
-  }, [cossacCards, isLoading , regPage]);
+  }, [cossacCards, isLoading, regPage]);
 
   const handleOrganizingCardsBtnClick = () => {
     setCossacCards(true);
@@ -1211,40 +1220,40 @@ const IndexPage = () => {
   //       dist = 0;
   //     })
   // }})
-  useEffect(()=>{
-//     const cardsContainer = document.querySelector(".cardsContainer");
-// const contactBtn = document.querySelector(".organizingBtn");
-// const organizingBtn = document.querySelector(".cossacBtn");
-const cardsContainer = cardsContainerRef.current;
+  useEffect(() => {
+    //     const cardsContainer = document.querySelector(".cardsContainer");
+    // const contactBtn = document.querySelector(".organizingBtn");
+    // const organizingBtn = document.querySelector(".cossacBtn");
+    const cardsContainer = cardsContainerRef.current;
     const contactBtn = contactBtnRef.current;
     const organizingBtn = organizingBtnRef.current;
-let startX = 0;
-let dist = 0;
-if(cardsContainer){
-cardsContainer.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
+    let startX = 0;
+    let dist = 0;
+    if (cardsContainer) {
+      cardsContainer.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
 
-cardsContainer.addEventListener("touchmove", (e) => {
-  if (!startX) return;
-  const currentX = e.touches[0].clientX;
-  dist = startX - currentX;
-});
+      cardsContainer.addEventListener("touchmove", (e) => {
+        if (!startX) return;
+        const currentX = e.touches[0].clientX;
+        dist = startX - currentX;
+      });
 
-cardsContainer.addEventListener("touchend", () => {
-  if (dist > 50) {
-    // Swipe left, click Organizing Committee button
-    organizingBtn.click();
-  } else if (dist < -50) {
-    // Swipe right, click Contact button
-    contactBtn.click();
-  }
-  startX = 0;
-  dist = 0;
-});
-
-}})
-return (
+      cardsContainer.addEventListener("touchend", () => {
+        if (dist > 50) {
+          // Swipe left, click Organizing Committee button
+          organizingBtn.click();
+        } else if (dist < -50) {
+          // Swipe right, click Contact button
+          contactBtn.click();
+        }
+        startX = 0;
+        dist = 0;
+      });
+    }
+  });
+  return (
     <>
       {isLoading && (
         <div className="loader" id="loader">
@@ -1335,7 +1344,7 @@ return (
                       src={Statue}
                       alt=""
                       className={`${styles["statue"]} ${styles["desktopStatue"]}`}
-                      style={{pointerEvents : "none"}}
+                      style={{ pointerEvents: "none" }}
                       // onDragStart={handleStatueImageDrag}
                     />
                     <img
@@ -1603,7 +1612,7 @@ return (
                         window.innerWidth < 920 && (
                           <div className={contact["cardsSwitchButtons2"]}>
                             <div
-                              aria-hidden="true" 
+                              aria-hidden="true"
                               className={contact["organizingBtn"]}
                               ref={contactBtnRef}
                               onClick={handleOrganizingCardsBtnClick}
@@ -1621,7 +1630,7 @@ return (
                               Contact
                             </div>
                             <div
-                              aria-hidden="true" 
+                              aria-hidden="true"
                               className={contact["cossacBtn"]}
                               onClick={handleCossacCardsButtonClick}
                               ref={organizingBtnRef}
@@ -1662,7 +1671,7 @@ return (
                   {typeof window !== "undefined" && window.innerWidth > 920 && (
                     <div className={contact["cardsSwitchButtons"]}>
                       <div
-                        aria-hidden="true" 
+                        aria-hidden="true"
                         className={contact["organizingBtn"]}
                         onClick={handleOrganizingCardsBtnClick}
                         style={
@@ -1679,7 +1688,7 @@ return (
                         Contact
                       </div>
                       <div
-                        aria-hidden="true" 
+                        aria-hidden="true"
                         className={contact["cossacBtn"]}
                         onClick={handleCossacCardsButtonClick}
                         style={
@@ -1697,6 +1706,9 @@ return (
                       </div>
                     </div>
                   )}
+                  <div className="footer-dvm">
+                    Made with <span aria-hidden="true" class="fa fa-heart">❤️</span> by DVM
+                  </div>
                 </div>
               </main>
             }

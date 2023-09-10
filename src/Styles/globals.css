@@ -367,6 +367,32 @@ color: white;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
 }
+
+.footer-dvm{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999;
+
+  color : white;
+  padding: 0.3rem 0rem;
+
+  gap: 0.5rem;
+  font: Montserrat;
+  font-size: 1rem;
+}
+
+.fa{
+  color: red;
+  -webkit-font-smoothing: antialiased;
+}
+
 @media(max-width: 640px){
   #n2oBall{
     background: url("../images/n2oMobileBG.png");
