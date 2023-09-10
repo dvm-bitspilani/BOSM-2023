@@ -61,7 +61,6 @@ export default function Index() {
     //     return <ScoreCard key={index} />;
     //   })
     // );
-
   }, [data]);
 
   return (
@@ -74,12 +73,15 @@ export default function Index() {
       </div>
       <div className={data ? styles.scoreboardGrid : styles.loaderGrid}>
         {data ? (
-          allScoreCards
+          <>
+            {allScoreCards}
+            {/* <ScoreCard /> */}
+          </>
         ) : (
           <CircularProgress
             color="inherit"
             sx={{ justifySelf: "center" }}
-            size={"7rem"}
+            size={"5rem"}
           />
         )}
       </div>

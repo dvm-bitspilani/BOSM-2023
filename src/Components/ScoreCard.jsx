@@ -11,27 +11,19 @@ export default function ScoreCard({ data = null }) {
 
   React.useEffect(() => {
     if (data && data.team_scores.length === 2) {
-      if (
-        Number(data.team_scores[0].score) > Number(data.team_scores[1].score)
-      ) {
-        setTeam1(returnFirstTwoWords(data.team_scores[0].team));
-        setTeam2(returnFirstTwoWords(data.team_scores[1].team));
+        setTeam1(data.team_scores[0].team);
+        setTeam2(data.team_scores[1].team);
         setScore1(data.team_scores[0].score);
         setScore2(data.team_scores[1].score);
-      } else {
-        setTeam1(returnFirstTwoWords(data.team_scores[1].team));
-        setTeam2(returnFirstTwoWords(data.team_scores[0].team));
-        setScore1(data.team_scores[1].score);
-        setScore2(data.team_scores[0].score);
-      }
+
     } else if (data && data.team_scores.length > 2) {
-      setTeam1(returnFirstTwoWords(data.team_scores[0].team));
+      setTeam1(data.team_scores[0].team);
       setScore1(data.team_scores[0].score);
     }
     if (data) {
       setEvent(data.sport + " " + data.round_name);
       setVenue(data.venue);
-      console.log(data.team_scores[1]);
+      // console.log(data.team_scores[1]);
     }
   }, [data]);
 
