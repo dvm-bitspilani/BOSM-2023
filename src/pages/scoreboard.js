@@ -91,3 +91,10 @@ export default function Index() {
     </main>
   );
 }
+
+export const Head = () => (
+  <>
+    <title>BOSM '23 | Scoreboard</title>
+    <link rel="icon" type="image/x-icon" href={logoImg} />
+  </>
+);

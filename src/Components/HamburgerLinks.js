@@ -35,12 +35,6 @@ export default function HamburgerLinks({ img, text, color }) {
     }
 
   return (
-    <Link
-      to={toText}
-      style={{ textDecoration: "none" , overflow: "hidden"}}
-      onMouseUp={() => (document.documentElement.style.overflow = "scroll")}
-      draggable={false}
-    >
     <div
       aria-hidden="true"
       style={{ backgroundImage: `url(${img})` }}
@@ -58,6 +52,5 @@ export default function HamburgerLinks({ img, text, color }) {
         {text}
       </motion.div>
     </div>
-    </Link>
   );
 }

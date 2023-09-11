@@ -1,5 +1,6 @@
 import React from "react";
 import HamburgerLinks from "./HamburgerLinks";
+import { Link } from "gatsby";
 import * as styles from "../Styles/Hamburger.module.css";
 
 import ignitionImg from "../images/ignition-full.jpg";
@@ -13,7 +14,7 @@ export default function Hamburger({
   closeHam,
   isHamOpen,
   isAnimationComplete,
-  regPage
+  regPage,
 }) {
   // function setZIndex() {
   // const hamburger = document.querySelector(`.${styles["hamburger"]}`);
@@ -47,43 +48,89 @@ export default function Hamburger({
 
   return (
     <div className={styles["hamContainer"]}>
-
-      {!isLoading && <div className={styles["hamburger"]} style={{ display: regPage ? 'none' : '' }}>
-        {/* <button onClick={closeHam} className={styles["closeHam"]}>
+      {!isLoading && (
+        <div
+          className={styles["hamburger"]}
+          style={{ display: regPage ? "none" : "" }}
+        >
+          {/* <button onClick={closeHam} className={styles["closeHam"]}>
           ✖
         </button> */}
-        {/* <div>Hamburger</div> */}
-        <HamburgerLinks
-          img={ignitionImg}
-          text="Ignition"
-          color="#872424"
-          align="left"
-        />
-        <HamburgerLinks
-          img={galleryImg}
-          text="Gallery"
-          color="#AD912E"
-          align="right"
-        />
-        <HamburgerLinks
-          img={archiveImg}
-          text="Archive"
-          color="#397589"
-          align="left"
-        />
-        <HamburgerLinks
-          img={sponsorsImg}
-          text="Sponsors"
-          color="#458B2C"
-          align="right"
-        />
-        <HamburgerLinks
-          img={developersImg}
-          text="Developers"
-          color="#4B2280"
-          align="left"
-        />
-      </div>}
+          {/* <div>Hamburger</div> */}
+          <Link
+            to="/ignition"
+            style={{ textDecoration: "none", overflow: "hidden" }}
+            onMouseUp={() =>
+              (document.documentElement.style.overflow = "scroll")
+            }
+            draggable={false}
+          >
+            <HamburgerLinks
+              img={ignitionImg}
+              text="Ignition"
+              color="#872424"
+              align="left"
+            />
+          </Link>
+          <Link
+            to="/gallery"
+            style={{ textDecoration: "none", overflow: "hidden" }}
+            onMouseUp={() =>
+              (document.documentElement.style.overflow = "scroll")
+            }
+            draggable={false}
+          >
+            <HamburgerLinks
+              img={galleryImg}
+              text="Gallery"
+              color="#AD912E"
+              align="right"
+            />
+          </Link>
+          <a
+            href="https://bitsbosm.org/archive/"
+            rel="noreferrer"
+            style={{ textDecoration: "none", overflow: "hidden" }}
+          >
+            <HamburgerLinks
+              img={archiveImg}
+              text="Archive"
+              color="#397589"
+              align="left"
+            />
+          </a>
+          <Link
+            to="/"
+            style={{ textDecoration: "none", overflow: "hidden" }}
+            onMouseUp={() =>
+              (document.documentElement.style.overflow = "scroll")
+            }
+            draggable={false}
+          >
+            <HamburgerLinks
+              img={sponsorsImg}
+              text="Sponsors"
+              color="#458B2C"
+              align="right"
+            />
+          </Link>
+          <Link
+            to="/"
+            style={{ textDecoration: "none", overflow: "hidden" }}
+            onMouseUp={() =>
+              (document.documentElement.style.overflow = "scroll")
+            }
+            draggable={false}
+          >
+            <HamburgerLinks
+              img={developersImg}
+              text="Developers"
+              color="#4B2280"
+              align="left"
+            />
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

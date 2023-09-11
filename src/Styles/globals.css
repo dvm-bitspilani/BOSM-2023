@@ -396,7 +396,7 @@ color: white;
 
   box-shadow: -10px 10px 60px red;
 
-  animation: heart-beat 0.4s ease-in-out infinite;
+  animation: heart-beat 0.8s ease-in-out infinite;
 }
 
 @keyframes heart-beat {
