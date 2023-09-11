@@ -391,6 +391,23 @@ color: white;
 .fa{
   color: red;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-shadow: -10px 10px 60px red;
+
+  animation: heart-beat 0.4s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media(max-width: 640px){

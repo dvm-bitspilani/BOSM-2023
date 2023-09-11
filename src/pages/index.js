@@ -1706,9 +1706,9 @@ const IndexPage = () => {
                       </div>
                     </div>
                   )}
-                  <div className="footer-dvm">
+                  <a href="https://bits-dvm.org/index.html" className="footer-dvm">
                     Made with <span aria-hidden="true" class="fa fa-heart">❤️</span> by DVM
-                  </div>
+                  </a>
                 </div>
               </main>
             }

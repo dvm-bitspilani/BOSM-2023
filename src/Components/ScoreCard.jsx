@@ -17,8 +17,10 @@ export default function ScoreCard({ data = null }) {
         setScore2(data.team_scores[1].score);
 
     } else if (data && data.team_scores.length > 2) {
-      setTeam1(data.team_scores[0].team);
-      setScore1(data.team_scores[0].score);
+      const winnerIndex = returnWinnerIndex(data);
+      console.log(winnerIndex);
+      setTeam1(data.team_scores[winnerIndex].team);
+      setScore1(data.team_scores[winnerIndex].score);
     }
     if (data) {
       setEvent(data.sport + " " + data.round_name);
@@ -68,4 +70,15 @@ export default function ScoreCard({ data = null }) {
 export function returnFirstTwoWords(string) {
   const words = string.replace(":", "").split(" ");
   return words[0] + " " + words[1];
+}
+
+export function returnWinnerIndex(object){
+  if (object == null) return 0;
+  // console.log(object.winner);
+  return 0;
+  object.team_scores.forEach((score) => {
+    console.log(score);
+    if (score.team === object.winner) {
+      return object.team_scores.indexOf(score);
+    }})
 }

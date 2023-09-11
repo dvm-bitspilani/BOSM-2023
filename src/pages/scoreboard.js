@@ -46,7 +46,7 @@ export default function Index() {
 
       setAllScoreCards(
         data.map((item, index) => {
-          if (item.team_scores.length < 2) {
+          if (item.team_scores.length < 2 || (item.team_scores.length > 2 && item.winner === "None")) {
             return null;
           } else {
             return <ScoreCard key={index} data={item} />;
@@ -61,6 +61,9 @@ export default function Index() {
     //     return <ScoreCard key={index} />;
     //   })
     // );
+
+    console.log(data);
+
   }, [data]);
 
   return (
