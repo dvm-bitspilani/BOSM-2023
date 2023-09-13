@@ -13,7 +13,6 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   /* gap: 2rem; */
 }
@@ -112,8 +111,8 @@ body {
   flex: 1 1 33%;
   /* flex-basis: calc(33.33% - 20px); */
 
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 270px;
+  max-width: 360px;
 
   padding: 0;
   padding-block: 1rem;
@@ -144,12 +143,17 @@ body {
   /* margin-top: 2rem; */
   position: relative;
   height: fit-content;
+
+  /* display: grid; */
+  /* grid-template-columns: 40% 1fr 40%; */
+  
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  gap: 1.5rem;
 
   font-family: Bebas Neue;
-  width: 80%;
+  width: fit-content;
 }
 
 .score {
@@ -175,7 +179,7 @@ body {
 
 .teamName {
   text-align: center;
-  font-size: 2.6rem;
+  font-size: 2.3rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -184,6 +188,10 @@ body {
   overflow-x: visible;
 
   align-self: center;
+
+  flex-grow: 1;
+
+  width: 40%;
 }
 
 .winningTeam {
@@ -192,7 +200,7 @@ body {
 
 .vsText {
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   align-self: center;
   justify-self: center;
 }
@@ -215,7 +223,7 @@ body {
   color: #f0f0f0;
   text-align: center;
   font-family: Montserrat;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -228,7 +236,7 @@ body {
   color: #f0f0f0;
   text-align: center;
   font-family: Montserrat;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -236,7 +244,7 @@ body {
 }
 
 .venue {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   display: grid;
   place-items: center;
 }
