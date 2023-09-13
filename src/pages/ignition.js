@@ -352,7 +352,7 @@ const Ignition = (props) => {
                   </p>
                 </div>
               </a>
-              <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
                 <div
                   className={`${classes.gameGroup} ${classes.secondGameGroup}`}
                 >
@@ -366,7 +366,7 @@ const Ignition = (props) => {
                     Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
                   </p>
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className={classes.nextBtn} id="nextBtn">
