@@ -62,7 +62,7 @@ export default function Index() {
     //   })
     // );
 
-    console.log(data);
+    // console.log(data);
 
   }, [data]);
 

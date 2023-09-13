@@ -18,7 +18,7 @@ export default function ScoreCard({ data = null }) {
 
     } else if (data && data.team_scores.length > 2) {
       const winnerIndex = returnWinnerIndex(data);
-      console.log(winnerIndex);
+      // console.log(winnerIndex);
       setTeam1(data.team_scores[winnerIndex].team);
       setScore1(data.team_scores[winnerIndex].score);
     }
@@ -39,13 +39,13 @@ export default function ScoreCard({ data = null }) {
         )}
       </div>
       <div className={styles.teamNames}>
-        <span className={`${styles.teamName} ${styles.winningTeam}`}>
+        <span className={`${styles.teamName} ${team2 && team1 !== data.winner && styles.winningTeam}`}>
           {data === null ? "BITS P" : team1}
         </span>
         {data !== null && data.team_scores.length === 2 && (
           <>
             <span className={styles.vsText}>VS</span>
-            <span className={`${styles.teamName}`}>{team2}</span>
+            <span className={`${styles.teamName} ${team2 && team2 !== data.winner && styles.winningTeam}`}>{team2}</span>
           </>
         )}
       </div>
@@ -73,12 +73,15 @@ export function returnFirstTwoWords(string) {
 }
 
 export function returnWinnerIndex(object){
+  let index = 0;
   if (object == null) return 0;
   // console.log(object.winner);
-  return 0;
   object.team_scores.forEach((score) => {
-    console.log(score);
+    // console.log(score);
+    // console.log(score.team === object.winner)
     if (score.team === object.winner) {
-      return object.team_scores.indexOf(score);
+      index = object.team_scores.indexOf(score)
     }})
+    return index;
+    // return 1;
 }
