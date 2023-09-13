@@ -4,7 +4,7 @@ body {
 }
 
 .pageContainer {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background: url("../images/about-bg.png");
   background-size: cover;
@@ -90,7 +90,8 @@ body {
   overflow-x: hidden;
 
   padding-right: 2rem;
-  padding-block: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 
   scrollbar-color: #f0f0f0 rgba(150, 150, 150, 0.7);
   scrollbar-width: thin;
