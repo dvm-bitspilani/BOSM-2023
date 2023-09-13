@@ -20,7 +20,8 @@ export default function Index() {
       fetch("https://test.bitsbosm.org/2023/live-score/send-data")
         .then((res) => res.json())
         .then((data) => {
-          setData(JSON.parse(data));
+          // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
+          setData(JSON.parse(data))
         });
     };
     socket.onmessage = (event) => {
@@ -62,7 +63,7 @@ export default function Index() {
     //   })
     // );
 
-    // console.log(data);
+    console.log(data);
 
   }, [data]);
 

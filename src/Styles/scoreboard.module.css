@@ -91,6 +91,9 @@ body {
 
   padding-right: 2rem;
   padding-top: 1rem;
+
+  scrollbar-color: #f0f0f0 rgba(150, 150, 150, 0.7);
+  scrollbar-width: thin;
 }
 
 .loaderGrid {
