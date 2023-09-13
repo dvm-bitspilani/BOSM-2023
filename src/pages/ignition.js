@@ -352,6 +352,21 @@ const Ignition = (props) => {
                   </p>
                 </div>
               </a>
+              <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
+                <div
+                  className={`${classes.gameGroup} ${classes.secondGameGroup}`}
+                >
+                  <div className={`${classes.game} ${classes.cod}`}>
+                    <div className={classes.arrowContainer}>
+                      <img alt="" src={arrow} />
+                    </div>
+                  </div>
+                  <p>
+                    {isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}COD
+                    Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
           <div className={classes.nextBtn} id="nextBtn">
