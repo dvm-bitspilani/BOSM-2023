@@ -117,6 +117,7 @@ body {
 
   padding: 0;
   padding-block: 1rem;
+  padding-inline: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -236,6 +237,8 @@ body {
 
 .venue {
   margin-bottom: 1rem;
+  display: grid;
+  place-items: center;
 }
 
 .scoreboardGrid::-webkit-scrollbar {
@@ -265,9 +268,69 @@ body {
   }
   .header img {
     height: 60%;
+    width: 100%;
+    aspect-ratio: 1/1;
     /* align-self: center; */
   }
   .logoDiv {
     display: flex;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .header h1{
+    text-align: right;
+    margin-right: 1rem;
+  }
+  .logoDiv{
+    width: 15%;
+  }
+  .header{
+    height: 10%;
+  }
+  .scoreboardGrid{
+    height: 90%;
+    width: 96%;
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width:435px){
+  .scoreboardGrid{
+    gap: 1rem;
+  }
+  .eventName{
+    font-size: 1.3rem;
+  }
+  .teamName{
+    font-size: 2.2rem;
+  }
+  .score span{
+    font-size: 2.3rem;
+  }
+  .venue{
+    margin: 0;
+  }
+  .teamNames{
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width:350px) {
+
+  .scoreCard{
+    min-width: 110%;
+  }
+  .eventName{
+    font-size: 1.2rem;
+  }
+  .teamName{
+    font-size: 1.9rem;
+  }
+  .score span{
+    font-size: 1.8rem;
+  }
+  .venue{
+    font-size: 1rem;
   }
 }
