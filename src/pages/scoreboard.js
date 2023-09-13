@@ -1,6 +1,7 @@
 import React from "react";
 import ScoreCard from "../Components/ScoreCard";
 // import Layout from '../../Components/Layout';
+
 import * as styles from "../Styles/scoreboard.module.css";
 import { navigate } from "gatsby";
 
