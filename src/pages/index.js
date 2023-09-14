@@ -726,13 +726,10 @@ const IndexPage = () => {
           },
           "<"
         )
-        .from(
-          ".footer-dvm",
-          {
-            opacity: 0,
-            ease: "none",
-          }
-        )
+        .from(".footer-dvm", {
+          opacity: 0,
+          ease: "none",
+        })
         // .call(() => setActiveSection(3))
         .addLabel("end");
 
@@ -1591,12 +1588,14 @@ const IndexPage = () => {
                       alt=""
                       src={FrontStatue}
                       className={contact["frontStatue"]}
+                      draggable="false"
                     />
                     <img
                       id="backStatue"
                       alt=""
                       src={BackStatue}
                       className={contact["backStatue"]}
+                      draggable="false"
                     />
                     {/* <img src={BackStatueMobile} className={contact["backStatueMobile"]} /> */}
                   </div>
@@ -1706,8 +1705,15 @@ const IndexPage = () => {
                       </div>
                     </div>
                   )}
-                  <a href="https://bits-dvm.org/index.html" className="footer-dvm">
-                    Made with <span aria-hidden="true" class="fa fa-heart">❤️</span> by DVM
+                  <a
+                    href="https://bits-dvm.org/index.html"
+                    className="footer-dvm"
+                  >
+                    Made with{" "}
+                    <span aria-hidden="true" class="fa fa-heart">
+                      ❤️
+                    </span>{" "}
+                    by DVM
                   </a>
                 </div>
               </main>

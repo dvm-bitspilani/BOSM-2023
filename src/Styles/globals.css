@@ -394,7 +394,9 @@ color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  box-shadow: -10px 10px 60px red;
+  box-shadow: -5px 5px 30px rgba(255,0,0,0.5);
+  background: rgba(255, 0,0,0.09);
+  background-clip: content-box;
 
   animation: heart-beat 0.8s ease-in-out infinite;
 }
