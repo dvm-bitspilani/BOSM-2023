@@ -277,7 +277,7 @@ const Ignition = (props) => {
           </div>
           <div className={classes.gamesContainer} id="gamesContainer">
             <div className={classes.divContainer}>
-              <a href="https://forms.gle/xdPocjBnTKKURr1A9" target="_blank" rel="noopener noreferrer">
+              <a href="https://forms.gle/7AjX9fUz3nUTByaf9" target="_blank" rel="noopener noreferrer">
                 <div className={classes.gameGroup}>
                   <div className={`${classes.game} ${classes.cr}`}>
                     <div className={classes.arrowContainer}>
@@ -303,7 +303,7 @@ const Ignition = (props) => {
                   </p>
                 </div>
               </a>
-              <a href="https://www.battlegroundsmobileindia.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://forms.gle/AAV4ueRQ3qkaX6A76" target="_blank" rel="noopener noreferrer">
                 <div className={classes.gameGroup}>
                   <div className={`${classes.game} ${classes.bgmi}`}>
                     <div className={classes.arrowContainer}>
@@ -323,7 +323,7 @@ const Ignition = (props) => {
               </a>
             </div>
             <div className={classes.divContainer}>
-              <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://forms.gle/B68J7MKrj8yUo1RF9" target="_blank" rel="noopener noreferrer">
                 <div
                   className={`${classes.gameGroup} ${classes.secondGameGroup}`}
                 >
@@ -352,7 +352,7 @@ const Ignition = (props) => {
                   </p>
                 </div>
               </a>
-              <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://www.callofduty.com/mobile" target="_blank" rel="noopener noreferrer">
                 <div
                   className={`${classes.gameGroup} ${classes.secondGameGroup}`}
                 >
@@ -366,7 +366,7 @@ const Ignition = (props) => {
                     Mobile{isBrowser && window.innerWidth > 1160 ? "\u00A0" : ""}
                   </p>
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className={classes.nextBtn} id="nextBtn">
