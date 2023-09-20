@@ -11,19 +11,24 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Index() {
   const [data, setData] = React.useState(null);
+  const [announcement, setAnnouncement] = React.useState(null);
+
   const [allScoreCards, setAllScoreCards] = React.useState(null);
 
   React.useEffect(() => {
+    fetch("https://test.bitsbosm.org/2023/live-score/send-data")
+      .then((res) => res.json())
+      .then((data) => {
+        // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
+        setData(JSON.parse(data).slice(0, -1));
+        console.log(JSON.parse(data).at(-1));
+        setAnnouncement(JSON.parse(data).at(-1).text);
+      });
+
     const socket = new WebSocket("wss://test.bitsbosm.org/2023/ws/live_score/");
     socket.onopen = (e) => {
-      // console.log("connected");
+      console.log("connected");
       //   console.log(e.data)
-      fetch("https://test.bitsbosm.org/2023/live-score/send-data")
-        .then((res) => res.json())
-        .then((data) => {
-          // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
-          setData(JSON.parse(data))
-        });
     };
     socket.onmessage = (event) => {
       try {
@@ -43,12 +48,14 @@ export default function Index() {
   }, []);
 
   React.useEffect(() => {
-    if (data) {
+    if (data !== null) {
       // console.log(data);
-
       setAllScoreCards(
         data.map((item, index) => {
-          if (item.team_scores.length < 2 || (item.team_scores.length > 2 && item.winner === "None")) {
+          if (
+            item.team_scores.length < 2 ||
+            (item.team_scores.length > 2 && item.winner === "None")
+          ) {
             return null;
           } else {
             return <ScoreCard key={index} data={item} />;
@@ -65,7 +72,7 @@ export default function Index() {
     // );
 
     console.log(data);
-
+    console.log(announcement);
   }, [data]);
 
   return (
@@ -76,6 +83,15 @@ export default function Index() {
         </div>
         <h1>SCOREBOARD</h1>
       </div>
+      {
+        typeof window !== "undefined" &&
+        announcement !== null &&
+        window.innerWidth > 768 ? (
+          <div className={styles.announcement}>
+            <p>{announcement}</p>
+          </div>
+        ) : null
+      }
       <div className={data ? styles.scoreboardGrid : styles.loaderGrid}>
         {data ? (
           <>
