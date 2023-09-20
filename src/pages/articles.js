@@ -1,6 +1,6 @@
 import React from "react";
 import * as styles from "../Styles/Articles.module.css";
-import { backImg } from "../images/arrow.svg";
+// import { backImg } from "../images/arrow.svg";
 
 // import swiper and swiperslide
 import { Swiper, SwiperSlide } from "swiper/react";
