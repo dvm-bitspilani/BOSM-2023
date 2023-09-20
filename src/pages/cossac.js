@@ -263,3 +263,9 @@ const Cossac = () => {
 }
 
 export default Cossac
+export const Head = () => (
+    <>
+        <title>CoSSAc and Sports Council | BOSM '23 </title>
+        <link rel="icon" type="image/x-icon" href={cossacLogo} />
+    </>
+);
