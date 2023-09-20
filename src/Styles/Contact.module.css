@@ -208,6 +208,10 @@
   flex-wrap: wrap;
 }
 
+.row:last-of-type{
+  margin-bottom: 3rem;
+}
+
 @media (max-width: 920px) {
   /* .cardsContainer1,
 .cardsContainer2{

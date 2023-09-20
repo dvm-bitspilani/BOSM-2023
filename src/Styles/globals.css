@@ -54,7 +54,9 @@
   box-sizing: border-box;
   /* overflow-x: hidden; */
   user-select: none;
-  cursor: none;
+
+  /* cursor: none; */
+  
   /* transition: opacity .5s; */
 }
 /* :root{
