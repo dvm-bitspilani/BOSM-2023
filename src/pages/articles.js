@@ -1,5 +1,9 @@
 import React from "react";
+import { Link } from "gatsby";
 import * as styles from "../Styles/Articles.module.css";
+
+import leftArrow from "../images/aboutUsCarouselLeftArrow.png";
+import rightArrow from "../images/aboutUsCarouselRightArrow.png";
 // import { backImg } from "../images/arrow.svg";
 
 // import swiper and swiperslide
@@ -9,12 +13,18 @@ import { Navigation, Mousewheel } from "swiper/modules";
 
 // PDF Compoenent
 import PDFDocument from "../Components/PDFDocument";
-import { Link } from "gatsby";
 
 export default function Articles() {
   return (
     <main className={styles.pageWrapper}>
-      <meta name="viewport" content="width=device-width, user-scalable=no"></meta>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
+      <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no"
+      ></meta>
       <header className={styles.heading}>
         <Link to="/" className={styles.back}>
           <svg
@@ -40,11 +50,11 @@ export default function Articles() {
       <div className={styles.carouselWrapper}>
         <Swiper
           className={styles.carousel}
-          pagination={{ clickable: true }}
-          navigation={{ clickable: true }}
+          // pagination={{ clickable: true }}
+          // navigation={{ clickable: true }}
           //   scrollbar={{ draggable: true }}
           spaceBetween={50}
-        //   slidesPerView={1.1}
+          //   slidesPerView={1.1}
           centeredSlides={true}
           //   loop={true}
           mousewheel={{
@@ -78,12 +88,24 @@ export default function Articles() {
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
+        <div className={styles.carouselController}>
+          <button className={styles.leftArrow} onClick={()=>{
+            const swiper = document.querySelector('.swiper').swiper
+            swiper.slidePrev()
+          }}>
+            <img src={leftArrow} alt="" />
+          </button>
+          <div className={styles.articleAuthor}>
+            <p>English Press Club</p>
+          </div>
+          <button className={styles.rightArrow} onClick={()=>{
+            const swiper = document.querySelector('.swiper').swiper
+            swiper.slideNext()
+          }}>
+            <img src={rightArrow} alt="" />
+          </button>
+        </div>
       </div>
-
-    <div className={styles.carouselControler}>
-          
-    </div>
-
     </main>
   );
 }
