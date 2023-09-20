@@ -15,6 +15,7 @@ const options = {
 // Create Document Component
 export default function PDFDocument() {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  pdfjs.GlobalWorkerOptions.workerSrc = "//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js";
 
   const [numPages, setNumPages] = React.useState(10);
   function onDocumentLoadSuccess({ numPages }) {

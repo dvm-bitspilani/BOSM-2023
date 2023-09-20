@@ -24,6 +24,7 @@
     "@popmotion/popcorn": "^0.4.4",
     "@rehooks/window-size": "^1.0.2",
     "autoprefixer": "^10.4.14",
+    "canvas": "^2.11.2",
     "classnames": "^2.3.2",
     "firebase": "^10.1.0",
     "framer-motion": "^10.15.0",
