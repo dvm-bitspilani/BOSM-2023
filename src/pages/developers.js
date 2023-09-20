@@ -391,7 +391,7 @@ const Developers = () => {
                     </div>
                     <div className={dev.front}>
                         <img className={dev.devTeam} src={ReactIcon} alt=''></img>
-                        {FrontTeam.map((team, index)=>
+                        {FrontTeam.map((team)=>
                                 <DevCard key={team.id} team={team} card={FrontCard} strip={<svg width="131" height="709" viewBox="0 0 131 709" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.79051 88.4042C44.3511 62.5662 100.938 9.39561 130.194 0C130.194 107.622 130.194 708.144 130.194 708.144H0.790448C0.790448 708.144 0.788389 129.403 0.79051 88.4042Z" fill="url(#paint0_linear_3838_562)" fill-opacity="0.71" />
                                     <defs>
