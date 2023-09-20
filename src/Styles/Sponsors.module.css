@@ -1,0 +1,89 @@
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/contact_bg.png') no-repeat center center fixed;
+    overflow: scroll;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    padding: 0 5vw;
+}
+.heading h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: "Druk Wide Bold";
+}
+.sponsors{
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.sponsor{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.sponsor h1{
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.sponsor img{
+    width: 80%;
+}
+.sponsor p{
+    font-family: "Montserrat";
+    color:#fff;
+    font-weight: 300;
+    font-size: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+@media (max-width:600px) {
+    .heading h1{
+        font-size: 2rem;
+    }
+    .sponsors{
+        width: 90vw;
+    }
+    .sponsor h1{
+        font-size: 1.5rem;
+    }
+    .sponsor p{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:350px) {
+    .heading{
+        padding: 0 2vw;
+    }
+    .heading h1{
+        font-size: 1.5rem;
+    }
+    .sponsors{
+        width: 90vw;
+    }
+    .sponsor h1{
+        font-size: 1rem;
+    }
+    .sponsor p{
+        font-size: 1rem;
+    }
+}
