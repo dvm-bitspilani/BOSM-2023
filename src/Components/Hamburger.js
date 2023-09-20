@@ -100,7 +100,7 @@ export default function Hamburger({
             />
           </a>
           <Link
-            to="/"
+            to="/sponsors"
             style={{ textDecoration: "none", overflow: "hidden" }}
             onMouseUp={() =>
               (document.documentElement.style.overflow = "scroll")
