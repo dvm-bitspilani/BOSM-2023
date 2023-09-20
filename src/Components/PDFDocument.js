@@ -1,9 +1,6 @@
 import React from "react";
 
-// import { Document, Page} from "react-pdf"; 
-// import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf';
-
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { Document, Page, pdfjs } from "react-pdf";
 
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -12,8 +9,8 @@ import pdfFile from "../images/BOSMRulebooks.pdf";
 import * as styles from "../Styles/Articles.module.css";
 
 const options = {
-//   cMapUrl: "/cmaps/",
-//   standardFontDataUrl: "/standard_fonts/",
+  cMapUrl: "/cmaps/",
+  standardFontDataUrl: "/standard_fonts/",
 };
 
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -21,10 +18,10 @@ const options = {
 //   import.meta.url
 // ).toString();
 
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
 // Create Document Component
 export default function PDFDocument() {
-  //   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-  //   pdfjs.GlobalWorkerOptions.workerSrc = `/unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
   const [numPages, setNumPages] = React.useState(10);
   function onDocumentLoadSuccess({ numPages }) {
