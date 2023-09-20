@@ -1,0 +1,62 @@
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: url("../images/CossacBg.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.logo {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  scale: 1.25;
+}
+.dept,
+.name {
+    margin-top: 2rem;
+  border-radius: 5px;
+  background: #954011;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-left: 2rem;
+  position: relative;
+  z-index: 2;
+}
+.dept span{
+    min-width: 50rem;
+}
+.name{
+    padding: 1.25rem 2rem;
+}
+.dept span {
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.9rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.6px;
+}
+.name span {
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.92px;
+}
+.photo{
+    position: absolute;
+    right: 0;
+    object-position: center;
+}
