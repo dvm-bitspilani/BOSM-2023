@@ -44,6 +44,7 @@
     "gsap": "^3.12.2",
     "locomotive-scroll": "^4.1.4",
     "multiselect-react-dropdown": "^2.0.25",
+    "pdfjs-dist": "^3.4.120",
     "postcss": "^8.4.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -59,5 +60,8 @@
     "styled-reset-advanced": "^1.0.3",
     "swiper": "^10.2.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0"
   }
 }
