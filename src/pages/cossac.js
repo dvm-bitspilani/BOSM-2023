@@ -80,39 +80,39 @@ const Cossac = () => {
 
     const isBrowser = typeof window !== "undefined";
 
-    useEffect(() => {
-        const cursor = document.getElementById("cursor");
-        const cursorCircle = document.getElementById("cursorFollower");
+    // useEffect(() => {
+    //     const cursor = document.getElementById("cursor");
+    //     const cursorCircle = document.getElementById("cursorFollower");
 
-        if (window.innerWidth > 1000) {
-            window.onpointermove = (event) => {
-                const { clientX, clientY } = event;
+    //     if (window.innerWidth > 1000) {
+    //         window.onpointermove = (event) => {
+    //             const { clientX, clientY } = event;
 
-                cursor.style.display = "block";
-                cursorCircle.style.display = "block";
-                cursor.style.opacity = "1";
-                cursorCircle.style.opacity = "1";
-                cursor.style.left = `${clientX}px`;
-                cursor.style.top = `${clientY}px`;
+    //             cursor.style.display = "block";
+    //             cursorCircle.style.display = "block";
+    //             cursor.style.opacity = "1";
+    //             cursorCircle.style.opacity = "1";
+    //             cursor.style.left = `${clientX}px`;
+    //             cursor.style.top = `${clientY}px`;
 
-                let _clientX = clientX - 52;
-                let _clientY = clientY - 52;
+    //             let _clientX = clientX - 52;
+    //             let _clientY = clientY - 52;
 
-                cursorCircle.animate(
-                    {
-                        left: `${_clientX}px`,
-                        top: `${_clientY}px`,
-                    },
-                    { duration: 500, fill: "forwards" }
-                );
-            };
-        }
-        setIsLoading(false);
-        return () => {
-            window.onpointermove = null;
-            window.scrollTo(0, 0);
-        };
-    }, [isLoading]);
+    //             cursorCircle.animate(
+    //                 {
+    //                     left: `${_clientX}px`,
+    //                     top: `${_clientY}px`,
+    //                 },
+    //                 { duration: 500, fill: "forwards" }
+    //             );
+    //         };
+    //     }
+    //     setIsLoading(false);
+    //     return () => {
+    //         window.onpointermove = null;
+    //         window.scrollTo(0, 0);
+    //     };
+    // }, [isLoading]);
 
     const [videoLoaded, setIsVideoLoaded] = useState(false)
 
@@ -240,10 +240,10 @@ const Cossac = () => {
                     <source src={LoaderVideo} type="video/mp4" />
                 </video>
             </div>}
-            <div className="cursor" id="cursor"></div>
+            {/* <div className="cursor" id="cursor"></div>
             <div className="cursorFollower" id="cursorFollower">
                 <img id="cursorImg" src={Cursor} alt=""></img>
-            </div>
+            </div> */}
             <div className={cossac.wrapper}>
                 <div className={cossac.logo}>
                     <img src={cossacLogo} alt=''></img>
