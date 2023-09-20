@@ -99,7 +99,7 @@
   gap: 2.5rem;
 }
 
-p {
+.articleAuthor p {
   color: #f5f5f5;
   text-align: center;
   font-family: Montserrat;
@@ -117,9 +117,9 @@ p {
   transition: all 0.2s ease-in-out;
 }
 
-.carouselController button:hover{
-    scale: 0.8;
-    cursor: pointer;
+.carouselController button:hover {
+  scale: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -139,7 +139,7 @@ p {
     left: 1rem;
     scale: 0.4;
   }
-  p{
+  .articleAuthor p {
     font-size: 1.5rem;
   }
 }
@@ -157,7 +157,7 @@ p {
   .carousel {
     /* height: 85%; */
   }
-  p{
+  .articleAuthor p {
     font-size: 1rem;
   }
 }
