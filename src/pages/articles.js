@@ -9,12 +9,14 @@ import { Navigation, Mousewheel } from "swiper/modules";
 
 // PDF Compoenent
 import PDFDocument from "../Components/PDFDocument";
+import { Link } from "gatsby";
 
 export default function Articles() {
   return (
     <main className={styles.pageWrapper}>
+      <meta name="viewport" content="width=device-width, user-scalable=no"></meta>
       <header className={styles.heading}>
-        <div className={styles.back}>
+        <Link to="/" className={styles.back}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="49"
@@ -30,7 +32,7 @@ export default function Articles() {
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </Link>
         <div className={styles.title}>
           <h1>Articles</h1>
         </div>

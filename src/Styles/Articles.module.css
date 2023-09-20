@@ -96,7 +96,7 @@
         font-size: 1.3rem;
     }
     .carousel{
-        height: 95%;
+        height: 85%;
     }
     .back{
         left: 1rem;
@@ -115,6 +115,6 @@
         font-size: 1.3rem;
     }
     .carousel{
-        height: 85%;
+        /* height: 85%; */
     }
 }
