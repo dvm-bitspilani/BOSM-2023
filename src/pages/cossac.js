@@ -210,18 +210,20 @@ const Cossac = () => {
 
         if (keyToIndex[key] !== undefined) {
             const newIndex = keyToIndex[key];
-            
+
             const tl = gsap.timeline();
 
-            tl.to("#dept", { x: -1500, opacity: 0, duration: 1 })
-              .to("#name", { x: -800, opacity: 0, duration: 1 }, "-=1")
-              .to("#photo", { opacity: 0, duration: 1 }, "-=1")
-              .call(() => {
+            tl.call(() => {
                 setCurrentData(data[newIndex]);
-              })
-              .to("#dept", { x: 0, opacity: 1, duration: 1 })
-              .to("#name", { x: 0, opacity: 1, duration: 1 }, "-=1")
-              .to("#photo", { opacity: 1, duration: 1 }, "-=1");
+            })
+                .to("#dept", { x: -1500, opacity: 0, duration: 1 })
+
+                .to("#name", { x: -800, opacity: 0, duration: 1 }, "-=1")
+                // .to("#photo", { opacity: 0, duration: 1 }, "-=1")
+
+                .to("#dept", { x: 0, opacity: 1, duration: 1 })
+                .to("#name", { x: 0, opacity: 1, duration: 1 }, "-=1")
+            // .to("#photo", { opacity: 1, duration: 1 }, "-=1");
         }
     };
 
@@ -254,9 +256,16 @@ const Cossac = () => {
                 <div id='name' className={cossac.name}>
                     <span>{currentData.name}</span>
                 </div>
-                <div id='photo' className={cossac.photo}>
-                    <img src={currentData.photo} about=''></img>
-                </div>
+                {data.map((item) => (
+                    <div className={cossac.photo}>
+                        <img
+                            key={item.id}
+                            src={item.photo}
+                            alt=""
+                            style={{ opacity: currentData.id === item.id ? 1 : 0, transition: 'opacity 2s ease' }}
+                        />
+                    </div>
+                ))}
             </div>
         </React.Fragment>
     )
