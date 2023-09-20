@@ -5,6 +5,7 @@ import * as styles from "../Styles/Articles.module.css";
 import leftArrow from "../images/aboutUsCarouselLeftArrow.png";
 import rightArrow from "../images/aboutUsCarouselRightArrow.png";
 // import { backImg } from "../images/arrow.svg";
+import logoImg from "../images/logo.svg";
 
 // import swiper and swiperslide
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -109,3 +110,10 @@ export default function Articles() {
     </main>
   );
 }
+
+export const Head = () => (
+  <>
+    <title>BOSM '23 | Articles</title>
+    <link rel="icon" type="image/x-icon" href={logoImg} />
+  </>
+);
