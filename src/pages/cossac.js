@@ -21,52 +21,52 @@ const Cossac = () => {
     const data = [
         {
             id: 1,
-            name: "Yashwasin Jain",
-            dept: "Joint Sports Secretary",
-            photo: Yashwasin,
-        },
-        {
-            id: 2,
-            name: "Anushka Shukla",
-            dept: "Joint Sports Secretary",
-            photo: AnushkaShukla,
-        },
-        {
-            id: 3,
-            name: "Syed Hani",
-            dept: "Joint Sports Secretary",
-            photo: Syed,
-        },
-        {
-            id: 4,
-            name: "Aditya Sriram",
-            dept: "Sports Secretary",
-            photo: Aditya,
-        },
-        {
-            id: 5,
             name: "Shreyas Sesham",
             dept: "Department of Publications and Correspondence",
             photo: Shreyas,
         },
         {
-            id: 6,
-            name: "Shirish Kumarav",
+            id: 2,
+            name: "Shirish Kumaravel",
             dept: "Department of Reception and Accommodation",
             photo: Shirish,
         },
         {
-            id: 7,
-            name: "Ayush Singh Bhandari",
+            id: 3,
+            name: "Ayush Bhandari",
             dept: "Department of Sponsorship and Marketing, BOSM",
             photo: Ayush,
         },
         {
-            id: 8,
+            id: 4,
             name: "Anushka Patil",
             dept: "Department of Controls, BOSM",
             photo: Anushka,
         },
+        {
+            id: 5,
+            name: "Syed Hani",
+            dept: "Joint Sports Secretary",
+            photo: Syed,
+        },
+        {
+            id: 6,
+            name: "Anushka Shukla",
+            dept: "Joint Sports Secretary",
+            photo: AnushkaShukla,
+        },
+        {
+            id: 7,
+            name: "Yashwasin Jain",
+            dept: "Joint Sports Secretary",
+            photo: Yashwasin,
+        },
+        {
+            id: 8,
+            name: "Aditya Sriram",
+            dept: "Sports Secretary",
+            photo: Aditya,
+        },     
     ]
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
@@ -213,14 +213,14 @@ const Cossac = () => {
 
             const tl = gsap.timeline();
 
-            tl.call(() => {
-                setCurrentData(data[newIndex]);
-            })
+            tl
                 .to("#dept", { x: -1500, opacity: 0, duration: 1 })
 
                 .to("#name", { x: -800, opacity: 0, duration: 1 }, "-=1")
                 // .to("#photo", { opacity: 0, duration: 1 }, "-=1")
-
+                .call(() => {
+                    setCurrentData(data[newIndex]);
+                })
                 .to("#dept", { x: 0, opacity: 1, duration: 1 })
                 .to("#name", { x: 0, opacity: 1, duration: 1 }, "-=1")
             // .to("#photo", { opacity: 1, duration: 1 }, "-=1");
