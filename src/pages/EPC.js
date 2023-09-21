@@ -15,7 +15,7 @@ import { Navigation, Mousewheel } from "swiper/modules";
 // PDF Compoenent
 import PDFDocument from "../Components/PDFDocument";
 
-export default function Articles() {
+export default function EPC() {
   return (
     <main className={styles.pageWrapper}>
       <meta
@@ -114,7 +114,7 @@ export default function Articles() {
 
 export const Head = () => (
   <>
-    <title>BOSM '23 | Articles</title>
+    <title>BOSM '23 | EPC Articles</title>
     <link rel="icon" type="image/x-icon" href={logoImg} />
   </>
 );
