@@ -74,7 +74,7 @@ body {
 
 .scoreboardGrid {
   /* flex: 1 1 auto; */
-  height: 80%;
+  height: 72%;
   width: 90%;
 
   /* display: grid;
@@ -286,6 +286,8 @@ body {
   align-items: center;
 
   position: relative;
+
+  margin-bottom: 1rem;
 }
 
 .announcement p {
@@ -307,19 +309,6 @@ body {
   display: inline-block;
   /* left: 100%; */
   /* height: inherit; */
-}
-
-.marquee {
-  /* animation: marquee 30s linear infinite; */
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%); /* Start off-screen to the right */
-  }
-  100% {
-    transform: translateX(-100%); /* Move off-screen to the left */
-  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -356,7 +345,7 @@ body {
   .scoreboardGrid {
     height: 90%;
     width: 96%;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
   }
 }
 
