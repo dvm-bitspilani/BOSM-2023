@@ -4,6 +4,7 @@ import ScoreCard from "../Components/ScoreCard";
 
 import * as styles from "../Styles/scoreboard.module.css";
 import { navigate } from "gatsby";
+import Marquee from "react-fast-marquee";
 
 import logoImg from "../images/logo.svg";
 
@@ -11,19 +12,23 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Index() {
   const [data, setData] = React.useState(null);
-  const [announcement, setAnnouncement] = React.useState(null);
+  const [announcement, setAnnouncement] = React.useState("");
 
   const [allScoreCards, setAllScoreCards] = React.useState(null);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const pRef = React.useRef(null);
+  const marqueeRef = React.useRef(null);
 
   React.useEffect(() => {
-    fetch("https://test.bitsbosm.org/2023/live-score/send-data")
-      .then((res) => res.json())
-      .then((data) => {
-        // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
-        setData(JSON.parse(data).slice(0, -1));
-        console.log(JSON.parse(data).at(-1));
-        setAnnouncement(JSON.parse(data).at(-1).text);
-      });
+    // fetch("https://test.bitsbosm.org/2023/live-score/send-data")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
+    //     setData(JSON.parse(data).slice(0, -1));
+    //     console.log(JSON.parse(data).at(-1));
+    //     setAnnouncement(JSON.parse(data).at(-1).text);
+    //   });
 
     const socket = new WebSocket("wss://test.bitsbosm.org/2023/ws/live_score/");
     socket.onopen = (e) => {
@@ -65,15 +70,39 @@ export default function Index() {
     }
 
     // temp for testing
-    // setAllScoreCards(
-    //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
-    //     return <ScoreCard key={index} />;
-    //   })
-    // );
+    setAllScoreCards(
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+        return <ScoreCard key={index} />;
+      })
+    );
 
-    console.log(data);
-    console.log(announcement);
+    // console.log(data);
+    // console.log(announcement);
   }, [data]);
+
+  React.useEffect(() => {
+    if (announcement === "") {
+      setAnnouncement(
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      );
+      // setAnnouncement("BOSM 2023");
+    }
+
+    if (pRef.current !== null && marqueeRef.current !== null) {
+      console.log(pRef.current.offsetWidth, marqueeRef.current.offsetWidth);
+      const pWidth = pRef.current.offsetWidth;
+      const marqueeWidth = marqueeRef.current.offsetWidth;
+      console.log(marqueeRef.current.play);
+      if (pWidth > marqueeWidth) {
+        // console.log("playing");
+        setIsPlaying(true);
+      } else {
+        setIsPlaying(false);
+      }
+    }
+  }, [announcement, pRef, marqueeRef]);
+
+  // console.log(isPlaying);
 
   return (
     <main className={styles.pageContainer}>
@@ -83,17 +112,37 @@ export default function Index() {
         </div>
         <h1>SCOREBOARD</h1>
       </div>
-      {
-        typeof window !== "undefined" &&
+      {typeof window !== "undefined" &&
+      announcement !== null &&
+      window.innerWidth > 768 &&
+      isPlaying ? (
+        <Marquee
+          ref={marqueeRef}
+          className={styles.announcement}
+          // gradient={true}
+          speed={50}
+          delay={1}
+          play={isPlaying}
+          style={{ width: "90%" }}
+        >
+          <p ref={pRef}>{announcement}</p>
+        </Marquee>
+      ) : typeof window !== "undefined" &&
         announcement !== null &&
-        window.innerWidth > 768 ? (
-          <div className={styles.announcement}>
-            <p>{announcement}</p>
-          </div>
-        ) : null
-      }
-      <div className={data ? styles.scoreboardGrid : styles.loaderGrid}>
-        {data ? (
+        window.innerWidth > 768 &&
+        !isPlaying ? (
+        <div ref={marqueeRef} className={styles.announcement} style={{justifyContent: "center"}}>
+          <p ref={pRef}>{announcement}</p>
+        </div>
+      ) : (
+        <></>
+      )}
+      <div
+        className={
+          data || allScoreCards ? styles.scoreboardGrid : styles.loaderGrid
+        }
+      >
+        {data || allScoreCards ? (
           <>
             {allScoreCards}
             {/* <ScoreCard /> */}
