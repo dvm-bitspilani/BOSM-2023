@@ -27,13 +27,13 @@ const Cossac = () => {
         },
         {
             id: 2,
-            name: "Shirish Kumarav",
+            name: "Shirish Kumaravel",
             dept: "Department of Reception and Accommodation",
             photo: Shirish,
         },
         {
             id: 3,
-            name: "Ayush Singh Bhandari",
+            name: "Ayush Bhandari",
             dept: "Department of Sponsorship and Marketing, BOSM",
             photo: Ayush,
         },
