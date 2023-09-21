@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
+
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
@@ -12,13 +13,19 @@ const options = {
   standardFontDataUrl: "/standard_fonts/",
 };
 
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.js",
+//   import.meta.url
+// ).toString();
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
 // Create Document Component
 export default function PDFDocument() {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-  const [numPages, setNumPages] = React.useState(10);
+  const [numPages, setNumPages] = React.useState(1);
   function onDocumentLoadSuccess({ numPages }) {
-    // setNumPages(numPages);
+    setNumPages(numPages);
   }
 
   return (

@@ -15,6 +15,8 @@ body {
   flex-direction: column;
   align-items: center;
   /* gap: 2rem; */
+
+  cursor: default;
 }
 
 .header {
@@ -72,7 +74,7 @@ body {
 
 .scoreboardGrid {
   /* flex: 1 1 auto; */
-  height: 80%;
+  height: 72%;
   width: 90%;
 
   /* display: grid;
@@ -150,7 +152,7 @@ body {
 
   /* display: grid; */
   /* grid-template-columns: 40% 1fr 40%; */
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,6 +271,46 @@ body {
   width: 0.4rem;
 }
 
+.announcement {
+  width: 90%;
+  height: min-content;
+  padding-block: 0.75rem;
+
+  background-color: white;
+  border-radius: 50px;
+
+  overflow: hidden;
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+
+  position: relative;
+
+  margin-bottom: 1rem;
+}
+
+.announcement p {
+  color: #f0f0f0;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.6px;
+  color: black;
+  align-self: center;
+
+  white-space: nowrap;
+  width: fit-content;
+
+  /* position: absolute; */
+  display: inline-block;
+  /* left: 100%; */
+  /* height: inherit; */
+}
+
 @media screen and (max-width: 1100px) {
   /* .header {
     justify-content: space-around;
@@ -289,60 +331,59 @@ body {
   }
 }
 
-@media screen and (max-width:800px) {
-  .header h1{
+@media screen and (max-width: 800px) {
+  .header h1 {
     text-align: right;
     margin-right: 1rem;
   }
-  .logoDiv{
+  .logoDiv {
     width: 15%;
   }
-  .header{
+  .header {
     height: 10%;
   }
-  .scoreboardGrid{
+  .scoreboardGrid {
     height: 90%;
     width: 96%;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
   }
 }
 
-@media screen and (max-width:435px){
-  .scoreboardGrid{
+@media screen and (max-width: 435px) {
+  .scoreboardGrid {
     gap: 1rem;
   }
-  .eventName{
+  .eventName {
     font-size: 1.3rem;
   }
-  .teamName{
+  .teamName {
     font-size: 2.2rem;
   }
-  .score span{
+  .score span {
     font-size: 2.3rem;
   }
-  .venue{
+  .venue {
     margin: 0;
   }
-  .teamNames{
+  .teamNames {
     gap: 1rem;
   }
 }
 
-@media screen and (max-width:350px) {
-
-  .scoreCard{
+@media screen and (max-width: 350px) {
+  .scoreCard {
     min-width: 110%;
   }
-  .eventName{
+  .eventName {
     font-size: 1.2rem;
   }
-  .teamName{
+  .teamName {
     font-size: 1.9rem;
   }
-  .score span{
+  .score span {
     font-size: 1.8rem;
   }
-  .venue{
+  .venue {
     font-size: 1rem;
   }
 }

@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: `https://bitsbosm.org`,
     description: `Get ready for the ultimate showdown of collegiate sports excellence at the 36th edition of BITS Open Sports Meet (BOSM '23)! Join us from September 22nd to 26th as top college teams from across the nation go head-to-head, showcasing their skills and determination on the grandest stage.`,
     keywords: `bits sports fest, bosm, bosm 2023, bits fest, bits pilani fest, bits, bits pilani, bits pilani pilani campus, bppc, 2023`,
-    image: `src/images/icon.png`
+    image: `src/images/icon.png`,
   },
   plugins: [
     "swiper",
@@ -16,10 +16,10 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-css-modules",
     {
-      resolve: 'gatsby-plugin-firebase',
+      resolve: "gatsby-plugin-firebase",
       options: {
         credentials: {
-          apiKey:"AIzaSyAJHUIfulE-WbODAYqfNh5iTeU2cLDdz5I",
+          apiKey: "AIzaSyAJHUIfulE-WbODAYqfNh5iTeU2cLDdz5I",
           authDomain: "bosm23-e7b78.firebaseapp.com",
           projectId: "bosm23-e7b78",
           storageBucket: "bosm23-e7b78.appspot.com",
@@ -35,7 +35,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
         path: `${__dirname}/src/images/`, // Use __dirname to get the correct path
@@ -54,9 +54,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        icon: 'src/images/icon.png', // Fix the icon path
+        icon: "src/images/icon.png", // Fix the icon path
       },
     },
     {

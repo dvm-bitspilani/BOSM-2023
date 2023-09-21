@@ -1,6 +1,11 @@
 import React from "react";
+import { Link } from "gatsby";
 import * as styles from "../Styles/Articles.module.css";
-import { backImg } from "../images/arrow.svg";
+
+import leftArrow from "../images/aboutUsCarouselLeftArrow.png";
+import rightArrow from "../images/aboutUsCarouselRightArrow.png";
+// import { backImg } from "../images/arrow.svg";
+import logoImg from "../images/logo.svg";
 
 // import swiper and swiperslide
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,11 +15,19 @@ import { Navigation, Mousewheel } from "swiper/modules";
 // PDF Compoenent
 import PDFDocument from "../Components/PDFDocument";
 
-export default function Articles() {
+export default function EPC() {
   return (
     <main className={styles.pageWrapper}>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
+      {/* <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no"
+      ></meta> */}
       <header className={styles.heading}>
-        <div className={styles.back}>
+        <Link to="/" className={styles.back}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="49"
@@ -30,7 +43,7 @@ export default function Articles() {
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </Link>
         <div className={styles.title}>
           <h1>Articles</h1>
         </div>
@@ -38,11 +51,11 @@ export default function Articles() {
       <div className={styles.carouselWrapper}>
         <Swiper
           className={styles.carousel}
-          pagination={{ clickable: true }}
-          navigation={{ clickable: true }}
+          // pagination={{ clickable: true }}
+          // navigation={{ clickable: true }}
           //   scrollbar={{ draggable: true }}
           spaceBetween={50}
-        //   slidesPerView={1.1}
+          //   slidesPerView={1.1}
           centeredSlides={true}
           //   loop={true}
           mousewheel={{
@@ -64,6 +77,7 @@ export default function Articles() {
               spaceBetween: 30,
             },
           }}
+          allowTouchMove={false}
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
@@ -76,12 +90,31 @@ export default function Articles() {
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
+        <div className={styles.carouselController}>
+          <button className={styles.leftArrow} onClick={()=>{
+            const swiper = document.querySelector('.swiper').swiper
+            swiper.slidePrev()
+          }}>
+            <img src={leftArrow} alt="" />
+          </button>
+          <div className={styles.articleAuthor}>
+            <p>English Press Club</p>
+          </div>
+          <button className={styles.rightArrow} onClick={()=>{
+            const swiper = document.querySelector('.swiper').swiper
+            swiper.slideNext()
+          }}>
+            <img src={rightArrow} alt="" />
+          </button>
+        </div>
       </div>
-
-    <div className={styles.carouselControler}>
-          
-    </div>
-
     </main>
   );
 }
+
+export const Head = () => (
+  <>
+    <title>BOSM '23 | EPC Articles</title>
+    <link rel="icon" type="image/x-icon" href={logoImg} />
+  </>
+);

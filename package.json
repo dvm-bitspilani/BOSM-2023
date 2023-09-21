@@ -22,8 +22,10 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.14.5",
     "@popmotion/popcorn": "^0.4.4",
+    "@react-pdf-viewer/core": "^3.12.0",
     "@rehooks/window-size": "^1.0.2",
     "autoprefixer": "^10.4.14",
+    "canvas": "^2.11.2",
     "classnames": "^2.3.2",
     "firebase": "^10.1.0",
     "framer-motion": "^10.15.0",
@@ -43,9 +45,11 @@
     "gsap": "^3.12.2",
     "locomotive-scroll": "^4.1.4",
     "multiselect-react-dropdown": "^2.0.25",
+    "pdfjs-dist": "^3.4.120",
     "postcss": "^8.4.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.0",
     "react-ga4": "^2.1.0",
     "react-pdf": "^7.3.3",
     "react-router-dom": "^6.14.2",
@@ -58,5 +62,8 @@
     "styled-reset-advanced": "^1.0.3",
     "swiper": "^10.2.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0"
   }
 }

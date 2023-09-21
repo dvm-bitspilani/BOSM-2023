@@ -21,9 +21,11 @@ export default function Hamburger({ closeHam, isHamOpen }) {
         <div className={styles["mobileLinks"]}>
             Archive
         </div>
+        <Link to="/sponsors" onMouseDown={()=>document.documentElement.style.overflowY = "scroll"}>
         <div className={styles["mobileLinks"]}>
             Sponsors
         </div>
+</Link>
         <div className={styles["mobileLinks"]}>
             Developers
         </div>
