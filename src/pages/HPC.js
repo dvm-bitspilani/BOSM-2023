@@ -81,29 +81,40 @@ export default function EPC() {
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
-            <PDFDocument />
+            {/* <PDFDocument /> */}
+            <div className={styles.noArticles}>
+              No Articles avaialable yet
+              <br />
+              Check back later
+            </div>
           </SwiperSlide>
-          <SwiperSlide className={styles.slide}>
+          {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
-          </SwiperSlide>
+          </SwiperSlide> */}
           {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
         <div className={styles.carouselController}>
-          <button className={styles.leftArrow} onClick={()=>{
-            const swiper = document.querySelector('.swiper').swiper
-            swiper.slidePrev()
-          }}>
+          <button
+            className={styles.leftArrow}
+            onClick={() => {
+              const swiper = document.querySelector(".swiper").swiper;
+              swiper.slidePrev();
+            }}
+          >
             <img src={leftArrow} alt="" />
           </button>
           <div className={styles.articleAuthor}>
             <p>Hindi Press Club</p>
           </div>
-          <button className={styles.rightArrow} onClick={()=>{
-            const swiper = document.querySelector('.swiper').swiper
-            swiper.slideNext()
-          }}>
+          <button
+            className={styles.rightArrow}
+            onClick={() => {
+              const swiper = document.querySelector(".swiper").swiper;
+              swiper.slideNext();
+            }}
+          >
             <img src={rightArrow} alt="" />
           </button>
         </div>

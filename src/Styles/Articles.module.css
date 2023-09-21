@@ -125,6 +125,21 @@
   cursor: pointer;
 }
 
+.noArticles{
+  color: black;
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.4px;
+  text-align: center;
+
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .heading {
     height: 7vh;
