@@ -22,10 +22,10 @@ export default function Articles() {
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       ></meta>
-      <meta
+      {/* <meta
         name="viewport"
         content="width=device-width, user-scalable=no"
-      ></meta>
+      ></meta> */}
       <header className={styles.heading}>
         <Link to="/" className={styles.back}>
           <svg
@@ -77,6 +77,7 @@ export default function Articles() {
               spaceBetween: 30,
             },
           }}
+          allowTouchMove={false}
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
