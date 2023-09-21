@@ -83,7 +83,7 @@ export default function EPC() {
           <SwiperSlide className={styles.slide}>
             {/* <PDFDocument /> */}
             <div className={styles.noArticles}>
-              No Articles avaialable yet
+              No Articles available yet
               <br />
               Check back later
             </div>
