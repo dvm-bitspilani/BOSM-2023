@@ -39,13 +39,13 @@ export default function ScoreCard({ data = null }) {
         )}
       </div>
       <div className={styles.teamNames}>
-        <span className={`${styles.teamName} ${team2 && team1 !== data.winner && data.winner !== null && styles.winningTeam}`}>
-          {data === null ? "BITS P" : team1}
+        <span className={`${styles.teamName} ${team2 && team1 !== data.winner && data.winner !== "" && styles.winningTeam}`}>
+          {data === "" ? "BITS P" : team1}
         </span>
         {data !== null && data.team_scores.length === 2 && (
           <>
             <span className={styles.vsText}>VS</span>
-            <span className={`${styles.teamName} ${team2 && team2 !== data.winner && data.winner !== null && styles.winningTeam}`}>{team2}</span>
+            <span className={`${styles.teamName} ${team2 && team2 !== data.winner && data.winner !== "" && styles.winningTeam}`}>{team2}</span>
           </>
         )}
       </div>
