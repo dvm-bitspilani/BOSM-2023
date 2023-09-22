@@ -60,21 +60,6 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
-.front-clicked > div:nth-child(2) > div{
-    transform: translateY(-135%);
-}
-.front-clicked > div:nth-child(3) > div{
-    transform: translateY(-55%) translateX(180%);
-}
-.front-clicked > div:nth-child(4) > div{
-    transform: translateY(105%) translateX(125%);
-}
-.front-clicked > div:nth-child(5) > div{
-    transform: translateY(105%) translateX(-125%);
-}
-.front-clicked > div:nth-child(6) > div{
-    transform: translateY(-55%) translateX(-180%);
-}
 .cardBack {
   transform: perspective(800px) rotateY(180deg);
 }
