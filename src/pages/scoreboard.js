@@ -21,16 +21,14 @@ export default function Index() {
   const marqueeRef = React.useRef(null);
 
   React.useEffect(() => {
-    // fetch("https://test.bitsbosm.org/2023/live-score/send-data")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
-    //     setData(JSON.parse(data).slice(0, -1));
-    //     console.log(JSON.parse(data).at(-1));
-    //     setAnnouncement(JSON.parse(data).at(-1).text);
-    //   });
-
-    const socket = new WebSocket("wss://test.bitsbosm.org/2023/ws/live_score/");
+    fetch("https://bitsbosm.org/2023/live-score/send-data")
+      .then((res) => res.json())
+      .then((data) => {
+        // setData([...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data), ...JSON.parse(data)]);
+        setData(JSON.parse(data));
+      });
+      
+    const socket = new WebSocket("wss://bitsbosm.org/2023/ws/live_score/");
     socket.onopen = (e) => {
       console.log("connected");
       //   console.log(e.data)
@@ -70,11 +68,11 @@ export default function Index() {
     }
 
     // temp for testing
-    setAllScoreCards(
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
-        return <ScoreCard key={index} />;
-      })
-    );
+    // setAllScoreCards(
+    //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+    //     return <ScoreCard key={index} />;
+    //   })
+    // );
 
     // console.log(data);
     // console.log(announcement);
@@ -112,7 +110,7 @@ export default function Index() {
         </div>
         <h1>SCOREBOARD</h1>
       </div>
-      {typeof window !== "undefined" &&
+      {/* {typeof window !== "undefined" &&
       announcement !== null &&
       window.innerWidth > 768 &&
       isPlaying ? (
@@ -131,12 +129,16 @@ export default function Index() {
         announcement !== null &&
         window.innerWidth > 768 &&
         !isPlaying ? (
-        <div ref={marqueeRef} className={styles.announcement} style={{justifyContent: "center"}}>
+        <div
+          ref={marqueeRef}
+          className={styles.announcement}
+          style={{ justifyContent: "center" }}
+        >
           <p ref={pRef}>{announcement}</p>
         </div>
       ) : (
         <></>
-      )}
+      )} */}
       <div
         className={
           data || allScoreCards ? styles.scoreboardGrid : styles.loaderGrid
