@@ -1,0 +1,56 @@
+.front-clicked > div:nth-child(2) > div{
+    transform: translateY(-135%) !important;
+}
+.front-clicked > div:nth-child(3) > div{
+    transform: translateY(-55%) translateX(180%);
+}
+.front-clicked > div:nth-child(4) > div{
+    transform: translateY(105%) translateX(125%);
+}
+.front-clicked > div:nth-child(5) > div{
+    transform: translateY(105%) translateX(-125%);
+}
+.front-clicked > div:nth-child(6) > div{
+    transform: translateY(-55%) translateX(-180%);
+}
+.front-clicked > div > div, .front > div > div{
+    transition: all 1s ease-in-out;
+}
+
+.back-clicked > div:nth-child(2) > div{
+    transform: translateY(-135%) !important;
+}
+.back-clicked > div:nth-child(3) > div{
+    transform: translateX(-180%);
+}
+.back-clicked > div:nth-child(4) > div{
+    transform: translateY(110%) translateX(-135%);
+}
+.back-clicked > div:nth-child(5) > div{
+    transform: translateY(135%);
+}
+.back-clicked > div:nth-child(6) > div{
+    transform: translateY(-110%) translateX(-135%);
+}
+.back-clicked > div > div, .back > div >div{
+    transition: all 1s ease-in-out;
+}
+
+.design-clicked > div:nth-child(2) > div{
+    transform: translateY(-135%) !important;
+}
+.design-clicked > div:nth-child(3) > div{
+    transform: translateX(180%);
+}
+.design-clicked > div:nth-child(4) > div{
+    transform: translateY(110%) translateX(135%);
+}
+.design-clicked > div:nth-child(5) > div{
+    transform: translateY(135%);
+}
+.design-clicked > div:nth-child(6) > div{
+    transform: translateY(-110%) translateX(135%);
+}
+.design-clicked > div > div, .design > div >div{
+    transition: all 1s ease-in-out;
+}

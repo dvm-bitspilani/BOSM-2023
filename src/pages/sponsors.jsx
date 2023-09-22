@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from "react";
 import { navigate } from "gatsby";
 import * as styles from "../Styles/Sponsors.module.css"
+import "../Styles/developer.css"
 import arrow from "../images/arrow.svg"
 import Cursor from "../images/cursor.png";
 import enerzal from "../images/sponsors/enerzal.png"
@@ -17,7 +18,8 @@ export default function Sponsors() {
   useEffect(() => {
     const fetchSponsors = async () => {
       try {
-        const response = await fetch("bitsbosm.org/2023/wallet/sponsors");
+        const response = await fetch("https://bitsbosm.org/2023/wallet/sponsors");
+        console.log(response)
         const data = await response.json();
         setSponsorsData(data);
         console.log(data);
@@ -142,7 +144,7 @@ export default function Sponsors() {
     }
   }, [videoLoaded]);
 
-  console.log(isLoading)
+  console.log(sponsorsData["sponsors"])
 
   return (
     <>
@@ -162,10 +164,10 @@ export default function Sponsors() {
             <img src={arrow} alt="" style={{opacity: '0', pointerEvents:'none'}}></img>
         </div>
         <div className={styles["sponsors"]}>
-        {sponsorsData.map((sponsor, index) => (
+        {sponsorsData["sponsors"] && sponsorsData["sponsors"].map((sponsor, index) => (
           <div key={index} className={styles["sponsor"]}>
-            <h1>{sponsor.title}</h1>
-            <img src={sponsor.image} alt={sponsor.name} />
+            <h1>{sponsor.category}</h1>
+            <img src={sponsor.url} alt={sponsor.name} />
             <p>{sponsor.name}</p>
           </div>
         ))}
