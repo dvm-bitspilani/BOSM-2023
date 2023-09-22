@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from "react";
 import { navigate } from "gatsby";
 import * as styles from "../Styles/Sponsors.module.css"
+import "../Styles/developer.css"
 import arrow from "../images/arrow.svg"
 import Cursor from "../images/cursor.png";
 import enerzal from "../images/sponsors/enerzal.png"
@@ -8,14 +9,27 @@ import easemytrip from "../images/sponsors/easemytrip.png"
 import plum from "../images/sponsors/plum.png"
 import LoaderVideo from "../images/loader.mp4"
 
-const sponsorsData = [
-    {title: "Hydration Partner", image: enerzal , name: "Enerzal"},
-    {title: "Travel Partner", image: easemytrip , name: "EaseMyTrip.com"},
-    {title: "Bath & Bodycare Partner", image: plum , name: "Plum BodyLoving'"}
-]
 
 export default function Sponsors() {
-    const [isLoading, setIsLoading] = useState(true)
+
+  const [isLoading, setIsLoading] = useState(true)
+  const [sponsorsData, setSponsorsData] = useState([]);
+
+  useEffect(() => {
+    const fetchSponsors = async () => {
+      try {
+        const response = await fetch("https://bitsbosm.org/2023/wallet/sponsors");
+        console.log(response)
+        const data = await response.json();
+        setSponsorsData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching sponsors:", error);
+      }
+    };
+  
+    fetchSponsors();
+  }, []);
 
   const goBack = () => {
     navigate("/")
@@ -48,7 +62,7 @@ export default function Sponsors() {
         );
       };
     }
-    setIsLoading(false);
+    // setIsLoading(false);
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -130,6 +144,7 @@ export default function Sponsors() {
     }
   }, [videoLoaded]);
 
+  console.log(sponsorsData["sponsors"])
 
   return (
     <>
@@ -149,10 +164,10 @@ export default function Sponsors() {
             <img src={arrow} alt="" style={{opacity: '0', pointerEvents:'none'}}></img>
         </div>
         <div className={styles["sponsors"]}>
-        {sponsorsData.map((sponsor, index) => (
+        {sponsorsData["sponsors"] && sponsorsData["sponsors"].map((sponsor, index) => (
           <div key={index} className={styles["sponsor"]}>
-            <h1>{sponsor.title}</h1>
-            <img src={sponsor.image} alt={sponsor.name} />
+            <h1>{sponsor.category}</h1>
+            <img src={sponsor.url} alt={sponsor.name} />
             <p>{sponsor.name}</p>
           </div>
         ))}

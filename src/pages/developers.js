@@ -352,6 +352,38 @@ const Developers = () => {
     //         });
     //     });
     // }
+    const [clickedFront, setClickedFront] = useState(false);
+    const [clickedBack , setClickedBack]  = useState(false)
+    const [clickedDesign , setClickedDesign]  = useState(false)
+
+    const handleClickFront = () => {
+        console.log("front")
+        setClickedBack(false);
+        setClickedDesign(false);
+        if(clickedFront){
+            setClickedFront(false);
+        }else{
+            setClickedFront(true);
+        }
+    };
+    const handleClickBack = () => {
+        setClickedFront(false);
+        setClickedDesign(false);
+        if(clickedBack){
+            setClickedBack(false);
+        }else{
+            setClickedBack(true);
+        }
+    }
+    const handleClickDesign = () => {
+        setClickedFront(false);
+        setClickedBack(false);
+        if(clickedDesign){
+            setClickedDesign(false);
+        }else{
+            setClickedDesign(true);
+        }
+    }
 
     return (
         <React.Fragment>
@@ -375,8 +407,8 @@ const Developers = () => {
                     </h2>
                 </div>
                 <div className={dev.teams}>
-                    <div className={dev.design}>
-                        <img className={dev.devTeam} src={Figma} alt=''></img>
+                    <div className={clickedDesign ? "design design-clicked" : "design"}>
+                        <img className={dev.devTeam} src={Figma} alt='' onClick={handleClickDesign}></img>
                         {DesignTeam.map(team =>
                             <DevCard key={team.id} team={team} card={DesignCard} strip={<svg width="130" height="715" viewBox="0 0 130 715" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.55174 88.9999C44.1123 63.162 98.2393 7.5 129.955 0.595703C129.955 108.218 129.955 714.144 129.955 714.144H0.55168C0.55168 714.144 0.549618 129.999 0.55174 88.9999Z" fill="url(#paint0_linear_3838_613)" fill-opacity="0.71" />
@@ -389,8 +421,8 @@ const Developers = () => {
                             </svg>} linear1="#BAA3E4" linear2="#B69FE0" linear3="#AC94D7" barColor="#77639A" fontColor="#AF9CDB" iconColor="#AF9CDB" teamName="DESIGN" />
                         )}
                     </div>
-                    <div className={dev.front}>
-                        <img className={dev.devTeam} src={ReactIcon} alt=''></img>
+                    <div className={clickedFront ? "front front-clicked" : "front"} >
+                        <img className={dev.devTeam} src={ReactIcon} alt='' onClick={handleClickFront}></img>
                         {FrontTeam.map((team)=>
                                 <DevCard key={team.id} team={team} card={FrontCard} strip={<svg width="131" height="709" viewBox="0 0 131 709" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.79051 88.4042C44.3511 62.5662 100.938 9.39561 130.194 0C130.194 107.622 130.194 708.144 130.194 708.144H0.790448C0.790448 708.144 0.788389 129.403 0.79051 88.4042Z" fill="url(#paint0_linear_3838_562)" fill-opacity="0.71" />
@@ -403,8 +435,8 @@ const Developers = () => {
                                 </svg>} linear1="#8ACFED" linear2="#43A1CA" linear3="#124A62" barColor="#43A1CA" fontColor="#76B7CC" iconColor="#76B7CC" teamName="FRONT END"/>
                         )}
                     </div>
-                    <div className={dev.back}>
-                        <img className={dev.devTeam} src={Python} alt=''></img>
+                    <div className={clickedBack ? "back back-clicked" : "back"} >
+                        <img className={dev.devTeam} src={Python} alt='' onClick={handleClickBack}></img>
                         {BackTeam.map(team =>
                             <DevCard key={team.id} team={team} card={BackCard} strip={<svg width="131" height="716" viewBox="0 0 131 716" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.67137 88.4137C44.232 62.5758 100.819 9.40514 130.075 0.00952148C130.075 107.632 130.075 715.144 130.075 715.144H0.671307C0.671307 715.144 0.669248 129.413 0.67137 88.4137Z" fill="url(#paint0_linear_3838_530)" fill-opacity="0.71" />
