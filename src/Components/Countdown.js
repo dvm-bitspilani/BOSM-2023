@@ -76,17 +76,17 @@ const Countdown = () => {
   return (
     <div ref={(el) => (count = el)} className={styles["countdown"]}>
       <div className={styles["label"]} id="days">
-        <div className={styles["numbers"]}>{prevDay}</div>
+        <div className={styles["numbers"]}>00</div>
         <div className={styles["labels"]}>DAYS</div>
       </div>
       <span style={{fontWeight: 'medium', fontSize: '32px'}}>:</span>
       <div className={styles["label"]} id="hours">
-        <div className={styles["numbers"]}>{prevHr}</div>
+        <div className={styles["numbers"]}>00</div>
         <div className={styles["labels"]}>HOURS</div>
       </div>
       <span style={{fontWeight: 'medium', fontSize: '32px'}}>:</span>
       <div className={styles["label"]} id="min">
-        <div className={styles["numbers"]}>{prevMin}</div>
+        <div className={styles["numbers"]}>00</div>
         <div className={styles["labels"]}>MINS</div>
       </div>
     </div>
