@@ -6,6 +6,7 @@
     height: 100vh;
     background: url('../images/contact_bg.png') no-repeat center center fixed;
     overflow: scroll;
+    background-size: cover;
 }
 .heading{
     display: flex;

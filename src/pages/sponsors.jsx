@@ -8,14 +8,26 @@ import easemytrip from "../images/sponsors/easemytrip.png"
 import plum from "../images/sponsors/plum.png"
 import LoaderVideo from "../images/loader.mp4"
 
-const sponsorsData = [
-    {title: "Hydration Partner", image: enerzal , name: "Enerzal"},
-    {title: "Travel Partner", image: easemytrip , name: "EaseMyTrip.com"},
-    {title: "Bath & Bodycare Partner", image: plum , name: "Plum BodyLoving'"}
-]
 
 export default function Sponsors() {
-    const [isLoading, setIsLoading] = useState(true)
+
+  const [isLoading, setIsLoading] = useState(true)
+  const [sponsorsData, setSponsorsData] = useState([]);
+
+  useEffect(() => {
+    const fetchSponsors = async () => {
+      try {
+        const response = await fetch("bitsbosm.org/2023/wallet/sponsors");
+        const data = await response.json();
+        setSponsorsData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching sponsors:", error);
+      }
+    };
+  
+    fetchSponsors();
+  }, []);
 
   const goBack = () => {
     navigate("/")
@@ -48,7 +60,7 @@ export default function Sponsors() {
         );
       };
     }
-    setIsLoading(false);
+    // setIsLoading(false);
     return () => {
       window.onpointermove = null;
       window.scrollTo(0, 0);
@@ -130,6 +142,7 @@ export default function Sponsors() {
     }
   }, [videoLoaded]);
 
+  console.log(isLoading)
 
   return (
     <>
