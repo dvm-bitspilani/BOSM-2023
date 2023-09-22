@@ -593,10 +593,6 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
     fetchSportsOptions();
   }, []);
 
-  useEffect(()=>{
-
-  },[selectedState])
-
 
   const isFormFilled = () => {
     const requiredFields = ['name', 'email_id', 'phone', 'gender', 'college_id', 'city', 'state', 'sports', 'year_of_study'];
@@ -897,12 +893,24 @@ const Form = ({ setRegPage , setShowBlackScreen2 }) => {
   let sportsOptions = [];
 
   if(gender === 'M'){
-    sportsOptions = sportsOptionsMale
+    if(formData.is_coach){
+      sportsOptions = sportsOptionsOther
+    }else{
+    sportsOptions = sportsOptionsMale}
   }else if(gender === 'F'){
-    sportsOptions=sportsOptionsFemale
+    if(formData.is_coach){
+      sportsOptions = sportsOptionsOther
+    }else{
+    sportsOptions=sportsOptionsFemale}
   }else if(gender === 'O'){
-    sportsOptions=sportsOptionsOther
+    if(formData.is_coach){
+      sportsOptions = sportsOptionsOther
+    }else{
+    sportsOptions=sportsOptionsOther}
   }
+
+
+
   const editPhoto =()=>{
     hiddenFileInput.current.click();
     // console.log("clicked")
