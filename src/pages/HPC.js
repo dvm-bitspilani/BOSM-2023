@@ -99,8 +99,9 @@ export default function HPC() {
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
+
         <div className={styles.carouselController}>
-          <button
+          {/* <button
             className={styles.leftArrow}
             onClick={() => {
               const swiper = document.querySelector(".swiper").swiper;
@@ -108,11 +109,11 @@ export default function HPC() {
             }}
           >
             <img src={leftArrow} alt="" />
-          </button>
+          </button> */}
           <div className={styles.articleAuthor}>
             <p>Hindi Press Club</p>
           </div>
-          <button
+          {/* <button
             className={styles.rightArrow}
             onClick={() => {
               const swiper = document.querySelector(".swiper").swiper;
@@ -120,8 +121,9 @@ export default function HPC() {
             }}
           >
             <img src={rightArrow} alt="" />
-          </button>
+          </button> */}
         </div>
+
       </div>
     </main>
   );

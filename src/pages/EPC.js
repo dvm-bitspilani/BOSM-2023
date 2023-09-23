@@ -96,21 +96,21 @@ export default function EPC() {
           </SwiperSlide> */}
         </Swiper>
         <div className={styles.carouselController}>
-          <button className={styles.leftArrow} onClick={()=>{
+          {/* <button className={styles.leftArrow} onClick={()=>{
             const swiper = document.querySelector('.swiper').swiper
             swiper.slidePrev()
           }}>
             <img src={leftArrow} alt="" />
-          </button>
+          </button> */}
           <div className={styles.articleAuthor}>
             <p>English Press Club</p>
           </div>
-          <button className={styles.rightArrow} onClick={()=>{
+          {/* <button className={styles.rightArrow} onClick={()=>{
             const swiper = document.querySelector('.swiper').swiper
             swiper.slideNext()
           }}>
             <img src={rightArrow} alt="" />
-          </button>
+          </button> */}
         </div>
       </div>
     </main>
