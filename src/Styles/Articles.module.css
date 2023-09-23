@@ -33,6 +33,8 @@
   scale: 0.7;
   width: 10%;
   /* margin-right: auto; */
+
+  display: none;
 }
 
 .title {
