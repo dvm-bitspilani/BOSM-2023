@@ -17,17 +17,17 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 
 import luv from "../images/DevImages/luv.png"
-import akshit from "../../DevImages/akshit.png"
-import bharat from "../../DevImages/bharat.png"
-import himanshu from "../../DevImages/himanshu.png"
-import nabisha from "../../DevImages/nabisha.png"
-import praneel from "../../DevImages/praneel.png"
-import raj from "../../DevImages/raj.png"
-import rakshit from "../../DevImages/rakshit.png"
-import ritik from "../../DevImages/ritik.png"
-import shirsh from "../../DevImages/shirsh.png"
-import shreyasDVM from "../../DevImages/shreyasDVM.png"
-import trehan from "../../DevImages/trehan.png"
+import akshit from "../images/DevImages/akshit.png"
+import bharat from "../images/DevImages/bharat.png"
+import himanshu from "../images/DevImages/himanshu.png"
+import nabisha from "../images/DevImages/nabisha.png"
+import praneel from "../images/DevImages/praneel.png"
+import raj from "../images/DevImages/raj.png"
+import rakshit from "../images/DevImages/rakshit.png"
+import ritik from "../images/DevImages/ritik.png"
+import shirsh from "../images/DevImages/shirsh.png"
+import shreyasDVM from "../images/DevImages/shreyasDVM.png"
+import trehan from "../images/DevImages/trehan.png"
 
 
 const Developers = () => {
