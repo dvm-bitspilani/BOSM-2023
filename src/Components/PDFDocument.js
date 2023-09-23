@@ -21,7 +21,7 @@ const options = {
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 // Create Document Component
-export default function PDFDocument() {
+export default function PDFDocument({file}) {
 
   const [numPages, setNumPages] = React.useState(1);
   function onDocumentLoadSuccess({ numPages }) {
@@ -30,7 +30,7 @@ export default function PDFDocument() {
 
   return (
     <Document
-      file={pdfFile}
+      file={file}
       onLoadSuccess={onDocumentLoadSuccess}
       options={options}
       className={styles.pdf}

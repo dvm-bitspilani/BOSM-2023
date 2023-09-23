@@ -15,7 +15,11 @@ import { Navigation, Mousewheel } from "swiper/modules";
 // PDF Compoenent
 import PDFDocument from "../Components/PDFDocument";
 
-export default function EPC() {
+// Import pdf files
+import day1 from "../images/HPC Day 1.pdf"
+
+export default function HPC() {
+
   return (
     <main className={styles.pageWrapper}>
       <meta
@@ -81,12 +85,12 @@ export default function EPC() {
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
-            {/* <PDFDocument /> */}
-            <div className={styles.noArticles}>
+            <PDFDocument file = {day1}/>
+            {/* <div className={styles.noArticles}>
               No Articles available yet
               <br />
               Check back later
-            </div>
+            </div> */}
           </SwiperSlide>
           {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
