@@ -67,7 +67,7 @@
 }
 
 .slide {
-  background-color: white;
+  /* background-color: white; */
   overflow: scroll;
 }
 
@@ -84,6 +84,8 @@
 
   display: grid;
   justify-items: center;
+
+  background-color: transparent !important;
 }
 
 .pdfpage > canvas {
