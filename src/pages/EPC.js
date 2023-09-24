@@ -17,6 +17,7 @@ import PDFDocument from "../Components/PDFDocument";
 
 // Importing all pdfs
 import day1 from "../images/EPC Day 1.pdf"
+import day2 from "../images/EPC Day 2.pdf"
 
 export default function EPC() {
   return (
@@ -30,7 +31,7 @@ export default function EPC() {
         content="width=device-width, user-scalable=no"
       ></meta> */}
       <header className={styles.heading}>
-        <Link to="/" className={styles.back}>
+        {/* <Link to="/" className={styles.back}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="49"
@@ -46,7 +47,7 @@ export default function EPC() {
               stroke-linejoin="round"
             />
           </svg>
-        </Link>
+        </Link> */}
         <div className={styles.title}>
           <h1>Articles</h1>
         </div>
@@ -85,35 +86,30 @@ export default function EPC() {
         >
           <SwiperSlide className={styles.slide}>
             <PDFDocument file={day1}/>
-            {/* <div className={styles.noArticles}>
-              No Articles available yet
-              <br />
-              Check back later
-            </div> */}
           </SwiperSlide>
-          {/* <SwiperSlide className={styles.slide}>
-            <PDFDocument />
-          </SwiperSlide> */}
+          <SwiperSlide className={styles.slide}>
+            <PDFDocument file={day2}/>
+          </SwiperSlide>
           {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
         <div className={styles.carouselController}>
-          {/* <button className={styles.leftArrow} onClick={()=>{
+          <button className={styles.leftArrow} onClick={()=>{
             const swiper = document.querySelector('.swiper').swiper
             swiper.slidePrev()
           }}>
             <img src={leftArrow} alt="" />
-          </button> */}
+          </button>
           <div className={styles.articleAuthor}>
             <p>English Press Club</p>
           </div>
-          {/* <button className={styles.rightArrow} onClick={()=>{
+          <button className={styles.rightArrow} onClick={()=>{
             const swiper = document.querySelector('.swiper').swiper
             swiper.slideNext()
           }}>
             <img src={rightArrow} alt="" />
-          </button> */}
+          </button>
         </div>
       </div>
     </main>
