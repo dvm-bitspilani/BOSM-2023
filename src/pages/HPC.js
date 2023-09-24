@@ -17,6 +17,7 @@ import PDFDocument from "../Components/PDFDocument";
 
 // Import pdf files
 import day1 from "../images/HPC Day 1.pdf"
+import day2 from "../images/HPC Day 2.pdf"
 
 export default function HPC() {
 
@@ -86,22 +87,17 @@ export default function HPC() {
         >
           <SwiperSlide className={styles.slide}>
             <PDFDocument file = {day1}/>
-            {/* <div className={styles.noArticles}>
-              No Articles available yet
-              <br />
-              Check back later
-            </div> */}
           </SwiperSlide>
-          {/* <SwiperSlide className={styles.slide}>
-            <PDFDocument />
-          </SwiperSlide> */}
+          <SwiperSlide className={styles.slide}>
+            <PDFDocument file={day2}/>
+          </SwiperSlide>
           {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
           </SwiperSlide> */}
         </Swiper>
 
         <div className={styles.carouselController}>
-          {/* <button
+          <button
             className={styles.leftArrow}
             onClick={() => {
               const swiper = document.querySelector(".swiper").swiper;
@@ -109,11 +105,11 @@ export default function HPC() {
             }}
           >
             <img src={leftArrow} alt="" />
-          </button> */}
+          </button>
           <div className={styles.articleAuthor}>
             <p>Hindi Press Club</p>
           </div>
-          {/* <button
+          <button
             className={styles.rightArrow}
             onClick={() => {
               const swiper = document.querySelector(".swiper").swiper;
@@ -121,7 +117,7 @@ export default function HPC() {
             }}
           >
             <img src={rightArrow} alt="" />
-          </button> */}
+          </button>
         </div>
 
       </div>
