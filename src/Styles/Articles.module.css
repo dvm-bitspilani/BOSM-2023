@@ -170,14 +170,8 @@
   .heading {
     height: 7vh;
   }
-  .carouselWrapper {
-    /* height: 90%; */
-  }
   .heading h1 {
     font-size: 1.3rem;
-  }
-  .carousel {
-    /* height: 85%; */
   }
   .articleAuthor p {
     font-size: 1rem;

@@ -18,6 +18,7 @@ import PDFDocument from "../Components/PDFDocument";
 // Import pdf files
 import day1 from "../images/HPC Day 1.pdf"
 import day2 from "../images/HPC Day 2.pdf"
+import day3 from "../images/HPC Day 3.pdf"
 
 export default function HPC() {
 
@@ -86,14 +87,14 @@ export default function HPC() {
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
-            <PDFDocument file = {day1}/>
+            <PDFDocument file={day3}/>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <PDFDocument file={day2}/>
           </SwiperSlide>
-          {/* <SwiperSlide className={styles.slide}>
-            <PDFDocument />
-          </SwiperSlide> */}
+          <SwiperSlide className={styles.slide}>
+            <PDFDocument file = {day1}/>
+          </SwiperSlide>
         </Swiper>
 
         <div className={styles.carouselController}>

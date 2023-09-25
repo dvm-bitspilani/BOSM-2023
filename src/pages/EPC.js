@@ -85,10 +85,10 @@ export default function EPC() {
           modules={[Navigation, Mousewheel]}
         >
           <SwiperSlide className={styles.slide}>
-            <PDFDocument file={day1}/>
+            <PDFDocument file={day2}/>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
-            <PDFDocument file={day2}/>
+            <PDFDocument file={day1}/>
           </SwiperSlide>
           {/* <SwiperSlide className={styles.slide}>
             <PDFDocument />
