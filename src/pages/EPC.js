@@ -19,6 +19,7 @@ import PDFDocument from "../Components/PDFDocument";
 import day1 from "../images/EPC Day 1.pdf"
 import day2 from "../images/EPC Day 2.pdf"
 import day3 from "../images/EPC Day 3.pdf"
+import day4 from "../images/EPC Day 4.pdf"
 
 export default function EPC() {
   return (
@@ -85,6 +86,9 @@ export default function EPC() {
           allowTouchMove={false}
           modules={[Navigation, Mousewheel]}
         >
+          <SwiperSlide className={styles.slide}>
+            <PDFDocument file={day4}/>
+          </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <PDFDocument file={day3}/>
           </SwiperSlide>
